@@ -1,0 +1,3104 @@
+mesh:
+  description: Outils de modélisation polygonale
+  tools:
+  - name: bpy.ops.mesh.attribute_set
+    label: Set Attribute
+    description: Set values of the active attribute for selected elements
+    tags:
+    - attribute
+    - mesh
+    - set
+    - attribute set
+    params:
+      value_float:
+        type: float
+        description: value_float
+      value_float_vector_2d:
+        type: float
+        description: value_float_vector_2d
+      value_float_vector_3d:
+        type: float
+        description: value_float_vector_3d
+      value_int:
+        type: integer
+        description: value_int
+      value_int_vector_2d:
+        type: integer
+        description: value_int_vector_2d
+      value_color:
+        type: float
+        description: value_color
+      value_bool:
+        type: boolean
+        description: value_bool
+  - name: bpy.ops.mesh.average_normals
+    label: Average Normals
+    description: Average custom normals of selected vertices
+    tags:
+    - mesh
+    - average normals
+    - normals
+    - average
+    params:
+      average_type:
+        type: string
+        description: Averaging method
+      weight:
+        type: integer
+        description: Weight applied per face
+      threshold:
+        type: float
+        description: Threshold value for different weights to be considered equal
+  - name: bpy.ops.mesh.beautify_fill
+    label: Beautify Faces
+    description: Rearrange some faces to try to get less degenerated geometry
+    tags:
+    - mesh
+    - beautify
+    - beautify fill
+    - fill
+    params:
+      angle_limit:
+        type: float
+        description: Angle limit
+  - name: bpy.ops.mesh.bevel
+    label: Bevel
+    description: Cut into selected items at an angle to create bevel or chamfer
+    tags:
+    - bevel
+    - chamfer
+    - round edge
+    - mesh
+    - smooth corner
+    params:
+      offset_type:
+        type: string
+        description: The method for determining the size of the bevel
+      offset:
+        type: float
+        description: Bevel amount
+      profile_type:
+        type: string
+        description: The type of shape used to rebuild a beveled section
+      offset_pct:
+        type: float
+        description: Bevel amount for percentage method
+      segments:
+        type: integer
+        description: Segments for curved edge
+      profile:
+        type: float
+        description: Controls profile shape (0.5 = round)
+      affect:
+        type: string
+        description: Affect edges or vertices
+      clamp_overlap:
+        type: boolean
+        description: Do not allow beveled edges/vertices to overlap each other
+      loop_slide:
+        type: boolean
+        description: Prefer sliding along edges to even widths
+      mark_seam:
+        type: boolean
+        description: Mark Seams along beveled edges
+      mark_sharp:
+        type: boolean
+        description: Mark beveled edges as sharp
+      material:
+        type: integer
+        description: Material for bevel faces (-1 means use adjacent faces)
+      harden_normals:
+        type: boolean
+        description: Match normals of new faces to adjacent faces
+      face_strength_mode:
+        type: string
+        description: Whether to set face strength, and which faces to set face strength
+          on
+      miter_outer:
+        type: string
+        description: Pattern to use for outside of miters
+      miter_inner:
+        type: string
+        description: Pattern to use for inside of miters
+      spread:
+        type: float
+        description: Amount to spread arcs for arc inner miters
+      vmesh_method:
+        type: string
+        description: The method to use to create meshes at intersections
+  - name: bpy.ops.mesh.bisect
+    label: Bisect
+    description: Cut geometry along a plane (click-drag to define plane)
+    tags:
+    - mesh
+    - bisect
+    params:
+      plane_co:
+        type: float
+        description: A point on the plane
+      plane_no:
+        type: float
+        description: The direction the plane points
+      use_fill:
+        type: boolean
+        description: Fill in the cut
+      clear_inner:
+        type: boolean
+        description: Remove geometry behind the plane
+      clear_outer:
+        type: boolean
+        description: Remove geometry in front of the plane
+      threshold:
+        type: float
+        description: Preserves the existing geometry along the cut plane
+  - name: bpy.ops.mesh.blend_from_shape
+    label: Blend from Shape
+    description: Blend in shape from a shape key
+    tags:
+    - shape
+    - blend from shape
+    - from
+    - mesh
+    - blend
+    params:
+      shape:
+        type: string
+        description: Shape key to use for blending
+      blend:
+        type: float
+        description: Blending factor
+      add:
+        type: boolean
+        description: Add rather than blend between shapes
+  - name: bpy.ops.mesh.bridge_edge_loops
+    label: Bridge Edge Loops
+    description: Create a bridge of faces between two or more selected edge loops
+    tags:
+    - bridge edge loops
+    - edge
+    - bridge
+    - mesh
+    - loops
+    params:
+      type:
+        type: string
+        description: Method of bridging multiple loops
+      use_merge:
+        type: boolean
+        description: Merge rather than creating faces
+      merge_factor:
+        type: float
+        description: merge_factor
+      twist_offset:
+        type: integer
+        description: Twist offset for closed loops
+      number_cuts:
+        type: integer
+        description: number_cuts
+      interpolation:
+        type: string
+        description: Interpolation method
+      smoothness:
+        type: float
+        description: Smoothness factor
+      profile_shape_factor:
+        type: float
+        description: How much intermediary new edges are shrunk/expanded
+      profile_shape:
+        type: string
+        description: Shape of the profile
+  - name: bpy.ops.mesh.colors_reverse
+    label: Reverse Colors
+    description: Flip direction of face corner color attribute inside faces
+    tags:
+    - mesh
+    - colors
+    - reverse
+    - colors reverse
+    params: {}
+  - name: bpy.ops.mesh.colors_rotate
+    label: Rotate Colors
+    description: Rotate face corner color attribute inside faces
+    tags:
+    - spin
+    - orient
+    - mesh
+    - colors
+    - colors rotate
+    - turn
+    - rotate
+    params:
+      use_ccw:
+        type: boolean
+        description: use_ccw
+  - name: bpy.ops.mesh.convex_hull
+    label: Convex Hull
+    description: Enclose selected vertices in a convex polyhedron
+    tags:
+    - mesh
+    - convex hull
+    - hull
+    - convex
+    params:
+      delete_unused:
+        type: boolean
+        description: Delete selected elements that are not used by the hull
+      use_existing_faces:
+        type: boolean
+        description: Skip hull triangles that are covered by a pre-existing face
+      make_holes:
+        type: boolean
+        description: Delete selected faces that are used by the hull
+      join_triangles:
+        type: boolean
+        description: Merge adjacent triangles into quads
+      face_threshold:
+        type: float
+        description: Face angle limit
+      shape_threshold:
+        type: float
+        description: Shape angle limit
+      topology_influence:
+        type: float
+        description: How much to prioritize regular grids of quads as well as quads
+          that touch existing quads
+      uvs:
+        type: boolean
+        description: uvs
+      vcols:
+        type: boolean
+        description: vcols
+      seam:
+        type: boolean
+        description: seam
+      sharp:
+        type: boolean
+        description: sharp
+      materials:
+        type: boolean
+        description: materials
+      deselect_joined:
+        type: boolean
+        description: Only select remaining triangles that were not merged
+  - name: bpy.ops.mesh.customdata_custom_splitnormals_add
+    label: Add Custom Split Normals Data
+    description: Add a custom split normals layer, if none exists yet
+    tags:
+    - make
+    - add
+    - splitnormals
+    - insert
+    - customdata
+    - custom
+    - customdata custom splitnormals add
+    - mesh
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.mesh.customdata_custom_splitnormals_clear
+    label: Clear Custom Split Normals Data
+    description: Remove the custom split normals layer, if it exists
+    tags:
+    - splitnormals
+    - customdata
+    - custom
+    - customdata custom splitnormals clear
+    - mesh
+    - clear
+    params: {}
+  - name: bpy.ops.mesh.customdata_mask_clear
+    label: Clear Sculpt Mask Data
+    description: Clear vertex sculpt masking data from the mesh
+    tags:
+    - customdata mask clear
+    - mask
+    - customdata
+    - mesh
+    - clear
+    params: {}
+  - name: bpy.ops.mesh.customdata_skin_add
+    label: Add Skin Data
+    description: Add a vertex skin layer
+    tags:
+    - make
+    - add
+    - customdata skin add
+    - skin
+    - insert
+    - customdata
+    - mesh
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.mesh.customdata_skin_clear
+    label: Clear Skin Data
+    description: Clear vertex skin layer
+    tags:
+    - customdata skin clear
+    - skin
+    - customdata
+    - mesh
+    - clear
+    params: {}
+  - name: bpy.ops.mesh.decimate
+    label: Decimate Geometry
+    description: Simplify geometry by collapsing edges
+    tags:
+    - decimate
+    - mesh
+    params:
+      ratio:
+        type: float
+        description: ratio
+      use_vertex_group:
+        type: boolean
+        description: Use active vertex group as an influence
+      vertex_group_factor:
+        type: float
+        description: Vertex group strength
+      invert_vertex_group:
+        type: boolean
+        description: Invert vertex group influence
+      use_symmetry:
+        type: boolean
+        description: Maintain symmetry on an axis
+      symmetry_axis:
+        type: string
+        description: Axis of symmetry
+  - name: bpy.ops.mesh.delete
+    label: Delete
+    description: Delete selected vertices, edges or faces
+    tags:
+    - mesh
+    - delete
+    params: {}
+  - name: bpy.ops.mesh.delete_edgeloop
+    label: Delete Edge Loop
+    description: Delete an edge loop by merging the faces on each side
+    tags:
+    - mesh
+    - edgeloop
+    - delete edgeloop
+    - delete
+    params:
+      use_face_split:
+        type: boolean
+        description: Split off face corners to maintain surrounding geometry
+  - name: bpy.ops.mesh.delete_loose
+    label: Delete Loose
+    description: Delete loose vertices, edges or faces
+    tags:
+    - mesh
+    - delete loose
+    - delete
+    - loose
+    params:
+      use_verts:
+        type: boolean
+        description: Remove loose vertices
+      use_edges:
+        type: boolean
+        description: Remove loose edges
+      use_faces:
+        type: boolean
+        description: Remove loose faces
+  - name: bpy.ops.mesh.dissolve_degenerate
+    label: Degenerate Dissolve
+    description: Dissolve zero area faces and zero length edges
+    tags:
+    - mesh
+    - dissolve
+    - dissolve degenerate
+    - degenerate
+    params:
+      threshold:
+        type: float
+        description: Maximum distance between elements to merge
+  - name: bpy.ops.mesh.dissolve_edges
+    label: Dissolve Edges
+    description: Dissolve edges, merging faces
+    tags:
+    - edges
+    - mesh
+    - dissolve
+    - dissolve edges
+    params:
+      use_verts:
+        type: boolean
+        description: Dissolve remaining vertices which connect to only two edges
+      angle_threshold:
+        type: float
+        description: Remaining vertices which separate edge pairs are preserved if
+          their edge angle exceeds this threshold.
+      use_face_split:
+        type: boolean
+        description: Split off face corners to maintain surrounding geometry
+  - name: bpy.ops.mesh.dissolve_faces
+    label: Dissolve Faces
+    description: Dissolve faces
+    tags:
+    - dissolve faces
+    - mesh
+    - dissolve
+    - faces
+    params:
+      use_verts:
+        type: boolean
+        description: Dissolve remaining vertices which connect to only two edges
+  - name: bpy.ops.mesh.dissolve_limited
+    label: Limited Dissolve
+    description: Dissolve selected edges and vertices, limited by the angle of surrounding
+      geometry
+    tags:
+    - mesh
+    - dissolve
+    - limited
+    - dissolve limited
+    params:
+      angle_limit:
+        type: float
+        description: Angle limit
+      use_dissolve_boundaries:
+        type: boolean
+        description: Dissolve all vertices in between face boundaries
+      delimit:
+        type: string
+        description: Delimit dissolve operation
+  - name: bpy.ops.mesh.dissolve_mode
+    label: Dissolve Selection
+    description: Dissolve geometry based on the selection mode
+    tags:
+    - dissolve mode
+    - mesh
+    - dissolve
+    - mode
+    params:
+      use_verts:
+        type: boolean
+        description: Dissolve remaining vertices which connect to only two edges
+      angle_threshold:
+        type: float
+        description: Remaining vertices which separate edge pairs are preserved if
+          their edge angle exceeds this threshold.
+      use_face_split:
+        type: boolean
+        description: Split off face corners to maintain surrounding geometry
+      use_boundary_tear:
+        type: boolean
+        description: Split off face corners instead of merging faces
+  - name: bpy.ops.mesh.dissolve_verts
+    label: Dissolve Vertices
+    description: Dissolve vertices, merge edges and faces
+    tags:
+    - dissolve verts
+    - mesh
+    - dissolve
+    - verts
+    params:
+      use_face_split:
+        type: boolean
+        description: Split off face corners to maintain surrounding geometry
+      use_boundary_tear:
+        type: boolean
+        description: Split off face corners instead of merging faces
+  - name: bpy.ops.mesh.dupli_extrude_cursor
+    label: Extrude to Cursor or Add
+    description: Duplicate and extrude selected vertices, edges or faces towards the
+      mouse cursor
+    tags:
+    - dupli
+    - dupli extrude cursor
+    - cursor
+    - pull
+    - extend
+    - extrude
+    - mesh
+    - push
+    params:
+      rotate_source:
+        type: boolean
+        description: Rotate initial selection giving better shape
+  - name: bpy.ops.mesh.duplicate
+    label: Duplicate
+    description: Duplicate selected vertices, edges or faces
+    tags:
+    - mesh
+    - duplicate
+    params:
+      mode:
+        type: integer
+        description: mode
+  - name: bpy.ops.mesh.duplicate_move
+    label: Add Duplicate
+    description: Duplicate mesh and move
+    tags:
+    - mesh
+    - move
+    - duplicate move
+    - duplicate
+    params:
+      MESH_OT_duplicate:
+        type: string
+        description: Duplicate selected vertices, edges or faces
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.edge_collapse
+    label: Collapse Edges & Faces
+    description: Collapse isolated edge and face regions, merging data such as UVs
+      and color attributes. This can collapse edge-rings as well as regions of connected
+      faces into vertices
+    tags:
+    - mesh
+    - collapse
+    - edge collapse
+    - edge
+    params: {}
+  - name: bpy.ops.mesh.edge_face_add
+    label: Make Edge/Face
+    description: Add an edge or face to selected
+    tags:
+    - make
+    - add
+    - edge
+    - edge face add
+    - insert
+    - generate
+    - mesh
+    - new
+    - create
+    - face
+    params: {}
+  - name: bpy.ops.mesh.edge_rotate
+    label: Rotate Selected Edge
+    description: Rotate selected edge or adjoining faces
+    tags:
+    - edge rotate
+    - spin
+    - edge
+    - orient
+    - mesh
+    - turn
+    - rotate
+    params:
+      use_ccw:
+        type: boolean
+        description: use_ccw
+  - name: bpy.ops.mesh.edge_split
+    label: Edge Split
+    description: Split selected edges so that each neighbor face gets its own copy
+    tags:
+    - mesh
+    - edge split
+    - split
+    - edge
+    params:
+      type:
+        type: string
+        description: Method to use for splitting
+  - name: bpy.ops.mesh.edgering_select
+    label: Edge Ring Select
+    description: Select an edge ring
+    tags:
+    - choose
+    - pick
+    - edgering select
+    - mesh
+    - edgering
+    - select
+    - grab
+    params:
+      extend:
+        type: boolean
+        description: Extend the selection
+      deselect:
+        type: boolean
+        description: Remove from the selection
+      toggle:
+        type: boolean
+        description: Toggle the selection
+      ring:
+        type: boolean
+        description: Select ring
+  - name: bpy.ops.mesh.edges_select_sharp
+    label: Select Sharp Edges
+    description: Select all sharp enough edges
+    tags:
+    - choose
+    - pick
+    - edges select sharp
+    - sharp
+    - select
+    - grab
+    - edges
+    - mesh
+    params:
+      sharpness:
+        type: float
+        description: sharpness
+  - name: bpy.ops.mesh.extrude_context
+    label: Extrude Context
+    description: Extrude selection
+    tags:
+    - extrude context
+    - context
+    - extrude
+    - mesh
+    - pull
+    - push
+    - extend
+    params:
+      use_normal_flip:
+        type: boolean
+        description: use_normal_flip
+      use_dissolve_ortho_edges:
+        type: boolean
+        description: use_dissolve_ortho_edges
+  - name: bpy.ops.mesh.extrude_context_move
+    label: Extrude Region and Move
+    description: Extrude region together along the average normal
+    tags:
+    - extrude context move
+    - move
+    - pull
+    - extend
+    - context
+    - extrude
+    - mesh
+    - push
+    params:
+      MESH_OT_extrude_context:
+        type: string
+        description: Extrude selection
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.extrude_edges_indiv
+    label: Extrude Only Edges
+    description: Extrude individual edges only
+    tags:
+    - pull
+    - extrude edges indiv
+    - extend
+    - edges
+    - extrude
+    - mesh
+    - push
+    - indiv
+    params:
+      use_normal_flip:
+        type: boolean
+        description: use_normal_flip
+  - name: bpy.ops.mesh.extrude_edges_move
+    label: Extrude Only Edges and Move
+    description: Extrude edges and move result
+    tags:
+    - move
+    - extrude edges move
+    - pull
+    - extend
+    - edges
+    - extrude
+    - mesh
+    - push
+    params:
+      MESH_OT_extrude_edges_indiv:
+        type: string
+        description: Extrude individual edges only
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.extrude_faces_indiv
+    label: Extrude Individual Faces
+    description: Extrude individual faces only
+    tags:
+    - pull
+    - extend
+    - extrude faces indiv
+    - extrude
+    - mesh
+    - faces
+    - push
+    - indiv
+    params: {}
+  - name: bpy.ops.mesh.extrude_faces_move
+    label: Extrude Individual Faces and Move
+    description: Extrude each individual face separately along local normals
+    tags:
+    - extrude faces move
+    - move
+    - pull
+    - extend
+    - extrude
+    - mesh
+    - faces
+    - push
+    params:
+      MESH_OT_extrude_faces_indiv:
+        type: string
+        description: Extrude individual faces only
+      TRANSFORM_OT_shrink_fatten:
+        type: string
+        description: Shrink/fatten selected vertices along normals
+  - name: bpy.ops.mesh.extrude_manifold
+    label: Extrude Manifold
+    description: Extrude, dissolves edges whose faces form a flat surface and intersect
+      new edges
+    tags:
+    - extrude
+    - mesh
+    - manifold
+    - push
+    - extrude manifold
+    - extend
+    - pull
+    params:
+      MESH_OT_extrude_region:
+        type: string
+        description: Extrude region of faces
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.extrude_region
+    label: Extrude Region
+    description: Extrude region of faces
+    tags:
+    - pull
+    - extrude
+    - mesh
+    - extrude region
+    - push
+    - extend
+    - region
+    params:
+      use_normal_flip:
+        type: boolean
+        description: use_normal_flip
+      use_dissolve_ortho_edges:
+        type: boolean
+        description: use_dissolve_ortho_edges
+  - name: bpy.ops.mesh.extrude_region_move
+    label: Extrude Region and Move
+    description: Extrude region and move result
+    tags:
+    - push
+    - move
+    - pull
+    - extend
+    - region
+    - extrude
+    - mesh
+    - extrude region move
+    params:
+      MESH_OT_extrude_region:
+        type: string
+        description: Extrude region of faces
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.extrude_region_shrink_fatten
+    label: Extrude Region and Shrink/Fatten
+    description: Extrude region together along local normals
+    tags:
+    - fatten
+    - shrink
+    - pull
+    - extend
+    - region
+    - extrude region shrink fatten
+    - extrude
+    - mesh
+    - push
+    params:
+      MESH_OT_extrude_region:
+        type: string
+        description: Extrude region of faces
+      TRANSFORM_OT_shrink_fatten:
+        type: string
+        description: Shrink/fatten selected vertices along normals
+  - name: bpy.ops.mesh.extrude_repeat
+    label: Extrude Repeat
+    description: Extrude selected vertices, edges or faces repeatedly
+    tags:
+    - repeat
+    - extrude
+    - mesh
+    - pull
+    - push
+    - extend
+    - extrude repeat
+    params:
+      steps:
+        type: integer
+        description: steps
+      offset:
+        type: float
+        description: Offset vector
+      scale_offset:
+        type: float
+        description: scale_offset
+  - name: bpy.ops.mesh.extrude_vertices_move
+    label: Extrude Only Vertices and Move
+    description: Extrude vertices and move result
+    tags:
+    - vertices
+    - extrude vertices move
+    - move
+    - pull
+    - extend
+    - extrude
+    - mesh
+    - push
+    params:
+      MESH_OT_extrude_verts_indiv:
+        type: string
+        description: Extrude individual vertices only
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.extrude_verts_indiv
+    label: Extrude Only Vertices
+    description: Extrude individual vertices only
+    tags:
+    - verts
+    - pull
+    - extend
+    - extrude verts indiv
+    - extrude
+    - mesh
+    - push
+    - indiv
+    params: {}
+  - name: bpy.ops.mesh.face_make_planar
+    label: Make Planar Faces
+    description: Flatten selected faces
+    tags:
+    - planar
+    - make
+    - face make planar
+    - mesh
+    - face
+    params:
+      factor:
+        type: float
+        description: factor
+      repeat:
+        type: integer
+        description: repeat
+  - name: bpy.ops.mesh.face_split_by_edges
+    label: Weld Edges into Faces
+    description: Weld loose edges into faces (splitting them into new faces)
+    tags:
+    - split
+    - edges
+    - mesh
+    - face split by edges
+    - face
+    params: {}
+  - name: bpy.ops.mesh.faces_mirror_uv
+    label: Copy Mirrored UV Coords
+    description: Copy mirror UV coordinates on the X axis based on a mirrored mesh
+    tags:
+    - mirror
+    - mesh
+    - faces
+    - faces mirror uv
+    params:
+      direction:
+        type: string
+        description: direction
+      precision:
+        type: integer
+        description: Tolerance for finding vertex duplicates
+  - name: bpy.ops.mesh.faces_select_linked_flat
+    label: Select Linked Flat Faces
+    description: Select linked faces by angle
+    tags:
+    - choose
+    - pick
+    - flat
+    - select
+    - grab
+    - linked
+    - faces select linked flat
+    - mesh
+    - faces
+    params:
+      sharpness:
+        type: float
+        description: sharpness
+  - name: bpy.ops.mesh.faces_shade_flat
+    label: Shade Flat
+    description: Display faces flat
+    tags:
+    - faces shade flat
+    - shade
+    - flat
+    - mesh
+    - faces
+    params: {}
+  - name: bpy.ops.mesh.faces_shade_smooth
+    label: Shade Smooth
+    description: Display faces smooth (using vertex normals)
+    tags:
+    - smooth
+    - shade
+    - mesh
+    - faces
+    - faces shade smooth
+    params: {}
+  - name: bpy.ops.mesh.fill
+    label: Fill
+    description: Fill a selected edge loop with faces
+    tags:
+    - mesh
+    - fill
+    params:
+      use_beauty:
+        type: boolean
+        description: Use best triangulation division
+  - name: bpy.ops.mesh.fill_grid
+    label: Grid Fill
+    description: Fill grid from two loops
+    tags:
+    - grid
+    - mesh
+    - fill
+    - fill grid
+    params:
+      span:
+        type: integer
+        description: Number of grid columns
+      offset:
+        type: integer
+        description: Vertex that is the corner of the grid
+      use_interp_simple:
+        type: boolean
+        description: Use simple interpolation of grid vertices
+  - name: bpy.ops.mesh.fill_holes
+    label: Fill Holes
+    description: Fill in holes (boundary edge loops)
+    tags:
+    - fill holes
+    - mesh
+    - holes
+    - fill
+    params:
+      sides:
+        type: integer
+        description: Number of sides in hole required to fill (zero fills all holes)
+  - name: bpy.ops.mesh.flip_normals
+    label: Flip Normals
+    description: Flip the direction of selected faces' normals (and of their vertices)
+    tags:
+    - flip normals
+    - mesh
+    - normals
+    - flip
+    params:
+      only_clnors:
+        type: boolean
+        description: Only flip the custom loop normals of the selected elements
+  - name: bpy.ops.mesh.flip_quad_tessellation
+    label: Flip Quad Tessellation
+    description: Flips the tessellation of selected quads
+    tags:
+    - flip quad tessellation
+    - quad
+    - flip
+    - mesh
+    - tessellation
+    params: {}
+  - name: bpy.ops.mesh.hide
+    label: Hide Selected
+    description: Hide (un)selected vertices, edges or faces
+    tags:
+    - mesh
+    - hide
+    params:
+      unselected:
+        type: boolean
+        description: Hide unselected rather than selected
+  - name: bpy.ops.mesh.inset
+    label: Inset Faces
+    description: Inset new faces into selected faces
+    tags:
+    - mesh
+    - inset
+    params:
+      use_boundary:
+        type: boolean
+        description: Inset face boundaries
+      use_even_offset:
+        type: boolean
+        description: Scale the offset to give more even thickness
+      use_relative_offset:
+        type: boolean
+        description: Scale the offset by surrounding geometry
+      use_edge_rail:
+        type: boolean
+        description: Inset the region along existing edges
+      thickness:
+        type: float
+        description: thickness
+      depth:
+        type: float
+        description: depth
+      use_outset:
+        type: boolean
+        description: Outset rather than inset
+      use_select_inset:
+        type: boolean
+        description: Select the new inset faces
+      use_individual:
+        type: boolean
+        description: Individual face inset
+      use_interpolate:
+        type: boolean
+        description: Blend face data across the inset
+  - name: bpy.ops.mesh.intersect
+    label: Intersect (Knife)
+    description: Cut an intersection into faces
+    tags:
+    - mesh
+    - intersect
+    params:
+      mode:
+        type: string
+        description: mode
+      separate_mode:
+        type: string
+        description: separate_mode
+      threshold:
+        type: float
+        description: threshold
+      solver:
+        type: string
+        description: Which Intersect solver to use
+  - name: bpy.ops.mesh.intersect_boolean
+    label: Intersect (Boolean)
+    description: Cut solid geometry from selected to unselected
+    tags:
+    - intersect
+    - mesh
+    - boolean
+    - intersect boolean
+    params:
+      operation:
+        type: string
+        description: Which boolean operation to apply
+      use_swap:
+        type: boolean
+        description: Use with difference intersection to swap which side is kept
+      use_self:
+        type: boolean
+        description: Do self-union or self-intersection
+      threshold:
+        type: float
+        description: threshold
+      solver:
+        type: string
+        description: Which Boolean solver to use
+  - name: bpy.ops.mesh.knife_project
+    label: Knife Project
+    description: Use other objects outlines and boundaries to project knife cuts
+    tags:
+    - knife project
+    - mesh
+    - knife
+    - project
+    params:
+      cut_through:
+        type: boolean
+        description: Cut through all faces, not just visible ones
+  - name: bpy.ops.mesh.knife_tool
+    label: Knife Topology Tool
+    description: Cut new topology
+    tags:
+    - mesh
+    - knife tool
+    - knife
+    - tool
+    params:
+      use_occlude_geometry:
+        type: boolean
+        description: Only cut the front most geometry
+      only_selected:
+        type: boolean
+        description: Only cut selected geometry
+      xray:
+        type: boolean
+        description: Show cuts hidden by geometry
+      visible_measurements:
+        type: string
+        description: Visible distance and angle measurements
+      angle_snapping:
+        type: string
+        description: Angle snapping mode
+      angle_snapping_increment:
+        type: float
+        description: The angle snap increment used when in constrained angle mode
+  - name: bpy.ops.mesh.loop_multi_select
+    label: Multi Select Loops
+    description: Select a loop of connected edges by connection type
+    tags:
+    - multi
+    - choose
+    - pick
+    - loop multi select
+    - select
+    - grab
+    - loop
+    - mesh
+    params:
+      ring:
+        type: boolean
+        description: ring
+  - name: bpy.ops.mesh.loop_select
+    label: Loop Select
+    description: Select a loop of connected edges
+    tags:
+    - choose
+    - loop
+    - pick
+    - loop select
+    - mesh
+    - select
+    - grab
+    params:
+      extend:
+        type: boolean
+        description: Extend the selection
+      deselect:
+        type: boolean
+        description: Remove from the selection
+      toggle:
+        type: boolean
+        description: Toggle the selection
+      ring:
+        type: boolean
+        description: Select ring
+  - name: bpy.ops.mesh.loop_to_region
+    label: Select Loop Inner-Region
+    description: Select region of faces inside of a selected loop of edges
+    tags:
+    - mesh
+    - loop to region
+    - loop
+    - region
+    params:
+      select_bigger:
+        type: boolean
+        description: Select bigger regions instead of smaller ones
+  - name: bpy.ops.mesh.loopcut
+    label: Loop Cut
+    description: Add a new loop between existing loops
+    tags:
+    - mesh
+    - loopcut
+    params:
+      number_cuts:
+        type: integer
+        description: number_cuts
+      smoothness:
+        type: float
+        description: Smoothness factor
+      falloff:
+        type: string
+        description: Falloff type of the feather
+  - name: bpy.ops.mesh.loopcut_slide
+    label: Loop Cut and Slide
+    description: Cut mesh loop and slide it
+    tags:
+    - mesh
+    - slide
+    - loopcut
+    - loopcut slide
+    params:
+      MESH_OT_loopcut:
+        type: string
+        description: Add a new loop between existing loops
+      TRANSFORM_OT_edge_slide:
+        type: string
+        description: Slide an edge loop along a mesh
+  - name: bpy.ops.mesh.mark_freestyle_edge
+    label: Mark Freestyle Edge
+    description: (Un)mark selected edges as Freestyle feature edges
+    tags:
+    - mark freestyle edge
+    - mark
+    - edge
+    - freestyle
+    - mesh
+    params: {}
+  - name: bpy.ops.mesh.mark_freestyle_face
+    label: Mark Freestyle Face
+    description: (Un)mark selected faces for exclusion from Freestyle feature edge
+      detection
+    tags:
+    - mark
+    - mark freestyle face
+    - freestyle
+    - mesh
+    - face
+    params: {}
+  - name: bpy.ops.mesh.mark_seam
+    label: Mark Seam
+    description: (Un)mark selected edges as a seam
+    tags:
+    - mark seam
+    - mesh
+    - mark
+    - seam
+    params: {}
+  - name: bpy.ops.mesh.mark_sharp
+    label: Mark Sharp
+    description: (Un)mark selected edges as sharp
+    tags:
+    - mesh
+    - mark
+    - sharp
+    - mark sharp
+    params:
+      use_verts:
+        type: boolean
+        description: Consider vertices instead of edges to select which edges to (un)tag
+          as sharp
+  - name: bpy.ops.mesh.merge
+    label: Merge
+    description: Merge selected vertices
+    tags:
+    - mesh
+    - merge
+    params:
+      type:
+        type: string
+        description: Merge method to use
+      uvs:
+        type: boolean
+        description: Move UVs according to merge
+  - name: bpy.ops.mesh.merge_normals
+    label: Merge Normals
+    description: Merge custom normals of selected vertices
+    tags:
+    - mesh
+    - merge normals
+    - normals
+    - merge
+    params: {}
+  - name: bpy.ops.mesh.mod_weighted_strength
+    label: Face Normals Strength
+    description: Set/Get strength of face (used in Weighted Normal modifier)
+    tags:
+    - mod
+    - strength
+    - weighted
+    - mod weighted strength
+    - mesh
+    params:
+      set:
+        type: boolean
+        description: Set value of faces
+      face_strength:
+        type: string
+        description: Strength to use for assigning or selecting face influence for
+          weighted normal modifier
+  - name: bpy.ops.mesh.normals_make_consistent
+    label: Recalculate Normals
+    description: Make face and vertex normals point either outside or inside the mesh
+    tags:
+    - make
+    - normals
+    - consistent
+    - mesh
+    - normals make consistent
+    params:
+      inside:
+        type: boolean
+        description: inside
+  - name: bpy.ops.mesh.normals_tools
+    label: Normals Vector Tools
+    description: Custom normals tools using Normal Vector of UI
+    tags:
+    - mesh
+    - tools
+    - normals tools
+    - normals
+    params:
+      absolute:
+        type: boolean
+        description: Copy Absolute coordinates of Normal vector
+  - name: bpy.ops.mesh.offset_edge_loops
+    label: Offset Edge Loop
+    description: Create offset edge loop from the current selection
+    tags:
+    - edge
+    - offset
+    - offset edge loops
+    - mesh
+    - loops
+    params:
+      use_cap_endpoint:
+        type: boolean
+        description: Extend loop around end-points
+  - name: bpy.ops.mesh.offset_edge_loops_slide
+    label: Offset Edge Slide
+    description: Offset edge loop slide
+    tags:
+    - slide
+    - edge
+    - offset
+    - offset edge loops slide
+    - mesh
+    - loops
+    params:
+      MESH_OT_offset_edge_loops:
+        type: string
+        description: Create offset edge loop from the current selection
+      TRANSFORM_OT_edge_slide:
+        type: string
+        description: Slide an edge loop along a mesh
+  - name: bpy.ops.mesh.point_normals
+    label: Point Normals to Target
+    description: Point selected custom normals to specified Target
+    tags:
+    - mesh
+    - point normals
+    - point
+    - normals
+    params:
+      invert:
+        type: boolean
+        description: Invert affected normals
+      align:
+        type: boolean
+        description: Make all affected normals parallel
+      target_location:
+        type: float
+        description: Target location to which normals will point
+      spherize:
+        type: boolean
+        description: Interpolate between original and new normals
+      spherize_strength:
+        type: float
+        description: Ratio of spherized normal to original normal
+  - name: bpy.ops.mesh.poke
+    label: Poke Faces
+    description: Split a face into a fan
+    tags:
+    - mesh
+    - poke
+    params:
+      offset:
+        type: float
+        description: Poke Offset
+      use_relative_offset:
+        type: boolean
+        description: Scale the offset by surrounding geometry
+      center_mode:
+        type: string
+        description: Poke face center calculation
+  - name: bpy.ops.mesh.polybuild_delete_at_cursor
+    label: Poly Build Delete at Cursor
+    description: (undocumented operator)
+    tags:
+    - polybuild
+    - cursor
+    - polybuild delete at cursor
+    - mesh
+    - delete
+    params:
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.mesh.polybuild_dissolve_at_cursor
+    label: Poly Build Dissolve at Cursor
+    description: (undocumented operator)
+    tags:
+    - dissolve
+    - polybuild
+    - cursor
+    - polybuild dissolve at cursor
+    - mesh
+    params: {}
+  - name: bpy.ops.mesh.polybuild_extrude_at_cursor_move
+    label: Extrude at Cursor Move
+    description: (undocumented operator)
+    tags:
+    - polybuild
+    - cursor
+    - move
+    - pull
+    - extend
+    - polybuild extrude at cursor move
+    - extrude
+    - mesh
+    - push
+    params:
+      MESH_OT_polybuild_transform_at_cursor:
+        type: string
+        description: MESH_OT_polybuild_transform_at_cursor
+      MESH_OT_extrude_edges_indiv:
+        type: string
+        description: Extrude individual edges only
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.polybuild_face_at_cursor
+    label: Poly Build Face at Cursor
+    description: (undocumented operator)
+    tags:
+    - polybuild
+    - cursor
+    - polybuild face at cursor
+    - mesh
+    - face
+    params:
+      create_quads:
+        type: boolean
+        description: Automatically split edges in triangles to maintain quad topology
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.mesh.polybuild_face_at_cursor_move
+    label: Face at Cursor Move
+    description: (undocumented operator)
+    tags:
+    - polybuild
+    - cursor
+    - polybuild face at cursor move
+    - move
+    - mesh
+    - face
+    params:
+      MESH_OT_polybuild_face_at_cursor:
+        type: string
+        description: MESH_OT_polybuild_face_at_cursor
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.polybuild_split_at_cursor
+    label: Poly Build Split at Cursor
+    description: (undocumented operator)
+    tags:
+    - split
+    - polybuild
+    - cursor
+    - polybuild split at cursor
+    - mesh
+    params:
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.mesh.polybuild_split_at_cursor_move
+    label: Split at Cursor Move
+    description: (undocumented operator)
+    tags:
+    - split
+    - polybuild
+    - cursor
+    - move
+    - mesh
+    - polybuild split at cursor move
+    params:
+      MESH_OT_polybuild_split_at_cursor:
+        type: string
+        description: MESH_OT_polybuild_split_at_cursor
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.polybuild_transform_at_cursor
+    label: Poly Build Transform at Cursor
+    description: (undocumented operator)
+    tags:
+    - scale
+    - polybuild
+    - cursor
+    - move
+    - rotate
+    - transform
+    - resize
+    - polybuild transform at cursor
+    - mesh
+    params:
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.mesh.polybuild_transform_at_cursor_move
+    label: Transform at Cursor Move
+    description: (undocumented operator)
+    tags:
+    - scale
+    - polybuild
+    - cursor
+    - move
+    - polybuild transform at cursor move
+    - rotate
+    - transform
+    - resize
+    - mesh
+    params:
+      MESH_OT_polybuild_transform_at_cursor:
+        type: string
+        description: MESH_OT_polybuild_transform_at_cursor
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.primitive_circle_add
+    label: Add Circle
+    description: Construct a circle mesh
+    tags:
+    - make
+    - add
+    - shape
+    - primitive circle add
+    - object
+    - geometry
+    - circle
+    - insert
+    - loop
+    - new
+    - mesh
+    - ring
+    - create
+    - disc
+    - generate
+    - primitive
+    params:
+      vertices:
+        type: integer
+        description: vertices
+      radius:
+        type: float
+        description: radius
+      fill_type:
+        type: string
+        description: fill_type
+      calc_uvs:
+        type: boolean
+        description: Generate a default UV map
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.mesh.primitive_cone_add
+    label: Add Cone
+    description: Construct a conic mesh
+    tags:
+    - make
+    - add
+    - pyramid
+    - shape
+    - object
+    - pointy
+    - geometry
+    - insert
+    - new
+    - mesh
+    - cone
+    - create
+    - primitive cone add
+    - generate
+    - primitive
+    params:
+      vertices:
+        type: integer
+        description: vertices
+      radius1:
+        type: float
+        description: radius1
+      radius2:
+        type: float
+        description: radius2
+      depth:
+        type: float
+        description: depth
+      end_fill_type:
+        type: string
+        description: end_fill_type
+      calc_uvs:
+        type: boolean
+        description: Generate a default UV map
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.mesh.primitive_cube_add
+    label: Add Cube
+    description: Construct a cube mesh that consists of six square faces
+    tags:
+    - make
+    - add
+    - shape
+    - object
+    - geometry
+    - insert
+    - mesh
+    - box
+    - new
+    - block
+    - cube
+    - primitive cube add
+    - create
+    - square
+    - generate
+    - primitive
+    params:
+      size:
+        type: float
+        description: size
+      calc_uvs:
+        type: boolean
+        description: Generate a default UV map
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.mesh.primitive_cube_add_gizmo
+    label: Add Cube
+    description: Construct a cube mesh
+    tags:
+    - make
+    - add
+    - shape
+    - primitive cube add gizmo
+    - object
+    - gizmo
+    - geometry
+    - insert
+    - mesh
+    - box
+    - block
+    - cube
+    - new
+    - create
+    - square
+    - generate
+    - primitive
+    params:
+      calc_uvs:
+        type: boolean
+        description: Generate a default UV map
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.mesh.primitive_cylinder_add
+    label: Add Cylinder
+    description: Construct a cylinder mesh
+    tags:
+    - tube
+    - pipe
+    - make
+    - add
+    - shape
+    - object
+    - geometry
+    - insert
+    - cylinder
+    - primitive cylinder add
+    - mesh
+    - new
+    - create
+    - generate
+    - primitive
+    params:
+      vertices:
+        type: integer
+        description: vertices
+      radius:
+        type: float
+        description: radius
+      depth:
+        type: float
+        description: depth
+      end_fill_type:
+        type: string
+        description: end_fill_type
+      calc_uvs:
+        type: boolean
+        description: Generate a default UV map
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.mesh.primitive_grid_add
+    label: Add Grid
+    description: Construct a subdivided plane mesh
+    tags:
+    - make
+    - add
+    - shape
+    - object
+    - geometry
+    - insert
+    - generate
+    - grid
+    - mesh
+    - new
+    - create
+    - primitive grid add
+    - primitive
+    params:
+      x_subdivisions:
+        type: integer
+        description: x_subdivisions
+      y_subdivisions:
+        type: integer
+        description: y_subdivisions
+      size:
+        type: float
+        description: size
+      calc_uvs:
+        type: boolean
+        description: Generate a default UV map
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.mesh.primitive_ico_sphere_add
+    label: Add Ico Sphere
+    description: Construct a spherical mesh that consists of equally sized triangles
+    tags:
+    - globe
+    - ball
+    - make
+    - ico
+    - sphere
+    - primitive ico sphere add
+    - add
+    - shape
+    - object
+    - geometry
+    - insert
+    - mesh
+    - new
+    - create
+    - round
+    - generate
+    - primitive
+    params:
+      subdivisions:
+        type: integer
+        description: subdivisions
+      radius:
+        type: float
+        description: radius
+      calc_uvs:
+        type: boolean
+        description: Generate a default UV map
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.mesh.primitive_monkey_add
+    label: Add Monkey
+    description: Construct a Suzanne mesh
+    tags:
+    - primitive monkey add
+    - make
+    - add
+    - shape
+    - object
+    - geometry
+    - insert
+    - generate
+    - mesh
+    - new
+    - create
+    - monkey
+    - primitive
+    params:
+      size:
+        type: float
+        description: size
+      calc_uvs:
+        type: boolean
+        description: Generate a default UV map
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.mesh.primitive_plane_add
+    label: Add Plane
+    description: Construct a filled planar mesh with 4 vertices
+    tags:
+    - ground
+    - make
+    - add
+    - shape
+    - flat
+    - object
+    - primitive plane add
+    - plane
+    - geometry
+    - insert
+    - floor
+    - mesh
+    - new
+    - create
+    - generate
+    - primitive
+    params:
+      size:
+        type: float
+        description: size
+      calc_uvs:
+        type: boolean
+        description: Generate a default UV map
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.mesh.primitive_torus_add
+    label: Add Torus
+    description: Construct a torus mesh
+    tags:
+    - make
+    - add
+    - shape
+    - object
+    - torus
+    - primitive torus add
+    - geometry
+    - insert
+    - mesh
+    - new
+    - create
+    - generate
+    - primitive
+    params:
+      align:
+        type: string
+        description: align
+      location:
+        type: float
+        description: location
+      rotation:
+        type: float
+        description: rotation
+      major_segments:
+        type: integer
+        description: Number of segments for the main ring of the torus
+      minor_segments:
+        type: integer
+        description: Number of segments for the minor ring of the torus
+      mode:
+        type: string
+        description: mode
+      major_radius:
+        type: float
+        description: Radius from the origin to the center of the cross sections
+      minor_radius:
+        type: float
+        description: Radius of the torus' cross section
+      abso_major_rad:
+        type: float
+        description: Total Exterior Radius of the torus
+      abso_minor_rad:
+        type: float
+        description: Total Interior Radius of the torus
+      generate_uvs:
+        type: boolean
+        description: Generate a default UV map
+  - name: bpy.ops.mesh.primitive_uv_sphere_add
+    label: Add UV Sphere
+    description: Construct a spherical mesh with quad faces, except for triangle faces
+      at the top and bottom
+    tags:
+    - globe
+    - ball
+    - make
+    - sphere
+    - add
+    - shape
+    - object
+    - primitive uv sphere add
+    - geometry
+    - insert
+    - mesh
+    - new
+    - create
+    - round
+    - generate
+    - primitive
+    params:
+      segments:
+        type: integer
+        description: segments
+      ring_count:
+        type: integer
+        description: ring_count
+      radius:
+        type: float
+        description: radius
+      calc_uvs:
+        type: boolean
+        description: Generate a default UV map
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.mesh.quads_convert_to_tris
+    label: Triangulate Faces
+    description: Triangulate selected faces
+    tags:
+    - convert
+    - tris
+    - quads
+    - quads convert to tris
+    - mesh
+    params:
+      quad_method:
+        type: string
+        description: Method for splitting the quads into triangles
+      ngon_method:
+        type: string
+        description: Method for splitting the n-gons into triangles
+  - name: bpy.ops.mesh.region_to_loop
+    label: Select Boundary Loop
+    description: Select boundary edges around the selected faces
+    tags:
+    - mesh
+    - loop
+    - region to loop
+    - region
+    params: {}
+  - name: bpy.ops.mesh.remove_doubles
+    label: Merge by Distance
+    description: Merge vertices based on their proximity
+    tags:
+    - dissolve
+    - erase
+    - remove doubles
+    - doubles
+    - mesh
+    - clear
+    - delete
+    - remove
+    params:
+      threshold:
+        type: float
+        description: Maximum distance between elements to merge
+      use_unselected:
+        type: boolean
+        description: Merge selected to other unselected vertices
+      use_sharp_edge_from_normals:
+        type: boolean
+        description: Calculate sharp edges using custom normal data (when available)
+  - name: bpy.ops.mesh.reveal
+    label: Reveal Hidden
+    description: Reveal all hidden vertices, edges and faces
+    tags:
+    - mesh
+    - reveal
+    params:
+      select:
+        type: boolean
+        description: select
+  - name: bpy.ops.mesh.rigify_encode_mesh_widget
+    label: Rigify Encode Widget
+    description: Create Python code that will generate the selected metarig
+    tags:
+    - widget
+    - rigify encode mesh widget
+    - encode
+    - mesh
+    - rigify
+    params: {}
+  - name: bpy.ops.mesh.rip
+    label: Rip
+    description: Disconnect vertex or edges from connected geometry
+    tags:
+    - mesh
+    - rip
+    params:
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+      use_fill:
+        type: boolean
+        description: Fill the ripped region
+  - name: bpy.ops.mesh.rip_edge
+    label: Extend Vertices
+    description: Extend vertices along the edge closest to the cursor
+    tags:
+    - mesh
+    - edge
+    - rip
+    - rip edge
+    params:
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.mesh.rip_edge_move
+    label: Extend Vertices
+    description: Extend vertices and move the result
+    tags:
+    - rip edge move
+    - edge
+    - move
+    - rip
+    - mesh
+    params:
+      MESH_OT_rip_edge:
+        type: string
+        description: Extend vertices along the edge closest to the cursor
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.rip_move
+    label: Rip
+    description: Rip polygons and move the result
+    tags:
+    - mesh
+    - move
+    - rip
+    - rip move
+    params:
+      MESH_OT_rip:
+        type: string
+        description: Disconnect vertex or edges from connected geometry
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.mesh.screw
+    label: Screw
+    description: Extrude selected vertices in screw-shaped rotation around the cursor
+      in indicated viewport
+    tags:
+    - screw
+    - mesh
+    params:
+      steps:
+        type: integer
+        description: Steps
+      turns:
+        type: integer
+        description: Turns
+      center:
+        type: float
+        description: Center in global view space
+      axis:
+        type: float
+        description: Axis in global view space
+  - name: bpy.ops.mesh.select_all
+    label: (De)select All
+    description: (De)select all vertices, edges or faces
+    tags:
+    - select all
+    - choose
+    - pick
+    - mesh
+    - all
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.mesh.select_axis
+    label: Select Axis
+    description: Select all data in the mesh on a single axis
+    tags:
+    - select axis
+    - choose
+    - axis
+    - pick
+    - mesh
+    - select
+    - grab
+    params:
+      orientation:
+        type: string
+        description: Axis orientation
+      sign:
+        type: string
+        description: Side to select
+      axis:
+        type: string
+        description: Select the axis to compare each vertex on
+      threshold:
+        type: float
+        description: threshold
+  - name: bpy.ops.mesh.select_by_attribute
+    label: Select by Attribute
+    description: Select elements based on the active boolean attribute
+    tags:
+    - choose
+    - select by attribute
+    - pick
+    - attribute
+    - mesh
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.mesh.select_by_pole_count
+    label: Select By Pole Count
+    description: Select vertices at poles by the number of connected edges. In edge
+      and face mode the geometry connected to the vertices is selected
+    tags:
+    - count
+    - choose
+    - pick
+    - pole
+    - select
+    - grab
+    - select by pole count
+    - mesh
+    params:
+      pole_count:
+        type: integer
+        description: pole_count
+      type:
+        type: string
+        description: Type of comparison to make
+      extend:
+        type: boolean
+        description: Extend the selection
+      exclude_nonmanifold:
+        type: boolean
+        description: Exclude non-manifold poles
+  - name: bpy.ops.mesh.select_face_by_sides
+    label: Select Faces by Sides
+    description: Select vertices or faces by the number of face sides
+    tags:
+    - choose
+    - pick
+    - sides
+    - select
+    - grab
+    - select face by sides
+    - mesh
+    - face
+    params:
+      number:
+        type: integer
+        description: number
+      type:
+        type: string
+        description: Type of comparison to make
+      extend:
+        type: boolean
+        description: Extend the selection
+  - name: bpy.ops.mesh.select_interior_faces
+    label: Select Interior Faces
+    description: Select faces where all edges have more than 2 face users
+    tags:
+    - choose
+    - pick
+    - select
+    - grab
+    - select interior faces
+    - mesh
+    - faces
+    - interior
+    params: {}
+  - name: bpy.ops.mesh.select_less
+    label: Select Less
+    description: Deselect vertices, edges or faces at the boundary of each selection
+      region
+    tags:
+    - choose
+    - select less
+    - pick
+    - mesh
+    - less
+    - select
+    - grab
+    params:
+      use_face_step:
+        type: boolean
+        description: Connected faces (instead of edges)
+  - name: bpy.ops.mesh.select_linked
+    label: Select Linked All
+    description: Select all vertices connected to the current selection
+    tags:
+    - linked
+    - choose
+    - select linked
+    - pick
+    - mesh
+    - select
+    - grab
+    params:
+      delimit:
+        type: string
+        description: Delimit selected region
+  - name: bpy.ops.mesh.select_linked_pick
+    label: Select Linked
+    description: (De)select all vertices linked to the edge under the mouse cursor
+    tags:
+    - choose
+    - pick
+    - select
+    - grab
+    - linked
+    - select linked pick
+    - mesh
+    params:
+      deselect:
+        type: boolean
+        description: deselect
+      delimit:
+        type: string
+        description: Delimit selected region
+  - name: bpy.ops.mesh.select_loose
+    label: Select Loose Geometry
+    description: Select loose geometry based on the selection mode
+    tags:
+    - choose
+    - select loose
+    - pick
+    - grab
+    - mesh
+    - select
+    - loose
+    params:
+      extend:
+        type: boolean
+        description: Extend the selection
+  - name: bpy.ops.mesh.select_mirror
+    label: Select Mirror
+    description: Select mesh items at mirrored locations
+    tags:
+    - mirror
+    - select mirror
+    - choose
+    - pick
+    - mesh
+    - select
+    - grab
+    params:
+      axis:
+        type: string
+        description: axis
+      extend:
+        type: boolean
+        description: Extend the existing selection
+  - name: bpy.ops.mesh.select_mode
+    label: Select Mode
+    description: Change selection mode
+    tags:
+    - choose
+    - pick
+    - mode
+    - mesh
+    - select
+    - grab
+    - select mode
+    params: {}
+  - name: bpy.ops.mesh.select_more
+    label: Select More
+    description: Select more vertices, edges or faces connected to initial selection
+    tags:
+    - select more
+    - choose
+    - pick
+    - more
+    - mesh
+    - select
+    - grab
+    params:
+      use_face_step:
+        type: boolean
+        description: Connected faces (instead of edges)
+  - name: bpy.ops.mesh.select_next_item
+    label: Select Next Element
+    description: Select the next element (using selection order)
+    tags:
+    - choose
+    - pick
+    - next
+    - select next item
+    - select
+    - grab
+    - item
+    - mesh
+    params: {}
+  - name: bpy.ops.mesh.select_non_manifold
+    label: Select Non-Manifold
+    description: Select all non-manifold vertices or edges
+    tags:
+    - choose
+    - pick
+    - non
+    - select
+    - grab
+    - mesh
+    - manifold
+    - select non manifold
+    params:
+      extend:
+        type: boolean
+        description: Extend the selection
+      use_wire:
+        type: boolean
+        description: Wire edges
+      use_boundary:
+        type: boolean
+        description: Boundary edges
+      use_multi_face:
+        type: boolean
+        description: Edges shared by more than two faces
+      use_non_contiguous:
+        type: boolean
+        description: Edges between faces pointing in alternate directions
+      use_verts:
+        type: boolean
+        description: Vertices connecting multiple face regions
+  - name: bpy.ops.mesh.select_nth
+    label: Checker Deselect
+    description: Deselect every Nth element starting from the active vertex, edge
+      or face
+    tags:
+    - select nth
+    - choose
+    - pick
+    - mesh
+    - nth
+    - select
+    - grab
+    params:
+      skip:
+        type: integer
+        description: Number of deselected elements in the repetitive sequence
+      nth:
+        type: integer
+        description: Number of selected elements in the repetitive sequence
+      offset:
+        type: integer
+        description: Offset from the starting point
+  - name: bpy.ops.mesh.select_prev_item
+    label: Select Previous Element
+    description: Select the previous element (using selection order)
+    tags:
+    - prev
+    - choose
+    - pick
+    - select
+    - grab
+    - item
+    - mesh
+    - select prev item
+    params: {}
+  - name: bpy.ops.mesh.select_random
+    label: Select Random
+    description: Randomly select vertices
+    tags:
+    - select random
+    - choose
+    - random
+    - pick
+    - mesh
+    - select
+    - grab
+    params:
+      ratio:
+        type: float
+        description: Portion of items to select randomly
+      seed:
+        type: integer
+        description: Seed for the random number generator
+      action:
+        type: string
+        description: Selection action to execute
+  - name: bpy.ops.mesh.select_similar
+    label: Select Similar
+    description: Select similar vertices, edges or faces by property types
+    tags:
+    - choose
+    - pick
+    - grab
+    - mesh
+    - select similar
+    - select
+    - similar
+    params:
+      type:
+        type: string
+        description: type
+      compare:
+        type: string
+        description: compare
+      threshold:
+        type: float
+        description: threshold
+  - name: bpy.ops.mesh.select_similar_region
+    label: Select Similar Regions
+    description: Select similar face regions to the current selection
+    tags:
+    - choose
+    - pick
+    - select
+    - region
+    - grab
+    - select similar region
+    - mesh
+    - similar
+    params: {}
+  - name: bpy.ops.mesh.select_ungrouped
+    label: Select Ungrouped
+    description: Select vertices without a group
+    tags:
+    - ungrouped
+    - choose
+    - select ungrouped
+    - pick
+    - mesh
+    - select
+    - grab
+    params:
+      extend:
+        type: boolean
+        description: Extend the selection
+  - name: bpy.ops.mesh.separate
+    label: Separate
+    description: Separate selected geometry into a new mesh
+    tags:
+    - split
+    - disconnect
+    - mesh
+    - detach
+    - separate
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.mesh.set_normals_from_faces
+    label: Set Normals from Faces
+    description: Set the custom normals from the selected faces ones
+    tags:
+    - faces
+    - set normals from faces
+    - normals
+    - from
+    - mesh
+    - set
+    params:
+      keep_sharp:
+        type: boolean
+        description: Do not set sharp edges to face
+  - name: bpy.ops.mesh.set_sharpness_by_angle
+    label: Set Sharpness by Angle
+    description: Set edge sharpness based on the angle between neighboring faces
+    tags:
+    - sharpness
+    - set sharpness by angle
+    - mesh
+    - set
+    - angle
+    params:
+      angle:
+        type: float
+        description: angle
+      extend:
+        type: boolean
+        description: Add new sharp edges without clearing existing sharp edges
+  - name: bpy.ops.mesh.shape_propagate_to_all
+    label: Shape Propagate
+    description: Apply selected vertex locations to all other shape keys
+    tags:
+    - shape propagate to all
+    - shape
+    - all
+    - mesh
+    - propagate
+    params: {}
+  - name: bpy.ops.mesh.shortest_path_pick
+    label: Pick Shortest Path
+    description: Select shortest path between two selections
+    tags:
+    - pick
+    - shortest path pick
+    - shortest
+    - path
+    - mesh
+    params:
+      edge_mode:
+        type: string
+        description: The edge flag to tag when selecting the shortest path
+      use_face_step:
+        type: boolean
+        description: Traverse connected faces (includes diagonals and edge-rings)
+      use_topology_distance:
+        type: boolean
+        description: Find the minimum number of steps, ignoring spatial distance
+      use_fill:
+        type: boolean
+        description: Select all paths between the source/destination elements
+      skip:
+        type: integer
+        description: Number of deselected elements in the repetitive sequence
+      nth:
+        type: integer
+        description: Number of selected elements in the repetitive sequence
+      offset:
+        type: integer
+        description: Offset from the starting point
+  - name: bpy.ops.mesh.shortest_path_select
+    label: Select Shortest Path
+    description: Selected shortest path between two vertices/edges/faces
+    tags:
+    - choose
+    - pick
+    - shortest
+    - select
+    - path
+    - grab
+    - shortest path select
+    - mesh
+    params:
+      edge_mode:
+        type: string
+        description: The edge flag to tag when selecting the shortest path
+      use_face_step:
+        type: boolean
+        description: Traverse connected faces (includes diagonals and edge-rings)
+      use_topology_distance:
+        type: boolean
+        description: Find the minimum number of steps, ignoring spatial distance
+      use_fill:
+        type: boolean
+        description: Select all paths between the source/destination elements
+      skip:
+        type: integer
+        description: Number of deselected elements in the repetitive sequence
+      nth:
+        type: integer
+        description: Number of selected elements in the repetitive sequence
+      offset:
+        type: integer
+        description: Offset from the starting point
+  - name: bpy.ops.mesh.smooth_normals
+    label: Smooth Normals Vectors
+    description: Smooth custom normals based on adjacent vertex normals
+    tags:
+    - mesh
+    - smooth normals
+    - normals
+    - smooth
+    params:
+      factor:
+        type: float
+        description: Specifies weight of smooth vs original normal
+  - name: bpy.ops.mesh.solidify
+    label: Solidify
+    description: Create a solid skin by extruding, compensating for sharp angles
+    tags:
+    - solidify
+    - mesh
+    params:
+      thickness:
+        type: float
+        description: thickness
+  - name: bpy.ops.mesh.sort_elements
+    label: Sort Mesh Elements
+    description: The order of selected vertices/edges/faces is modified, based on
+      a given method
+    tags:
+    - sort elements
+    - mesh
+    - elements
+    - sort
+    params:
+      type:
+        type: string
+        description: Type of reordering operation to apply
+      elements:
+        type: string
+        description: Which elements to affect (vertices, edges and/or faces)
+      reverse:
+        type: boolean
+        description: Reverse the sorting effect
+      seed:
+        type: integer
+        description: Seed for random-based operations
+  - name: bpy.ops.mesh.spin
+    label: Spin
+    description: Extrude selected vertices in a circle around the cursor in indicated
+      viewport
+    tags:
+    - mesh
+    - spin
+    params:
+      steps:
+        type: integer
+        description: Steps
+      dupli:
+        type: boolean
+        description: dupli
+      angle:
+        type: float
+        description: Rotation for each step
+      use_auto_merge:
+        type: boolean
+        description: Merge first/last when the angle is a full revolution
+      use_normal_flip:
+        type: boolean
+        description: use_normal_flip
+      center:
+        type: float
+        description: Center in global view space
+      axis:
+        type: float
+        description: Axis in global view space
+  - name: bpy.ops.mesh.split
+    label: Split
+    description: Split off selected geometry from connected unselected geometry
+    tags:
+    - mesh
+    - split
+    params: {}
+  - name: bpy.ops.mesh.split_normals
+    label: Split Normals
+    description: Split custom normals of selected vertices
+    tags:
+    - mesh
+    - split normals
+    - normals
+    - split
+    params: {}
+  - name: bpy.ops.mesh.subdivide
+    label: Subdivide
+    description: Subdivide selected edges
+    tags:
+    - refine
+    - detail
+    - smooth
+    - mesh
+    - subdivide
+    params:
+      number_cuts:
+        type: integer
+        description: number_cuts
+      smoothness:
+        type: float
+        description: Smoothness factor
+      ngon:
+        type: boolean
+        description: When disabled, newly created faces are limited to 3 and 4 sided
+          faces
+      quadcorner:
+        type: string
+        description: How to subdivide quad corners (anything other than Straight Cut
+          will prevent n-gons)
+      fractal:
+        type: float
+        description: Fractal randomness factor
+      fractal_along_normal:
+        type: float
+        description: Apply fractal displacement along normal only
+      seed:
+        type: integer
+        description: Seed for the random number generator
+  - name: bpy.ops.mesh.subdivide_edgering
+    label: Subdivide Edge-Ring
+    description: Subdivide perpendicular edges to the selected edge-ring
+    tags:
+    - refine
+    - detail
+    - mesh
+    - smooth
+    - subdivide edgering
+    - edgering
+    - subdivide
+    params:
+      number_cuts:
+        type: integer
+        description: number_cuts
+      interpolation:
+        type: string
+        description: Interpolation method
+      smoothness:
+        type: float
+        description: Smoothness factor
+      profile_shape_factor:
+        type: float
+        description: How much intermediary new edges are shrunk/expanded
+      profile_shape:
+        type: string
+        description: Shape of the profile
+  - name: bpy.ops.mesh.symmetrize
+    label: Symmetrize
+    description: Enforce symmetry (both form and topological) across an axis
+    tags:
+    - mesh
+    - symmetrize
+    params:
+      direction:
+        type: string
+        description: Which sides to copy from and to
+      threshold:
+        type: float
+        description: Limit for snap middle vertices to the axis center
+  - name: bpy.ops.mesh.symmetry_snap
+    label: Snap to Symmetry
+    description: Snap vertex pairs to their mirrored locations
+    tags:
+    - mesh
+    - snap
+    - symmetry
+    - symmetry snap
+    params:
+      direction:
+        type: string
+        description: Which sides to copy from and to
+      threshold:
+        type: float
+        description: Distance within which matching vertices are searched
+      factor:
+        type: float
+        description: Mix factor of the locations of the vertices
+      use_center:
+        type: boolean
+        description: Snap middle vertices to the axis center
+  - name: bpy.ops.mesh.tris_convert_to_quads
+    label: Triangles to Quads
+    description: Merge triangles into four sided polygons where possible
+    tags:
+    - convert
+    - tris
+    - quads
+    - tris convert to quads
+    - mesh
+    params:
+      face_threshold:
+        type: float
+        description: Face angle limit
+      shape_threshold:
+        type: float
+        description: Shape angle limit
+      topology_influence:
+        type: float
+        description: How much to prioritize regular grids of quads as well as quads
+          that touch existing quads
+      uvs:
+        type: boolean
+        description: uvs
+      vcols:
+        type: boolean
+        description: vcols
+      seam:
+        type: boolean
+        description: seam
+      sharp:
+        type: boolean
+        description: sharp
+      materials:
+        type: boolean
+        description: materials
+      deselect_joined:
+        type: boolean
+        description: Only select remaining triangles that were not merged
+  - name: bpy.ops.mesh.unsubdivide
+    label: Un-Subdivide
+    description: Un-subdivide selected edges and faces
+    tags:
+    - mesh
+    - unsubdivide
+    params:
+      iterations:
+        type: integer
+        description: Number of times to un-subdivide
+  - name: bpy.ops.mesh.uv_texture_add
+    label: Add UV Map
+    description: Add UV map
+    tags:
+    - make
+    - add
+    - texture
+    - insert
+    - mesh
+    - new
+    - create
+    - generate
+    - uv texture add
+    params: {}
+  - name: bpy.ops.mesh.uv_texture_remove
+    label: Remove UV Map
+    description: Remove UV map
+    tags:
+    - dissolve
+    - erase
+    - texture
+    - clear
+    - mesh
+    - uv texture remove
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.mesh.uvs_reverse
+    label: Reverse UVs
+    description: Flip direction of UV coordinates inside faces
+    tags:
+    - uvs reverse
+    - mesh
+    - uvs
+    - reverse
+    params: {}
+  - name: bpy.ops.mesh.uvs_rotate
+    label: Rotate UVs
+    description: Rotate UV coordinates inside faces
+    tags:
+    - uvs
+    - spin
+    - uvs rotate
+    - orient
+    - mesh
+    - turn
+    - rotate
+    params:
+      use_ccw:
+        type: boolean
+        description: use_ccw
+  - name: bpy.ops.mesh.vert_connect
+    label: Vertex Connect
+    description: Connect selected vertices of faces, splitting the face
+    tags:
+    - mesh
+    - vert connect
+    - vert
+    - connect
+    params: {}
+  - name: bpy.ops.mesh.vert_connect_concave
+    label: Split Concave Faces
+    description: Make all faces convex
+    tags:
+    - vert
+    - vert connect concave
+    - concave
+    - mesh
+    - connect
+    params: {}
+  - name: bpy.ops.mesh.vert_connect_nonplanar
+    label: Split Non-Planar Faces
+    description: Split non-planar faces that exceed the angle threshold
+    tags:
+    - vert
+    - vert connect nonplanar
+    - mesh
+    - connect
+    - nonplanar
+    params:
+      angle_limit:
+        type: float
+        description: Angle limit
+  - name: bpy.ops.mesh.vert_connect_path
+    label: Vertex Connect Path
+    description: Connect vertices by their selection order, creating edges, splitting
+      faces
+    tags:
+    - vert connect path
+    - vert
+    - path
+    - mesh
+    - connect
+    params: {}
+  - name: bpy.ops.mesh.vertices_smooth
+    label: Smooth Vertices
+    description: Flatten angles of selected vertices
+    tags:
+    - mesh
+    - vertices
+    - vertices smooth
+    - smooth
+    params:
+      factor:
+        type: float
+        description: Smoothing factor
+      repeat:
+        type: integer
+        description: Number of times to smooth the mesh
+      xaxis:
+        type: boolean
+        description: Smooth along the X axis
+      yaxis:
+        type: boolean
+        description: Smooth along the Y axis
+      zaxis:
+        type: boolean
+        description: Smooth along the Z axis
+  - name: bpy.ops.mesh.vertices_smooth_laplacian
+    label: Laplacian Smooth Vertices
+    description: Laplacian smooth of selected vertices
+    tags:
+    - vertices
+    - smooth
+    - laplacian
+    - mesh
+    - vertices smooth laplacian
+    params:
+      repeat:
+        type: integer
+        description: repeat
+      lambda_factor:
+        type: float
+        description: lambda_factor
+      lambda_border:
+        type: float
+        description: lambda_border
+      use_x:
+        type: boolean
+        description: Smooth object along X axis
+      use_y:
+        type: boolean
+        description: Smooth object along Y axis
+      use_z:
+        type: boolean
+        description: Smooth object along Z axis
+      preserve_volume:
+        type: boolean
+        description: Apply volume preservation after smooth
+  - name: bpy.ops.mesh.wireframe
+    label: Wireframe
+    description: Create a solid wireframe from faces
+    tags:
+    - mesh
+    - wireframe
+    params:
+      use_boundary:
+        type: boolean
+        description: Inset face boundaries
+      use_even_offset:
+        type: boolean
+        description: Scale the offset to give more even thickness
+      use_relative_offset:
+        type: boolean
+        description: Scale the offset by surrounding geometry
+      use_replace:
+        type: boolean
+        description: Remove original faces
+      thickness:
+        type: float
+        description: thickness
+      offset:
+        type: float
+        description: offset
+      use_crease:
+        type: boolean
+        description: Crease hub edges for an improved subdivision surface
+      crease_weight:
+        type: float
+        description: crease_weight

@@ -1,0 +1,13 @@
+# Application Dependencies
+fastapi
+uvicorn
+pydantic
+google-genai
+pyyaml
+python-dotenv
+mcp
+
+# Testing Dependencies
+pytest
+pytest-asyncio
+httpx

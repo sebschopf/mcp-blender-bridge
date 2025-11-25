@@ -1,0 +1,768 @@
+curve:
+  description: Outils pour les courbes
+  tools:
+  - name: bpy.ops.curve.cyclic_toggle
+    label: Toggle Cyclic
+    description: Make active spline closed/opened loop
+    tags:
+    - cyclic toggle
+    - cyclic
+    - toggle
+    - curve
+    params:
+      direction:
+        type: string
+        description: Direction to make surface cyclic in
+  - name: bpy.ops.curve.de_select_first
+    label: (De)select First
+    description: (De)select first of visible part of each NURBS
+    tags:
+    - first
+    - choose
+    - curve
+    - pick
+    - de select first
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.curve.de_select_last
+    label: (De)select Last
+    description: (De)select last of visible part of each NURBS
+    tags:
+    - last
+    - choose
+    - curve
+    - pick
+    - grab
+    - select
+    - de select last
+    params: {}
+  - name: bpy.ops.curve.decimate
+    label: Decimate Curve
+    description: Simplify selected curves
+    tags:
+    - decimate
+    - curve
+    params:
+      ratio:
+        type: float
+        description: ratio
+  - name: bpy.ops.curve.delete
+    label: Delete
+    description: Delete selected control points or segments
+    tags:
+    - delete
+    - curve
+    params: {}
+  - name: bpy.ops.curve.dissolve_verts
+    label: Dissolve Vertices
+    description: Delete selected control points, correcting surrounding handles
+    tags:
+    - dissolve verts
+    - dissolve
+    - verts
+    - curve
+    params: {}
+  - name: bpy.ops.curve.draw
+    label: Draw Curve
+    description: Draw a freehand spline
+    tags:
+    - draw
+    - curve
+    params:
+      error_threshold:
+        type: float
+        description: Error distance threshold (in object units)
+      fit_method:
+        type: string
+        description: fit_method
+      corner_angle:
+        type: float
+        description: corner_angle
+      use_cyclic:
+        type: boolean
+        description: use_cyclic
+  - name: bpy.ops.curve.duplicate
+    label: Duplicate Curve
+    description: Duplicate selected control points
+    tags:
+    - duplicate
+    - curve
+    params: {}
+  - name: bpy.ops.curve.duplicate_move
+    label: Add Duplicate
+    description: Duplicate curve and move
+    tags:
+    - duplicate
+    - move
+    - duplicate move
+    - curve
+    params:
+      CURVE_OT_duplicate:
+        type: string
+        description: Duplicate selected control points
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.curve.extrude
+    label: Extrude
+    description: Extrude selected control point(s)
+    tags:
+    - curve
+    - extrude
+    - pull
+    - push
+    - extend
+    params:
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.curve.extrude_move
+    label: Extrude Curve and Move
+    description: Extrude curve and move result
+    tags:
+    - extrude move
+    - curve
+    - extrude
+    - move
+    - push
+    - extend
+    - pull
+    params:
+      CURVE_OT_extrude:
+        type: string
+        description: Extrude selected control point(s)
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.curve.handle_type_set
+    label: Set Handle Type
+    description: Set type of handles for selected control points
+    tags:
+    - handle type set
+    - type
+    - curve
+    - set
+    - handle
+    params:
+      type:
+        type: string
+        description: Spline type
+  - name: bpy.ops.curve.hide
+    label: Hide Selected
+    description: Hide (un)selected control points
+    tags:
+    - hide
+    - curve
+    params:
+      unselected:
+        type: boolean
+        description: Hide unselected rather than selected
+  - name: bpy.ops.curve.make_segment
+    label: Make Segment
+    description: Join two curves by their selected ends
+    tags:
+    - make segment
+    - make
+    - curve
+    - segment
+    params: {}
+  - name: bpy.ops.curve.match_texture_space
+    label: Match Texture Space
+    description: Match texture space to object's bounding box
+    tags:
+    - match texture space
+    - texture
+    - space
+    - curve
+    - match
+    params: {}
+  - name: bpy.ops.curve.normals_make_consistent
+    label: Recalculate Handles
+    description: Recalculate the direction of selected handles
+    tags:
+    - make
+    - normals
+    - consistent
+    - curve
+    - normals make consistent
+    params:
+      calc_length:
+        type: boolean
+        description: Recalculate handle length
+  - name: bpy.ops.curve.pen
+    label: Curve Pen
+    description: Construct and edit splines
+    tags:
+    - pen
+    - curve
+    params:
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+      deselect:
+        type: boolean
+        description: Remove from selection
+      toggle:
+        type: boolean
+        description: Toggle the selection
+      deselect_all:
+        type: boolean
+        description: Deselect all when nothing under the cursor
+      select_passthrough:
+        type: boolean
+        description: Ignore the select action when the element is already selected
+      extrude_point:
+        type: boolean
+        description: Add a point connected to the last selected point
+      extrude_handle:
+        type: string
+        description: Type of the extruded handle
+      delete_point:
+        type: boolean
+        description: Delete an existing point
+      insert_point:
+        type: boolean
+        description: Insert Point into a curve segment
+      move_segment:
+        type: boolean
+        description: Delete an existing point
+      select_point:
+        type: boolean
+        description: Select a point or its handles
+      move_point:
+        type: boolean
+        description: Move a point or its handles
+      close_spline:
+        type: boolean
+        description: Make a spline cyclic by clicking endpoints
+      close_spline_method:
+        type: string
+        description: The condition for close spline to activate
+      toggle_vector:
+        type: boolean
+        description: Toggle between Vector and Auto handles
+      cycle_handle_type:
+        type: boolean
+        description: Cycle between all four handle types
+  - name: bpy.ops.curve.primitive_bezier_circle_add
+    label: Add Bézier Circle
+    description: Construct a Bézier Circle
+    tags:
+    - make
+    - add
+    - shape
+    - bezier
+    - object
+    - geometry
+    - primitive bezier circle add
+    - circle
+    - insert
+    - curve
+    - loop
+    - new
+    - mesh
+    - ring
+    - create
+    - disc
+    - generate
+    - primitive
+    params:
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.curve.primitive_bezier_curve_add
+    label: Add Bézier
+    description: Construct a Bézier Curve
+    tags:
+    - make
+    - add
+    - shape
+    - bezier
+    - object
+    - geometry
+    - insert
+    - curve
+    - generate
+    - mesh
+    - new
+    - create
+    - primitive bezier curve add
+    - primitive
+    params:
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.curve.primitive_nurbs_circle_add
+    label: Add Nurbs Circle
+    description: Construct a Nurbs Circle
+    tags:
+    - make
+    - add
+    - shape
+    - create
+    - object
+    - geometry
+    - circle
+    - insert
+    - curve
+    - loop
+    - nurbs
+    - mesh
+    - ring
+    - new
+    - disc
+    - primitive nurbs circle add
+    - generate
+    - primitive
+    params:
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.curve.primitive_nurbs_curve_add
+    label: Add Nurbs Curve
+    description: Construct a Nurbs Curve
+    tags:
+    - make
+    - add
+    - shape
+    - object
+    - geometry
+    - primitive nurbs curve add
+    - insert
+    - curve
+    - nurbs
+    - mesh
+    - new
+    - create
+    - generate
+    - primitive
+    params:
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.curve.primitive_nurbs_path_add
+    label: Add Path
+    description: Construct a Path
+    tags:
+    - make
+    - add
+    - shape
+    - primitive nurbs path add
+    - path
+    - object
+    - geometry
+    - insert
+    - curve
+    - nurbs
+    - mesh
+    - new
+    - create
+    - generate
+    - primitive
+    params:
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.curve.radius_set
+    label: Set Curve Radius
+    description: Set per-point radius which is used for bevel tapering
+    tags:
+    - radius set
+    - radius
+    - curve
+    - set
+    params:
+      radius:
+        type: float
+        description: radius
+  - name: bpy.ops.curve.reveal
+    label: Reveal Hidden
+    description: Reveal hidden control points
+    tags:
+    - reveal
+    - curve
+    params:
+      select:
+        type: boolean
+        description: select
+  - name: bpy.ops.curve.select_all
+    label: (De)select All
+    description: (De)select all control points
+    tags:
+    - select all
+    - choose
+    - curve
+    - pick
+    - all
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.curve.select_less
+    label: Select Less
+    description: Deselect control points at the boundary of each selection region
+    tags:
+    - choose
+    - select less
+    - curve
+    - pick
+    - less
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.curve.select_linked
+    label: Select Linked All
+    description: Select all control points linked to the current selection
+    tags:
+    - linked
+    - choose
+    - select linked
+    - curve
+    - pick
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.curve.select_linked_pick
+    label: Select Linked
+    description: Select all control points linked to already selected ones
+    tags:
+    - choose
+    - pick
+    - select
+    - grab
+    - linked
+    - curve
+    - select linked pick
+    params:
+      deselect:
+        type: boolean
+        description: Deselect linked control points rather than selecting them
+  - name: bpy.ops.curve.select_more
+    label: Select More
+    description: Select control points at the boundary of each selection region
+    tags:
+    - select more
+    - choose
+    - curve
+    - pick
+    - more
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.curve.select_next
+    label: Select Next
+    description: Select control points following already selected ones along the curves
+    tags:
+    - choose
+    - select next
+    - curve
+    - next
+    - pick
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.curve.select_nth
+    label: Checker Deselect
+    description: Deselect every Nth point starting from the active one
+    tags:
+    - select nth
+    - choose
+    - curve
+    - pick
+    - nth
+    - select
+    - grab
+    params:
+      skip:
+        type: integer
+        description: Number of deselected elements in the repetitive sequence
+      nth:
+        type: integer
+        description: Number of selected elements in the repetitive sequence
+      offset:
+        type: integer
+        description: Offset from the starting point
+  - name: bpy.ops.curve.select_previous
+    label: Select Previous
+    description: Select control points preceding already selected ones along the curves
+    tags:
+    - choose
+    - previous
+    - curve
+    - pick
+    - select
+    - grab
+    - select previous
+    params: {}
+  - name: bpy.ops.curve.select_random
+    label: Select Random
+    description: Randomly select some control points
+    tags:
+    - select random
+    - choose
+    - random
+    - curve
+    - pick
+    - select
+    - grab
+    params:
+      ratio:
+        type: float
+        description: Portion of items to select randomly
+      seed:
+        type: integer
+        description: Seed for the random number generator
+      action:
+        type: string
+        description: Selection action to execute
+  - name: bpy.ops.curve.select_row
+    label: Select Control Point Row
+    description: Select a row of control points including active one. Successive use
+      on the same point switches between U/V directions
+    tags:
+    - choose
+    - curve
+    - pick
+    - select row
+    - row
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.curve.select_similar
+    label: Select Similar
+    description: Select similar curve points by property type
+    tags:
+    - choose
+    - curve
+    - pick
+    - grab
+    - select similar
+    - select
+    - similar
+    params:
+      type:
+        type: string
+        description: type
+      compare:
+        type: string
+        description: compare
+      threshold:
+        type: float
+        description: threshold
+  - name: bpy.ops.curve.separate
+    label: Separate
+    description: Separate selected points from connected unselected points into a
+      new object
+    tags:
+    - curve
+    - split
+    - disconnect
+    - detach
+    - separate
+    params: {}
+  - name: bpy.ops.curve.shade_flat
+    label: Shade Flat
+    description: Set shading to flat
+    tags:
+    - shade
+    - flat
+    - shade flat
+    - curve
+    params: {}
+  - name: bpy.ops.curve.shade_smooth
+    label: Shade Smooth
+    description: Set shading to smooth
+    tags:
+    - shade
+    - shade smooth
+    - curve
+    - smooth
+    params: {}
+  - name: bpy.ops.curve.shortest_path_pick
+    label: Pick Shortest Path
+    description: Select shortest path between two selections
+    tags:
+    - shortest path pick
+    - pick
+    - shortest
+    - path
+    - curve
+    params: {}
+  - name: bpy.ops.curve.smooth
+    label: Smooth
+    description: Flatten angles of selected points
+    tags:
+    - curve
+    - smooth
+    params: {}
+  - name: bpy.ops.curve.smooth_radius
+    label: Smooth Curve Radius
+    description: Interpolate radii of selected points
+    tags:
+    - radius
+    - smooth radius
+    - curve
+    - smooth
+    params: {}
+  - name: bpy.ops.curve.smooth_tilt
+    label: Smooth Curve Tilt
+    description: Interpolate tilt of selected points
+    tags:
+    - smooth tilt
+    - tilt
+    - curve
+    - smooth
+    params: {}
+  - name: bpy.ops.curve.smooth_weight
+    label: Smooth Curve Weight
+    description: Interpolate weight of selected points
+    tags:
+    - smooth weight
+    - weight
+    - curve
+    - smooth
+    params: {}
+  - name: bpy.ops.curve.spin
+    label: Spin
+    description: Extrude selected boundary row around pivot point and current view
+      axis
+    tags:
+    - spin
+    - curve
+    params:
+      center:
+        type: float
+        description: Center in global view space
+      axis:
+        type: float
+        description: Axis in global view space
+  - name: bpy.ops.curve.spline_type_set
+    label: Set Spline Type
+    description: Set type of active spline
+    tags:
+    - spline
+    - type
+    - curve
+    - set
+    - spline type set
+    params:
+      type:
+        type: string
+        description: Spline type
+      use_handles:
+        type: boolean
+        description: Use handles when converting Bézier curves into polygons
+  - name: bpy.ops.curve.spline_weight_set
+    label: Set Goal Weight
+    description: Set softbody goal weight for selected points
+    tags:
+    - spline
+    - weight
+    - curve
+    - spline weight set
+    - set
+    params:
+      weight:
+        type: float
+        description: weight
+  - name: bpy.ops.curve.split
+    label: Split
+    description: Split off selected points from connected unselected points
+    tags:
+    - split
+    - curve
+    params: {}
+  - name: bpy.ops.curve.subdivide
+    label: Subdivide
+    description: Subdivide selected segments
+    tags:
+    - refine
+    - detail
+    - curve
+    - smooth
+    - subdivide
+    params:
+      number_cuts:
+        type: integer
+        description: number_cuts
+  - name: bpy.ops.curve.switch_direction
+    label: Switch Direction
+    description: Switch direction of selected splines
+    tags:
+    - switch direction
+    - direction
+    - switch
+    - curve
+    params: {}
+  - name: bpy.ops.curve.tilt_clear
+    label: Clear Tilt
+    description: Clear the tilt of selected control points
+    tags:
+    - tilt clear
+    - clear
+    - tilt
+    - curve
+    params: {}
+  - name: bpy.ops.curve.vertex_add
+    label: Extrude to Cursor or Add
+    description: Add a new control point (linked to only selected end-curve one, if
+      any)
+    tags:
+    - vertex
+    - make
+    - add
+    - vertex add
+    - insert
+    - curve
+    - new
+    - create
+    - generate
+    params:
+      location:
+        type: float
+        description: Location to add new vertex at

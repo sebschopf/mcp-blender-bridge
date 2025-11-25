@@ -1,0 +1,85 @@
+mesh:
+  description: Tools for detailed mesh manipulation beyond simple primitive creation.
+    Use these to modify the shape of an existing mesh.
+  tools:
+  - name: bpy.ops.mesh.extrude_region_move
+    description: Extrudes the selected mesh elements (vertices, edges, or faces) and
+      moves them. Ideal for adding depth or creating new sections from existing geometry.
+    params:
+      TRANSFORM_OT_translate:
+        type: dict
+        description: A dictionary of parameters for the move operation, typically
+          containing a 'value' key with an [X, Y, Z] vector.
+        required: false
+    tags:
+    - pull
+    - extrude
+    - mesh
+    - move
+    - push
+    - extend
+    - region
+  - name: bpy.ops.mesh.inset
+    description: Insets the selected faces, creating a border of new faces around
+      the selection. Useful for creating panels, windows, or frames.
+    params:
+      thickness:
+        type: float
+        description: The thickness of the inset border.
+        required: false
+      depth:
+        type: float
+        description: The depth to move the inset region along its normal.
+        required: false
+    tags:
+    - mesh
+    - inset
+  - name: bpy.ops.mesh.bevel
+    description: Bevels the selected edges or vertices, creating a chamfered or rounded
+      corner. Essential for realistic hard-surface modeling.
+    params:
+      offset:
+        type: float
+        description: The width of the bevel.
+        required: true
+      segments:
+        type: int
+        description: The number of segments in the bevel, creating a smoother curve.
+        required: false
+      affect:
+        type: str
+        description: Whether to affect 'VERTICES' or 'EDGES'.
+        required: false
+    tags:
+    - bevel
+    - chamfer
+    - round edge
+    - mesh
+    - smooth corner
+  - name: bpy.ops.mesh.loopcut_slide
+    description: Adds one or more new edge loops that flow through a set of quad faces.
+      Fundamental for adding detail to a mesh.
+    params:
+      MESH_OT_loopcut:
+        type: dict
+        description: A dictionary of parameters for the loopcut operation, typically
+          containing 'number_cuts'.
+        required: false
+    tags:
+    - mesh
+    - slide
+    - loopcut
+  - name: bpy.ops.mesh.subdivide
+    description: Subdivides the selected faces, adding more geometry and detail to
+      the mesh.
+    params:
+      number_cuts:
+        type: int
+        description: The number of times to subdivide the mesh.
+        required: false
+    tags:
+    - refine
+    - detail
+    - smooth
+    - mesh
+    - subdivide

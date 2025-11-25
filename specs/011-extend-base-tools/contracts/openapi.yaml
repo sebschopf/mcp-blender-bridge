@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: MCP Blender Controller API - Tool Discovery Extension
+  version: 1.1.0
+paths:
+  /discover_categories:
+    get:
+      summary: Get Available Tool Categories
+      description: Returns a list of all available tool category names.
+      operationId: get_tool_categories
+      responses:
+        '200':
+          description: A list of tool category names.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                example: ["mesh", "sculpt", "modifiers", "object", "materials"]
+  /discover_capabilities:
+    get:
+      summary: Get Available Tools
+      description: Returns a list of available tools, optionally filtered by category.
+      operationId: get_available_tools
+      parameters:
+        - name: category
+          in: query
+          description: The category of tools to retrieve.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of available tools. If the category is not found, an empty list is returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tool'
+
+components:
+  schemas:
+    Tool:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        params:
+          type: object
+      required:
+        - name
+        - description
+        - params

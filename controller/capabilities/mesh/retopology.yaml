@@ -1,0 +1,18 @@
+mesh:
+  description: Tools for retopology, the process of creating clean, low-polygon geometry
+    over a high-polygon mesh.
+  tools:
+  - name: mesh.retopology.create_quads
+    description: Creates a new, clean, quad-based mesh from the active high-poly object
+      using a remeshing technique. This is a helper tool.
+    params:
+      voxel_size:
+        type: float
+        description: The size of the voxels to use for remeshing. Smaller values preserve
+          more detail but create more geometry.
+        required: false
+    tags:
+    - mesh
+    - retopology
+    - create
+    - quads

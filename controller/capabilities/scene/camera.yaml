@@ -1,0 +1,42 @@
+camera:
+  description: Caméras
+  tools:
+  - name: bpy.ops.camera.preset_add
+    label: Add Camera Preset
+    description: Add or remove a Camera Preset
+    tags:
+    - preset add
+    - camera
+    - make
+    - add
+    - view
+    - shot
+    - insert
+    - preset
+    - new
+    - create
+    - lens
+    - generate
+    params:
+      use_focal_length:
+        type: boolean
+        description: Include focal length into the preset
+  - name: bpy.ops.camera.safe_areas_preset_add
+    label: Add Safe Area Preset
+    description: Add or remove a Safe Areas Preset
+    tags:
+    - camera
+    - make
+    - add
+    - areas
+    - safe areas preset add
+    - view
+    - shot
+    - safe
+    - insert
+    - preset
+    - new
+    - create
+    - lens
+    - generate
+    params: {}

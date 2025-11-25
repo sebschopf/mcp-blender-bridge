@@ -1,0 +1,61 @@
+materials:
+  description: Tools for controlling the appearance of objects. Materials define an
+    object's color and how it reacts to light.
+  tools:
+  - name: materials.create_and_assign
+    description: Creates and assigns a new material to the active object.
+    params:
+      material_name:
+        type: str
+        description: A unique name for the new material.
+        required: true
+    tags:
+    - and
+    - materials
+    - create
+    - assign
+  - name: materials.set_base_color
+    description: Sets the main color of the material.
+    params:
+      color:
+        type: tuple
+        description: The color as an RGBA tuple (e.g., [0.8, 0.1, 0.1, 1.0]).
+        required: true
+    tags:
+    - color
+    - materials
+    - base
+    - set
+    - paint
+    - dye
+  - name: materials.set_metallic
+    description: Makes the material look like metal (0.0 for non-metal, 1.0 for fully
+      metallic).
+    params:
+      value:
+        type: float
+        description: The metallic value from 0.0 to 1.0.
+        required: true
+    tags:
+    - metallic
+    - materials
+    - set
+    - metal
+    - gold
+    - iron
+  - name: materials.set_roughness
+    description: Controls the sharpness of reflections (0.0 for mirror-like, 1.0 for
+      matte).
+    params:
+      value:
+        type: float
+        description: The roughness value from 0.0 to 1.0.
+        required: true
+    tags:
+    - roughness
+    - materials
+    - set
+    - plastic
+    - shiny
+    - matte
+    - reflection

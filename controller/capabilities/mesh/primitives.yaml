@@ -1,0 +1,161 @@
+mesh:
+  description: Tools for creating new 3D objects (meshes) from basic geometric shapes.
+    Use these as the starting point for any new object in the scene.
+  tools:
+  - name: bpy.ops.mesh.primitive_cube_add
+    description: Creates a new cube mesh. A cube is a fundamental shape for blocking
+      out models like buildings, furniture, or boxes.
+    params:
+      size:
+        type: float
+        description: The length of each side of the cube.
+        default: 1.0
+      location:
+        type: tuple
+        description: The [X, Y, Z] coordinates for the center of the new cube.
+        default:
+        - 0
+        - 0
+        - 0
+    tags:
+    - add
+    - shape
+    - object
+    - box
+    - cube
+    - square
+    - make
+    - geometry
+    - insert
+    - block
+    - mesh
+    - new
+    - create
+    - generate
+    - primitive
+  - name: bpy.ops.mesh.primitive_uv_sphere_add
+    description: Creates a new sphere mesh. Spheres are ideal for organic shapes,
+      planets, or balls.
+    params:
+      radius:
+        type: float
+        description: The radius of the sphere.
+        default: 1.0
+      location:
+        type: tuple
+        description: The [X, Y, Z] coordinates for the center of the new sphere.
+        default:
+        - 0
+        - 0
+        - 0
+    tags:
+    - globe
+    - add
+    - sphere
+    - shape
+    - object
+    - ball
+    - make
+    - geometry
+    - insert
+    - mesh
+    - new
+    - create
+    - round
+    - generate
+    - primitive
+  - name: bpy.ops.mesh.primitive_cylinder_add
+    description: Creates a new cylinder mesh. Useful for columns, pipes, or wheels.
+    params:
+      radius:
+        type: float
+        description: The radius of the cylinder.
+        default: 1.0
+      depth:
+        type: float
+        description: The height of the cylinder.
+        default: 2.0
+      location:
+        type: tuple
+        description: The [X, Y, Z] coordinates for the center of the cylinder.
+        default:
+        - 0
+        - 0
+        - 0
+    tags:
+    - tube
+    - pipe
+    - make
+    - add
+    - shape
+    - object
+    - geometry
+    - insert
+    - cylinder
+    - mesh
+    - new
+    - create
+    - generate
+    - primitive
+  - name: bpy.ops.mesh.primitive_plane_add
+    description: Creates a new flat plane. Ideal for floors, walls, or as a base for
+      other objects.
+    params:
+      size:
+        type: float
+        description: The length of each side of the plane.
+        default: 2.0
+      location:
+        type: tuple
+        description: The [X, Y, Z] coordinates for the center of the plane.
+        default:
+        - 0
+        - 0
+        - 0
+    tags:
+    - ground
+    - add
+    - shape
+    - object
+    - plane
+    - floor
+    - make
+    - flat
+    - geometry
+    - insert
+    - mesh
+    - new
+    - create
+    - generate
+    - primitive
+  - name: bpy.ops.mesh.primitive_torus_add
+    description: Creates a new torus (donut) mesh.
+    params:
+      major_radius:
+        type: float
+        description: The radius from the center to the middle of the torus ring.
+        default: 1.0
+      minor_radius:
+        type: float
+        description: The radius of the torus ring itself.
+        default: 0.25
+      location:
+        type: tuple
+        description: The [X, Y, Z] coordinates for the center of the torus.
+        default:
+        - 0
+        - 0
+        - 0
+    tags:
+    - make
+    - add
+    - shape
+    - object
+    - torus
+    - geometry
+    - insert
+    - mesh
+    - new
+    - create
+    - generate
+    - primitive

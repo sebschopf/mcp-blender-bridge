@@ -1,0 +1,57 @@
+object:
+  description: Tools for manipulating existing objects. Use these to change an object's
+    position, rotation, or size after it has been created.
+  tools:
+  - name: bpy.ops.transform.translate
+    description: Moves the currently active object along the X, Y, and Z axes.
+    params:
+      value:
+        type: tuple
+        description: A vector [X, Y, Z] specifying how far to move.
+        required: true
+    tags:
+    - scale
+    - move
+    - grab
+    - rotate
+    - transform
+    - resize
+    - translate
+    - position
+  - name: bpy.ops.transform.rotate
+    description: Rotates the active object around its origin.
+    params:
+      value:
+        type: float
+        description: The angle of rotation in radians.
+        required: true
+      orient_axis:
+        type: str
+        description: The axis to rotate around ('X', 'Y', 'Z').
+        required: true
+    tags:
+    - scale
+    - orient
+    - move
+    - rotate
+    - transform
+    - resize
+    - spin
+    - turn
+  - name: bpy.ops.transform.resize
+    description: Scales (resizes) the active object.
+    params:
+      value:
+        type: tuple
+        description: A scale factor vector [X, Y, Z]. e.g., [2, 1, 1] makes the object
+          twice as long on the X-axis.
+        required: true
+    tags:
+    - scale
+    - move
+    - rotate
+    - size
+    - smaller
+    - transform
+    - resize
+    - bigger

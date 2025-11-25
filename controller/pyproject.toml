@@ -1,0 +1,68 @@
+[project]
+name = "mcp_controller"
+version = "0.1.0"
+description = "The MCP Controller for the Blender-Gemini bridge."
+authors = [{ name = "Gemini Agent", email = "gemini@agent.com" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "google-genai",
+    "mcp",
+    "pyyaml",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-asyncio",
+    "httpx",
+]
+dev = [
+    "ruff",
+    "mypy",
+    "types-requests",
+    "types-PyYAML",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "D"]
+ignore = [] # Enforce all selected rules including docstrings
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+disallow_untyped_calls = false
+
+[tool.pyright]
+include = ["app", "tests"]
+exclude = [".venv"]
+reportMissingImports = true
+pythonVersion = "3.11"

@@ -1,0 +1,54 @@
+constraint:
+  description: Contraintes d'objets
+  tools:
+  - name: bpy.ops.constraint.add_target
+    label: CONSTRAINT_OT_add_target
+    description: Constraint Add Target operation.
+    tags:
+    - target
+    - make
+    - add
+    - add target
+    - insert
+    - new
+    - create
+    - constraint
+    - generate
+    params: {}
+  - name: bpy.ops.constraint.disable_keep_transform
+    label: CONSTRAINT_OT_disable_keep_transform
+    description: Constraint Disable Keep Transform operation.
+    tags:
+    - scale
+    - keep
+    - disable
+    - move
+    - rotate
+    - transform
+    - resize
+    - disable keep transform
+    - constraint
+    params: {}
+  - name: bpy.ops.constraint.normalize_target_weights
+    label: CONSTRAINT_OT_normalize_target_weights
+    description: Constraint Normalize Target Weights operation.
+    tags:
+    - target
+    - normalize target weights
+    - weights
+    - normalize
+    - constraint
+    params: {}
+  - name: bpy.ops.constraint.remove_target
+    label: CONSTRAINT_OT_remove_target
+    description: Constraint Remove Target operation.
+    tags:
+    - dissolve
+    - target
+    - erase
+    - remove target
+    - clear
+    - delete
+    - constraint
+    - remove
+    params: {}

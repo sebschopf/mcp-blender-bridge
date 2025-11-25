@@ -1,0 +1,795 @@
+sculpt:
+  description: Outils de sculpture
+  tools:
+  - name: bpy.ops.sculpt.brush_stroke
+    label: Sculpt
+    description: Sculpt a stroke into the geometry
+    tags:
+    - sculpt
+    - stroke
+    - brush
+    - brush stroke
+    params:
+      mode:
+        type: string
+        description: Action taken when a paint stroke is made
+      ignore_background_click:
+        type: boolean
+        description: Clicks on the background do not start the stroke
+  - name: bpy.ops.sculpt.cloth_filter
+    label: Filter Cloth
+    description: Applies a cloth simulation deformation to the entire mesh
+    tags:
+    - sculpt
+    - filter
+    - cloth filter
+    - cloth
+    params:
+      start_mouse:
+        type: integer
+        description: start_mouse
+      area_normal_radius:
+        type: float
+        description: 'Radius used for calculating area normal on initial click,
+
+          in percentage of brush radius'
+      strength:
+        type: float
+        description: Filter strength
+      iteration_count:
+        type: integer
+        description: How many times to repeat the filter
+      type:
+        type: string
+        description: Operation that is going to be applied to the mesh
+      force_axis:
+        type: string
+        description: Apply the force in the selected axis
+      orientation:
+        type: string
+        description: Orientation of the axis to limit the filter force
+      cloth_mass:
+        type: float
+        description: Mass of each simulation particle
+      cloth_damping:
+        type: float
+        description: How much the applied forces are propagated through the cloth
+      use_face_sets:
+        type: boolean
+        description: Apply the filter only to the Face Set under the cursor
+      use_collisions:
+        type: boolean
+        description: Collide with other collider objects in the scene
+  - name: bpy.ops.sculpt.color_filter
+    label: Filter Color
+    description: Applies a filter to modify the active color attribute
+    tags:
+    - sculpt
+    - filter
+    - color filter
+    - color
+    params:
+      start_mouse:
+        type: integer
+        description: start_mouse
+      area_normal_radius:
+        type: float
+        description: 'Radius used for calculating area normal on initial click,
+
+          in percentage of brush radius'
+      strength:
+        type: float
+        description: Filter strength
+      iteration_count:
+        type: integer
+        description: How many times to repeat the filter
+      type:
+        type: string
+        description: type
+      fill_color:
+        type: float
+        description: fill_color
+  - name: bpy.ops.sculpt.detail_flood_fill
+    label: Detail Flood Fill
+    description: Flood fill the mesh with the selected detail setting
+    tags:
+    - detail
+    - sculpt
+    - flood
+    - fill
+    - detail flood fill
+    params: {}
+  - name: bpy.ops.sculpt.dynamic_topology_toggle
+    label: Dynamic Topology Toggle
+    description: Dynamic topology alters the mesh topology while sculpting
+    tags:
+    - dynamic topology toggle
+    - dynamic
+    - toggle
+    - sculpt
+    - topology
+    params: {}
+  - name: bpy.ops.sculpt.dyntopo_detail_size_edit
+    label: Edit Dyntopo Detail Size
+    description: Modify the detail size of dyntopo interactively
+    tags:
+    - detail
+    - dyntopo
+    - sculpt
+    - size
+    - dyntopo detail size edit
+    - edit
+    params: {}
+  - name: bpy.ops.sculpt.expand
+    label: Expand
+    description: Generic sculpt expand operator
+    tags:
+    - sculpt
+    - expand
+    params:
+      target:
+        type: string
+        description: Data that is going to be modified in the expand operation
+      falloff_type:
+        type: string
+        description: Initial falloff of the expand operation
+      invert:
+        type: boolean
+        description: Invert the expand active elements
+      use_mask_preserve:
+        type: boolean
+        description: Preserve the previous state of the target data
+      use_falloff_gradient:
+        type: boolean
+        description: Expand Using a linear falloff
+      use_modify_active:
+        type: boolean
+        description: Modify the active Face Set instead of creating a new one
+      use_reposition_pivot:
+        type: boolean
+        description: Reposition the sculpt transform pivot to the boundary of the
+          expand active area
+      max_geodesic_move_preview:
+        type: integer
+        description: Maximum number of vertices in the mesh for using geodesic falloff
+          when moving the origin of expand. If the total number of vertices is greater
+          than this value, the falloff will be set to spherical when moving
+      use_auto_mask:
+        type: boolean
+        description: Fill in mask if nothing is already masked
+      normal_falloff_smooth:
+        type: integer
+        description: Blurring steps for normal falloff
+  - name: bpy.ops.sculpt.face_set_box_gesture
+    label: Face Set Box Gesture
+    description: Add a face set in a rectangle defined by the cursor
+    tags:
+    - sculpt
+    - box
+    - face set box gesture
+    - gesture
+    - set
+    - face
+    params:
+      use_front_faces_only:
+        type: boolean
+        description: Affect only faces facing towards the view
+  - name: bpy.ops.sculpt.face_set_change_visibility
+    label: Face Sets Visibility
+    description: Change the visibility of the Face Sets of the sculpt
+    tags:
+    - sculpt
+    - visibility
+    - set
+    - change
+    - face
+    - face set change visibility
+    params:
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.sculpt.face_set_edit
+    label: Edit Face Set
+    description: Edits the current active Face Set
+    tags:
+    - sculpt
+    - face set edit
+    - face
+    - edit
+    - set
+    params:
+      mode:
+        type: string
+        description: mode
+      strength:
+        type: float
+        description: strength
+      modify_hidden:
+        type: boolean
+        description: Apply the edit operation to hidden geometry
+  - name: bpy.ops.sculpt.face_set_extract
+    label: Face Set Extract
+    description: Create a new mesh object from the selected Face Set
+    tags:
+    - sculpt
+    - face set extract
+    - extract
+    - set
+    - face
+    params:
+      add_boundary_loop:
+        type: boolean
+        description: Add an extra edge loop to better preserve the shape when applying
+          a subdivision surface modifier
+      smooth_iterations:
+        type: integer
+        description: Smooth iterations applied to the extracted mesh
+      apply_shrinkwrap:
+        type: boolean
+        description: Project the extracted mesh into the original sculpt
+      add_solidify:
+        type: boolean
+        description: Extract the mask as a solid object with a solidify modifier
+  - name: bpy.ops.sculpt.face_set_lasso_gesture
+    label: Face Set Lasso Gesture
+    description: Add a face set in a shape defined by the cursor
+    tags:
+    - sculpt
+    - lasso
+    - gesture
+    - set
+    - face set lasso gesture
+    - face
+    params:
+      use_smooth_stroke:
+        type: boolean
+        description: Selection lags behind mouse and follows a smoother path
+      smooth_stroke_factor:
+        type: float
+        description: Higher values gives a smoother stroke
+      smooth_stroke_radius:
+        type: integer
+        description: Minimum distance from last point before selection continues
+      use_front_faces_only:
+        type: boolean
+        description: Affect only faces facing towards the view
+  - name: bpy.ops.sculpt.face_set_line_gesture
+    label: Face Set Line Gesture
+    description: Add a face set to one side of a line defined by the cursor
+    tags:
+    - face set line gesture
+    - line
+    - sculpt
+    - gesture
+    - set
+    - face
+    params:
+      use_front_faces_only:
+        type: boolean
+        description: Affect only faces facing towards the view
+      use_limit_to_segment:
+        type: boolean
+        description: Apply the gesture action only to the area that is contained within
+          the segment without extending its effect to the entire line
+  - name: bpy.ops.sculpt.face_set_polyline_gesture
+    label: Face Set Lasso Gesture
+    description: Add a face set in a shape defined by the cursor
+    tags:
+    - polyline
+    - sculpt
+    - face set polyline gesture
+    - gesture
+    - set
+    - face
+    params:
+      use_front_faces_only:
+        type: boolean
+        description: Affect only faces facing towards the view
+  - name: bpy.ops.sculpt.face_sets_create
+    label: Create Face Set
+    description: Create a new Face Set
+    tags:
+    - face sets create
+    - sculpt
+    - sets
+    - create
+    - face
+    params:
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.sculpt.face_sets_init
+    label: Init Face Sets
+    description: Initializes all Face Sets in the mesh
+    tags:
+    - init
+    - sculpt
+    - face sets init
+    - sets
+    - face
+    params:
+      mode:
+        type: string
+        description: mode
+      threshold:
+        type: float
+        description: Minimum value to consider a certain attribute a boundary when
+          creating the Face Sets
+  - name: bpy.ops.sculpt.face_sets_randomize_colors
+    label: Randomize Face Sets Colors
+    description: Generates a new set of random colors to render the Face Sets in the
+      viewport
+    tags:
+    - randomize
+    - sculpt
+    - colors
+    - sets
+    - face sets randomize colors
+    - face
+    params: {}
+  - name: bpy.ops.sculpt.mask_by_color
+    label: Mask by Color
+    description: Creates a mask based on the active color attribute
+    tags:
+    - sculpt
+    - mask
+    - mask by color
+    - color
+    params:
+      contiguous:
+        type: boolean
+        description: Mask only contiguous color areas
+      invert:
+        type: boolean
+        description: Invert the generated mask
+      preserve_previous_mask:
+        type: boolean
+        description: Preserve the previous mask and add or subtract the new one generated
+          by the colors
+      threshold:
+        type: float
+        description: How much changes in color affect the mask generation
+  - name: bpy.ops.sculpt.mask_filter
+    label: Mask Filter
+    description: Applies a filter to modify the current mask
+    tags:
+    - sculpt
+    - mask
+    - mask filter
+    - filter
+    params:
+      filter_type:
+        type: string
+        description: Filter that is going to be applied to the mask
+      iterations:
+        type: integer
+        description: Number of times that the filter is going to be applied
+      auto_iteration_count:
+        type: boolean
+        description: Use an automatic number of iterations based on the number of
+          vertices of the sculpt
+  - name: bpy.ops.sculpt.mask_from_boundary
+    label: Mask From Boundary
+    description: Creates a mask based on the boundaries of the surface
+    tags:
+    - mask
+    - mask from boundary
+    - sculpt
+    - from
+    - boundary
+    params:
+      mix_mode:
+        type: string
+        description: Mix mode
+      mix_factor:
+        type: float
+        description: mix_factor
+      settings_source:
+        type: string
+        description: Use settings from here
+      boundary_mode:
+        type: string
+        description: Boundary type to mask
+      propagation_steps:
+        type: integer
+        description: propagation_steps
+  - name: bpy.ops.sculpt.mask_from_cavity
+    label: Mask From Cavity
+    description: Creates a mask based on the curvature of the surface
+    tags:
+    - cavity
+    - mask
+    - sculpt
+    - mask from cavity
+    - from
+    params:
+      mix_mode:
+        type: string
+        description: Mix mode
+      mix_factor:
+        type: float
+        description: mix_factor
+      settings_source:
+        type: string
+        description: Use settings from here
+      factor:
+        type: float
+        description: The contrast of the cavity mask
+      blur_steps:
+        type: integer
+        description: The number of times the cavity mask is blurred
+      use_curve:
+        type: boolean
+        description: use_curve
+      invert:
+        type: boolean
+        description: invert
+  - name: bpy.ops.sculpt.mask_init
+    label: Init Mask
+    description: Creates a new mask for the entire mesh
+    tags:
+    - sculpt
+    - mask
+    - init
+    - mask init
+    params:
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.sculpt.mesh_filter
+    label: Filter Mesh
+    description: Applies a filter to modify the current mesh
+    tags:
+    - sculpt
+    - mesh
+    - mesh filter
+    - filter
+    params:
+      start_mouse:
+        type: integer
+        description: start_mouse
+      area_normal_radius:
+        type: float
+        description: 'Radius used for calculating area normal on initial click,
+
+          in percentage of brush radius'
+      strength:
+        type: float
+        description: Filter strength
+      iteration_count:
+        type: integer
+        description: How many times to repeat the filter
+      type:
+        type: string
+        description: Operation that is going to be applied to the mesh
+      deform_axis:
+        type: string
+        description: Apply the deformation in the selected axis
+      orientation:
+        type: string
+        description: Orientation of the axis to limit the filter displacement
+      surface_smooth_shape_preservation:
+        type: float
+        description: How much of the original shape is preserved when smoothing
+      surface_smooth_current_vertex:
+        type: float
+        description: How much the position of each individual vertex influences the
+          final result
+      sharpen_smooth_ratio:
+        type: float
+        description: How much smoothing is applied to polished surfaces
+      sharpen_intensify_detail_strength:
+        type: float
+        description: How much creases and valleys are intensified
+      sharpen_curvature_smooth_iterations:
+        type: integer
+        description: How much smooth the resulting shape is, ignoring high frequency
+          details
+  - name: bpy.ops.sculpt.optimize
+    label: Rebuild BVH
+    description: Recalculate the sculpt BVH to improve performance
+    tags:
+    - sculpt
+    - optimize
+    params: {}
+  - name: bpy.ops.sculpt.paint_mask_extract
+    label: Mask Extract
+    description: Create a new mesh object from the current paint mask
+    tags:
+    - mask
+    - sculpt
+    - paint mask extract
+    - extract
+    - paint
+    params:
+      mask_threshold:
+        type: float
+        description: Minimum mask value to consider the vertex valid to extract a
+          face from the original mesh
+      add_boundary_loop:
+        type: boolean
+        description: Add an extra edge loop to better preserve the shape when applying
+          a subdivision surface modifier
+      smooth_iterations:
+        type: integer
+        description: Smooth iterations applied to the extracted mesh
+      apply_shrinkwrap:
+        type: boolean
+        description: Project the extracted mesh into the original sculpt
+      add_solidify:
+        type: boolean
+        description: Extract the mask as a solid object with a solidify modifier
+  - name: bpy.ops.sculpt.paint_mask_slice
+    label: Mask Slice
+    description: Slices the paint mask from the mesh
+    tags:
+    - mask
+    - paint mask slice
+    - sculpt
+    - slice
+    - paint
+    params:
+      mask_threshold:
+        type: float
+        description: Minimum mask value to consider the vertex valid to extract a
+          face from the original mesh
+      fill_holes:
+        type: boolean
+        description: Fill holes after slicing the mask
+      new_object:
+        type: boolean
+        description: Create a new object from the sliced mask
+  - name: bpy.ops.sculpt.project_line_gesture
+    label: Project Line Gesture
+    description: Project the geometry onto a plane defined by a line
+    tags:
+    - line
+    - sculpt
+    - project line gesture
+    - project
+    - gesture
+    params:
+      use_front_faces_only:
+        type: boolean
+        description: Affect only faces facing towards the view
+      use_limit_to_segment:
+        type: boolean
+        description: Apply the gesture action only to the area that is contained within
+          the segment without extending its effect to the entire line
+  - name: bpy.ops.sculpt.sample_color
+    label: Sample Color
+    description: Sample the vertex color of the active vertex
+    tags:
+    - sculpt
+    - sample color
+    - sample
+    - color
+    params: {}
+  - name: bpy.ops.sculpt.sample_detail_size
+    label: Sample Detail Size
+    description: Sample the mesh detail on clicked point
+    tags:
+    - detail
+    - sculpt
+    - size
+    - sample detail size
+    - sample
+    params: {}
+  - name: bpy.ops.sculpt.sculptmode_toggle
+    label: Sculpt Mode
+    description: Toggle sculpt mode in 3D view
+    tags:
+    - sculpt
+    - sculptmode toggle
+    - toggle
+    - sculptmode
+    params: {}
+  - name: bpy.ops.sculpt.set_persistent_base
+    label: Set Persistent Base
+    description: Reset the copy of the mesh that is being sculpted on
+    tags:
+    - base
+    - sculpt
+    - set
+    - persistent
+    - set persistent base
+    params: {}
+  - name: bpy.ops.sculpt.set_pivot_position
+    label: Set Pivot Position
+    description: Sets the sculpt transform pivot position
+    tags:
+    - pivot
+    - sculpt
+    - set pivot position
+    - set
+    - position
+    params:
+      mode:
+        type: string
+        description: mode
+      mouse_x:
+        type: float
+        description: Position of the mouse used for "Surface" and "Active Vertex"
+          mode
+      mouse_y:
+        type: float
+        description: Position of the mouse used for "Surface" and "Active Vertex"
+          mode
+  - name: bpy.ops.sculpt.symmetrize
+    label: Symmetrize
+    description: Symmetrize the topology modifications
+    tags:
+    - sculpt
+    - symmetrize
+    params:
+      merge_tolerance:
+        type: float
+        description: Distance within which symmetrical vertices are merged
+  - name: bpy.ops.sculpt.trim_box_gesture
+    label: Trim Box Gesture
+    description: Execute a boolean operation on the mesh and a rectangle defined by
+      the cursor
+    tags:
+    - sculpt
+    - trim
+    - box
+    - gesture
+    - trim box gesture
+    params:
+      use_front_faces_only:
+        type: boolean
+        description: Affect only faces facing towards the view
+      trim_mode:
+        type: string
+        description: trim_mode
+      use_cursor_depth:
+        type: boolean
+        description: Use cursor location and radius for the dimensions and position
+          of the trimming shape
+      trim_orientation:
+        type: string
+        description: trim_orientation
+      trim_extrude_mode:
+        type: string
+        description: trim_extrude_mode
+      trim_solver:
+        type: string
+        description: trim_solver
+  - name: bpy.ops.sculpt.trim_lasso_gesture
+    label: Trim Lasso Gesture
+    description: Execute a boolean operation on the mesh and a shape defined by the
+      cursor
+    tags:
+    - sculpt
+    - trim lasso gesture
+    - trim
+    - lasso
+    - gesture
+    params:
+      use_smooth_stroke:
+        type: boolean
+        description: Selection lags behind mouse and follows a smoother path
+      smooth_stroke_factor:
+        type: float
+        description: Higher values gives a smoother stroke
+      smooth_stroke_radius:
+        type: integer
+        description: Minimum distance from last point before selection continues
+      use_front_faces_only:
+        type: boolean
+        description: Affect only faces facing towards the view
+      trim_mode:
+        type: string
+        description: trim_mode
+      use_cursor_depth:
+        type: boolean
+        description: Use cursor location and radius for the dimensions and position
+          of the trimming shape
+      trim_orientation:
+        type: string
+        description: trim_orientation
+      trim_extrude_mode:
+        type: string
+        description: trim_extrude_mode
+      trim_solver:
+        type: string
+        description: trim_solver
+  - name: bpy.ops.sculpt.trim_line_gesture
+    label: Trim Line Gesture
+    description: Remove a portion of the mesh on one side of a line
+    tags:
+    - line
+    - sculpt
+    - trim line gesture
+    - trim
+    - gesture
+    params:
+      use_front_faces_only:
+        type: boolean
+        description: Affect only faces facing towards the view
+      use_limit_to_segment:
+        type: boolean
+        description: Apply the gesture action only to the area that is contained within
+          the segment without extending its effect to the entire line
+      trim_mode:
+        type: string
+        description: trim_mode
+      use_cursor_depth:
+        type: boolean
+        description: Use cursor location and radius for the dimensions and position
+          of the trimming shape
+      trim_orientation:
+        type: string
+        description: trim_orientation
+      trim_extrude_mode:
+        type: string
+        description: trim_extrude_mode
+      trim_solver:
+        type: string
+        description: trim_solver
+  - name: bpy.ops.sculpt.trim_polyline_gesture
+    label: Trim Polyline Gesture
+    description: Execute a boolean operation on the mesh and a polygonal shape defined
+      by the cursor
+    tags:
+    - polyline
+    - sculpt
+    - trim
+    - gesture
+    - trim polyline gesture
+    params:
+      use_front_faces_only:
+        type: boolean
+        description: Affect only faces facing towards the view
+      trim_mode:
+        type: string
+        description: trim_mode
+      use_cursor_depth:
+        type: boolean
+        description: Use cursor location and radius for the dimensions and position
+          of the trimming shape
+      trim_orientation:
+        type: string
+        description: trim_orientation
+      trim_extrude_mode:
+        type: string
+        description: trim_extrude_mode
+      trim_solver:
+        type: string
+        description: trim_solver
+  - name: bpy.ops.sculpt.uv_sculpt_grab
+    label: Grab UVs
+    description: Grab UVs
+    tags:
+    - sculpt
+    - uv sculpt grab
+    - grab
+    params:
+      use_invert:
+        type: boolean
+        description: Invert action for the duration of the stroke
+  - name: bpy.ops.sculpt.uv_sculpt_pinch
+    label: Pinch UVs
+    description: Pinch UVs
+    tags:
+    - sculpt
+    - uv sculpt pinch
+    - pinch
+    params:
+      use_invert:
+        type: boolean
+        description: Invert action for the duration of the stroke
+  - name: bpy.ops.sculpt.uv_sculpt_relax
+    label: Relax UVs
+    description: Relax UVs
+    tags:
+    - sculpt
+    - uv sculpt relax
+    - relax
+    params:
+      use_invert:
+        type: boolean
+        description: Invert action for the duration of the stroke
+      relax_method:
+        type: string
+        description: Algorithm used for UV relaxation

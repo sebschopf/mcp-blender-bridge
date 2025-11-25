@@ -1,0 +1,36 @@
+material:
+  description: Matériaux
+  tools:
+  - name: bpy.ops.material.copy
+    label: Copy Material
+    description: Copy the material settings and nodes
+    tags:
+    - color
+    - material
+    - shader
+    - surface
+    - copy
+    - texture
+    params: {}
+  - name: bpy.ops.material.new
+    label: New Material
+    description: Add a new material
+    tags:
+    - color
+    - surface
+    - material
+    - new
+    - shader
+    - texture
+    params: {}
+  - name: bpy.ops.material.paste
+    label: Paste Material
+    description: Paste the material settings and nodes
+    tags:
+    - color
+    - paste
+    - material
+    - surface
+    - shader
+    - texture
+    params: {}

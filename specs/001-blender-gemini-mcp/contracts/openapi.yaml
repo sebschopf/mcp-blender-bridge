@@ -1,0 +1,108 @@
+openapi: 3.0.0
+info:
+  title: Blender-Gemini MCP Controller API
+  description: API for communication between the Blender Addon (Peripheral) and the FastAPI server (Controller).
+  version: 1.0.0
+
+paths:
+  /api/chat:
+    post:
+      summary: Send a user message to the chat
+      operationId: send_chat_message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommandRequest'
+      responses:
+        '200':
+          description: Successful response from the AI
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommandResponse'
+        '400':
+          description: Invalid request
+
+  /api/event/{event_type}:
+    post:
+      summary: Notify the Controller of a client-side event
+      operationId: notify_event
+      parameters:
+        - name: event_type
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [undo, connect, disconnect]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SessionID:
+                  type: string
+                  description: A unique identifier for the Blender session.
+      responses:
+        '200':
+          description: Event successfully processed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+
+components:
+  schemas:
+    CommandRequest:
+      type: object
+      properties:
+        SessionID:
+          type: string
+          description: A unique identifier for the Blender session.
+        Message:
+          type: string
+          description: The user's latest prompt.
+      required:
+        - SessionID
+        - Message
+
+    BpyCommand:
+      type: object
+      properties:
+        CommandType:
+          type: string
+          example: "EXECUTE_BPY"
+        Script:
+          type: string
+          example: "bpy.ops.mesh.primitive_cube_add(size=2)"
+        RequiresConfirmation:
+          type: boolean
+          default: false
+      required:
+        - CommandType
+        - Script
+
+    CommandResponse:
+      type: object
+      properties:
+        AiMessage:
+          type: string
+          description: The AI's text response to the user.
+        Commands:
+          type: array
+          items:
+            $ref: '#/components/schemas/BpyCommand'
+        Status:
+          type: string
+          example: "AWAITING_USER_INPUT"
+      required:
+        - AiMessage
+        - Commands
+        - Status

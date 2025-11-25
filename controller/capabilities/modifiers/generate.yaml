@@ -1,0 +1,102 @@
+modifiers:
+  description: Tools for adding, configuring, and applying modifiers that generate
+    new geometry.
+  tools:
+  - name: modifiers.add_array
+    description: Creates duplicates of the object in a linear or radial pattern. Helper
+      tool.
+    params:
+      count:
+        type: int
+        description: The number of duplicates to create.
+        required: true
+      relative_offset:
+        type: list
+        description: The [X, Y, Z] offset relative to the object's size.
+        required: false
+    tags:
+    - make
+    - add
+    - array
+    - insert
+    - modifiers
+    - new
+    - create
+    - generate
+  - name: modifiers.add_bevel
+    description: Adds a bevel effect to the object's edges. Helper tool.
+    params:
+      width:
+        type: float
+        description: The width of the bevel.
+        required: true
+      segments:
+        type: int
+        description: The number of segments for a smoother bevel.
+        required: false
+        default: 1
+    tags:
+    - bevel
+    - chamfer
+    - make
+    - add
+    - smooth corner
+    - insert
+    - modifiers
+    - round edge
+    - new
+    - create
+    - generate
+  - name: modifiers.add_boolean
+    description: Performs a boolean operation (difference, union, intersect) with
+      another object. Helper tool.
+    params:
+      target_object_name:
+        type: str
+        description: The name of the object to use for the boolean operation.
+        required: true
+      operation:
+        type: str
+        description: 'The type of operation: ''DIFFERENCE'', ''UNION'', ''INTERSECT''.'
+        required: true
+    tags:
+    - make
+    - add
+    - boolean
+    - insert
+    - modifiers
+    - new
+    - create
+    - generate
+  - name: modifiers.add_solidify
+    description: Gives thickness to a flat surface. Helper tool.
+    params:
+      thickness:
+        type: float
+        description: The thickness to add.
+        required: true
+    tags:
+    - make
+    - add
+    - solidify
+    - insert
+    - modifiers
+    - new
+    - create
+    - generate
+  - name: modifiers.add_decimate
+    description: Reduces the polygon count of the object. Essential for Low Poly style.
+    params:
+      ratio:
+        type: float
+        description: The ratio of faces to keep (1.0 = keep all, 0.1 = keep 10%). Lower values make it more low-poly.
+        required: true
+    tags:
+    - low poly
+    - reduce
+    - simplify
+    - decimate
+    - modifiers
+    - make
+    - add
+

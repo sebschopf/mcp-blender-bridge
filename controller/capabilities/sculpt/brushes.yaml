@@ -1,0 +1,30 @@
+sculpt:
+  description: Tools for organic modeling and sculpting. Use these to shape meshes
+    in a more artistic and fluid way.
+  tools:
+  - name: sculpt.apply_brush
+    description: Applies a single stroke of a specified sculpting brush to a location
+      on the active object. This is a helper tool that encapsulates entering sculpt
+      mode, applying the brush, and exiting.
+    params:
+      brush_name:
+        type: str
+        description: The name of the brush to use (e.g., 'Draw', 'Grab', 'Clay Strips').
+        required: true
+      location:
+        type: list
+        description: The [X, Y, Z] world coordinate where the brush stroke should
+          be applied.
+        required: true
+      size:
+        type: int
+        description: The radius of the brush in pixels.
+        required: false
+      strength:
+        type: float
+        description: The strength of the brush, from 0.0 to 1.0.
+        required: false
+    tags:
+    - sculpt
+    - brush
+    - apply

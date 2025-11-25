@@ -1,0 +1,961 @@
+anim:
+  description: Animation
+  tools:
+  - name: bpy.ops.anim.change_frame
+    label: Change Frame
+    description: Interactively change the current frame number
+    tags:
+    - keyframe
+    - change frame
+    - frame
+    - anim
+    - change
+    - motion
+    - animation
+    params:
+      frame:
+        type: float
+        description: frame
+      snap:
+        type: boolean
+        description: snap
+      seq_solo_preview:
+        type: boolean
+        description: seq_solo_preview
+  - name: bpy.ops.anim.channel_select_keys
+    label: Select Channel Keyframes
+    description: Select all keyframes of channel under mouse
+    tags:
+    - choose
+    - pick
+    - channel
+    - animation
+    - select
+    - grab
+    - channel select keys
+    - keyframe
+    - keys
+    - anim
+    - motion
+    params:
+      extend:
+        type: boolean
+        description: Extend selection
+  - name: bpy.ops.anim.channel_view_pick
+    label: Frame Channel Under Cursor
+    description: Reset viewable area to show the channel under the cursor
+    tags:
+    - pick
+    - channel
+    - channel view pick
+    - animation
+    - view
+    - keyframe
+    - anim
+    - motion
+    params:
+      include_handles:
+        type: boolean
+        description: Include handles of keyframes when calculating extents
+      use_preview_range:
+        type: boolean
+        description: Ignore frames outside of the preview range
+  - name: bpy.ops.anim.channels_bake
+    label: Bake Channels
+    description: Create keyframes following the current shape of F-Curves of selected
+      channels
+    tags:
+    - channels
+    - motion
+    - keyframe
+    - anim
+    - bake
+    - channels bake
+    - animation
+    params:
+      range:
+        type: integer
+        description: The range in which to create new keys
+      step:
+        type: float
+        description: At which interval to add keys
+      remove_outside_range:
+        type: boolean
+        description: Removes keys outside the given range, leaving only the newly
+          baked
+      interpolation_type:
+        type: string
+        description: Choose the interpolation type with which new keys will be added
+      bake_modifiers:
+        type: boolean
+        description: Bake Modifiers into keyframes and delete them after
+  - name: bpy.ops.anim.channels_clean_empty
+    label: Remove Empty Animation Data
+    description: Delete all empty animation data containers from visible data-blocks
+    tags:
+    - clean
+    - animation
+    - channels
+    - empty
+    - channels clean empty
+    - keyframe
+    - anim
+    - motion
+    params: {}
+  - name: bpy.ops.anim.channels_click
+    label: Mouse Click on Channels
+    description: Handle mouse clicks over animation channels
+    tags:
+    - channels
+    - keyframe
+    - channels click
+    - anim
+    - click
+    - motion
+    - animation
+    params:
+      extend:
+        type: boolean
+        description: extend
+      extend_range:
+        type: boolean
+        description: Selection of active channel to clicked channel
+      children_only:
+        type: boolean
+        description: children_only
+  - name: bpy.ops.anim.channels_collapse
+    label: Collapse Channels
+    description: Collapse (close) all selected expandable animation channels
+    tags:
+    - channels
+    - collapse
+    - channels collapse
+    - keyframe
+    - anim
+    - motion
+    - animation
+    params:
+      all:
+        type: boolean
+        description: Collapse all channels (not just selected ones)
+  - name: bpy.ops.anim.channels_delete
+    label: Delete Channels
+    description: Delete all selected animation channels
+    tags:
+    - channels
+    - keyframe
+    - channels delete
+    - anim
+    - delete
+    - motion
+    - animation
+    params: {}
+  - name: bpy.ops.anim.channels_editable_toggle
+    label: Toggle Channel Editability
+    description: Toggle editability of selected channels
+    tags:
+    - channels editable toggle
+    - toggle
+    - animation
+    - channels
+    - keyframe
+    - anim
+    - editable
+    - motion
+    params:
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.anim.channels_expand
+    label: Expand Channels
+    description: Expand (open) all selected expandable animation channels
+    tags:
+    - channels
+    - motion
+    - keyframe
+    - anim
+    - channels expand
+    - expand
+    - animation
+    params:
+      all:
+        type: boolean
+        description: Expand all channels (not just selected ones)
+  - name: bpy.ops.anim.channels_fcurves_enable
+    label: Revive Disabled F-Curves
+    description: Clear 'disabled' tag from all F-Curves to get broken F-Curves working
+      again
+    tags:
+    - channels fcurves enable
+    - animation
+    - enable
+    - channels
+    - keyframe
+    - anim
+    - motion
+    - fcurves
+    params: {}
+  - name: bpy.ops.anim.channels_group
+    label: Group Channels
+    description: Add selected F-Curves to a new group
+    tags:
+    - channels
+    - motion
+    - keyframe
+    - anim
+    - channels group
+    - animation
+    - group
+    params: {}
+  - name: bpy.ops.anim.channels_move
+    label: Move Channels
+    description: Rearrange selected animation channels
+    tags:
+    - channels
+    - keyframe
+    - channels move
+    - anim
+    - move
+    - motion
+    - animation
+    params:
+      direction:
+        type: string
+        description: direction
+  - name: bpy.ops.anim.channels_rename
+    label: Rename Channel
+    description: Rename animation channel under mouse
+    tags:
+    - channels
+    - keyframe
+    - channels rename
+    - anim
+    - motion
+    - animation
+    - rename
+    params: {}
+  - name: bpy.ops.anim.channels_select_all
+    label: Select All
+    description: Toggle selection of all animation channels
+    tags:
+    - choose
+    - pick
+    - all
+    - select
+    - channels select all
+    - animation
+    - grab
+    - channels
+    - keyframe
+    - anim
+    - motion
+    params: {}
+  - name: bpy.ops.anim.channels_select_box
+    label: Box Select
+    description: Select all animation channels within the specified region
+    tags:
+    - channels select box
+    - choose
+    - pick
+    - animation
+    - select
+    - grab
+    - channels
+    - keyframe
+    - box
+    - anim
+    - motion
+    params:
+      deselect:
+        type: boolean
+        description: Deselect rather than select items
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+  - name: bpy.ops.anim.channels_select_filter
+    label: Filter Channels
+    description: Start entering text which filters the set of channels shown to only
+      include those with matching names
+    tags:
+    - channels select filter
+    - filter
+    - choose
+    - pick
+    - animation
+    - select
+    - grab
+    - channels
+    - keyframe
+    - anim
+    - motion
+    params: {}
+  - name: bpy.ops.anim.channels_setting_disable
+    label: Disable Channel Setting
+    description: Disable specified setting on all selected animation channels
+    tags:
+    - setting
+    - channels setting disable
+    - disable
+    - animation
+    - channels
+    - keyframe
+    - anim
+    - motion
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.anim.channels_setting_enable
+    label: Enable Channel Setting
+    description: Enable specified setting on all selected animation channels
+    tags:
+    - setting
+    - animation
+    - channels setting enable
+    - enable
+    - channels
+    - keyframe
+    - anim
+    - motion
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.anim.channels_setting_toggle
+    label: Toggle Channel Setting
+    description: Toggle specified setting on all selected animation channels
+    tags:
+    - setting
+    - toggle
+    - animation
+    - channels setting toggle
+    - channels
+    - keyframe
+    - anim
+    - motion
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.anim.channels_ungroup
+    label: Ungroup Channels
+    description: Remove selected F-Curves from their current groups
+    tags:
+    - channels ungroup
+    - channels
+    - keyframe
+    - anim
+    - animation
+    - motion
+    - ungroup
+    params: {}
+  - name: bpy.ops.anim.channels_view_selected
+    label: Frame Selected Channels
+    description: Reset viewable area to show the selected channels
+    tags:
+    - animation
+    - view
+    - channels
+    - motion
+    - keyframe
+    - anim
+    - channels view selected
+    - selected
+    params:
+      include_handles:
+        type: boolean
+        description: Include handles of keyframes when calculating extents
+      use_preview_range:
+        type: boolean
+        description: Ignore frames outside of the preview range
+  - name: bpy.ops.anim.clear_useless_actions
+    label: Clear Useless Actions
+    description: Mark actions with no F-Curves for deletion after save and reload
+      of file preserving "action libraries"
+    tags:
+    - useless
+    - clear useless actions
+    - animation
+    - actions
+    - keyframe
+    - anim
+    - clear
+    - motion
+    params:
+      only_unused:
+        type: boolean
+        description: Only unused (Fake User only) actions get considered
+  - name: bpy.ops.anim.convert_legacy_action
+    label: Convert Legacy Action
+    description: Convert a legacy Action to a layered Action on the active object
+    tags:
+    - convert
+    - convert legacy action
+    - animation
+    - action
+    - legacy
+    - keyframe
+    - anim
+    - motion
+    params: {}
+  - name: bpy.ops.anim.copy_driver_button
+    label: Copy Driver
+    description: Copy the driver for the highlighted button
+    tags:
+    - copy driver button
+    - button
+    - animation
+    - keyframe
+    - anim
+    - driver
+    - motion
+    - copy
+    params: {}
+  - name: bpy.ops.anim.driver_button_add
+    label: Add Driver
+    description: Add driver for the property under the cursor
+    tags:
+    - make
+    - add
+    - create
+    - button
+    - animation
+    - driver button add
+    - keyframe
+    - insert
+    - anim
+    - new
+    - driver
+    - motion
+    - generate
+    params: {}
+  - name: bpy.ops.anim.driver_button_edit
+    label: Edit Driver
+    description: Edit the drivers for the connected property represented by the highlighted
+      button
+    tags:
+    - driver button edit
+    - button
+    - animation
+    - keyframe
+    - anim
+    - driver
+    - motion
+    - edit
+    params: {}
+  - name: bpy.ops.anim.driver_button_remove
+    label: Remove Driver
+    description: Remove the driver(s) for the connected property(s) represented by
+      the highlighted button
+    tags:
+    - dissolve
+    - erase
+    - button
+    - animation
+    - delete
+    - driver button remove
+    - keyframe
+    - anim
+    - clear
+    - driver
+    - motion
+    - remove
+    params:
+      all:
+        type: boolean
+        description: Delete drivers for all elements of the array
+  - name: bpy.ops.anim.end_frame_set
+    label: Set End Frame
+    description: Set the current frame as the preview or scene end frame
+    tags:
+    - end
+    - end frame set
+    - frame
+    - animation
+    - keyframe
+    - anim
+    - set
+    - motion
+    params: {}
+  - name: bpy.ops.anim.keyframe_clear_button
+    label: Clear Keyframe (Buttons)
+    description: Clear all keyframes on the currently active property
+    tags:
+    - button
+    - animation
+    - keyframe
+    - anim
+    - clear
+    - motion
+    - keyframe clear button
+    params:
+      all:
+        type: boolean
+        description: Clear keyframes from all elements of the array
+  - name: bpy.ops.anim.keyframe_clear_v3d
+    label: Remove Animation
+    description: Remove all keyframe animation for selected objects
+    tags:
+    - animation
+    - keyframe clear v3d
+    - keyframe
+    - v3d
+    - anim
+    - clear
+    - motion
+    params: {}
+  - name: bpy.ops.anim.keyframe_delete
+    label: Delete Keying-Set Keyframe
+    description: Delete keyframes on the current frame for all properties in the specified
+      Keying Set
+    tags:
+    - keyframe
+    - keyframe delete
+    - anim
+    - delete
+    - motion
+    - animation
+    params: {}
+  - name: bpy.ops.anim.keyframe_delete_button
+    label: Delete Keyframe (Buttons)
+    description: Delete current keyframe of current UI-active property
+    tags:
+    - keyframe delete button
+    - button
+    - animation
+    - keyframe
+    - anim
+    - delete
+    - motion
+    params:
+      all:
+        type: boolean
+        description: Delete keyframes from all elements of the array
+  - name: bpy.ops.anim.keyframe_delete_by_name
+    label: Delete Keying-Set Keyframe (by name)
+    description: Alternate access to 'Delete Keyframe' for keymaps to use
+    tags:
+    - animation
+    - keyframe
+    - keyframe delete by name
+    - name
+    - anim
+    - delete
+    - motion
+    params: {}
+  - name: bpy.ops.anim.keyframe_delete_v3d
+    label: Delete Keyframe
+    description: Remove keyframes on current frame for selected objects and bones
+    tags:
+    - keyframe delete v3d
+    - animation
+    - keyframe
+    - v3d
+    - anim
+    - delete
+    - motion
+    params: {}
+  - name: bpy.ops.anim.keyframe_insert
+    label: Insert Keyframe
+    description: Insert keyframes on the current frame using either the active keying
+      set, or the user preferences if no keying set is active
+    tags:
+    - keyframe
+    - insert
+    - anim
+    - animation
+    - motion
+    - keyframe insert
+    params: {}
+  - name: bpy.ops.anim.keyframe_insert_button
+    label: Insert Keyframe (Buttons)
+    description: Insert a keyframe for current UI-active property
+    tags:
+    - keyframe insert button
+    - button
+    - animation
+    - keyframe
+    - insert
+    - anim
+    - motion
+    params:
+      all:
+        type: boolean
+        description: Insert a keyframe for all element of the array
+  - name: bpy.ops.anim.keyframe_insert_by_name
+    label: Insert Keyframe (by name)
+    description: Alternate access to 'Insert Keyframe' for keymaps to use
+    tags:
+    - animation
+    - keyframe insert by name
+    - keyframe
+    - insert
+    - name
+    - anim
+    - motion
+    params: {}
+  - name: bpy.ops.anim.keyframe_insert_menu
+    label: Insert Keyframe Menu
+    description: Insert Keyframes for specified Keying Set, with menu of available
+      Keying Sets if undefined
+    tags:
+    - keyframe insert menu
+    - animation
+    - menu
+    - keyframe
+    - insert
+    - anim
+    - motion
+    params: {}
+  - name: bpy.ops.anim.keying_set_active_set
+    label: Set Active Keying Set
+    description: Set a new active keying set
+    tags:
+    - animation
+    - keyframe
+    - motion
+    - active
+    - anim
+    - keying set active set
+    - keying
+    - set
+    params:
+      type:
+        type: string
+        description: The Keying Set to use
+  - name: bpy.ops.anim.keying_set_add
+    label: Add Empty Keying Set
+    description: Add a new (empty) keying set to the active Scene
+    tags:
+    - make
+    - add
+    - keying set add
+    - animation
+    - keyframe
+    - insert
+    - new
+    - motion
+    - anim
+    - set
+    - create
+    - keying
+    - generate
+    params: {}
+  - name: bpy.ops.anim.keying_set_export
+    label: Export Keying Set...
+    description: Export Keying Set to a Python script
+    tags:
+    - animation
+    - export
+    - keyframe
+    - motion
+    - keying set export
+    - anim
+    - set
+    - keying
+    params:
+      filepath:
+        type: string
+        description: filepath
+  - name: bpy.ops.anim.keying_set_path_add
+    label: Add Empty Keying Set Path
+    description: Add empty path to active keying set
+    tags:
+    - make
+    - add
+    - animation
+    - path
+    - keyframe
+    - insert
+    - new
+    - motion
+    - anim
+    - keying set path add
+    - create
+    - keying
+    - generate
+    - set
+    params: {}
+  - name: bpy.ops.anim.keying_set_path_remove
+    label: Remove Active Keying Set Path
+    description: Remove active Path from active keying set
+    tags:
+    - dissolve
+    - erase
+    - keying set path remove
+    - animation
+    - path
+    - keyframe
+    - clear
+    - motion
+    - anim
+    - set
+    - delete
+    - keying
+    - remove
+    params: {}
+  - name: bpy.ops.anim.keying_set_remove
+    label: Remove Active Keying Set
+    description: Remove the active keying set
+    tags:
+    - dissolve
+    - erase
+    - animation
+    - keyframe
+    - clear
+    - motion
+    - keying set remove
+    - anim
+    - set
+    - delete
+    - keying
+    - remove
+    params: {}
+  - name: bpy.ops.anim.keyingset_button_add
+    label: Add to Keying Set
+    description: Add current UI-active property to current keying set
+    tags:
+    - make
+    - add
+    - button
+    - animation
+    - keyframe
+    - insert
+    - keyingset
+    - anim
+    - new
+    - create
+    - motion
+    - keyingset button add
+    - generate
+    params:
+      all:
+        type: boolean
+        description: Add all elements of the array to a Keying Set
+  - name: bpy.ops.anim.keyingset_button_remove
+    label: Remove from Keying Set
+    description: Remove current UI-active property from current keying set
+    tags:
+    - dissolve
+    - erase
+    - button
+    - animation
+    - keyingset button remove
+    - keyframe
+    - keyingset
+    - anim
+    - clear
+    - delete
+    - motion
+    - remove
+    params: {}
+  - name: bpy.ops.anim.merge_animation
+    label: Merge Animation
+    description: Merge the animation of the selected objects into the action of the
+      active object. Actions are not deleted by this, but might end up with zero users
+    tags:
+    - keyframe
+    - motion
+    - merge animation
+    - anim
+    - animation
+    - merge
+    params: {}
+  - name: bpy.ops.anim.paste_driver_button
+    label: Paste Driver
+    description: Paste the driver in the internal clipboard to the highlighted button
+    tags:
+    - button
+    - animation
+    - paste
+    - keyframe
+    - paste driver button
+    - anim
+    - driver
+    - motion
+    params: {}
+  - name: bpy.ops.anim.previewrange_clear
+    label: Clear Preview Range
+    description: Clear preview range
+    tags:
+    - keyframe
+    - clear
+    - motion
+    - anim
+    - previewrange
+    - previewrange clear
+    - animation
+    params: {}
+  - name: bpy.ops.anim.previewrange_set
+    label: Set Preview Range
+    description: Interactively define frame range used for playback
+    tags:
+    - previewrange set
+    - keyframe
+    - anim
+    - previewrange
+    - motion
+    - animation
+    - set
+    params: {}
+  - name: bpy.ops.anim.scene_range_frame
+    label: Frame Scene/Preview Range
+    description: Reset the horizontal view to the current scene frame range, taking
+      the preview range into account if it is active
+    tags:
+    - scene range frame
+    - range
+    - frame
+    - animation
+    - keyframe
+    - scene
+    - anim
+    - motion
+    params: {}
+  - name: bpy.ops.anim.separate_slots
+    label: Separate Slots
+    description: Move all slots of the action on the active object into newly created,
+      separate actions. All users of those slots will be reassigned to the new actions.
+      The current action won't be deleted but will be empty and might end up having
+      zero users
+    tags:
+    - split
+    - slots
+    - disconnect
+    - animation
+    - keyframe
+    - separate slots
+    - anim
+    - detach
+    - motion
+    - separate
+    params: {}
+  - name: bpy.ops.anim.slot_channels_move_to_new_action
+    label: Move Slots to new Action
+    description: Move the selected slots into a newly created action
+    tags:
+    - move
+    - animation
+    - action
+    - channels
+    - motion
+    - slot
+    - keyframe
+    - anim
+    - new
+    - slot channels move to new action
+    params: {}
+  - name: bpy.ops.anim.slot_new_for_id
+    label: New Slot
+    description: Create a new action slot for this data-block, to hold its animation
+    tags:
+    - animation
+    - keyframe
+    - slot
+    - for
+    - slot new for id
+    - anim
+    - new
+    - motion
+    params: {}
+  - name: bpy.ops.anim.slot_unassign_from_constraint
+    label: Unassign Slot
+    description: Un-assign the action slot from this constraint
+    tags:
+    - unassign
+    - animation
+    - slot unassign from constraint
+    - keyframe
+    - motion
+    - slot
+    - from
+    - anim
+    - constraint
+    params: {}
+  - name: bpy.ops.anim.slot_unassign_from_id
+    label: Unassign Slot
+    description: Un-assign the action slot, effectively making this data-block non-animated
+    tags:
+    - slot unassign from id
+    - unassign
+    - animation
+    - keyframe
+    - slot
+    - from
+    - anim
+    - motion
+    params: {}
+  - name: bpy.ops.anim.slot_unassign_from_nla_strip
+    label: Unassign Slot
+    description: Un-assign the action slot from this NLA strip, effectively making
+      it non-animated
+    tags:
+    - nla
+    - unassign
+    - animation
+    - keyframe
+    - slot unassign from nla strip
+    - slot
+    - from
+    - anim
+    - strip
+    - motion
+    params: {}
+  - name: bpy.ops.anim.start_frame_set
+    label: Set Start Frame
+    description: Set the current frame as the preview or scene start frame
+    tags:
+    - start frame set
+    - frame
+    - animation
+    - start
+    - keyframe
+    - anim
+    - set
+    - motion
+    params: {}
+  - name: bpy.ops.anim.update_animated_transform_constraints
+    label: Update Animated Transform Constraints
+    description: Update f-curves/drivers affecting Transform constraints (use it with
+      files from 2.70 and earlier)
+    tags:
+    - scale
+    - update
+    - animated
+    - move
+    - animation
+    - update animated transform constraints
+    - rotate
+    - transform
+    - resize
+    - keyframe
+    - constraints
+    - anim
+    - motion
+    params:
+      use_convert_to_radians:
+        type: boolean
+        description: 'Convert f-curves/drivers affecting rotations to radians.
+
+          Warning: Use this only once'
+  - name: bpy.ops.anim.view_curve_in_graph_editor
+    label: View In Graph Editor
+    description: Frame the property under the cursor in the Graph Editor
+    tags:
+    - animation
+    - view
+    - view curve in graph editor
+    - editor
+    - keyframe
+    - curve
+    - anim
+    - graph
+    - motion
+    params:
+      all:
+        type: boolean
+        description: Frame the whole array property instead of only the index under
+          the cursor
+      isolate:
+        type: boolean
+        description: Hides all F-Curves other than the ones being framed

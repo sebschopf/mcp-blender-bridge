@@ -1,0 +1,1012 @@
+pose:
+  description: Posing
+  tools:
+  - name: bpy.ops.pose.armature_apply
+    label: Apply Pose as Rest Pose
+    description: Apply the current pose as the new rest pose
+    tags:
+    - armature apply
+    - armature
+    - rigging
+    - pose
+    - posture
+    - apply
+    params:
+      selected:
+        type: boolean
+        description: Only apply the selected bones (with propagation to children)
+  - name: bpy.ops.pose.autoside_names
+    label: Auto-Name by Axis
+    description: Automatically renames the selected bones according to which side
+      of the target axis they fall on
+    tags:
+    - names
+    - armature
+    - posture
+    - rigging
+    - pose
+    - autoside names
+    - autoside
+    params:
+      axis:
+        type: string
+        description: Axis to tag names with
+  - name: bpy.ops.pose.blend_to_neighbor
+    label: Blend to Neighbor
+    description: Blend from current position to previous or next keyframe
+    tags:
+    - blend to neighbor
+    - armature
+    - neighbor
+    - posture
+    - rigging
+    - pose
+    - blend
+    params:
+      factor:
+        type: float
+        description: Weighting factor for which keyframe is favored more
+      prev_frame:
+        type: integer
+        description: Frame number of keyframe immediately before the current frame
+      next_frame:
+        type: integer
+        description: Frame number of keyframe immediately after the current frame
+      channels:
+        type: string
+        description: Set of properties that are affected
+      axis_lock:
+        type: string
+        description: Transform axis to restrict effects to
+  - name: bpy.ops.pose.blend_with_rest
+    label: Blend Pose with Rest Pose
+    description: Make the current pose more similar to, or further away from, the
+      rest pose
+    tags:
+    - blend with rest
+    - posture
+    - armature
+    - rest
+    - with
+    - rigging
+    - pose
+    - blend
+    params:
+      factor:
+        type: float
+        description: Weighting factor for which keyframe is favored more
+      prev_frame:
+        type: integer
+        description: Frame number of keyframe immediately before the current frame
+      next_frame:
+        type: integer
+        description: Frame number of keyframe immediately after the current frame
+      channels:
+        type: string
+        description: Set of properties that are affected
+      axis_lock:
+        type: string
+        description: Transform axis to restrict effects to
+  - name: bpy.ops.pose.breakdown
+    label: Pose Breakdowner
+    description: Create a suitable breakdown pose on the current frame
+    tags:
+    - armature
+    - breakdown
+    - posture
+    - rigging
+    - pose
+    params:
+      factor:
+        type: float
+        description: Weighting factor for which keyframe is favored more
+      prev_frame:
+        type: integer
+        description: Frame number of keyframe immediately before the current frame
+      next_frame:
+        type: integer
+        description: Frame number of keyframe immediately after the current frame
+      channels:
+        type: string
+        description: Set of properties that are affected
+      axis_lock:
+        type: string
+        description: Transform axis to restrict effects to
+  - name: bpy.ops.pose.constraint_add
+    label: Add Constraint
+    description: Add a constraint to the active bone
+    tags:
+    - make
+    - add
+    - posture
+    - armature
+    - create
+    - constraint add
+    - insert
+    - new
+    - rigging
+    - pose
+    - constraint
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.pose.constraint_add_with_targets
+    label: Add Constraint (with Targets)
+    description: Add a constraint to the active bone, with target (where applicable)
+      set to the selected Objects/Bones
+    tags:
+    - make
+    - add
+    - constraint add with targets
+    - posture
+    - armature
+    - create
+    - targets
+    - with
+    - insert
+    - new
+    - rigging
+    - pose
+    - constraint
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.pose.constraints_clear
+    label: Clear Pose Constraints
+    description: Clear all constraints from the selected bones
+    tags:
+    - armature
+    - clear
+    - constraints
+    - rigging
+    - posture
+    - constraints clear
+    - pose
+    params: {}
+  - name: bpy.ops.pose.constraints_copy
+    label: Copy Constraints to Selected Bones
+    description: Copy constraints to other selected bones
+    tags:
+    - constraints copy
+    - armature
+    - constraints
+    - posture
+    - rigging
+    - pose
+    - copy
+    params: {}
+  - name: bpy.ops.pose.convert_rotation
+    label: Convert Rotation Modes
+    description: Convert animation from any rotation mode to any other
+    tags:
+    - convert rotation
+    - rotation
+    - armature
+    - posture
+    - convert
+    - rigging
+    - pose
+    params:
+      target_rotation_mode:
+        type: string
+        description: The target rotation mode
+      affected_bones:
+        type: string
+        description: Which bones to affect
+      affected_actions:
+        type: string
+        description: Which Actions to affect
+      selected_action:
+        type: string
+        description: selected_action
+  - name: bpy.ops.pose.copy
+    label: Copy Pose
+    description: Copy the current pose of the selected bones to the internal clipboard
+    tags:
+    - armature
+    - posture
+    - rigging
+    - pose
+    - copy
+    params: {}
+  - name: bpy.ops.pose.flip_names
+    label: Flip Names
+    description: Flips (and corrects) the axis suffixes of the names of selected bones
+    tags:
+    - names
+    - armature
+    - flip names
+    - flip
+    - rigging
+    - pose
+    - posture
+    params:
+      do_strip_numbers:
+        type: boolean
+        description: 'Try to remove right-most dot-number from flipped names.
+
+          Warning: May result in incoherent naming in some cases'
+  - name: bpy.ops.pose.hide
+    label: Hide Selected
+    description: Tag selected bones to not be visible in Pose Mode
+    tags:
+    - armature
+    - posture
+    - rigging
+    - pose
+    - hide
+    params:
+      unselected:
+        type: boolean
+        description: unselected
+  - name: bpy.ops.pose.ik_add
+    label: Add IK to Bone
+    description: Add IK Constraint to the active Bone
+    tags:
+    - ik add
+    - make
+    - rigging
+    - add
+    - posture
+    - armature
+    - create
+    - insert
+    - new
+    - pose
+    - generate
+    params:
+      with_targets:
+        type: boolean
+        description: Assign IK Constraint with targets derived from the select bones/objects
+  - name: bpy.ops.pose.ik_clear
+    label: Remove IK
+    description: Remove all IK Constraints from selected bones
+    tags:
+    - armature
+    - rigging
+    - ik clear
+    - clear
+    - pose
+    - posture
+    params: {}
+  - name: bpy.ops.pose.loc_clear
+    label: Clear Pose Location
+    description: Reset locations of selected bones to their default values
+    tags:
+    - loc
+    - armature
+    - rigging
+    - posture
+    - clear
+    - pose
+    - loc clear
+    params: {}
+  - name: bpy.ops.pose.paste
+    label: Paste Pose
+    description: Paste the stored pose on to the current pose
+    tags:
+    - paste
+    - armature
+    - posture
+    - rigging
+    - pose
+    params:
+      flipped:
+        type: boolean
+        description: Paste the stored pose flipped on to current pose
+      selected_mask:
+        type: boolean
+        description: Only paste the stored pose on to selected bones in the current
+          pose
+  - name: bpy.ops.pose.paths_calculate
+    label: Calculate Bone Paths
+    description: Calculate paths for the selected bones
+    tags:
+    - paths
+    - paths calculate
+    - armature
+    - posture
+    - rigging
+    - pose
+    - calculate
+    params:
+      display_type:
+        type: string
+        description: display_type
+      range:
+        type: string
+        description: range
+      bake_location:
+        type: string
+        description: Which point on the bones is used when calculating paths
+  - name: bpy.ops.pose.paths_clear
+    label: Clear Bone Paths
+    description: (undocumented operator)
+    tags:
+    - paths
+    - armature
+    - paths clear
+    - rigging
+    - posture
+    - clear
+    - pose
+    params:
+      only_selected:
+        type: boolean
+        description: Only clear motion paths of selected bones
+  - name: bpy.ops.pose.paths_range_update
+    label: Update Range from Scene
+    description: Update frame range for motion paths from the Scene's current frame
+      range
+    tags:
+    - range
+    - update
+    - posture
+    - armature
+    - paths range update
+    - paths
+    - rigging
+    - pose
+    params: {}
+  - name: bpy.ops.pose.paths_update
+    label: Update Bone Paths
+    description: Recalculate paths for bones that already have them
+    tags:
+    - paths
+    - armature
+    - update
+    - posture
+    - rigging
+    - pose
+    - paths update
+    params: {}
+  - name: bpy.ops.pose.propagate
+    label: Propagate Pose
+    description: Copy selected aspects of the current pose to subsequent poses already
+      keyframed
+    tags:
+    - armature
+    - posture
+    - rigging
+    - pose
+    - propagate
+    params:
+      mode:
+        type: string
+        description: Method used to determine when to stop propagating pose to keyframes
+      end_frame:
+        type: float
+        description: Frame to stop propagating frames to (for 'Before Frame' mode)
+  - name: bpy.ops.pose.push
+    label: Push Pose from Breakdown
+    description: Exaggerate the current pose in regards to the breakdown pose
+    tags:
+    - armature
+    - posture
+    - rigging
+    - push
+    - pose
+    params:
+      factor:
+        type: float
+        description: Weighting factor for which keyframe is favored more
+      prev_frame:
+        type: integer
+        description: Frame number of keyframe immediately before the current frame
+      next_frame:
+        type: integer
+        description: Frame number of keyframe immediately after the current frame
+      channels:
+        type: string
+        description: Set of properties that are affected
+      axis_lock:
+        type: string
+        description: Transform axis to restrict effects to
+  - name: bpy.ops.pose.quaternions_flip
+    label: Flip Quaternions
+    description: Flip quaternion values to achieve desired rotations, while maintaining
+      the same orientations
+    tags:
+    - quaternions flip
+    - armature
+    - quaternions
+    - flip
+    - rigging
+    - pose
+    - posture
+    params: {}
+  - name: bpy.ops.pose.relax
+    label: Relax Pose to Breakdown
+    description: Make the current pose more similar to its breakdown pose
+    tags:
+    - armature
+    - posture
+    - rigging
+    - pose
+    - relax
+    params:
+      factor:
+        type: float
+        description: Weighting factor for which keyframe is favored more
+      prev_frame:
+        type: integer
+        description: Frame number of keyframe immediately before the current frame
+      next_frame:
+        type: integer
+        description: Frame number of keyframe immediately after the current frame
+      channels:
+        type: string
+        description: Set of properties that are affected
+      axis_lock:
+        type: string
+        description: Transform axis to restrict effects to
+  - name: bpy.ops.pose.reveal
+    label: Reveal Selected
+    description: Reveal all bones hidden in Pose Mode
+    tags:
+    - reveal
+    - armature
+    - posture
+    - rigging
+    - pose
+    params:
+      select:
+        type: boolean
+        description: select
+  - name: bpy.ops.pose.rigify_collection_ref_add
+    label: Add Bone Collection Reference
+    description: Add a new row to the bone collection reference list
+    tags:
+    - collection
+    - make
+    - ref
+    - add
+    - rigging
+    - posture
+    - armature
+    - create
+    - rigify collection ref add
+    - insert
+    - new
+    - rigify
+    - pose
+    - generate
+    params:
+      prop_name:
+        type: string
+        description: prop_name
+  - name: bpy.ops.pose.rigify_collection_ref_remove
+    label: Remove Bone Collection Reference
+    description: Remove this row from the bone collection reference list
+    tags:
+    - collection
+    - dissolve
+    - erase
+    - ref
+    - rigging
+    - posture
+    - armature
+    - delete
+    - rigify collection ref remove
+    - clear
+    - rigify
+    - pose
+    - remove
+    params:
+      prop_name:
+        type: string
+        description: prop_name
+      index:
+        type: integer
+        description: index
+  - name: bpy.ops.pose.rigify_copy_parameters
+    label: Copy Rigify Parameters to Selected
+    description: Copy Rigify type and parameters from active to selected bones
+    tags:
+    - parameters
+    - rigging
+    - posture
+    - armature
+    - rigify copy parameters
+    - rigify
+    - pose
+    - copy
+    params:
+      match_type:
+        type: boolean
+        description: Only mirror rigify parameters to selected bones which have the
+          same rigify type as the active bone
+  - name: bpy.ops.pose.rigify_copy_single_parameter
+    label: Copy Option To Selected Rigs
+    description: Copy this property value to all selected rigs of the appropriate
+      type
+    tags:
+    - rigging
+    - posture
+    - armature
+    - single
+    - parameter
+    - rigify copy single parameter
+    - rigify
+    - pose
+    - copy
+    params:
+      property_name:
+        type: string
+        description: property_name
+      mirror_bone:
+        type: boolean
+        description: mirror_bone
+      module_name:
+        type: string
+        description: module_name
+      class_name:
+        type: string
+        description: class_name
+  - name: bpy.ops.pose.rigify_generate
+    label: Rigify Generate Rig
+    description: Generate a rig from the active metarig armature
+    tags:
+    - armature
+    - rigify generate
+    - rigging
+    - posture
+    - rigify
+    - pose
+    - generate
+    params: {}
+  - name: bpy.ops.pose.rigify_mirror_parameters
+    label: Mirror Rigify Parameters
+    description: Mirror Rigify type and parameters of selected bones to the opposite
+      side. Names should end in L/R
+    tags:
+    - parameters
+    - rigging
+    - posture
+    - armature
+    - mirror
+    - rigify
+    - pose
+    - rigify mirror parameters
+    params: {}
+  - name: bpy.ops.pose.rigify_upgrade_face
+    label: Upgrade Face Rig
+    description: Upgrades the legacy super_face rig type to the new modular face.
+      This preserves compatibility with existing weight painting, but not animation
+    tags:
+    - upgrade
+    - rigging
+    - posture
+    - armature
+    - rigify
+    - pose
+    - rigify upgrade face
+    - face
+    params: {}
+  - name: bpy.ops.pose.rigify_upgrade_types
+    label: Rigify Upgrade Metarig Types
+    description: Upgrade the Rigify types on the active metarig armature
+    tags:
+    - upgrade
+    - types
+    - rigging
+    - posture
+    - armature
+    - rigify upgrade types
+    - rigify
+    - pose
+    params: {}
+  - name: bpy.ops.pose.rot_clear
+    label: Clear Pose Rotation
+    description: Reset rotations of selected bones to their default values
+    tags:
+    - armature
+    - rot clear
+    - rigging
+    - posture
+    - rot
+    - clear
+    - pose
+    params: {}
+  - name: bpy.ops.pose.rotation_mode_set
+    label: Set Rotation Mode
+    description: Set the rotation representation used by selected bones
+    tags:
+    - rotation
+    - rigging
+    - mode
+    - posture
+    - armature
+    - rotation mode set
+    - set
+    - pose
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.pose.scale_clear
+    label: Clear Pose Scale
+    description: Reset scaling of selected bones to their default values
+    tags:
+    - scale
+    - armature
+    - scale clear
+    - rigging
+    - posture
+    - clear
+    - pose
+    params: {}
+  - name: bpy.ops.pose.select_all
+    label: (De)select All
+    description: Toggle selection status of all bones
+    tags:
+    - choose
+    - pick
+    - posture
+    - armature
+    - all
+    - select
+    - grab
+    - select all
+    - rigging
+    - pose
+    params: {}
+  - name: bpy.ops.pose.select_constraint_target
+    label: Select Constraint Target
+    description: Select bones used as targets for the currently selected bones
+    tags:
+    - choose
+    - target
+    - pick
+    - posture
+    - armature
+    - select
+    - grab
+    - select constraint target
+    - rigging
+    - pose
+    - constraint
+    params: {}
+  - name: bpy.ops.pose.select_grouped
+    label: Select Grouped
+    description: Select all visible bones grouped by similar properties
+    tags:
+    - choose
+    - pick
+    - posture
+    - armature
+    - select
+    - grab
+    - grouped
+    - rigging
+    - pose
+    - select grouped
+    params:
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.pose.select_hierarchy
+    label: Select Hierarchy
+    description: Select immediate parent/children of selected bones
+    tags:
+    - choose
+    - pick
+    - posture
+    - armature
+    - hierarchy
+    - select
+    - grab
+    - rigging
+    - pose
+    - select hierarchy
+    params:
+      direction:
+        type: string
+        description: direction
+      extend:
+        type: boolean
+        description: Extend the selection
+  - name: bpy.ops.pose.select_linked
+    label: Select Connected
+    description: Select all bones linked by parent/child connections to the current
+      selection
+    tags:
+    - choose
+    - pick
+    - posture
+    - armature
+    - select
+    - grab
+    - linked
+    - select linked
+    - rigging
+    - pose
+    params: {}
+  - name: bpy.ops.pose.select_linked_pick
+    label: Select Connected
+    description: Select bones linked by parent/child connections under the mouse cursor
+    tags:
+    - choose
+    - pick
+    - posture
+    - armature
+    - select
+    - grab
+    - linked
+    - select linked pick
+    - rigging
+    - pose
+    params:
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+  - name: bpy.ops.pose.select_mirror
+    label: Select Mirror
+    description: Mirror the bone selection
+    tags:
+    - select mirror
+    - choose
+    - pick
+    - posture
+    - armature
+    - select
+    - grab
+    - mirror
+    - rigging
+    - pose
+    params:
+      only_active:
+        type: boolean
+        description: Only operate on the active bone
+      extend:
+        type: boolean
+        description: Extend the selection
+  - name: bpy.ops.pose.select_parent
+    label: Select Parent Bone
+    description: Select bones that are parents of the currently selected bones
+    tags:
+    - choose
+    - select parent
+    - pick
+    - posture
+    - armature
+    - select
+    - grab
+    - rigging
+    - pose
+    - parent
+    params: {}
+  - name: bpy.ops.pose.selection_set_add
+    label: Create Selection Set
+    description: Create a new empty Selection Set
+    tags:
+    - make
+    - rigging
+    - add
+    - posture
+    - armature
+    - create
+    - insert
+    - new
+    - selection
+    - selection set add
+    - pose
+    - generate
+    - set
+    params: {}
+  - name: bpy.ops.pose.selection_set_add_and_assign
+    label: Create and Add Bones to Selection Set
+    description: Create a new Selection Set with the currently selected bones
+    tags:
+    - make
+    - rigging
+    - add
+    - posture
+    - armature
+    - create
+    - selection set add and assign
+    - insert
+    - assign
+    - new
+    - selection
+    - and
+    - set
+    - pose
+    - generate
+    params: {}
+  - name: bpy.ops.pose.selection_set_assign
+    label: Add Bones to Selection Set
+    description: Add selected bones to Selection Set
+    tags:
+    - rigging
+    - selection set assign
+    - posture
+    - armature
+    - assign
+    - selection
+    - set
+    - pose
+    params: {}
+  - name: bpy.ops.pose.selection_set_copy
+    label: Copy Selection Set(s)
+    description: Copy the selected Selection Set(s) to the clipboard
+    tags:
+    - rigging
+    - posture
+    - armature
+    - selection set copy
+    - selection
+    - set
+    - pose
+    - copy
+    params: {}
+  - name: bpy.ops.pose.selection_set_delete_all
+    label: Delete All Sets
+    description: Remove all Selection Sets from this Armature
+    tags:
+    - selection set delete all
+    - rigging
+    - posture
+    - armature
+    - delete
+    - all
+    - selection
+    - set
+    - pose
+    params: {}
+  - name: bpy.ops.pose.selection_set_deselect
+    label: Deselect Selection Set
+    description: Remove Selection Set bones from current selection
+    tags:
+    - rigging
+    - posture
+    - armature
+    - deselect
+    - selection
+    - selection set deselect
+    - set
+    - pose
+    params: {}
+  - name: bpy.ops.pose.selection_set_move
+    label: Move Selection Set in List
+    description: Move the active Selection Set up/down the list of sets
+    tags:
+    - rigging
+    - posture
+    - armature
+    - move
+    - selection
+    - set
+    - selection set move
+    - pose
+    params: {}
+  - name: bpy.ops.pose.selection_set_paste
+    label: Paste Selection Set(s)
+    description: Add new Selection Set(s) from the clipboard
+    tags:
+    - rigging
+    - posture
+    - armature
+    - selection set paste
+    - paste
+    - selection
+    - set
+    - pose
+    params: {}
+  - name: bpy.ops.pose.selection_set_remove
+    label: Delete Selection Set
+    description: Remove a Selection Set from this Armature
+    tags:
+    - selection set remove
+    - dissolve
+    - erase
+    - rigging
+    - posture
+    - armature
+    - delete
+    - clear
+    - selection
+    - set
+    - pose
+    - remove
+    params: {}
+  - name: bpy.ops.pose.selection_set_remove_bones
+    label: Remove Selected Bones from All Sets
+    description: Remove the selected bones from all Selection Sets
+    tags:
+    - dissolve
+    - erase
+    - bones
+    - rigging
+    - selection set remove bones
+    - posture
+    - armature
+    - delete
+    - clear
+    - selection
+    - set
+    - pose
+    - remove
+    params: {}
+  - name: bpy.ops.pose.selection_set_select
+    label: Select Selection Set
+    description: Select the bones from this Selection Set
+    tags:
+    - choose
+    - selection set select
+    - pick
+    - rigging
+    - posture
+    - armature
+    - select
+    - grab
+    - selection
+    - set
+    - pose
+    params: {}
+  - name: bpy.ops.pose.selection_set_unassign
+    label: Remove Bones from Selection Set
+    description: Remove selected bones from Selection Set
+    tags:
+    - selection set unassign
+    - rigging
+    - posture
+    - armature
+    - unassign
+    - selection
+    - set
+    - pose
+    params: {}
+  - name: bpy.ops.pose.transforms_clear
+    label: Clear Pose Transforms
+    description: Reset location, rotation, and scaling of selected bones to their
+      default values
+    tags:
+    - armature
+    - transforms
+    - rigging
+    - posture
+    - clear
+    - pose
+    - transforms clear
+    params: {}
+  - name: bpy.ops.pose.user_transforms_clear
+    label: Clear User Transforms
+    description: Reset pose bone transforms to keyframed state
+    tags:
+    - user transforms clear
+    - rigging
+    - posture
+    - armature
+    - user
+    - transforms
+    - clear
+    - pose
+    params:
+      only_selected:
+        type: boolean
+        description: Only visible/selected bones
+  - name: bpy.ops.pose.visual_transform_apply
+    label: Apply Visual Transform to Pose
+    description: Apply final constrained position of pose bones to their transform
+    tags:
+    - scale
+    - rigging
+    - posture
+    - armature
+    - move
+    - apply
+    - rotate
+    - transform
+    - resize
+    - visual
+    - visual transform apply
+    - pose
+    params: {}

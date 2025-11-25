@@ -1,0 +1,99 @@
+openapi: 3.0.0
+info:
+  title: MCP Blender-Gemini Bridge API
+  version: 1.1.0
+  description: API for communication between the Gemini Model, the MCP Controller, and the Blender Peripheral. This version introduces dynamic command generation capabilities.
+
+paths:
+  /api/mcp/capabilities:
+    get:
+      summary: Discover MCP Capabilities
+      description: Allows the AI Model to discover the available low-level bpy operations that can be used in an Action Plan.
+      operationId: get_mcp_capabilities
+      responses:
+        '200':
+          description: Successful response containing the Capability Palette.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: A dictionary where keys are allowed bpy operations and values describe their parameters.
+                example:
+                  "bpy.ops.mesh.primitive_uv_sphere_add": {
+                    "radius": { "type": "float", "required": false, "default": 1.0 },
+                    "location": { "type": "tuple", "required": false, "default": [0, 0, 0] }
+                  }
+  
+  /api/chat:
+    post:
+      summary: Send Chat Message or Action Plan
+      description: >-
+        Handles the conversational exchange. The AI sends the user's prompt initially,
+        and after discovering capabilities and formulating a plan, sends an Action Plan
+        for execution in Blender.
+      operationId: post_chat_message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommandRequest'
+      responses:
+        '200':
+          description: Successful response from the Controller.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommandResponse'
+
+components:
+  schemas:
+    ActionStep:
+      type: object
+      required:
+        - operation
+      properties:
+        operation:
+          type: string
+          description: The bpy operation to execute. Must be a key from the Capability Palette.
+        params:
+          type: object
+          description: A dictionary of parameters for the operation.
+
+    CommandRequest:
+      type: object
+      properties:
+        prompt:
+          type: string
+          description: The user's natural language prompt.
+        action_plan:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionStep'
+          description: A multi-step plan for execution in Blender.
+
+    BpyCommand:
+      type: object
+      properties:
+        command:
+          type: string
+          description: The specific bpy command to execute.
+        params:
+          type: object
+          description: Parameters for the bpy command.
+
+    CommandResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A natural language response from the AI.
+        commands:
+          type: array
+          items:
+            $ref: '#/components/schemas/BpyCommand'
+          description: A list of bpy commands for the Blender addon to execute (used in the old static tool model, will be phased out).
+        status:
+          type: string
+          enum: [EXECUTING, COMPLETED, FAILED]
+          description: The status of the Action Plan execution.

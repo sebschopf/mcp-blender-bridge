@@ -1,0 +1,68 @@
+name: "Simple Wooden Table"
+category: "furniture/tables"
+version: "1.0"
+tags: ["furniture", "table", "wood"]
+description: "Creates a simple four-legged table with a rectangular top."
+
+parameters:
+  - name: "table_width"
+    type: "float"
+    description: "The width of the table."
+    default: 1.5
+  - name: "table_depth"
+    type: "float"
+    description: "The depth of the table."
+    default: 0.8
+
+steps:
+  - operation: "mesh.create_cube"
+    params:
+      name: "TableTop"
+  - operation: "transform.resize"
+    params:
+      object_name: "TableTop"
+      value: ["{{ table_width }}", "{{ table_depth }}", 0.05]
+  - operation: "mesh.create_cube"
+    params:
+      name: "Leg1"
+  - operation: "transform.resize"
+    params:
+      object_name: "Leg1"
+      value: [0.05, 0.05, 0.75]
+  - operation: "transform.translate"
+    params:
+      object_name: "Leg1"
+      value: ["{{ table_width / 2 - 0.025 }}", "{{ table_depth / 2 - 0.025 }}", -0.375]
+  - operation: "mesh.create_cube"
+    params:
+      name: "Leg2"
+  - operation: "transform.resize"
+    params:
+      object_name: "Leg2"
+      value: [0.05, 0.05, 0.75]
+  - operation: "transform.translate"
+    params:
+      object_name: "Leg2"
+      value: ["{{ -table_width / 2 + 0.025 }}", "{{ table_depth / 2 - 0.025 }}", -0.375]
+  - operation: "mesh.create_cube"
+    params:
+      name: "Leg3"
+  - operation: "transform.resize"
+    params:
+      object_name: "Leg3"
+      value: [0.05, 0.05, 0.75]
+  - operation: "transform.translate"
+    params:
+      object_name: "Leg3"
+      value: ["{{ table_width / 2 - 0.025 }}", "{{ -table_depth / 2 + 0.025 }}", -0.375]
+  - operation: "mesh.create_cube"
+    params:
+      name: "Leg4"
+  - operation: "transform.resize"
+    params:
+      object_name: "Leg4"
+      value: [0.05, 0.05, 0.75]
+  - operation: "transform.translate"
+    params:
+      object_name: "Leg4"
+      value: ["{{ -table_width / 2 + 0.025 }}", "{{ -table_depth / 2 + 0.025 }}", -0.375]

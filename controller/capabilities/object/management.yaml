@@ -1,0 +1,88 @@
+object:
+  description: Tools for managing and manipulating whole objects, such as renaming
+    or joining.
+  tools:
+  - name: object.rename
+    description: Renames the currently active object. Crucial for scene organization.
+    params:
+      new_name:
+        type: str
+        description: The new, unique name for the object.
+        required: true
+    tags:
+    - object
+    - rename
+  - name: object.select_multiple
+    description: Selects multiple objects by their names. The last object in the list
+      becomes the active object.
+    params:
+      object_names:
+        type: list
+        description: A list of the names of the objects to select (e.g., ['Cube',
+          'Sphere.001']).
+        required: true
+    tags:
+    - choose
+    - multiple
+    - object
+    - pick
+    - select
+    - grab
+  - name: object.join
+    description: Merges all currently selected objects into the active object. This
+      is a destructive operation for the other selected objects.
+    params: {}
+    tags:
+    - merge
+    - unite
+    - join
+    - object
+    - combine
+scene:
+  description: Tools for managing the objects and elements within the entire scene.
+  tools:
+  - name: bpy.ops.object.select_all
+    description: Selects or deselects objects in the scene.
+    params:
+      action:
+        type: str
+        description: 'Action: ''SELECT'', ''DESELECT'', ''INVERT'', ''TOGGLE''.'
+        default: TOGGLE
+    tags:
+    - choose
+    - object
+    - pick
+    - all
+    - select
+    - grab
+  - name: bpy.ops.object.duplicate
+    description: Duplicates the currently selected object(s).
+    params: {}
+    tags:
+    - duplicate
+    - object
+  - name: bpy.ops.object.delete
+    description: Deletes the currently selected object(s).
+    params:
+      use_global:
+        type: bool
+        description: Set to False to delete without user confirmation.
+        default: false
+    tags:
+    - delete
+    - object
+  - name: object.select_by_name
+    description: Selects a single object by its unique name, making it the active
+      object. This is crucial for targeting operations.
+    params:
+      object_name:
+        type: str
+        description: The name of the object to select (e.g., 'Cube', 'Sphere.001').
+        required: true
+    tags:
+    - choose
+    - object
+    - name
+    - pick
+    - select
+    - grab

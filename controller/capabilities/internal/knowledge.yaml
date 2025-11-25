@@ -1,0 +1,41 @@
+knowledge:
+  description: Tools for interacting with the Knowledge Engine. Use these to find,
+    execute, and save recipes.
+  tools:
+  - name: knowledge.search_recipes
+    description: Searches the knowledge base for recipes matching a query.
+    params:
+      query:
+        type: str
+        description: The search query.
+        required: true
+    tags:
+    - recipes
+    - search
+    - knowledge
+  - name: knowledge.execute_recipe
+    description: Executes a recipe from the knowledge base.
+    params:
+      recipe_name:
+        type: str
+        description: The name of the recipe to execute.
+        required: true
+      params:
+        type: dict
+        description: A dictionary of parameters to pass to the recipe.
+        default: {}
+    tags:
+    - execute
+    - recipe
+    - knowledge
+  - name: knowledge.save_recipe
+    description: Saves a new recipe to the knowledge base.
+    params:
+      recipe_data:
+        type: dict
+        description: A dictionary containing the recipe data.
+        required: true
+    tags:
+    - recipe
+    - knowledge
+    - save

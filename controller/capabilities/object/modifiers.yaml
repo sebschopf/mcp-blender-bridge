@@ -1,0 +1,68 @@
+modifiers:
+  description: Tools for applying non-destructive modifications to an object's geometry.
+  tools:
+  - name: bpy.ops.object.modifier_add
+    description: Adds a modifier to the active object (with default settings).
+    params:
+      type:
+        type: str
+        description: Type of modifier, e.g., 'SUBSURF' (smoothing) or 'BEVEL' (edges).
+        required: true
+    tags:
+    - modifier
+    - make
+    - add
+    - object
+    - insert
+    - new
+    - create
+    - generate
+  - name: object.apply_boolean
+    description: Performs a boolean operation (engrave, weld) on the active object
+      using another object as a tool. The tool object is consumed and deleted after
+      the operation.
+    params:
+      target_object_name:
+        type: str
+        description: The name of the object to use as the 'tool' for the operation.
+        required: true
+      operation:
+        type: str
+        description: 'The type of boolean operation: ''DIFFERENCE'' (to engrave/subtract),
+          ''UNION'' (to weld/join), or ''INTERSECT''.'
+        required: true
+    tags:
+    - boolean
+    - object
+    - apply
+  - name: object.apply_bevel
+    description: Adds and applies a Bevel modifier to the active object to round its
+      edges.
+    params:
+      width:
+        type: float
+        description: The width of the bevel effect.
+        default: 0.1
+      segments:
+        type: int
+        description: The number of segments in the bevel, controlling its smoothness.
+        default: 1
+    tags:
+    - bevel
+    - chamfer
+    - apply
+    - round edge
+    - object
+    - smooth corner
+  - name: object.apply_subsurf
+    description: Adds and applies a Subdivision Surface modifier to smooth the object's
+      geometry.
+    params:
+      levels:
+        type: int
+        description: The number of subdivision levels to apply in the viewport.
+        default: 1
+    tags:
+    - subsurf
+    - object
+    - apply

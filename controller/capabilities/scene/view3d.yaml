@@ -1,0 +1,868 @@
+view3d:
+  description: Vue 3D
+  tools:
+  - name: bpy.ops.view3d.bone_select_menu
+    label: Select Menu
+    description: Menu bone selection
+    tags:
+    - choose
+    - bone select menu
+    - pick
+    - select
+    - view3d
+    - grab
+    - menu
+    - bone
+    params:
+      extend:
+        type: boolean
+        description: extend
+      deselect:
+        type: boolean
+        description: deselect
+      toggle:
+        type: boolean
+        description: toggle
+  - name: bpy.ops.view3d.camera_background_image_add
+    label: Add Camera Background Image
+    description: Add a new background image to the active camera
+    tags:
+    - camera
+    - make
+    - camera background image add
+    - add
+    - view3d
+    - view
+    - background
+    - shot
+    - insert
+    - image
+    - new
+    - create
+    - lens
+    - generate
+    params: {}
+  - name: bpy.ops.view3d.camera_background_image_remove
+    label: Remove Camera Background Image
+    description: Remove a background image from the camera
+    tags:
+    - camera
+    - dissolve
+    - erase
+    - camera background image remove
+    - view3d
+    - view
+    - background
+    - shot
+    - image
+    - clear
+    - delete
+    - lens
+    - remove
+    params:
+      index:
+        type: integer
+        description: Background image index to remove
+  - name: bpy.ops.view3d.camera_to_view
+    label: Align Camera to View
+    description: Set camera view to active view
+    tags:
+    - camera
+    - shot
+    - view3d
+    - lens
+    - camera to view
+    - view
+    params: {}
+  - name: bpy.ops.view3d.camera_to_view_selected
+    label: Camera Fit Frame to Selected
+    description: Move the camera so selected objects are framed
+    tags:
+    - camera
+    - view
+    - view3d
+    - shot
+    - lens
+    - selected
+    - camera to view selected
+    params: {}
+  - name: bpy.ops.view3d.clear_render_border
+    label: Clear Render Region
+    description: Clear the boundaries of the border render and disable border render
+    tags:
+    - picture
+    - render
+    - view3d
+    - export
+    - clear
+    - image
+    - border
+    - clear render border
+    params: {}
+  - name: bpy.ops.view3d.clip_border
+    label: Clipping Region
+    description: Set the view clipping region
+    tags:
+    - border
+    - clip
+    - view3d
+    - clip border
+    params: {}
+  - name: bpy.ops.view3d.copybuffer
+    label: Copy Objects
+    description: Copy the selected objects to the internal clipboard
+    tags:
+    - view3d
+    - copybuffer
+    params: {}
+  - name: bpy.ops.view3d.cursor3d
+    label: Set 3D Cursor
+    description: Set the location of the 3D cursor
+    tags:
+    - cursor3d
+    - view3d
+    params:
+      use_depth:
+        type: boolean
+        description: Project onto the surface
+      orientation:
+        type: string
+        description: Preset viewpoint to use
+  - name: bpy.ops.view3d.dolly
+    label: Dolly View
+    description: Dolly in/out in the view
+    tags:
+    - dolly
+    - view3d
+    params:
+      delta:
+        type: integer
+        description: delta
+  - name: bpy.ops.view3d.drop_world
+    label: Drop World
+    description: Drop a world into the scene
+    tags:
+    - world
+    - drop world
+    - view3d
+    - drop
+    params: {}
+  - name: bpy.ops.view3d.edit_mesh_extrude_individual_move
+    label: Extrude Individual and Move
+    description: Extrude each individual face separately along local normals
+    tags:
+    - individual
+    - move
+    - pull
+    - view3d
+    - extend
+    - edit mesh extrude individual move
+    - extrude
+    - mesh
+    - push
+    - edit
+    params: {}
+  - name: bpy.ops.view3d.edit_mesh_extrude_manifold_normal
+    label: Extrude Manifold Along Normals
+    description: Extrude manifold region along normals
+    tags:
+    - pull
+    - view3d
+    - extend
+    - normal
+    - edit mesh extrude manifold normal
+    - extrude
+    - mesh
+    - manifold
+    - push
+    - edit
+    params: {}
+  - name: bpy.ops.view3d.edit_mesh_extrude_move_normal
+    label: Extrude and Move on Normals
+    description: Extrude region together along the average normal
+    tags:
+    - edit mesh extrude move normal
+    - move
+    - pull
+    - view3d
+    - extend
+    - normal
+    - extrude
+    - mesh
+    - push
+    - edit
+    params:
+      dissolve_and_intersect:
+        type: boolean
+        description: Dissolves adjacent faces and intersects new geometry
+  - name: bpy.ops.view3d.edit_mesh_extrude_move_shrink_fatten
+    label: Extrude and Move on Individual Normals
+    description: Extrude region together along local normals
+    tags:
+    - fatten
+    - shrink
+    - move
+    - pull
+    - view3d
+    - extend
+    - edit mesh extrude move shrink fatten
+    - extrude
+    - mesh
+    - push
+    - edit
+    params: {}
+  - name: bpy.ops.view3d.fly
+    label: Fly Navigation
+    description: Interactively fly around the scene
+    tags:
+    - fly
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.interactive_add
+    label: Add Primitive Object
+    description: Interactively add an object
+    tags:
+    - interactive
+    - make
+    - add
+    - view3d
+    - insert
+    - new
+    - create
+    - interactive add
+    - generate
+    params:
+      primitive_type:
+        type: string
+        description: primitive_type
+      plane_origin_base:
+        type: string
+        description: The initial position for placement
+      plane_origin_depth:
+        type: string
+        description: The initial position for placement
+      plane_aspect_base:
+        type: string
+        description: The initial aspect setting
+      plane_aspect_depth:
+        type: string
+        description: The initial aspect setting
+  - name: bpy.ops.view3d.localview
+    label: Local View
+    description: Toggle display of selected object(s) separately and centered in view
+    tags:
+    - localview
+    - view3d
+    params:
+      frame_selected:
+        type: boolean
+        description: Move the view to frame the selected objects
+  - name: bpy.ops.view3d.localview_remove_from
+    label: Remove from Local View
+    description: Move selected objects out of local view
+    tags:
+    - dissolve
+    - erase
+    - view3d
+    - localview
+    - localview remove from
+    - from
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.view3d.move
+    label: Pan View
+    description: Move the view
+    tags:
+    - move
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.navigate
+    label: View Navigation (Walk/Fly)
+    description: Interactively navigate around the scene (uses the mode (walk/fly)
+      preference)
+    tags:
+    - view3d
+    - navigate
+    params: {}
+  - name: bpy.ops.view3d.ndof_all
+    label: NDOF Transform View
+    description: Pan and rotate the view with the 3D mouse
+    tags:
+    - ndof
+    - ndof all
+    - all
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.ndof_orbit
+    label: NDOF Orbit View
+    description: Orbit the view using the 3D mouse
+    tags:
+    - orbit
+    - ndof
+    - ndof orbit
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.ndof_orbit_zoom
+    label: NDOF Orbit View with Zoom
+    description: Orbit and zoom the view using the 3D mouse
+    tags:
+    - ndof orbit zoom
+    - zoom
+    - orbit
+    - ndof
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.ndof_pan
+    label: NDOF Pan View
+    description: Pan the view with the 3D mouse
+    tags:
+    - ndof pan
+    - ndof
+    - view3d
+    - pan
+    params: {}
+  - name: bpy.ops.view3d.object_as_camera
+    label: Set Active Object as Camera
+    description: Set the active object as the active camera for this view or scene
+    tags:
+    - camera
+    - view
+    - shot
+    - object
+    - lens
+    - object as camera
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.object_mode_pie_or_toggle
+    label: Object Mode Menu
+    description: (undocumented operator)
+    tags:
+    - toggle
+    - mode
+    - view3d
+    - object
+    - pie
+    - object mode pie or toggle
+    params: {}
+  - name: bpy.ops.view3d.pastebuffer
+    label: Paste Objects
+    description: Paste objects from the internal clipboard
+    tags:
+    - view3d
+    - pastebuffer
+    params:
+      autoselect:
+        type: boolean
+        description: Select pasted objects
+      active_collection:
+        type: boolean
+        description: Put pasted objects in the active collection
+  - name: bpy.ops.view3d.render_border
+    label: Set Render Region
+    description: Set the boundaries of the border render and enable border render
+    tags:
+    - export
+    - render border
+    - picture
+    - image
+    - render
+    - border
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.rotate
+    label: Rotate View
+    description: Rotate the view
+    tags:
+    - orient
+    - spin
+    - turn
+    - view3d
+    - rotate
+    params: {}
+  - name: bpy.ops.view3d.ruler_add
+    label: Ruler Add
+    description: Add ruler
+    tags:
+    - ruler
+    - ruler add
+    - make
+    - add
+    - view3d
+    - insert
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.view3d.ruler_remove
+    label: Ruler Remove
+    description: (undocumented operator)
+    tags:
+    - ruler
+    - dissolve
+    - ruler remove
+    - erase
+    - view3d
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.view3d.select
+    label: Select
+    description: Select and activate item(s)
+    tags:
+    - choose
+    - pick
+    - view3d
+    - select
+    - grab
+    params:
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+      deselect:
+        type: boolean
+        description: Remove from selection
+      toggle:
+        type: boolean
+        description: Toggle the selection
+      deselect_all:
+        type: boolean
+        description: Deselect all when nothing under the cursor
+      select_passthrough:
+        type: boolean
+        description: Ignore the select action when the element is already selected
+      center:
+        type: boolean
+        description: Use the object center when selecting, in edit mode used to extend
+          object selection
+      enumerate:
+        type: boolean
+        description: List objects under the mouse (object mode only)
+      object:
+        type: boolean
+        description: Use object selection (edit mode only)
+  - name: bpy.ops.view3d.select_box
+    label: Box Select
+    description: Select items using box selection
+    tags:
+    - choose
+    - select box
+    - box
+    - pick
+    - view3d
+    - select
+    - grab
+    params:
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.view3d.select_circle
+    label: Circle Select
+    description: Select items using circle selection
+    tags:
+    - select circle
+    - choose
+    - pick
+    - select
+    - view3d
+    - grab
+    - circle
+    - loop
+    - ring
+    - disc
+    params:
+      radius:
+        type: integer
+        description: radius
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.view3d.select_lasso
+    label: Lasso Select
+    description: Select items using lasso selection
+    tags:
+    - choose
+    - select
+    - lasso
+    - pick
+    - view3d
+    - select lasso
+    - grab
+    params:
+      use_smooth_stroke:
+        type: boolean
+        description: Selection lags behind mouse and follows a smoother path
+      smooth_stroke_factor:
+        type: float
+        description: Higher values gives a smoother stroke
+      smooth_stroke_radius:
+        type: integer
+        description: Minimum distance from last point before selection continues
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.view3d.select_menu
+    label: Select Menu
+    description: Menu object selection
+    tags:
+    - menu
+    - choose
+    - select menu
+    - pick
+    - view3d
+    - select
+    - grab
+    params:
+      extend:
+        type: boolean
+        description: extend
+      deselect:
+        type: boolean
+        description: deselect
+      toggle:
+        type: boolean
+        description: toggle
+  - name: bpy.ops.view3d.smoothview
+    label: Smooth View
+    description: (undocumented operator)
+    tags:
+    - smoothview
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.snap_cursor_to_active
+    label: Snap Cursor to Active
+    description: Snap 3D cursor to the active item
+    tags:
+    - snap cursor to active
+    - cursor
+    - snap
+    - view3d
+    - active
+    params: {}
+  - name: bpy.ops.view3d.snap_cursor_to_center
+    label: Snap Cursor to World Origin
+    description: Snap 3D cursor to the world origin
+    tags:
+    - cursor
+    - snap
+    - center
+    - view3d
+    - snap cursor to center
+    params: {}
+  - name: bpy.ops.view3d.snap_cursor_to_grid
+    label: Snap Cursor to Grid
+    description: Snap 3D cursor to the nearest grid division
+    tags:
+    - cursor
+    - snap cursor to grid
+    - snap
+    - view3d
+    - grid
+    params: {}
+  - name: bpy.ops.view3d.snap_cursor_to_selected
+    label: Snap Cursor to Selected
+    description: Snap 3D cursor to the middle of the selected item(s)
+    tags:
+    - cursor
+    - snap
+    - view3d
+    - selected
+    - snap cursor to selected
+    params: {}
+  - name: bpy.ops.view3d.snap_selected_to_active
+    label: Snap Selection to Active
+    description: Snap selected item(s) to the active item
+    tags:
+    - snap
+    - view3d
+    - active
+    - snap selected to active
+    - selected
+    params: {}
+  - name: bpy.ops.view3d.snap_selected_to_cursor
+    label: Snap Selection to Cursor
+    description: Snap selected item(s) to the 3D cursor
+    tags:
+    - cursor
+    - snap
+    - view3d
+    - snap selected to cursor
+    - selected
+    params:
+      use_offset:
+        type: boolean
+        description: If the selection should be snapped as a whole or by each object
+          center
+      use_rotation:
+        type: boolean
+        description: If the selection should be rotated to match the cursor
+  - name: bpy.ops.view3d.snap_selected_to_grid
+    label: Snap Selection to Grid
+    description: Snap selected item(s) to their nearest grid division
+    tags:
+    - snap
+    - view3d
+    - grid
+    - snap selected to grid
+    - selected
+    params: {}
+  - name: bpy.ops.view3d.toggle_matcap_flip
+    label: Flip MatCap
+    description: Flip MatCap
+    tags:
+    - toggle
+    - toggle matcap flip
+    - view3d
+    - flip
+    - matcap
+    params: {}
+  - name: bpy.ops.view3d.toggle_shading
+    label: Toggle Shading Type
+    description: Toggle shading type in 3D viewport
+    tags:
+    - toggle
+    - shading
+    - toggle shading
+    - view3d
+    params:
+      type:
+        type: string
+        description: Shading type to toggle
+  - name: bpy.ops.view3d.toggle_xray
+    label: Toggle X-Ray
+    description: Transparent scene display. Allow selecting through items
+    tags:
+    - toggle xray
+    - view3d
+    - xray
+    - toggle
+    params: {}
+  - name: bpy.ops.view3d.transform_gizmo_set
+    label: Transform Gizmo Set
+    description: Set the current transform gizmo
+    tags:
+    - scale
+    - move
+    - view3d
+    - rotate
+    - transform
+    - gizmo
+    - resize
+    - set
+    - transform gizmo set
+    params:
+      extend:
+        type: boolean
+        description: extend
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.view3d.view_all
+    label: Frame All
+    description: View all objects in scene
+    tags:
+    - view
+    - all
+    - view all
+    - view3d
+    params:
+      use_all_regions:
+        type: boolean
+        description: View selected for all regions
+      center:
+        type: boolean
+        description: center
+  - name: bpy.ops.view3d.view_axis
+    label: View Axis
+    description: Use a preset viewpoint
+    tags:
+    - view axis
+    - view
+    - view3d
+    - axis
+    params:
+      type:
+        type: string
+        description: Preset viewpoint to use
+      align_active:
+        type: boolean
+        description: Align to the active object's axis
+      relative:
+        type: boolean
+        description: Rotate relative to the current orientation
+  - name: bpy.ops.view3d.view_camera
+    label: View Camera
+    description: Toggle the camera view
+    tags:
+    - view camera
+    - camera
+    - shot
+    - view3d
+    - lens
+    - view
+    params: {}
+  - name: bpy.ops.view3d.view_center_camera
+    label: Frame Camera Bounds
+    description: Center the camera view, resizing the view to fit its bounds
+    tags:
+    - camera
+    - center
+    - view3d
+    - view
+    - shot
+    - view center camera
+    - lens
+    params: {}
+  - name: bpy.ops.view3d.view_center_cursor
+    label: Center View to Cursor
+    description: Center the view so that the cursor is in the middle of the view
+    tags:
+    - cursor
+    - center
+    - view
+    - view3d
+    - view center cursor
+    params: {}
+  - name: bpy.ops.view3d.view_center_lock
+    label: View Lock Center
+    description: Center the view lock offset
+    tags:
+    - view center lock
+    - center
+    - view
+    - lock
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.view_center_pick
+    label: Center View to Mouse
+    description: Center the view to the Z-depth position under the mouse cursor
+    tags:
+    - pick
+    - center
+    - view
+    - view3d
+    - view center pick
+    params: {}
+  - name: bpy.ops.view3d.view_lock_clear
+    label: View Lock Clear
+    description: Clear all view locking
+    tags:
+    - lock
+    - view3d
+    - view
+    - view lock clear
+    - clear
+    params: {}
+  - name: bpy.ops.view3d.view_lock_to_active
+    label: View Lock to Active
+    description: Lock the view to the active object/bone
+    tags:
+    - lock
+    - view
+    - view3d
+    - active
+    - view lock to active
+    params: {}
+  - name: bpy.ops.view3d.view_orbit
+    label: View Orbit
+    description: Orbit the view
+    tags:
+    - view orbit
+    - orbit
+    - view
+    - view3d
+    params:
+      angle:
+        type: float
+        description: angle
+      type:
+        type: string
+        description: Direction of View Orbit
+  - name: bpy.ops.view3d.view_pan
+    label: Pan View Direction
+    description: Pan the view in a given direction
+    tags:
+    - pan
+    - view pan
+    - view3d
+    - view
+    params:
+      type:
+        type: string
+        description: Direction of View Pan
+  - name: bpy.ops.view3d.view_persportho
+    label: View Perspective/Orthographic
+    description: Switch the current view from perspective/orthographic projection
+    tags:
+    - view
+    - persportho
+    - view3d
+    - view persportho
+    params: {}
+  - name: bpy.ops.view3d.view_roll
+    label: View Roll
+    description: Roll the view
+    tags:
+    - view
+    - view roll
+    - view3d
+    - roll
+    params:
+      angle:
+        type: float
+        description: angle
+      type:
+        type: string
+        description: How roll angle is calculated
+  - name: bpy.ops.view3d.view_selected
+    label: Frame Selected
+    description: Move the view to the selection center
+    tags:
+    - view selected
+    - selected
+    - view3d
+    - view
+    params:
+      use_all_regions:
+        type: boolean
+        description: View selected for all regions
+  - name: bpy.ops.view3d.walk
+    label: Walk Navigation
+    description: Interactively walk around the scene
+    tags:
+    - walk
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.zoom
+    label: Zoom View
+    description: Zoom in/out in the view
+    tags:
+    - zoom
+    - view3d
+    params:
+      delta:
+        type: integer
+        description: delta
+  - name: bpy.ops.view3d.zoom_border
+    label: Zoom to Border
+    description: Zoom in the view to the nearest object contained in the border
+    tags:
+    - border
+    - zoom border
+    - zoom
+    - view3d
+    params: {}
+  - name: bpy.ops.view3d.zoom_camera_1_to_1
+    label: Zoom Camera 1:1
+    description: Match the camera to 1:1 to the render output
+    tags:
+    - camera
+    - zoom camera 1 to 1
+    - shot
+    - zoom
+    - view
+    - lens
+    - view3d
+    params: {}

@@ -1,0 +1,4116 @@
+object:
+  description: Gestion et transformation d'objets
+  tools:
+  - name: bpy.ops.object.add
+    label: Add Object
+    description: Add an object to the scene
+    tags:
+    - insert
+    - make
+    - add
+    - new
+    - create
+    - object
+    - generate
+    params:
+      radius:
+        type: float
+        description: radius
+      type:
+        type: string
+        description: type
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.add_modifier_menu
+    label: Add Modifier
+    description: (undocumented operator)
+    tags:
+    - modifier
+    - make
+    - add
+    - object
+    - menu
+    - add modifier menu
+    - insert
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.object.add_named
+    label: Add Object
+    description: Add named object
+    tags:
+    - add named
+    - make
+    - add
+    - object
+    - insert
+    - named
+    - new
+    - create
+    - generate
+    params:
+      linked:
+        type: boolean
+        description: Duplicate object but not object data, linking to the original
+          data
+  - name: bpy.ops.object.align
+    label: Align Objects
+    description: Align objects
+    tags:
+    - align
+    - object
+    params:
+      bb_quality:
+        type: boolean
+        description: Enables high quality but slow calculation of the bounding box
+          for perfect results on complex shape meshes with rotation/scale
+      align_mode:
+        type: string
+        description: Side of object to use for alignment
+      relative_to:
+        type: string
+        description: Reference location to align to
+      align_axis:
+        type: string
+        description: Align to axis
+  - name: bpy.ops.object.anim_transforms_to_deltas
+    label: Animated Transforms to Deltas
+    description: Convert object animation for normal transforms to delta transforms
+    tags:
+    - deltas
+    - animation
+    - object
+    - keyframe
+    - transforms
+    - anim
+    - anim transforms to deltas
+    - motion
+    params: {}
+  - name: bpy.ops.object.armature_add
+    label: Add Armature
+    description: Add an armature object to the scene
+    tags:
+    - make
+    - add
+    - armature
+    - object
+    - insert
+    - armature add
+    - new
+    - create
+    - generate
+    params:
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.armature_basic_human_metarig_add
+    label: Add Basic human (metarig)
+    description: (undocumented operator)
+    tags:
+    - basic
+    - make
+    - add
+    - armature
+    - metarig
+    - object
+    - armature basic human metarig add
+    - insert
+    - new
+    - create
+    - human
+    - generate
+    params: {}
+  - name: bpy.ops.object.armature_basic_quadruped_metarig_add
+    label: Add Basic quadruped (metarig)
+    description: (undocumented operator)
+    tags:
+    - basic
+    - make
+    - add
+    - armature
+    - metarig
+    - object
+    - insert
+    - armature basic quadruped metarig add
+    - quadruped
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.object.armature_bird_metarig_add
+    label: Add Bird (metarig)
+    description: (undocumented operator)
+    tags:
+    - armature bird metarig add
+    - make
+    - add
+    - armature
+    - metarig
+    - object
+    - insert
+    - bird
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.object.armature_cat_metarig_add
+    label: Add Cat (metarig)
+    description: (undocumented operator)
+    tags:
+    - make
+    - cat
+    - armature
+    - metarig
+    - add
+    - object
+    - insert
+    - new
+    - create
+    - armature cat metarig add
+    - generate
+    params: {}
+  - name: bpy.ops.object.armature_horse_metarig_add
+    label: Add Horse (metarig)
+    description: (undocumented operator)
+    tags:
+    - armature horse metarig add
+    - make
+    - add
+    - armature
+    - metarig
+    - object
+    - horse
+    - insert
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.object.armature_human_metarig_add
+    label: Add Human (metarig)
+    description: (undocumented operator)
+    tags:
+    - make
+    - add
+    - armature
+    - metarig
+    - object
+    - armature human metarig add
+    - insert
+    - new
+    - create
+    - human
+    - generate
+    params: {}
+  - name: bpy.ops.object.armature_shark_metarig_add
+    label: Add Shark (metarig)
+    description: (undocumented operator)
+    tags:
+    - armature shark metarig add
+    - make
+    - add
+    - armature
+    - metarig
+    - shark
+    - object
+    - insert
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.object.armature_wolf_metarig_add
+    label: Add Wolf (metarig)
+    description: (undocumented operator)
+    tags:
+    - wolf
+    - make
+    - add
+    - armature
+    - metarig
+    - object
+    - insert
+    - armature wolf metarig add
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.object.assign_property_defaults
+    label: Assign Custom Property Values as Default
+    description: Assign the current values of custom properties as their defaults,
+      for use as part of the rest pose state in NLA track mixing
+    tags:
+    - property
+    - object
+    - defaults
+    - assign
+    - assign property defaults
+    params:
+      process_data:
+        type: boolean
+        description: process_data
+      process_bones:
+        type: boolean
+        description: process_bones
+  - name: bpy.ops.object.bake
+    label: Bake
+    description: Bake image textures of selected objects
+    tags:
+    - bake
+    - object
+    params:
+      type:
+        type: string
+        description: Type of pass to bake, some of them may not be supported by the
+          current render engine
+      pass_filter:
+        type: string
+        description: Filter to combined, diffuse, glossy, transmission and subsurface
+          passes
+      filepath:
+        type: string
+        description: Image filepath to use when saving externally
+      width:
+        type: integer
+        description: Horizontal dimension of the baking map (external only)
+      height:
+        type: integer
+        description: Vertical dimension of the baking map (external only)
+      margin:
+        type: integer
+        description: Extends the baked result as a post process filter
+      margin_type:
+        type: string
+        description: Which algorithm to use to generate the margin
+      use_selected_to_active:
+        type: boolean
+        description: Bake shading on the surface of selected objects to the active
+          object
+      max_ray_distance:
+        type: float
+        description: The maximum ray distance for matching points between the active
+          and selected objects. If zero, there is no limit
+      cage_extrusion:
+        type: float
+        description: Inflate the active object by the specified distance for baking.
+          This helps matching to points nearer to the outside of the selected object
+          meshes
+      cage_object:
+        type: string
+        description: Object to use as cage, instead of calculating the cage from the
+          active object with cage extrusion
+      normal_space:
+        type: string
+        description: Choose normal space for baking
+      normal_r:
+        type: string
+        description: Axis to bake in red channel
+      normal_g:
+        type: string
+        description: Axis to bake in green channel
+      normal_b:
+        type: string
+        description: Axis to bake in blue channel
+      target:
+        type: string
+        description: Where to output the baked map
+      save_mode:
+        type: string
+        description: Where to save baked image textures
+      use_clear:
+        type: boolean
+        description: Clear images before baking (only for internal saving)
+      use_cage:
+        type: boolean
+        description: Cast rays to active object from a cage
+      use_split_materials:
+        type: boolean
+        description: Split baked maps per material, using material name in output
+          file (external only)
+      use_automatic_name:
+        type: boolean
+        description: Automatically name the output file with the pass type
+      uv_layer:
+        type: string
+        description: UV layer to override active
+  - name: bpy.ops.object.bake_image
+    label: Bake
+    description: Bake image textures of selected objects
+    tags:
+    - bake
+    - image
+    - bake image
+    - object
+    params: {}
+  - name: bpy.ops.object.camera_add
+    label: Add Camera
+    description: Add a camera object to the scene
+    tags:
+    - camera
+    - make
+    - add
+    - object
+    - camera add
+    - view
+    - shot
+    - insert
+    - new
+    - create
+    - lens
+    - generate
+    params:
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.camera_custom_update
+    label: Custom Camera Update
+    description: Update custom camera with new parameters from the shader
+    tags:
+    - camera
+    - update
+    - object
+    - view
+    - shot
+    - custom
+    - lens
+    - camera custom update
+    params: {}
+  - name: bpy.ops.object.clear_override_library
+    label: Clear Library Override
+    description: Delete the selected local overrides and relink their usages to the
+      linked data-blocks if possible, else reset them and mark them as non editable
+    tags:
+    - override
+    - object
+    - library
+    - clear override library
+    - clear
+    params: {}
+  - name: bpy.ops.object.collection_add
+    label: Add to Collection
+    description: Add an object to a new collection
+    tags:
+    - collection
+    - make
+    - add
+    - collection add
+    - object
+    - insert
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.object.collection_external_asset_drop
+    label: Add Collection
+    description: Add the dragged collection to the scene
+    tags:
+    - collection
+    - external
+    - asset
+    - drop
+    - object
+    - collection external asset drop
+    params:
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+      use_instance:
+        type: boolean
+        description: Add the dropped collection as collection instance
+  - name: bpy.ops.object.collection_instance_add
+    label: Add Collection Instance
+    description: Add a collection instance
+    tags:
+    - collection
+    - instance
+    - make
+    - add
+    - object
+    - insert
+    - new
+    - collection instance add
+    - create
+    - generate
+    params:
+      collection:
+        type: string
+        description: collection
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.collection_link
+    label: Link to Collection
+    description: Add an object to an existing collection
+    tags:
+    - collection link
+    - link
+    - object
+    - collection
+    params:
+      collection:
+        type: string
+        description: collection
+  - name: bpy.ops.object.collection_objects_select
+    label: Select Objects in Collection
+    description: Select all objects in collection
+    tags:
+    - collection
+    - choose
+    - collection objects select
+    - pick
+    - select
+    - object
+    - grab
+    - objects
+    params: {}
+  - name: bpy.ops.object.collection_remove
+    label: Remove Collection
+    description: Remove the active object from this collection
+    tags:
+    - collection
+    - dissolve
+    - erase
+    - object
+    - collection remove
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.object.collection_unlink
+    label: Unlink Collection
+    description: Unlink the collection from all objects
+    tags:
+    - collection unlink
+    - unlink
+    - object
+    - collection
+    params: {}
+  - name: bpy.ops.object.constraint_add
+    label: Add Constraint
+    description: Add a constraint to the active object
+    tags:
+    - make
+    - add
+    - object
+    - constraint add
+    - insert
+    - new
+    - create
+    - constraint
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.constraint_add_with_targets
+    label: Add Constraint (with Targets)
+    description: Add a constraint to the active object, with target (where applicable)
+      set to the selected objects/bones
+    tags:
+    - make
+    - add
+    - constraint add with targets
+    - object
+    - targets
+    - with
+    - insert
+    - new
+    - create
+    - constraint
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.constraints_clear
+    label: Clear Object Constraints
+    description: Clear all constraints from the selected objects
+    tags:
+    - constraints clear
+    - clear
+    - object
+    - constraints
+    params: {}
+  - name: bpy.ops.object.constraints_copy
+    label: Copy Constraints to Selected Objects
+    description: Copy constraints to other selected objects
+    tags:
+    - copy
+    - constraints copy
+    - object
+    - constraints
+    params: {}
+  - name: bpy.ops.object.convert
+    label: Convert To
+    description: Convert selected objects to another type
+    tags:
+    - convert
+    - object
+    params:
+      target:
+        type: string
+        description: Type of object to convert to
+      keep_original:
+        type: boolean
+        description: Keep original objects instead of replacing them
+      merge_customdata:
+        type: boolean
+        description: Merge UV coordinates that share a vertex to account for imprecision
+          in some modifiers
+      thickness:
+        type: integer
+        description: thickness
+      faces:
+        type: boolean
+        description: Export faces as filled strokes
+      offset:
+        type: float
+        description: Offset strokes from fill
+  - name: bpy.ops.object.copy_global_transform
+    label: Copy Global Transform
+    description: Copies the matrix of the currently active object or pose bone to
+      the clipboard. Uses world-space matrices
+    tags:
+    - scale
+    - global
+    - move
+    - object
+    - rotate
+    - transform
+    - resize
+    - copy global transform
+    - copy
+    params: {}
+  - name: bpy.ops.object.copy_relative_transform
+    label: Copy Relative Transform
+    description: Copies the matrix of the currently active object or pose bone to
+      the clipboard. Uses matrices relative to a specific object or the active scene
+      camera
+    tags:
+    - copy relative transform
+    - scale
+    - move
+    - object
+    - rotate
+    - transform
+    - resize
+    - relative
+    - copy
+    params: {}
+  - name: bpy.ops.object.correctivesmooth_bind
+    label: Corrective Smooth Bind
+    description: Bind base pose in Corrective Smooth modifier
+    tags:
+    - bind
+    - correctivesmooth bind
+    - object
+    - correctivesmooth
+    params: {}
+  - name: bpy.ops.object.curves_empty_hair_add
+    label: Add Empty Curves
+    description: Add an empty curve object to the scene with the selected mesh as
+      surface
+    tags:
+    - make
+    - add
+    - hair
+    - object
+    - empty
+    - insert
+    - new
+    - curves
+    - curves empty hair add
+    - create
+    - generate
+    params:
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.curves_random_add
+    label: Add Random Curves
+    description: Add a curves object with random curves to the scene
+    tags:
+    - make
+    - add
+    - curves random add
+    - object
+    - random
+    - insert
+    - curves
+    - new
+    - create
+    - generate
+    params:
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.data_instance_add
+    label: Add Object Data Instance
+    description: Add an object data instance
+    tags:
+    - instance
+    - make
+    - add
+    - object
+    - insert
+    - data instance add
+    - new
+    - create
+    - data
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.data_transfer
+    label: Transfer Mesh Data
+    description: Transfer data layer(s) (weights, edge sharp, etc.) from active to
+      selected meshes
+    tags:
+    - transfer
+    - data
+    - object
+    - data transfer
+    params:
+      use_freeze:
+        type: boolean
+        description: Prevent changes to settings to re-run the operator, handy to
+          change several things at once with heavy geometry
+      data_type:
+        type: string
+        description: Which data to transfer
+      use_create:
+        type: boolean
+        description: Add data layers on destination meshes if needed
+      vert_mapping:
+        type: string
+        description: Method used to map source vertices to destination ones
+      edge_mapping:
+        type: string
+        description: Method used to map source edges to destination ones
+      loop_mapping:
+        type: string
+        description: Method used to map source faces' corners to destination ones
+      poly_mapping:
+        type: string
+        description: Method used to map source faces to destination ones
+      use_auto_transform:
+        type: boolean
+        description: 'Automatically compute transformation to get the best possible
+          match between source and destination meshes.
+
+          Warning: Results will never be as good as manual matching of objects'
+      use_object_transform:
+        type: boolean
+        description: Evaluate source and destination meshes in global space
+      use_max_distance:
+        type: boolean
+        description: Source elements must be closer than given distance from destination
+          one
+      max_distance:
+        type: float
+        description: Maximum allowed distance between source and destination element,
+          for non-topology mappings
+      ray_radius:
+        type: float
+        description: '''Width'' of rays (especially useful when raycasting against
+          vertices or edges)'
+      islands_precision:
+        type: float
+        description: Factor controlling precision of islands handling (the higher,
+          the better the results)
+      layers_select_src:
+        type: string
+        description: Which layers to transfer, in case of multi-layers types
+      layers_select_dst:
+        type: string
+        description: How to match source and destination layers
+      mix_mode:
+        type: string
+        description: How to affect destination elements with source values
+      mix_factor:
+        type: float
+        description: Factor to use when applying data to destination (exact behavior
+          depends on mix mode)
+  - name: bpy.ops.object.datalayout_transfer
+    label: Transfer Mesh Data Layout
+    description: Transfer layout of data layer(s) from active to selected meshes
+    tags:
+    - datalayout transfer
+    - transfer
+    - object
+    - datalayout
+    params:
+      data_type:
+        type: string
+        description: Which data to transfer
+      use_delete:
+        type: boolean
+        description: Also delete some data layers from destination if necessary, so
+          that it matches exactly source
+      layers_select_src:
+        type: string
+        description: Which layers to transfer, in case of multi-layers types
+      layers_select_dst:
+        type: string
+        description: How to match source and destination layers
+  - name: bpy.ops.object.delete
+    label: Delete
+    description: Delete selected objects
+    tags:
+    - delete
+    - object
+    params: {}
+  - name: bpy.ops.object.delete_fix_to_camera_keys
+    label: Delete Generated Keys
+    description: Delete all keys that were generated by the 'Fix to Scene Camera'
+      operator
+    tags:
+    - camera
+    - object
+    - view
+    - delete fix to camera keys
+    - shot
+    - keys
+    - lens
+    - delete
+    - fix
+    params: {}
+  - name: bpy.ops.object.drop_geometry_nodes
+    label: Drop Geometry Node Group on Object
+    description: (undocumented operator)
+    tags:
+    - nodes
+    - drop
+    - object
+    - geometry
+    - drop geometry nodes
+    params:
+      show_datablock_in_modifier:
+        type: boolean
+        description: show_datablock_in_modifier
+  - name: bpy.ops.object.drop_named_material
+    label: Drop Named Material on Object
+    description: (undocumented operator)
+    tags:
+    - color
+    - drop
+    - material
+    - drop named material
+    - surface
+    - object
+    - shader
+    - texture
+    - named
+    params: {}
+  - name: bpy.ops.object.duplicate
+    label: Duplicate Objects
+    description: Duplicate selected objects
+    tags:
+    - duplicate
+    - object
+    params:
+      linked:
+        type: boolean
+        description: Duplicate object but not object data, linking to the original
+          data
+  - name: bpy.ops.object.duplicate_move
+    label: Duplicate Objects
+    description: Duplicate the selected objects and move them
+    tags:
+    - duplicate
+    - move
+    - duplicate move
+    - object
+    params:
+      OBJECT_OT_duplicate:
+        type: string
+        description: Duplicate selected objects
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.object.duplicate_move_linked
+    label: Duplicate Linked
+    description: Duplicate the selected objects, but not their object data, and move
+      them
+    tags:
+    - duplicate move linked
+    - move
+    - object
+    - linked
+    - duplicate
+    params:
+      OBJECT_OT_duplicate:
+        type: string
+        description: Duplicate selected objects
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.object.duplicates_make_real
+    label: Make Instances Real
+    description: Make instanced objects attached to this object real
+    tags:
+    - make
+    - duplicates make real
+    - object
+    - duplicates
+    - real
+    params:
+      use_base_parent:
+        type: boolean
+        description: Parent newly created objects to the original instancer
+      use_hierarchy:
+        type: boolean
+        description: Maintain parent child relationships
+  - name: bpy.ops.object.editmode_toggle
+    label: Edit Mode
+    description: Toggle object's edit mode
+    tags:
+    - toggle
+    - editmode
+    - object
+    - editmode toggle
+    params: {}
+  - name: bpy.ops.object.effector_add
+    label: Add Effector
+    description: Add an empty object with a physics effector to the scene
+    tags:
+    - make
+    - add
+    - effector add
+    - object
+    - effector
+    - insert
+    - new
+    - create
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.empty_add
+    label: Add Empty
+    description: Add an empty object to the scene
+    tags:
+    - empty add
+    - make
+    - add
+    - object
+    - empty
+    - insert
+    - new
+    - create
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.empty_image_add
+    label: Add Empty Image/Drop Image to Empty
+    description: Add an empty image type to scene with data
+    tags:
+    - make
+    - add
+    - empty image add
+    - object
+    - empty
+    - image
+    - insert
+    - new
+    - create
+    - generate
+    params:
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+      background:
+        type: boolean
+        description: Make the image render behind all objects
+  - name: bpy.ops.object.explode_refresh
+    label: Explode Refresh
+    description: Refresh data in the Explode modifier
+    tags:
+    - explode
+    - explode refresh
+    - object
+    - refresh
+    params: {}
+  - name: bpy.ops.object.fix_to_camera
+    label: Fix to Scene Camera
+    description: Generate new keys to fix the selected object/bone to the camera on
+      unkeyed frames
+    tags:
+    - camera
+    - view
+    - shot
+    - fix to camera
+    - object
+    - lens
+    - fix
+    params:
+      use_loc:
+        type: boolean
+        description: Create Location keys when fixing to the scene camera
+      use_rot:
+        type: boolean
+        description: Create Rotation keys when fixing to the scene camera
+      use_scale:
+        type: boolean
+        description: Create Scale keys when fixing to the scene camera
+  - name: bpy.ops.object.forcefield_toggle
+    label: Toggle Force Field
+    description: Toggle object's force field
+    tags:
+    - forcefield toggle
+    - forcefield
+    - object
+    - toggle
+    params: {}
+  - name: bpy.ops.object.geometry_node_bake_delete_single
+    label: Delete Geometry Node Bake
+    description: Delete baked data of a single bake node or simulation
+    tags:
+    - connection
+    - node
+    - object
+    - delete
+    - single
+    - geometry
+    - logic
+    - geometry node bake delete single
+    - graph
+    - bake
+    params:
+      modifier_name:
+        type: string
+        description: Name of the modifier that contains the node
+      bake_id:
+        type: integer
+        description: Nested node id of the node
+  - name: bpy.ops.object.geometry_node_bake_pack_single
+    label: Pack Geometry Node Bake
+    description: Pack baked data from disk into the .blend file
+    tags:
+    - pack
+    - geometry node bake pack single
+    - connection
+    - node
+    - object
+    - single
+    - geometry
+    - logic
+    - graph
+    - bake
+    params:
+      modifier_name:
+        type: string
+        description: Name of the modifier that contains the node
+      bake_id:
+        type: integer
+        description: Nested node id of the node
+  - name: bpy.ops.object.geometry_node_bake_single
+    label: Bake Geometry Node
+    description: Bake a single bake node or simulation
+    tags:
+    - connection
+    - geometry node bake single
+    - node
+    - object
+    - single
+    - geometry
+    - logic
+    - graph
+    - bake
+    params:
+      modifier_name:
+        type: string
+        description: Name of the modifier that contains the node
+      bake_id:
+        type: integer
+        description: Nested node id of the node
+  - name: bpy.ops.object.geometry_node_bake_unpack_single
+    label: Unpack Geometry Node Bake
+    description: Unpack baked data from the .blend file to disk
+    tags:
+    - connection
+    - geometry node bake unpack single
+    - node
+    - object
+    - unpack
+    - single
+    - geometry
+    - logic
+    - graph
+    - bake
+    params:
+      modifier_name:
+        type: string
+        description: Name of the modifier that contains the node
+      bake_id:
+        type: integer
+        description: Nested node id of the node
+      method:
+        type: string
+        description: How to unpack
+  - name: bpy.ops.object.geometry_node_tree_copy_assign
+    label: Copy Geometry Node Group
+    description: Copy the active geometry node group and assign it to the active modifier
+    tags:
+    - connection
+    - copy
+    - node
+    - object
+    - geometry
+    - tree
+    - assign
+    - graph
+    - logic
+    - geometry node tree copy assign
+    params: {}
+  - name: bpy.ops.object.geometry_nodes_input_attribute_toggle
+    label: Input Attribute Toggle
+    description: Switch between an attribute and a single value to define the data
+      for every element
+    tags:
+    - toggle
+    - nodes
+    - geometry nodes input attribute toggle
+    - attribute
+    - object
+    - geometry
+    - input
+    params:
+      input_name:
+        type: string
+        description: input_name
+      modifier_name:
+        type: string
+        description: modifier_name
+  - name: bpy.ops.object.geometry_nodes_move_to_nodes
+    label: Move to Nodes
+    description: Move inputs and outputs from in the modifier to a new node group
+    tags:
+    - nodes
+    - move
+    - object
+    - geometry
+    - geometry nodes move to nodes
+    params:
+      use_selected_objects:
+        type: boolean
+        description: Affect all selected objects instead of just the active object
+  - name: bpy.ops.object.grease_pencil_add
+    label: Add Grease Pencil
+    description: Add a Grease Pencil object to the scene
+    tags:
+    - make
+    - add
+    - grease
+    - object
+    - pencil
+    - insert
+    - grease pencil add
+    - new
+    - create
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+      use_in_front:
+        type: boolean
+        description: Show Line Art Grease Pencil in front of everything
+      stroke_depth_offset:
+        type: float
+        description: Stroke offset for the Line Art modifier
+      use_lights:
+        type: boolean
+        description: Use lights for this Grease Pencil object
+      stroke_depth_order:
+        type: string
+        description: Defines how the strokes are ordered in 3D space (for objects
+          not displayed 'In Front')
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.grease_pencil_dash_modifier_segment_add
+    label: Add Segment
+    description: Add a segment to the dash modifier
+    tags:
+    - modifier
+    - dash
+    - make
+    - add
+    - object
+    - grease
+    - pencil
+    - segment
+    - insert
+    - grease pencil dash modifier segment add
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.object.grease_pencil_dash_modifier_segment_move
+    label: Move Dash Segment
+    description: Move the active dash segment up or down
+    tags:
+    - modifier
+    - dash
+    - move
+    - grease pencil dash modifier segment move
+    - grease
+    - object
+    - pencil
+    - segment
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.grease_pencil_dash_modifier_segment_remove
+    label: Remove Dash Segment
+    description: Remove the active segment from the dash modifier
+    tags:
+    - dissolve
+    - erase
+    - modifier
+    - dash
+    - grease
+    - object
+    - pencil
+    - segment
+    - clear
+    - delete
+    - grease pencil dash modifier segment remove
+    - remove
+    params:
+      index:
+        type: integer
+        description: Index of the segment to remove
+  - name: bpy.ops.object.grease_pencil_time_modifier_segment_add
+    label: Add Segment
+    description: Add a segment to the time modifier
+    tags:
+    - modifier
+    - make
+    - time
+    - add
+    - grease
+    - object
+    - pencil
+    - segment
+    - insert
+    - new
+    - create
+    - grease pencil time modifier segment add
+    - generate
+    params: {}
+  - name: bpy.ops.object.grease_pencil_time_modifier_segment_move
+    label: Move Segment
+    description: Move the active time segment up or down
+    tags:
+    - modifier
+    - time
+    - move
+    - grease
+    - object
+    - grease pencil time modifier segment move
+    - pencil
+    - segment
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.grease_pencil_time_modifier_segment_remove
+    label: Remove Segment
+    description: Remove the active segment from the time modifier
+    tags:
+    - dissolve
+    - erase
+    - modifier
+    - time
+    - grease
+    - object
+    - pencil
+    - segment
+    - clear
+    - delete
+    - grease pencil time modifier segment remove
+    - remove
+    params:
+      index:
+        type: integer
+        description: Index of the segment to remove
+  - name: bpy.ops.object.hide_collection
+    label: Hide Other Collections
+    description: Show only objects in collection (Shift to extend)
+    tags:
+    - collection
+    - hide collection
+    - hide
+    - object
+    params: {}
+  - name: bpy.ops.object.hide_render_clear_all
+    label: Clear All Restrict Render
+    description: Reveal all render objects by setting the hide render flag
+    tags:
+    - picture
+    - hide render clear all
+    - render
+    - all
+    - object
+    - export
+    - image
+    - clear
+    - hide
+    params: {}
+  - name: bpy.ops.object.hide_view_clear
+    label: Show Hidden Objects
+    description: Reveal temporarily hidden objects
+    tags:
+    - hide view clear
+    - view
+    - object
+    - clear
+    - hide
+    params:
+      select:
+        type: boolean
+        description: Select revealed objects
+  - name: bpy.ops.object.hide_view_set
+    label: Hide Objects
+    description: Temporarily hide objects from the viewport
+    tags:
+    - hide view set
+    - view
+    - object
+    - set
+    - hide
+    params: {}
+  - name: bpy.ops.object.hook_add_newob
+    label: Hook to New Object
+    description: Hook selected vertices to a newly created object
+    tags:
+    - make
+    - add
+    - object
+    - insert
+    - hook
+    - new
+    - create
+    - newob
+    - generate
+    - hook add newob
+    params: {}
+  - name: bpy.ops.object.hook_add_selob
+    label: Hook to Selected Object
+    description: Hook selected vertices to the first selected object
+    tags:
+    - make
+    - add
+    - object
+    - selob
+    - hook add selob
+    - insert
+    - hook
+    - new
+    - create
+    - generate
+    params:
+      use_bone:
+        type: boolean
+        description: Assign the hook to the hook object's active bone
+  - name: bpy.ops.object.hook_assign
+    label: Assign to Hook
+    description: Assign the selected vertices to a hook
+    tags:
+    - hook assign
+    - assign
+    - object
+    - hook
+    params:
+      modifier:
+        type: string
+        description: Modifier number to assign to
+  - name: bpy.ops.object.hook_recenter
+    label: Recenter Hook
+    description: Set hook center to cursor position
+    tags:
+    - recenter
+    - hook
+    - object
+    - hook recenter
+    params:
+      modifier:
+        type: string
+        description: Modifier number to assign to
+  - name: bpy.ops.object.hook_remove
+    label: Remove Hook
+    description: Remove a hook from the active object
+    tags:
+    - dissolve
+    - erase
+    - hook remove
+    - object
+    - hook
+    - clear
+    - delete
+    - remove
+    params:
+      modifier:
+        type: string
+        description: Modifier number to remove
+  - name: bpy.ops.object.hook_reset
+    label: Reset Hook
+    description: Recalculate and clear offset transformation
+    tags:
+    - reset
+    - hook reset
+    - object
+    - hook
+    params:
+      modifier:
+        type: string
+        description: Modifier number to assign to
+  - name: bpy.ops.object.hook_select
+    label: Select Hook
+    description: Select affected vertices on mesh
+    tags:
+    - choose
+    - hook
+    - object
+    - pick
+    - hook select
+    - select
+    - grab
+    params:
+      modifier:
+        type: string
+        description: Modifier number to remove
+  - name: bpy.ops.object.instance_offset_from_cursor
+    label: Set Offset from Cursor
+    description: Set offset used for collection instances based on cursor position
+    tags:
+    - instance
+    - instance offset from cursor
+    - offset
+    - cursor
+    - object
+    - from
+    params: {}
+  - name: bpy.ops.object.instance_offset_from_object
+    label: Set Offset from Object
+    description: Set offset used for collection instances based on the active object
+      position
+    tags:
+    - instance offset from object
+    - instance
+    - offset
+    - object
+    - from
+    params: {}
+  - name: bpy.ops.object.instance_offset_to_cursor
+    label: Set Cursor to Offset
+    description: Set cursor position to the offset used for collection instances
+    tags:
+    - instance
+    - instance offset to cursor
+    - cursor
+    - offset
+    - object
+    params: {}
+  - name: bpy.ops.object.isolate_type_render
+    label: Restrict Render Unselected
+    description: Hide unselected render objects of same type as active by setting
+      the hide render flag
+    tags:
+    - picture
+    - render
+    - object
+    - isolate
+    - export
+    - isolate type render
+    - type
+    - image
+    params: {}
+  - name: bpy.ops.object.join
+    label: Join
+    description: Join selected objects into active object
+    tags:
+    - merge
+    - unite
+    - join
+    - object
+    - combine
+    params: {}
+  - name: bpy.ops.object.join_shapes
+    label: Join as Shapes
+    description: Add the vertex positions of selected objects as shape keys or update
+      existing shape keys with matching names
+    tags:
+    - merge
+    - shapes
+    - unite
+    - join
+    - join shapes
+    - object
+    - combine
+    params: {}
+  - name: bpy.ops.object.join_uvs
+    label: Transfer UV Maps
+    description: Transfer UV Maps from active to selected objects (needs matching
+      geometry)
+    tags:
+    - merge
+    - uvs
+    - unite
+    - join
+    - join uvs
+    - object
+    - combine
+    params: {}
+  - name: bpy.ops.object.laplaciandeform_bind
+    label: Laplacian Deform Bind
+    description: Bind mesh to system in laplacian deform modifier
+    tags:
+    - bind
+    - laplaciandeform
+    - object
+    - laplaciandeform bind
+    params: {}
+  - name: bpy.ops.object.light_add
+    label: Add Light
+    description: Add a light object to the scene
+    tags:
+    - make
+    - add
+    - spot
+    - create
+    - object
+    - insert
+    - new
+    - light add
+    - illumination
+    - sun
+    - light
+    - lamp
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.light_linking_blocker_collection_new
+    label: New Light Linking Collection
+    description: Create new light linking collection used by the active emitter
+    tags:
+    - collection
+    - blocker
+    - spot
+    - sun
+    - object
+    - linking
+    - illumination
+    - light linking blocker collection new
+    - new
+    - light
+    - lamp
+    params: {}
+  - name: bpy.ops.object.light_linking_blockers_link
+    label: Link Blockers to Emitter
+    description: Light link selected blockers to the active emitter object
+    tags:
+    - blockers
+    - link
+    - spot
+    - object
+    - linking
+    - illumination
+    - sun
+    - light
+    - lamp
+    - light linking blockers link
+    params:
+      link_state:
+        type: string
+        description: State of the shadow linking
+  - name: bpy.ops.object.light_linking_blockers_select
+    label: Select Light Linking Blockers
+    description: Select all objects which block light from this emitter
+    tags:
+    - blockers
+    - choose
+    - pick
+    - spot
+    - object
+    - select
+    - grab
+    - linking
+    - illumination
+    - sun
+    - light linking blockers select
+    - lamp
+    - light
+    params: {}
+  - name: bpy.ops.object.light_linking_receiver_collection_new
+    label: New Light Linking Collection
+    description: Create new light linking collection used by the active emitter
+    tags:
+    - collection
+    - receiver
+    - spot
+    - sun
+    - object
+    - light linking receiver collection new
+    - linking
+    - illumination
+    - new
+    - light
+    - lamp
+    params: {}
+  - name: bpy.ops.object.light_linking_receivers_link
+    label: Link Receivers to Emitter
+    description: Light link selected receivers to the active emitter object
+    tags:
+    - receivers
+    - link
+    - spot
+    - sun
+    - object
+    - linking
+    - illumination
+    - light linking receivers link
+    - light
+    - lamp
+    params:
+      link_state:
+        type: string
+        description: State of the light linking
+  - name: bpy.ops.object.light_linking_receivers_select
+    label: Select Light Linking Receivers
+    description: Select all objects which receive light from this emitter
+    tags:
+    - receivers
+    - choose
+    - pick
+    - spot
+    - object
+    - select
+    - grab
+    - linking
+    - illumination
+    - sun
+    - light
+    - lamp
+    - light linking receivers select
+    params: {}
+  - name: bpy.ops.object.light_linking_unlink_from_collection
+    label: Remove From Light Linking Collection
+    description: Remove this object or collection from the light linking collection
+    tags:
+    - collection
+    - light linking unlink from collection
+    - spot
+    - object
+    - linking
+    - from
+    - illumination
+    - sun
+    - light
+    - unlink
+    - lamp
+    params: {}
+  - name: bpy.ops.object.lightprobe_add
+    label: Add Light Probe
+    description: Add a light probe object
+    tags:
+    - lightprobe
+    - make
+    - add
+    - lightprobe add
+    - object
+    - insert
+    - new
+    - create
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.lightprobe_cache_bake
+    label: Bake Light Cache
+    description: Bake irradiance volume light cache
+    tags:
+    - lightprobe
+    - lightprobe cache bake
+    - object
+    - cache
+    - bake
+    params:
+      subset:
+        type: string
+        description: Subset of probes to update
+  - name: bpy.ops.object.lightprobe_cache_free
+    label: Delete Light Cache
+    description: Delete cached indirect lighting
+    tags:
+    - lightprobe
+    - object
+    - cache
+    - lightprobe cache free
+    - free
+    params:
+      subset:
+        type: string
+        description: Subset of probes to update
+  - name: bpy.ops.object.lineart_bake_strokes
+    label: Bake Line Art
+    description: Bake Line Art for current Grease Pencil object
+    tags:
+    - strokes
+    - lineart bake strokes
+    - object
+    - lineart
+    - bake
+    params:
+      bake_all:
+        type: boolean
+        description: Bake all Line Art modifiers
+  - name: bpy.ops.object.lineart_clear
+    label: Clear Baked Line Art
+    description: Clear all strokes in current Grease Pencil object
+    tags:
+    - clear
+    - lineart clear
+    - object
+    - lineart
+    params:
+      clear_all:
+        type: boolean
+        description: Clear all Line Art modifier bakes
+  - name: bpy.ops.object.link_to_collection
+    label: Link to Collection
+    description: Link objects to a collection
+    tags:
+    - collection
+    - link
+    - link to collection
+    - object
+    params:
+      new_collection_name:
+        type: string
+        description: Name of the newly added collection
+  - name: bpy.ops.object.location_clear
+    label: Clear Location
+    description: Clear the object's location
+    tags:
+    - clear
+    - location clear
+    - location
+    - object
+    params:
+      clear_delta:
+        type: boolean
+        description: Clear delta location in addition to clearing the normal location
+          transform
+  - name: bpy.ops.object.make_dupli_face
+    label: Make Instance Face
+    description: Convert objects into instanced faces
+    tags:
+    - make
+    - dupli
+    - object
+    - make dupli face
+    - face
+    params: {}
+  - name: bpy.ops.object.make_links_data
+    label: Link/Transfer Data
+    description: Transfer data from active object to selected objects
+    tags:
+    - make
+    - links
+    - make links data
+    - object
+    - data
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.make_links_scene
+    label: Link Objects to Scene
+    description: Link selection to another scene
+    tags:
+    - make
+    - links
+    - object
+    - scene
+    - make links scene
+    params:
+      scene:
+        type: string
+        description: scene
+  - name: bpy.ops.object.make_local
+    label: Make Local
+    description: Make library linked data-blocks local to this file
+    tags:
+    - make local
+    - make
+    - object
+    - local
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.make_override_library
+    label: Make Library Override
+    description: Create a local override of the selected linked objects, and their
+      hierarchy of dependencies
+    tags:
+    - make
+    - override
+    - object
+    - library
+    - make override library
+    params: {}
+  - name: bpy.ops.object.make_single_user
+    label: Make Single User
+    description: Make linked data local to each object
+    tags:
+    - make
+    - single
+    - object
+    - user
+    - make single user
+    params:
+      type:
+        type: string
+        description: type
+      object:
+        type: boolean
+        description: Make single user objects
+      obdata:
+        type: boolean
+        description: Make single user object data
+      material:
+        type: boolean
+        description: Make materials local to each data-block
+      animation:
+        type: boolean
+        description: Make object animation data local to each object
+      obdata_animation:
+        type: boolean
+        description: Make object data (mesh, curve etc.) animation data local to each
+          object
+  - name: bpy.ops.object.material_slot_add
+    label: Add Material Slot
+    description: Add a new material slot
+    tags:
+    - color
+    - make
+    - add
+    - material
+    - material slot add
+    - surface
+    - object
+    - shader
+    - texture
+    - insert
+    - slot
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.object.material_slot_assign
+    label: Assign Material Slot
+    description: Assign active material slot to selection
+    tags:
+    - color
+    - material
+    - surface
+    - object
+    - shader
+    - texture
+    - slot
+    - material slot assign
+    - assign
+    params: {}
+  - name: bpy.ops.object.material_slot_copy
+    label: Copy Material to Selected
+    description: Copy material to selected objects
+    tags:
+    - color
+    - material
+    - surface
+    - object
+    - shader
+    - texture
+    - slot
+    - material slot copy
+    - copy
+    params: {}
+  - name: bpy.ops.object.material_slot_deselect
+    label: Deselect Material Slot
+    description: Deselect by active material slot
+    tags:
+    - color
+    - material slot deselect
+    - material
+    - surface
+    - object
+    - shader
+    - texture
+    - slot
+    - deselect
+    params: {}
+  - name: bpy.ops.object.material_slot_move
+    label: Move Material
+    description: Move the active material up/down in the list
+    tags:
+    - color
+    - material
+    - material slot move
+    - move
+    - surface
+    - object
+    - shader
+    - texture
+    - slot
+    params:
+      direction:
+        type: string
+        description: Direction to move the active material towards
+  - name: bpy.ops.object.material_slot_remove
+    label: Remove Material Slot
+    description: Remove the selected material slot
+    tags:
+    - color
+    - dissolve
+    - erase
+    - material
+    - surface
+    - object
+    - shader
+    - texture
+    - material slot remove
+    - slot
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.object.material_slot_remove_all
+    label: Remove All Materials
+    description: Remove all materials
+    tags:
+    - color
+    - dissolve
+    - material slot remove all
+    - erase
+    - material
+    - surface
+    - all
+    - object
+    - shader
+    - texture
+    - slot
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.object.material_slot_remove_unused
+    label: Remove Unused Slots
+    description: Remove unused material slots
+    tags:
+    - color
+    - dissolve
+    - erase
+    - material
+    - unused
+    - surface
+    - object
+    - shader
+    - texture
+    - slot
+    - clear
+    - delete
+    - material slot remove unused
+    - remove
+    params: {}
+  - name: bpy.ops.object.material_slot_select
+    label: Select Material Slot
+    description: Select by active material slot
+    tags:
+    - color
+    - choose
+    - pick
+    - material
+    - surface
+    - select
+    - object
+    - material slot select
+    - shader
+    - grab
+    - texture
+    - slot
+    params: {}
+  - name: bpy.ops.object.meshdeform_bind
+    label: Mesh Deform Bind
+    description: Bind mesh to cage in mesh deform modifier
+    tags:
+    - bind
+    - meshdeform bind
+    - object
+    - meshdeform
+    params: {}
+  - name: bpy.ops.object.metaball_add
+    label: Add Metaball
+    description: Add an metaball object to the scene
+    tags:
+    - make
+    - add
+    - object
+    - metaball add
+    - insert
+    - metaball
+    - new
+    - create
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.mode_set
+    label: Set Object Mode
+    description: Sets the object interaction mode
+    tags:
+    - mode set
+    - set
+    - object
+    - mode
+    params:
+      mode:
+        type: string
+        description: mode
+      toggle:
+        type: boolean
+        description: toggle
+  - name: bpy.ops.object.mode_set_with_submode
+    label: Set Object Mode with Sub-mode
+    description: Sets the object interaction mode
+    tags:
+    - submode
+    - mode
+    - mode set with submode
+    - object
+    - with
+    - set
+    params:
+      mode:
+        type: string
+        description: mode
+      toggle:
+        type: boolean
+        description: toggle
+  - name: bpy.ops.object.modifier_add
+    label: Add Modifier
+    description: Add a procedural operation/effect to the active object
+    tags:
+    - modifier
+    - make
+    - add
+    - object
+    - insert
+    - modifier add
+    - new
+    - create
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.modifier_add_node_group
+    label: Add Modifier
+    description: Add a procedural operation/effect to the active object
+    tags:
+    - connection
+    - modifier
+    - make
+    - add
+    - create
+    - node
+    - object
+    - insert
+    - new
+    - modifier add node group
+    - graph
+    - logic
+    - generate
+    - group
+    params: {}
+  - name: bpy.ops.object.modifier_apply
+    label: Apply Modifier
+    description: Apply modifier and remove from the stack
+    tags:
+    - modifier
+    - modifier apply
+    - object
+    - apply
+    params:
+      merge_customdata:
+        type: boolean
+        description: For mesh objects, merge UV coordinates that share a vertex to
+          account for imprecision in some modifiers
+  - name: bpy.ops.object.modifier_apply_as_shapekey
+    label: Apply Modifier as Shape Key
+    description: Apply modifier as a new shape key and remove from the stack
+    tags:
+    - modifier apply as shapekey
+    - modifier
+    - object
+    - shapekey
+    - apply
+    params:
+      keep_modifier:
+        type: boolean
+        description: Do not remove the modifier from stack
+  - name: bpy.ops.object.modifier_convert
+    label: Convert Particles to Mesh
+    description: Convert particles to a mesh object
+    tags:
+    - modifier convert
+    - convert
+    - modifier
+    - object
+    params: {}
+  - name: bpy.ops.object.modifier_copy
+    label: Copy Modifier
+    description: Duplicate modifier at the same position in the stack
+    tags:
+    - modifier copy
+    - copy
+    - modifier
+    - object
+    params: {}
+  - name: bpy.ops.object.modifier_copy_to_selected
+    label: Copy Modifier to Selected
+    description: Copy the modifier from the active object to all selected objects
+    tags:
+    - modifier
+    - object
+    - modifier copy to selected
+    - selected
+    - copy
+    params: {}
+  - name: bpy.ops.object.modifier_move_down
+    label: Move Down Modifier
+    description: Move modifier down in the stack
+    tags:
+    - modifier
+    - move
+    - object
+    - modifier move down
+    - down
+    params: {}
+  - name: bpy.ops.object.modifier_move_to_index
+    label: Move Active Modifier to Index
+    description: Change the modifier's index in the stack so it evaluates after the
+      set number of others
+    tags:
+    - modifier
+    - move
+    - object
+    - index
+    - modifier move to index
+    params:
+      index:
+        type: integer
+        description: The index to move the modifier to
+  - name: bpy.ops.object.modifier_move_up
+    label: Move Up Modifier
+    description: Move modifier up in the stack
+    tags:
+    - move
+    - modifier
+    - object
+    - modifier move up
+    params: {}
+  - name: bpy.ops.object.modifier_remove
+    label: Remove Modifier
+    description: Remove a modifier from the active object
+    tags:
+    - dissolve
+    - erase
+    - modifier
+    - object
+    - modifier remove
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.object.modifier_set_active
+    label: Set Active Modifier
+    description: Activate the modifier to use as the context
+    tags:
+    - modifier
+    - object
+    - active
+    - set
+    - modifier set active
+    params: {}
+  - name: bpy.ops.object.modifiers_clear
+    label: Clear Object Modifiers
+    description: Clear all modifiers from the selected objects
+    tags:
+    - modifiers
+    - clear
+    - object
+    - modifiers clear
+    params: {}
+  - name: bpy.ops.object.modifiers_copy_to_selected
+    label: Copy Modifiers to Selected Objects
+    description: Copy modifiers to other selected objects
+    tags:
+    - modifiers copy to selected
+    - object
+    - modifiers
+    - selected
+    - copy
+    params: {}
+  - name: bpy.ops.object.move_to_collection
+    label: Move to Collection
+    description: Move objects to a collection
+    tags:
+    - collection
+    - move to collection
+    - move
+    - object
+    params:
+      new_collection_name:
+        type: string
+        description: Name of the newly added collection
+  - name: bpy.ops.object.multires_base_apply
+    label: Multires Apply Base
+    description: Modify the base mesh to conform to the displaced mesh
+    tags:
+    - multires
+    - base
+    - multires base apply
+    - object
+    - apply
+    params: {}
+  - name: bpy.ops.object.multires_external_pack
+    label: Multires Pack External
+    description: Pack displacements from an external file
+    tags:
+    - external
+    - multires
+    - multires external pack
+    - pack
+    - object
+    params: {}
+  - name: bpy.ops.object.multires_external_save
+    label: Multires Save External
+    description: Save displacements to an external file
+    tags:
+    - external
+    - multires
+    - save
+    - object
+    - multires external save
+    params:
+      filepath:
+        type: string
+        description: Path to file
+      relative_path:
+        type: boolean
+        description: Select the file relative to the blend file
+  - name: bpy.ops.object.multires_higher_levels_delete
+    label: Delete Higher Levels
+    description: Deletes the higher resolution mesh, potential loss of detail
+    tags:
+    - multires
+    - higher
+    - multires higher levels delete
+    - object
+    - levels
+    - delete
+    params: {}
+  - name: bpy.ops.object.multires_rebuild_subdiv
+    label: Rebuild Lower Subdivisions
+    description: Rebuilds all possible subdivisions levels to generate a lower resolution
+      base mesh
+    tags:
+    - multires
+    - subdiv
+    - object
+    - multires rebuild subdiv
+    - rebuild
+    params: {}
+  - name: bpy.ops.object.multires_reshape
+    label: Multires Reshape
+    description: Copy vertex coordinates from other object
+    tags:
+    - multires
+    - multires reshape
+    - object
+    - reshape
+    params: {}
+  - name: bpy.ops.object.multires_subdivide
+    label: Multires Subdivide
+    description: Add a new level of subdivision
+    tags:
+    - refine
+    - multires subdivide
+    - multires
+    - detail
+    - object
+    - smooth
+    - subdivide
+    params:
+      mode:
+        type: string
+        description: How the mesh is going to be subdivided to create a new level
+  - name: bpy.ops.object.multires_unsubdivide
+    label: Unsubdivide
+    description: Rebuild a lower subdivision level of the current base mesh
+    tags:
+    - multires
+    - unsubdivide
+    - object
+    - multires unsubdivide
+    params: {}
+  - name: bpy.ops.object.ocean_bake
+    label: Bake Ocean
+    description: Bake an image sequence of ocean data
+    tags:
+    - ocean
+    - bake
+    - ocean bake
+    - object
+    params:
+      free:
+        type: boolean
+        description: Free the bake, rather than generating it
+  - name: bpy.ops.object.origin_clear
+    label: Clear Origin
+    description: Clear the object's origin
+    tags:
+    - origin
+    - origin clear
+    - clear
+    - object
+    params: {}
+  - name: bpy.ops.object.origin_set
+    label: Set Origin
+    description: Set the object's origin, by either moving the data, or set to center
+      of data, or use 3D cursor
+    tags:
+    - origin
+    - set
+    - object
+    - origin set
+    params:
+      type:
+        type: string
+        description: type
+      center:
+        type: string
+        description: center
+  - name: bpy.ops.object.parent_clear
+    label: Clear Parent
+    description: Clear the object's parenting
+    tags:
+    - parent clear
+    - clear
+    - object
+    - parent
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.parent_inverse_apply
+    label: Apply Parent Inverse
+    description: Apply the object's parent inverse to its data
+    tags:
+    - parent inverse apply
+    - apply
+    - object
+    - inverse
+    - parent
+    params: {}
+  - name: bpy.ops.object.parent_no_inverse_set
+    label: Make Parent without Inverse
+    description: Set the object's parenting without setting the inverse parent correction
+    tags:
+    - object
+    - inverse
+    - parent no inverse set
+    - parent
+    - set
+    params:
+      keep_transform:
+        type: boolean
+        description: Preserve the world transform throughout parenting
+  - name: bpy.ops.object.parent_set
+    label: Make Parent
+    description: Set the object's parenting
+    tags:
+    - set
+    - object
+    - parent
+    - parent set
+    params:
+      type:
+        type: string
+        description: type
+      xmirror:
+        type: boolean
+        description: Apply weights symmetrically along X axis, for Envelope/Automatic
+          vertex groups creation
+      keep_transform:
+        type: boolean
+        description: Apply transformation before parenting
+  - name: bpy.ops.object.particle_system_add
+    label: Add Particle System Slot
+    description: Add a particle system
+    tags:
+    - make
+    - add
+    - create
+    - object
+    - particle system add
+    - insert
+    - new
+    - system
+    - particle
+    - generate
+    params: {}
+  - name: bpy.ops.object.particle_system_remove
+    label: Remove Particle System Slot
+    description: Remove the selected particle system
+    tags:
+    - dissolve
+    - erase
+    - particle system remove
+    - delete
+    - object
+    - clear
+    - system
+    - particle
+    - remove
+    params: {}
+  - name: bpy.ops.object.paste_transform
+    label: Paste Global Transform
+    description: Pastes the matrix from the clipboard to the currently active pose
+      bone or object. Uses world-space matrices
+    tags:
+    - scale
+    - paste transform
+    - move
+    - object
+    - rotate
+    - transform
+    - paste
+    - resize
+    params:
+      method:
+        type: string
+        description: Update the current transform, selected keyframes, or even create
+          new keys
+      bake_step:
+        type: integer
+        description: Only used for baking. Step=1 creates a key on every frame, step=2
+          bakes on 2s, etc
+      use_mirror:
+        type: boolean
+        description: When pasting, mirror the transform relative to a specific object
+          or bone
+      mirror_axis_loc:
+        type: string
+        description: Coordinate axis used to mirror the location part of the transform
+      mirror_axis_rot:
+        type: string
+        description: Coordinate axis used to mirror the rotation part of the transform
+      use_relative:
+        type: boolean
+        description: When pasting, assume the pasted matrix is relative to another
+          object (set in the user interface)
+  - name: bpy.ops.object.paths_calculate
+    label: Calculate Object Motion Paths
+    description: Generate motion paths for the selected objects
+    tags:
+    - paths
+    - paths calculate
+    - object
+    - calculate
+    params:
+      display_type:
+        type: string
+        description: display_type
+      range:
+        type: string
+        description: range
+  - name: bpy.ops.object.paths_clear
+    label: Clear Object Paths
+    description: (undocumented operator)
+    tags:
+    - paths clear
+    - clear
+    - object
+    - paths
+    params:
+      only_selected:
+        type: boolean
+        description: Only clear motion paths of selected objects
+  - name: bpy.ops.object.paths_update
+    label: Update Object Paths
+    description: Recalculate motion paths for selected objects
+    tags:
+    - paths
+    - update
+    - object
+    - paths update
+    params: {}
+  - name: bpy.ops.object.paths_update_visible
+    label: Update All Object Paths
+    description: Recalculate all visible motion paths for objects and poses
+    tags:
+    - update
+    - object
+    - paths
+    - paths update visible
+    - visible
+    params: {}
+  - name: bpy.ops.object.pointcloud_random_add
+    label: Add Point Cloud
+    description: Add a point cloud object to the scene
+    tags:
+    - pointcloud
+    - make
+    - add
+    - object
+    - random
+    - insert
+    - pointcloud random add
+    - new
+    - create
+    - generate
+    params:
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.posemode_toggle
+    label: Toggle Pose Mode
+    description: Enable or disable posing/selecting bones
+    tags:
+    - toggle
+    - posemode
+    - object
+    - posemode toggle
+    params: {}
+  - name: bpy.ops.object.quadriflow_remesh
+    label: QuadriFlow Remesh
+    description: Create a new quad based mesh using the surface data of the current
+      mesh. All data layers will be lost
+    tags:
+    - quadriflow
+    - quadriflow remesh
+    - object
+    - remesh
+    params:
+      use_mesh_symmetry:
+        type: boolean
+        description: Generates a symmetrical mesh using the mesh symmetry configuration
+      use_preserve_sharp:
+        type: boolean
+        description: Try to preserve sharp features on the mesh
+      use_preserve_boundary:
+        type: boolean
+        description: Try to preserve mesh boundary on the mesh
+      preserve_attributes:
+        type: boolean
+        description: Reproject attributes onto the new mesh
+      smooth_normals:
+        type: boolean
+        description: Set the output mesh normals to smooth
+      mode:
+        type: string
+        description: How to specify the amount of detail for the new mesh
+      target_ratio:
+        type: float
+        description: Relative number of faces compared to the current mesh
+      target_edge_length:
+        type: float
+        description: Target edge length in the new mesh
+      target_faces:
+        type: integer
+        description: Approximate number of faces (quads) in the new mesh
+      seed:
+        type: integer
+        description: Random seed to use with the solver. Different seeds will cause
+          the remesher to come up with different quad layouts on the mesh
+  - name: bpy.ops.object.quick_explode
+    label: Quick Explode
+    description: Make selected objects explode
+    tags:
+    - quick
+    - quick explode
+    - object
+    - explode
+    params:
+      style:
+        type: string
+        description: style
+      amount:
+        type: integer
+        description: amount
+      frame_duration:
+        type: integer
+        description: frame_duration
+      frame_start:
+        type: integer
+        description: frame_start
+      frame_end:
+        type: integer
+        description: frame_end
+      velocity:
+        type: float
+        description: velocity
+      fade:
+        type: boolean
+        description: Fade the pieces over time
+  - name: bpy.ops.object.quick_fur
+    label: Quick Fur
+    description: Add a fur setup to the selected objects
+    tags:
+    - quick
+    - quick fur
+    - object
+    - fur
+    params:
+      density:
+        type: string
+        description: density
+      length:
+        type: float
+        description: length
+      radius:
+        type: float
+        description: radius
+      view_percentage:
+        type: float
+        description: view_percentage
+      apply_hair_guides:
+        type: boolean
+        description: apply_hair_guides
+      use_noise:
+        type: boolean
+        description: use_noise
+      use_frizz:
+        type: boolean
+        description: use_frizz
+  - name: bpy.ops.object.quick_liquid
+    label: Quick Liquid
+    description: Make selected objects liquid
+    tags:
+    - quick liquid
+    - quick
+    - object
+    - liquid
+    params:
+      show_flows:
+        type: boolean
+        description: Keep the liquid objects visible during rendering
+  - name: bpy.ops.object.quick_smoke
+    label: Quick Smoke
+    description: Use selected objects as smoke emitters
+    tags:
+    - quick smoke
+    - quick
+    - smoke
+    - object
+    params:
+      style:
+        type: string
+        description: style
+      show_flows:
+        type: boolean
+        description: Keep the smoke objects visible during rendering
+  - name: bpy.ops.object.randomize_transform
+    label: Randomize Transform
+    description: Randomize objects location, rotation, and scale
+    tags:
+    - scale
+    - randomize
+    - randomize transform
+    - move
+    - object
+    - rotate
+    - transform
+    - resize
+    params:
+      random_seed:
+        type: integer
+        description: Seed value for the random generator
+      use_delta:
+        type: boolean
+        description: Randomize delta transform values instead of regular transform
+      use_loc:
+        type: boolean
+        description: Randomize the location values
+      loc:
+        type: float
+        description: Maximum distance the objects can spread over each axis
+      use_rot:
+        type: boolean
+        description: Randomize the rotation values
+      rot:
+        type: float
+        description: Maximum rotation over each axis
+      use_scale:
+        type: boolean
+        description: Randomize the scale values
+      scale_even:
+        type: boolean
+        description: Use the same scale value for all axis
+      scale:
+        type: float
+        description: Maximum scale randomization over each axis
+  - name: bpy.ops.object.reset_override_library
+    label: Reset Library Override
+    description: Reset the selected local overrides to their linked references values
+    tags:
+    - override
+    - reset
+    - object
+    - library
+    - reset override library
+    params: {}
+  - name: bpy.ops.object.rigify_action_create
+    label: New
+    description: Create a new action
+    tags:
+    - object
+    - action
+    - rigify action create
+    - rigify
+    - create
+    params: {}
+  - name: bpy.ops.object.rigify_jump_to_action_slot
+    label: Jump to Action Slot
+    description: Set Active Action Slot Index
+    tags:
+    - object
+    - action
+    - rigify jump to action slot
+    - slot
+    - jump
+    - rigify
+    params:
+      to_index:
+        type: integer
+        description: to_index
+  - name: bpy.ops.object.rotation_clear
+    label: Clear Rotation
+    description: Clear the object's rotation
+    tags:
+    - rotation clear
+    - clear
+    - rotation
+    - object
+    params:
+      clear_delta:
+        type: boolean
+        description: Clear delta rotation in addition to clearing the normal rotation
+          transform
+  - name: bpy.ops.object.scale_clear
+    label: Clear Scale
+    description: Clear the object's scale
+    tags:
+    - scale
+    - clear
+    - object
+    - scale clear
+    params:
+      clear_delta:
+        type: boolean
+        description: Clear delta scale in addition to clearing the normal scale transform
+  - name: bpy.ops.object.select_all
+    label: (De)select All
+    description: Change selection of all visible objects in scene
+    tags:
+    - select all
+    - choose
+    - object
+    - pick
+    - all
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.object.select_by_type
+    label: Select by Type
+    description: Select all visible objects that are of a type
+    tags:
+    - choose
+    - type
+    - select by type
+    - object
+    - pick
+    - select
+    - grab
+    params:
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.select_camera
+    label: Select Camera
+    description: Select the active camera
+    tags:
+    - camera
+    - choose
+    - pick
+    - select
+    - object
+    - view
+    - grab
+    - shot
+    - lens
+    - select camera
+    params:
+      extend:
+        type: boolean
+        description: Extend the selection
+  - name: bpy.ops.object.select_grouped
+    label: Select Grouped
+    description: Select all visible objects grouped by various properties
+    tags:
+    - grouped
+    - select grouped
+    - choose
+    - object
+    - pick
+    - select
+    - grab
+    params:
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.select_hierarchy
+    label: Select Hierarchy
+    description: Select object relative to the active object's position in the hierarchy
+    tags:
+    - choose
+    - object
+    - pick
+    - grab
+    - hierarchy
+    - select
+    - select hierarchy
+    params:
+      direction:
+        type: string
+        description: Direction to select in the hierarchy
+      extend:
+        type: boolean
+        description: Extend the existing selection
+  - name: bpy.ops.object.select_less
+    label: Select Less
+    description: Deselect objects at the boundaries of parent/child relationships
+    tags:
+    - choose
+    - select less
+    - object
+    - pick
+    - less
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.object.select_linked
+    label: Select Linked
+    description: Select all visible objects that are linked
+    tags:
+    - linked
+    - choose
+    - select linked
+    - object
+    - pick
+    - select
+    - grab
+    params:
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.select_mirror
+    label: Select Mirror
+    description: Select the mirror objects of the selected object e.g. "L.sword" and
+      "R.sword"
+    tags:
+    - mirror
+    - select mirror
+    - choose
+    - object
+    - pick
+    - select
+    - grab
+    params:
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+  - name: bpy.ops.object.select_more
+    label: Select More
+    description: Select connected parent/child objects
+    tags:
+    - select more
+    - choose
+    - object
+    - pick
+    - more
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.object.select_pattern
+    label: Select Pattern
+    description: Select objects matching a naming pattern
+    tags:
+    - choose
+    - select pattern
+    - select
+    - object
+    - pick
+    - pattern
+    - grab
+    params:
+      pattern:
+        type: string
+        description: Name filter using '*', '?' and '[abc]' unix style wildcards
+      case_sensitive:
+        type: boolean
+        description: Do a case sensitive compare
+      extend:
+        type: boolean
+        description: Extend the existing selection
+  - name: bpy.ops.object.select_random
+    label: Select Random
+    description: Select or deselect random visible objects
+    tags:
+    - select random
+    - choose
+    - random
+    - object
+    - pick
+    - select
+    - grab
+    params:
+      ratio:
+        type: float
+        description: Portion of items to select randomly
+      seed:
+        type: integer
+        description: Seed for the random number generator
+      action:
+        type: string
+        description: Selection action to execute
+  - name: bpy.ops.object.select_same_collection
+    label: Select Same Collection
+    description: Select object in the same collection
+    tags:
+    - collection
+    - choose
+    - pick
+    - select same collection
+    - select
+    - object
+    - grab
+    - same
+    params:
+      collection:
+        type: string
+        description: Name of the collection to select
+  - name: bpy.ops.object.shade_auto_smooth
+    label: Shade Auto Smooth
+    description: Add modifier to automatically set the sharpness of mesh edges based
+      on the angle between the neighboring faces
+    tags:
+    - shade auto smooth
+    - smooth
+    - auto
+    - shade
+    - object
+    params:
+      use_auto_smooth:
+        type: boolean
+        description: Add modifier to set edge sharpness automatically
+      angle:
+        type: float
+        description: Maximum angle between face normals that will be considered as
+          smooth
+  - name: bpy.ops.object.shade_flat
+    label: Shade Flat
+    description: Render and display faces uniform, using face normals
+    tags:
+    - shade
+    - flat
+    - shade flat
+    - object
+    params:
+      keep_sharp_edges:
+        type: boolean
+        description: Don't remove sharp edges, which are redundant with faces shaded
+          smooth
+  - name: bpy.ops.object.shade_smooth
+    label: Shade Smooth
+    description: Render and display faces smooth, using interpolated vertex normals
+    tags:
+    - shade
+    - shade smooth
+    - object
+    - smooth
+    params:
+      keep_sharp_edges:
+        type: boolean
+        description: Don't remove sharp edges. Tagged edges will remain sharp
+  - name: bpy.ops.object.shade_smooth_by_angle
+    label: Shade Smooth by Angle
+    description: Set the sharpness of mesh edges based on the angle between the neighboring
+      faces
+    tags:
+    - smooth
+    - shade
+    - object
+    - shade smooth by angle
+    - angle
+    params:
+      angle:
+        type: float
+        description: Maximum angle between face normals that will be considered as
+          smooth
+      keep_sharp_edges:
+        type: boolean
+        description: Only add sharp edges instead of clearing existing tags first
+  - name: bpy.ops.object.shaderfx_add
+    label: Add Effect
+    description: Add a visual effect to the active object
+    tags:
+    - make
+    - shaderfx
+    - add
+    - object
+    - shaderfx add
+    - insert
+    - new
+    - create
+    - generate
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.shaderfx_copy
+    label: Copy Effect
+    description: Duplicate effect at the same position in the stack
+    tags:
+    - copy
+    - object
+    - shaderfx
+    - shaderfx copy
+    params: {}
+  - name: bpy.ops.object.shaderfx_move_down
+    label: Move Down Effect
+    description: Move effect down in the stack
+    tags:
+    - shaderfx
+    - shaderfx move down
+    - move
+    - object
+    - down
+    params: {}
+  - name: bpy.ops.object.shaderfx_move_to_index
+    label: Move Effect to Index
+    description: Change the effect's position in the list so it evaluates after the
+      set number of others
+    tags:
+    - shaderfx
+    - move
+    - object
+    - shaderfx move to index
+    - index
+    params:
+      index:
+        type: integer
+        description: The index to move the effect to
+  - name: bpy.ops.object.shaderfx_move_up
+    label: Move Up Effect
+    description: Move effect up in the stack
+    tags:
+    - move
+    - shaderfx move up
+    - object
+    - shaderfx
+    params: {}
+  - name: bpy.ops.object.shaderfx_remove
+    label: Remove Grease Pencil Effect
+    description: Remove a effect from the active Grease Pencil object
+    tags:
+    - dissolve
+    - erase
+    - shaderfx
+    - object
+    - shaderfx remove
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.object.shape_key_add
+    label: Add Shape Key
+    description: Add shape key to the object
+    tags:
+    - make
+    - key
+    - add
+    - shape
+    - object
+    - shape key add
+    - insert
+    - new
+    - create
+    - generate
+    params:
+      from_mix:
+        type: boolean
+        description: Create the new shape key from the existing mix of keys
+  - name: bpy.ops.object.shape_key_clear
+    label: Clear Shape Keys
+    description: Reset the weights of all shape keys to 0 or to the closest value
+      respecting the limits
+    tags:
+    - key
+    - shape key clear
+    - shape
+    - object
+    - clear
+    params: {}
+  - name: bpy.ops.object.shape_key_copy
+    label: Duplicate Shape Key
+    description: Duplicate the active shape key
+    tags:
+    - key
+    - shape
+    - object
+    - shape key copy
+    - copy
+    params: {}
+  - name: bpy.ops.object.shape_key_lock
+    label: Change the Lock On Shape Keys
+    description: Change the lock state of all shape keys of active object
+    tags:
+    - key
+    - shape
+    - shape key lock
+    - lock
+    - object
+    params:
+      action:
+        type: string
+        description: Lock action to execute on vertex groups
+  - name: bpy.ops.object.shape_key_mirror
+    label: Mirror Shape Key
+    description: Mirror the current shape key along the local X axis
+    tags:
+    - shape key mirror
+    - key
+    - shape
+    - object
+    - mirror
+    params:
+      use_topology:
+        type: boolean
+        description: Use topology based mirroring (for when both sides of mesh have
+          matching, unique topology)
+  - name: bpy.ops.object.shape_key_move
+    label: Move Shape Key
+    description: Move the active shape key up/down in the list
+    tags:
+    - key
+    - shape
+    - move
+    - object
+    - shape key move
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.shape_key_remove
+    label: Remove Shape Key
+    description: Remove shape key from the object
+    tags:
+    - dissolve
+    - erase
+    - key
+    - shape
+    - object
+    - shape key remove
+    - clear
+    - delete
+    - remove
+    params:
+      all:
+        type: boolean
+        description: Remove all shape keys
+      apply_mix:
+        type: boolean
+        description: Apply current mix of shape keys to the geometry before removing
+          them
+  - name: bpy.ops.object.shape_key_retime
+    label: Re-Time Shape Keys
+    description: Resets the timing for absolute shape keys
+    tags:
+    - retime
+    - key
+    - shape
+    - shape key retime
+    - object
+    params: {}
+  - name: bpy.ops.object.shape_key_transfer
+    label: Transfer Shape Key
+    description: Copy the active shape key of another selected object to this one
+    tags:
+    - key
+    - shape
+    - transfer
+    - object
+    - shape key transfer
+    params:
+      mode:
+        type: string
+        description: Relative shape positions to the new shape method
+      use_clamp:
+        type: boolean
+        description: Clamp the transformation to the distance each vertex moves in
+          the original shape
+  - name: bpy.ops.object.simulation_nodes_cache_bake
+    label: Bake Simulation
+    description: Bake simulations in geometry nodes modifiers
+    tags:
+    - nodes
+    - simulation
+    - simulation nodes cache bake
+    - object
+    - cache
+    - bake
+    params:
+      selected:
+        type: boolean
+        description: Bake cache on all selected objects
+  - name: bpy.ops.object.simulation_nodes_cache_calculate_to_frame
+    label: Calculate Simulation to Frame
+    description: Calculate simulations in geometry nodes modifiers from the start
+      to current frame
+    tags:
+    - nodes
+    - simulation
+    - simulation nodes cache calculate to frame
+    - frame
+    - calculate
+    - object
+    - cache
+    params:
+      selected:
+        type: boolean
+        description: Calculate all selected objects instead of just the active object
+  - name: bpy.ops.object.simulation_nodes_cache_delete
+    label: Delete Cached Simulation
+    description: Delete cached/baked simulations in geometry nodes modifiers
+    tags:
+    - nodes
+    - simulation
+    - simulation nodes cache delete
+    - object
+    - cache
+    - delete
+    params:
+      selected:
+        type: boolean
+        description: Delete cache on all selected objects
+  - name: bpy.ops.object.skin_armature_create
+    label: Skin Armature Create
+    description: Create an armature that parallels the skin layout
+    tags:
+    - skin armature create
+    - armature
+    - object
+    - skin
+    - create
+    params: {}
+  - name: bpy.ops.object.skin_loose_mark_clear
+    label: Skin Mark/Clear Loose
+    description: Mark/clear selected vertices as loose
+    tags:
+    - mark
+    - skin loose mark clear
+    - object
+    - loose
+    - skin
+    - clear
+    params:
+      action:
+        type: string
+        description: action
+  - name: bpy.ops.object.skin_radii_equalize
+    label: Skin Radii Equalize
+    description: Make skin radii of selected vertices equal on each axis
+    tags:
+    - skin radii equalize
+    - object
+    - equalize
+    - skin
+    - radii
+    params: {}
+  - name: bpy.ops.object.skin_root_mark
+    label: Skin Root Mark
+    description: Mark selected vertices as roots
+    tags:
+    - skin root mark
+    - mark
+    - object
+    - skin
+    - root
+    params: {}
+  - name: bpy.ops.object.speaker_add
+    label: Add Speaker
+    description: Add a speaker object to the scene
+    tags:
+    - make
+    - add
+    - object
+    - speaker
+    - insert
+    - speaker add
+    - new
+    - create
+    - generate
+    params:
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.subdivision_set
+    label: Subdivision Set
+    description: Sets a Subdivision Surface level (1 to 5)
+    tags:
+    - subdivision
+    - object
+    - subdivision set
+    - set
+    params:
+      level:
+        type: integer
+        description: level
+      relative:
+        type: boolean
+        description: Apply the subdivision surface level as an offset relative to
+          the current level
+  - name: bpy.ops.object.surfacedeform_bind
+    label: Surface Deform Bind
+    description: Bind mesh to target in surface deform modifier
+    tags:
+    - surfacedeform
+    - bind
+    - object
+    - surfacedeform bind
+    params: {}
+  - name: bpy.ops.object.text_add
+    label: Add Text
+    description: Add a text object to the scene
+    tags:
+    - make
+    - add
+    - text
+    - object
+    - insert
+    - text add
+    - new
+    - create
+    - generate
+    params:
+      radius:
+        type: float
+        description: radius
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.track_clear
+    label: Clear Track
+    description: Clear tracking constraint or flag from object
+    tags:
+    - track clear
+    - clear
+    - object
+    - track
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.track_set
+    label: Make Track
+    description: Make the object track another object, using various methods/constraints
+    tags:
+    - track set
+    - object
+    - set
+    - track
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.object.transfer_mode
+    label: Transfer Mode
+    description: Switches the active object and assigns the same mode to a new one
+      under the mouse cursor, leaving the active mode in the current one
+    tags:
+    - transfer
+    - transfer mode
+    - object
+    - mode
+    params:
+      use_flash_on_transfer:
+        type: boolean
+        description: Flash the target object when transferring the mode
+  - name: bpy.ops.object.transform_apply
+    label: Apply Object Transform
+    description: Apply the object's transformation to its data
+    tags:
+    - scale
+    - move
+    - apply
+    - object
+    - rotate
+    - transform
+    - resize
+    - transform apply
+    params:
+      location:
+        type: boolean
+        description: location
+      rotation:
+        type: boolean
+        description: rotation
+      scale:
+        type: boolean
+        description: scale
+  - name: bpy.ops.object.transform_axis_target
+    label: Interactive Light Track to Cursor
+    description: Interactively point cameras and lights to a location (Ctrl translates)
+    tags:
+    - transform axis target
+    - scale
+    - target
+    - axis
+    - move
+    - object
+    - rotate
+    - transform
+    - resize
+    params: {}
+  - name: bpy.ops.object.transform_to_mouse
+    label: Place Object Under Mouse
+    description: Snap selected item(s) to the mouse location
+    tags:
+    - scale
+    - move
+    - object
+    - rotate
+    - transform
+    - resize
+    - transform to mouse
+    - mouse
+    params: {}
+  - name: bpy.ops.object.transforms_to_deltas
+    label: Transforms to Deltas
+    description: Convert normal object transforms to delta transforms, any existing
+      delta transforms will be included as well
+    tags:
+    - transforms to deltas
+    - transforms
+    - deltas
+    - object
+    params:
+      mode:
+        type: string
+        description: Which transforms to transfer
+      reset_values:
+        type: boolean
+        description: Clear transform values after transferring to deltas
+  - name: bpy.ops.object.unlink_data
+    label: Unlink
+    description: (undocumented operator)
+    tags:
+    - unlink data
+    - data
+    - unlink
+    - object
+    params: {}
+  - name: bpy.ops.object.update_shapes
+    label: Update from Objects
+    description: Update existing shape keys with the vertex positions of selected
+      objects with matching names
+    tags:
+    - shapes
+    - update shapes
+    - object
+    - update
+    params: {}
+  - name: bpy.ops.object.vertex_group_add
+    label: Add Vertex Group
+    description: Add a new vertex group to the active object
+    tags:
+    - vertex
+    - make
+    - add
+    - object
+    - insert
+    - new
+    - create
+    - vertex group add
+    - generate
+    - group
+    params: {}
+  - name: bpy.ops.object.vertex_group_assign
+    label: Assign to Vertex Group
+    description: Assign the selected vertices to the active vertex group
+    tags:
+    - vertex
+    - object
+    - assign
+    - vertex group assign
+    - group
+    params: {}
+  - name: bpy.ops.object.vertex_group_assign_new
+    label: Assign to New Group
+    description: Assign the selected vertices to a new vertex group
+    tags:
+    - vertex
+    - object
+    - assign
+    - new
+    - vertex group assign new
+    - group
+    params: {}
+  - name: bpy.ops.object.vertex_group_clean
+    label: Clean Vertex Group Weights
+    description: Remove vertex group assignments which are not required
+    tags:
+    - vertex
+    - clean
+    - object
+    - vertex group clean
+    - group
+    params:
+      group_select_mode:
+        type: string
+        description: Define which subset of groups shall be used
+      limit:
+        type: float
+        description: Remove vertices which weight is below or equal to this limit
+      keep_single:
+        type: boolean
+        description: Keep verts assigned to at least one group when cleaning
+  - name: bpy.ops.object.vertex_group_copy
+    label: Duplicate Vertex Group
+    description: Make a copy of the active vertex group
+    tags:
+    - vertex
+    - vertex group copy
+    - object
+    - copy
+    - group
+    params: {}
+  - name: bpy.ops.object.vertex_group_copy_to_selected
+    label: Copy Vertex Group to Selected
+    description: Replace vertex groups of selected objects by vertex groups of active
+      object
+    tags:
+    - vertex
+    - object
+    - vertex group copy to selected
+    - selected
+    - copy
+    - group
+    params: {}
+  - name: bpy.ops.object.vertex_group_deselect
+    label: Deselect Vertex Group
+    description: Deselect all selected vertices assigned to the active vertex group
+    tags:
+    - vertex
+    - object
+    - vertex group deselect
+    - deselect
+    - group
+    params: {}
+  - name: bpy.ops.object.vertex_group_invert
+    label: Invert Vertex Group
+    description: Invert active vertex group's weights
+    tags:
+    - vertex
+    - object
+    - invert
+    - vertex group invert
+    - group
+    params:
+      group_select_mode:
+        type: string
+        description: Define which subset of groups shall be used
+      auto_assign:
+        type: boolean
+        description: Add vertices from groups that have zero weight before inverting
+      auto_remove:
+        type: boolean
+        description: Remove vertices from groups that have zero weight after inverting
+  - name: bpy.ops.object.vertex_group_levels
+    label: Vertex Group Levels
+    description: Add some offset and multiply with some gain the weights of the active
+      vertex group
+    tags:
+    - vertex
+    - object
+    - vertex group levels
+    - levels
+    - group
+    params:
+      group_select_mode:
+        type: string
+        description: Define which subset of groups shall be used
+      offset:
+        type: float
+        description: Value to add to weights
+      gain:
+        type: float
+        description: Value to multiply weights by
+  - name: bpy.ops.object.vertex_group_limit_total
+    label: Limit Number of Weights per Vertex
+    description: Limit deform weights associated with a vertex to a specified number
+      by removing lowest weights
+    tags:
+    - vertex
+    - vertex group limit total
+    - total
+    - object
+    - limit
+    - group
+    params:
+      group_select_mode:
+        type: string
+        description: Define which subset of groups shall be used
+      limit:
+        type: integer
+        description: Maximum number of deform weights
+  - name: bpy.ops.object.vertex_group_lock
+    label: Change the Lock On Vertex Groups
+    description: Change the lock state of all or some vertex groups of active object
+    tags:
+    - vertex
+    - vertex group lock
+    - lock
+    - object
+    - group
+    params:
+      action:
+        type: string
+        description: Lock action to execute on vertex groups
+      mask:
+        type: string
+        description: Apply the action based on vertex group selection
+  - name: bpy.ops.object.vertex_group_mirror
+    label: Mirror Vertex Group
+    description: Mirror vertex group, flip weights and/or names, editing only selected
+      vertices, flipping when both sides are selected otherwise copy from unselected
+    tags:
+    - vertex
+    - object
+    - mirror
+    - vertex group mirror
+    - group
+    params:
+      mirror_weights:
+        type: boolean
+        description: Mirror weights
+      flip_group_names:
+        type: boolean
+        description: Flip vertex group names
+      all_groups:
+        type: boolean
+        description: Mirror all vertex groups weights
+      use_topology:
+        type: boolean
+        description: Use topology based mirroring (for when both sides of mesh have
+          matching, unique topology)
+  - name: bpy.ops.object.vertex_group_move
+    label: Move Vertex Group
+    description: Move the active vertex group up/down in the list
+    tags:
+    - vertex
+    - move
+    - object
+    - vertex group move
+    - group
+    params:
+      direction:
+        type: string
+        description: Direction to move the active vertex group towards
+  - name: bpy.ops.object.vertex_group_normalize
+    label: Normalize Vertex Group
+    description: Normalize weights of the active vertex group, so that the highest
+      ones are now 1.0
+    tags:
+    - vertex
+    - vertex group normalize
+    - object
+    - normalize
+    - group
+    params: {}
+  - name: bpy.ops.object.vertex_group_normalize_all
+    label: Normalize All Vertex Groups
+    description: Normalize all weights of all vertex groups, so that for each vertex,
+      the sum of all weights is 1.0
+    tags:
+    - vertex
+    - all
+    - object
+    - vertex group normalize all
+    - normalize
+    - group
+    params:
+      group_select_mode:
+        type: string
+        description: Define which subset of groups shall be used
+      lock_active:
+        type: boolean
+        description: Keep the values of the active group while normalizing others
+  - name: bpy.ops.object.vertex_group_quantize
+    label: Quantize Vertex Weights
+    description: Set weights to a fixed number of steps
+    tags:
+    - vertex
+    - object
+    - vertex group quantize
+    - quantize
+    - group
+    params:
+      group_select_mode:
+        type: string
+        description: Define which subset of groups shall be used
+      steps:
+        type: integer
+        description: Number of steps between 0 and 1
+  - name: bpy.ops.object.vertex_group_remove
+    label: Remove Vertex Group
+    description: Delete the active or all vertex groups from the active object
+    tags:
+    - vertex
+    - dissolve
+    - erase
+    - object
+    - vertex group remove
+    - group
+    - clear
+    - delete
+    - remove
+    params:
+      all:
+        type: boolean
+        description: Remove all vertex groups
+      all_unlocked:
+        type: boolean
+        description: Remove all unlocked vertex groups
+  - name: bpy.ops.object.vertex_group_remove_from
+    label: Remove from Vertex Group
+    description: Remove the selected vertices from active or all vertex group(s)
+    tags:
+    - vertex
+    - dissolve
+    - erase
+    - object
+    - vertex group remove from
+    - from
+    - group
+    - clear
+    - delete
+    - remove
+    params:
+      use_all_groups:
+        type: boolean
+        description: Remove from all groups
+      use_all_verts:
+        type: boolean
+        description: Clear the active group
+  - name: bpy.ops.object.vertex_group_select
+    label: Select Vertex Group
+    description: Select all the vertices assigned to the active vertex group
+    tags:
+    - vertex
+    - choose
+    - pick
+    - select
+    - object
+    - grab
+    - vertex group select
+    - group
+    params: {}
+  - name: bpy.ops.object.vertex_group_set_active
+    label: Set Active Vertex Group
+    description: Set the active vertex group
+    tags:
+    - vertex
+    - object
+    - active
+    - set
+    - vertex group set active
+    - group
+    params:
+      group:
+        type: string
+        description: Vertex group to set as active
+  - name: bpy.ops.object.vertex_group_smooth
+    label: Smooth Vertex Weights
+    description: Smooth weights for selected vertices
+    tags:
+    - vertex
+    - smooth
+    - object
+    - vertex group smooth
+    - group
+    params:
+      group_select_mode:
+        type: string
+        description: Define which subset of groups shall be used
+      factor:
+        type: float
+        description: factor
+      repeat:
+        type: integer
+        description: repeat
+      expand:
+        type: float
+        description: Expand/contract weights
+  - name: bpy.ops.object.vertex_group_sort
+    label: Sort Vertex Groups
+    description: Sort vertex groups
+    tags:
+    - vertex
+    - object
+    - vertex group sort
+    - sort
+    - group
+    params:
+      sort_type:
+        type: string
+        description: Sort type
+  - name: bpy.ops.object.vertex_parent_set
+    label: Make Vertex Parent
+    description: Parent selected objects to the selected vertices
+    tags:
+    - vertex
+    - object
+    - vertex parent set
+    - set
+    - parent
+    params: {}
+  - name: bpy.ops.object.vertex_weight_copy
+    label: Copy Active
+    description: Copy weights from active to selected
+    tags:
+    - vertex
+    - vertex weight copy
+    - object
+    - weight
+    - copy
+    params: {}
+  - name: bpy.ops.object.vertex_weight_delete
+    label: Delete Weight
+    description: Delete this weight from the vertex (disabled if vertex group is locked)
+    tags:
+    - vertex
+    - object
+    - vertex weight delete
+    - weight
+    - delete
+    params: {}
+  - name: bpy.ops.object.vertex_weight_normalize_active_vertex
+    label: Normalize Active
+    description: Normalize active vertex's weights
+    tags:
+    - vertex
+    - object
+    - weight
+    - vertex weight normalize active vertex
+    - active
+    - normalize
+    params: {}
+  - name: bpy.ops.object.vertex_weight_paste
+    label: Paste Weight to Selected
+    description: Copy this group's weight to other selected vertices (disabled if
+      vertex group is locked)
+    tags:
+    - vertex
+    - vertex weight paste
+    - object
+    - paste
+    - weight
+    params: {}
+  - name: bpy.ops.object.vertex_weight_set_active
+    label: Set Active Group
+    description: Set as active vertex group
+    tags:
+    - vertex
+    - vertex weight set active
+    - object
+    - weight
+    - active
+    - set
+    params: {}
+  - name: bpy.ops.object.visual_geometry_to_objects
+    label: Visual Geometry to Objects
+    description: Convert geometry and instances into editable objects and collections
+    tags:
+    - object
+    - visual geometry to objects
+    - geometry
+    - objects
+    - visual
+    params: {}
+  - name: bpy.ops.object.visual_transform_apply
+    label: Apply Visual Transform
+    description: Apply the object's visual transformation to its data
+    tags:
+    - scale
+    - move
+    - apply
+    - object
+    - rotate
+    - transform
+    - resize
+    - visual
+    - visual transform apply
+    params: {}
+  - name: bpy.ops.object.volume_add
+    label: Add Volume
+    description: Add a volume object to the scene
+    tags:
+    - volume add
+    - volume
+    - make
+    - add
+    - object
+    - insert
+    - new
+    - create
+    - generate
+    params:
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.volume_import
+    label: Import OpenVDB Volume
+    description: Import OpenVDB volume file
+    tags:
+    - volume import
+    - object
+    - import
+    - volume
+    params:
+      filepath:
+        type: string
+        description: Path to file
+      directory:
+        type: string
+        description: Directory of the file
+      relative_path:
+        type: boolean
+        description: Select the file relative to the blend file
+      use_sequence_detection:
+        type: boolean
+        description: Automatically detect animated sequences in selected volume files
+          (based on file names)
+      align:
+        type: string
+        description: The alignment of the new object
+      location:
+        type: float
+        description: Location for the newly added object
+      rotation:
+        type: float
+        description: Rotation for the newly added object
+  - name: bpy.ops.object.voxel_remesh
+    label: Voxel Remesh
+    description: Calculates a new manifold mesh based on the volume of the current
+      mesh. All data layers will be lost
+    tags:
+    - voxel
+    - voxel remesh
+    - object
+    - remesh
+    params: {}
+  - name: bpy.ops.object.voxel_size_edit
+    label: Edit Voxel Size
+    description: Modify the mesh voxel size interactively used in the voxel remesher
+    tags:
+    - voxel size edit
+    - voxel
+    - object
+    - size
+    - edit
+    params: {}

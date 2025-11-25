@@ -1,0 +1,790 @@
+transform:
+  description: Transformation
+  tools:
+  - name: bpy.ops.transform.bbone_resize
+    label: Scale B-Bone
+    description: Scale selected bendy bones display size
+    tags:
+    - scale
+    - move
+    - rotate
+    - size
+    - smaller
+    - transform
+    - resize
+    - bigger
+    - bbone resize
+    - bbone
+    params:
+      value:
+        type: float
+        description: value
+      orient_type:
+        type: string
+        description: Transformation orientation
+      constraint_axis:
+        type: boolean
+        description: constraint_axis
+      mirror:
+        type: boolean
+        description: mirror
+  - name: bpy.ops.transform.bend
+    label: Bend
+    description: Bend selected items between the 3D cursor and the mouse
+    tags:
+    - transform
+    - scale
+    - resize
+    - move
+    - bend
+    - rotate
+    params:
+      value:
+        type: float
+        description: value
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.transform.create_orientation
+    label: Create Orientation
+    description: Create transformation orientation from selection
+    tags:
+    - scale
+    - move
+    - rotate
+    - transform
+    - create orientation
+    - resize
+    - orientation
+    - create
+    params:
+      use_view:
+        type: boolean
+        description: Use the current view instead of the active object to create the
+          new orientation
+      use:
+        type: boolean
+        description: Select orientation after its creation
+      overwrite:
+        type: boolean
+        description: Overwrite previously created orientation with same name
+  - name: bpy.ops.transform.delete_orientation
+    label: Delete Orientation
+    description: Delete transformation orientation
+    tags:
+    - scale
+    - move
+    - delete
+    - rotate
+    - transform
+    - resize
+    - orientation
+    - delete orientation
+    params: {}
+  - name: bpy.ops.transform.edge_bevelweight
+    label: Edge Bevel Weight
+    description: Change the bevel weight of edges
+    tags:
+    - scale
+    - bevelweight
+    - edge
+    - move
+    - rotate
+    - transform
+    - resize
+    - edge bevelweight
+    params:
+      value:
+        type: float
+        description: value
+  - name: bpy.ops.transform.edge_crease
+    label: Edge Crease
+    description: Change the crease of edges
+    tags:
+    - crease
+    - scale
+    - edge
+    - move
+    - rotate
+    - transform
+    - resize
+    - edge crease
+    params:
+      value:
+        type: float
+        description: value
+  - name: bpy.ops.transform.edge_slide
+    label: Edge Slide
+    description: Slide an edge loop along a mesh
+    tags:
+    - scale
+    - slide
+    - edge
+    - move
+    - rotate
+    - transform
+    - resize
+    - edge slide
+    params:
+      value:
+        type: float
+        description: value
+      use_even:
+        type: boolean
+        description: Make the edge loop match the shape of the adjacent edge loop
+      flipped:
+        type: boolean
+        description: When Even mode is active, flips between the two adjacent edge
+          loops
+      use_clamp:
+        type: boolean
+        description: Clamp within the edge extents
+      mirror:
+        type: boolean
+        description: mirror
+      use_snap_project:
+        type: boolean
+        description: use_snap_project
+      correct_uv:
+        type: boolean
+        description: Correct UV coordinates when transforming
+  - name: bpy.ops.transform.from_gizmo
+    label: Transform from Gizmo
+    description: Transform selected items by mode type
+    tags:
+    - scale
+    - move
+    - rotate
+    - from gizmo
+    - transform
+    - gizmo
+    - resize
+    - from
+    params: {}
+  - name: bpy.ops.transform.mirror
+    label: Mirror
+    description: Mirror selected items around one or more axes
+    tags:
+    - mirror
+    - transform
+    - scale
+    - resize
+    - move
+    - rotate
+    params:
+      orient_type:
+        type: string
+        description: Transformation orientation
+      constraint_axis:
+        type: boolean
+        description: constraint_axis
+  - name: bpy.ops.transform.push_pull
+    label: Push/Pull
+    description: Push/Pull selected items
+    tags:
+    - scale
+    - push pull
+    - pull
+    - move
+    - rotate
+    - transform
+    - resize
+    - push
+    params:
+      value:
+        type: float
+        description: value
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.transform.resize
+    label: Resize
+    description: Scale (resize) selected items
+    tags:
+    - scale
+    - move
+    - rotate
+    - size
+    - smaller
+    - transform
+    - resize
+    - bigger
+    params:
+      value:
+        type: float
+        description: value
+      orient_type:
+        type: string
+        description: Transformation orientation
+      constraint_axis:
+        type: boolean
+        description: constraint_axis
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+      use_snap_project:
+        type: boolean
+        description: use_snap_project
+  - name: bpy.ops.transform.rotate
+    label: Rotate
+    description: Rotate selected items
+    tags:
+    - scale
+    - orient
+    - move
+    - rotate
+    - transform
+    - resize
+    - spin
+    - turn
+    params:
+      value:
+        type: float
+        description: value
+      orient_axis:
+        type: string
+        description: orient_axis
+      orient_type:
+        type: string
+        description: Transformation orientation
+      constraint_axis:
+        type: boolean
+        description: constraint_axis
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+      use_snap_project:
+        type: boolean
+        description: use_snap_project
+  - name: bpy.ops.transform.rotate_normal
+    label: Rotate Normals
+    description: Rotate split normal of selected items
+    tags:
+    - scale
+    - orient
+    - move
+    - normal
+    - rotate
+    - transform
+    - resize
+    - rotate normal
+    - spin
+    - turn
+    params:
+      value:
+        type: float
+        description: value
+      orient_axis:
+        type: string
+        description: orient_axis
+      orient_type:
+        type: string
+        description: Transformation orientation
+      constraint_axis:
+        type: boolean
+        description: constraint_axis
+      mirror:
+        type: boolean
+        description: mirror
+  - name: bpy.ops.transform.select_orientation
+    label: Select Orientation
+    description: Select transformation orientation
+    tags:
+    - select orientation
+    - scale
+    - choose
+    - pick
+    - move
+    - select
+    - grab
+    - rotate
+    - transform
+    - resize
+    - orientation
+    params:
+      orientation:
+        type: string
+        description: Transformation orientation
+  - name: bpy.ops.transform.seq_slide
+    label: Sequence Slide
+    description: Slide a sequence strip in time
+    tags:
+    - seq slide
+    - scale
+    - slide
+    - move
+    - rotate
+    - transform
+    - resize
+    - seq
+    params:
+      value:
+        type: float
+        description: value
+  - name: bpy.ops.transform.shear
+    label: Shear
+    description: Shear selected items along the given axis
+    tags:
+    - shear
+    - transform
+    - scale
+    - resize
+    - move
+    - rotate
+    params:
+      value:
+        type: float
+        description: value
+      orient_axis:
+        type: string
+        description: orient_axis
+      orient_axis_ortho:
+        type: string
+        description: orient_axis_ortho
+      orient_type:
+        type: string
+        description: Transformation orientation
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.transform.shrink_fatten
+    label: Shrink/Fatten
+    description: Shrink/fatten selected vertices along normals
+    tags:
+    - scale
+    - fatten
+    - shrink
+    - move
+    - rotate
+    - transform
+    - resize
+    - shrink fatten
+    params:
+      value:
+        type: float
+        description: value
+      use_even_offset:
+        type: boolean
+        description: Scale the offset to give more even thickness
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.transform.skin_resize
+    label: Skin Resize
+    description: Scale selected vertices' skin radii
+    tags:
+    - scale
+    - move
+    - rotate
+    - size
+    - smaller
+    - transform
+    - resize
+    - skin
+    - bigger
+    - skin resize
+    params:
+      value:
+        type: float
+        description: value
+      orient_type:
+        type: string
+        description: Transformation orientation
+      constraint_axis:
+        type: boolean
+        description: constraint_axis
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+      use_snap_project:
+        type: boolean
+        description: use_snap_project
+  - name: bpy.ops.transform.tilt
+    label: Tilt
+    description: Tilt selected control vertices of 3D curve
+    tags:
+    - transform
+    - scale
+    - resize
+    - move
+    - tilt
+    - rotate
+    params:
+      value:
+        type: float
+        description: value
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.transform.tosphere
+    label: To Sphere
+    description: Move selected items outward in a spherical shape around geometric
+      center
+    tags:
+    - transform
+    - scale
+    - resize
+    - tosphere
+    - move
+    - rotate
+    params:
+      value:
+        type: float
+        description: value
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.transform.trackball
+    label: Trackball
+    description: Trackball style rotation of selected items
+    tags:
+    - transform
+    - scale
+    - resize
+    - move
+    - trackball
+    - rotate
+    params:
+      value:
+        type: float
+        description: value
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+  - name: bpy.ops.transform.transform
+    label: Transform
+    description: Transform selected items by mode type
+    tags:
+    - transform
+    - scale
+    - resize
+    - move
+    - rotate
+    params:
+      value:
+        type: float
+        description: value
+      orient_axis:
+        type: string
+        description: orient_axis
+      orient_type:
+        type: string
+        description: Transformation orientation
+      constraint_axis:
+        type: boolean
+        description: constraint_axis
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+      use_snap_project:
+        type: boolean
+        description: use_snap_project
+  - name: bpy.ops.transform.translate
+    label: Move
+    description: Move selected items
+    tags:
+    - scale
+    - move
+    - grab
+    - rotate
+    - transform
+    - resize
+    - translate
+    - position
+    params:
+      value:
+        type: float
+        description: value
+      orient_type:
+        type: string
+        description: Transformation orientation
+      constraint_axis:
+        type: boolean
+        description: constraint_axis
+      mirror:
+        type: boolean
+        description: mirror
+      use_proportional_edit:
+        type: boolean
+        description: use_proportional_edit
+      proportional_edit_falloff:
+        type: string
+        description: Falloff type for proportional editing mode
+      proportional_size:
+        type: float
+        description: proportional_size
+      use_proportional_connected:
+        type: boolean
+        description: use_proportional_connected
+      use_proportional_projected:
+        type: boolean
+        description: use_proportional_projected
+      use_snap_project:
+        type: boolean
+        description: use_snap_project
+  - name: bpy.ops.transform.vert_crease
+    label: Vertex Crease
+    description: Change the crease of vertices
+    tags:
+    - crease
+    - scale
+    - move
+    - vert
+    - rotate
+    - transform
+    - resize
+    - vert crease
+    params:
+      value:
+        type: float
+        description: value
+  - name: bpy.ops.transform.vert_slide
+    label: Vertex Slide
+    description: Slide a vertex along a mesh
+    tags:
+    - vert slide
+    - scale
+    - slide
+    - move
+    - vert
+    - rotate
+    - transform
+    - resize
+    params:
+      value:
+        type: float
+        description: value
+      use_even:
+        type: boolean
+        description: Make the edge loop match the shape of the adjacent edge loop
+      flipped:
+        type: boolean
+        description: When Even mode is active, flips between the two adjacent edge
+          loops
+      use_clamp:
+        type: boolean
+        description: Clamp within the edge extents
+      mirror:
+        type: boolean
+        description: mirror
+      use_snap_project:
+        type: boolean
+        description: use_snap_project
+      correct_uv:
+        type: boolean
+        description: Correct UV coordinates when transforming
+  - name: bpy.ops.transform.vertex_random
+    label: Randomize
+    description: Randomize vertices
+    tags:
+    - vertex
+    - scale
+    - move
+    - rotate
+    - transform
+    - vertex random
+    - random
+    - resize
+    params:
+      offset:
+        type: float
+        description: Distance to offset
+      uniform:
+        type: float
+        description: Increase for uniform offset distance
+      normal:
+        type: float
+        description: Align offset direction to normals
+      seed:
+        type: integer
+        description: Seed for the random number generator
+  - name: bpy.ops.transform.vertex_warp
+    label: Warp
+    description: Warp vertices around the cursor
+    tags:
+    - vertex
+    - scale
+    - move
+    - vertex warp
+    - rotate
+    - warp
+    - transform
+    - resize
+    params:
+      warp_angle:
+        type: float
+        description: Amount to warp about the cursor
+      offset_angle:
+        type: float
+        description: Angle to use as the basis for warping
+      min:
+        type: float
+        description: min
+      max:
+        type: float
+        description: max

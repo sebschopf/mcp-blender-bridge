@@ -1,0 +1,65 @@
+modifiers:
+  description: Tools for adding, configuring, and applying modifiers that deform existing
+    geometry.
+  tools:
+  - name: modifiers.add_curve
+    description: Deforms the object along a curve. Helper tool.
+    params:
+      curve_object_name:
+        type: str
+        description: The name of the Curve object to deform along.
+        required: true
+    tags:
+    - make
+    - add
+    - insert
+    - curve
+    - modifiers
+    - new
+    - create
+    - generate
+  - name: modifiers.add_wave
+    description: Adds a ripple-like deformation to the object. Helper tool.
+    params:
+      height:
+        type: float
+        description: The height of the waves.
+        required: false
+        default: 0.25
+      width:
+        type: float
+        description: The width of the waves.
+        required: false
+        default: 1.0
+    tags:
+    - wave
+    - make
+    - add
+    - insert
+    - modifiers
+    - new
+    - create
+    - generate
+  - name: modifiers.add_simple_deform
+    description: Deforms the object with a simple function like twist, bend, taper,
+      or stretch. Helper tool.
+    params:
+      deform_method:
+        type: str
+        description: 'The deformation type: ''TWIST'', ''BEND'', ''TAPER'', ''STRETCH''.'
+        required: true
+      angle:
+        type: float
+        description: The angle of deformation in degrees.
+        required: false
+        default: 45.0
+    tags:
+    - make
+    - add
+    - deform
+    - insert
+    - modifiers
+    - new
+    - create
+    - simple
+    - generate

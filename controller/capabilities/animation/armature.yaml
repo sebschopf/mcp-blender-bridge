@@ -1,0 +1,842 @@
+armature:
+  description: Rigging
+  tools:
+  - name: bpy.ops.armature.align
+    label: Align Bones
+    description: Align selected bones to the active bone (or to their parent)
+    tags:
+    - armature
+    - align
+    params: {}
+  - name: bpy.ops.armature.assign_to_collection
+    label: Assign to Collection
+    description: Assign all selected bones to a collection, or unassign them, depending
+      on whether the active bone is already assigned or not
+    tags:
+    - armature
+    - assign
+    - assign to collection
+    - collection
+    params:
+      new_collection_name:
+        type: string
+        description: Name of a to-be-added bone collection. Only pass this if you
+          want to create a new bone collection and assign the selected bones to it.
+          To assign to an existing collection, do not include this parameter and use
+          collection_index
+  - name: bpy.ops.armature.autoside_names
+    label: Auto-Name by Axis
+    description: Automatically renames the selected bones according to which side
+      of the target axis they fall on
+    tags:
+    - armature
+    - names
+    - autoside names
+    - autoside
+    params:
+      type:
+        type: string
+        description: Axis to tag names with
+  - name: bpy.ops.armature.bone_primitive_add
+    label: Add Bone
+    description: Add a new bone located at the 3D cursor
+    tags:
+    - make
+    - bone primitive add
+    - add
+    - armature
+    - shape
+    - object
+    - geometry
+    - insert
+    - mesh
+    - new
+    - create
+    - bone
+    - generate
+    - primitive
+    params: {}
+  - name: bpy.ops.armature.calculate_roll
+    label: Recalculate Roll
+    description: Automatically fix alignment of select bones' axes
+    tags:
+    - armature
+    - calculate
+    - roll
+    - calculate roll
+    params:
+      type:
+        type: string
+        description: type
+      axis_flip:
+        type: boolean
+        description: Negate the alignment axis
+      axis_only:
+        type: boolean
+        description: Ignore the axis direction, use the shortest rotation to align
+  - name: bpy.ops.armature.click_extrude
+    label: Extrude to Cursor
+    description: Create a new bone going from the last selected joint to the mouse
+      position
+    tags:
+    - push
+    - click extrude
+    - extrude
+    - armature
+    - pull
+    - click
+    - extend
+    params: {}
+  - name: bpy.ops.armature.collection_add
+    label: Add Bone Collection
+    description: Add a new bone collection
+    tags:
+    - collection
+    - make
+    - add
+    - armature
+    - collection add
+    - insert
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.armature.collection_assign
+    label: Add Selected Bones to Collection
+    description: Add selected bones to the chosen bone collection
+    tags:
+    - armature
+    - collection assign
+    - collection
+    - assign
+    params: {}
+  - name: bpy.ops.armature.collection_create_and_assign
+    label: Add Selected Bones to New Collection
+    description: Create a new bone collection and assign all selected bones
+    tags:
+    - collection
+    - armature
+    - collection create and assign
+    - assign
+    - and
+    - create
+    params: {}
+  - name: bpy.ops.armature.collection_deselect
+    label: Deselect Bone Collection
+    description: Deselect bones of active Bone Collection
+    tags:
+    - armature
+    - deselect
+    - collection deselect
+    - collection
+    params: {}
+  - name: bpy.ops.armature.collection_move
+    label: Move Bone Collection
+    description: Change position of active Bone Collection in list of Bone collections
+    tags:
+    - armature
+    - collection move
+    - move
+    - collection
+    params:
+      direction:
+        type: string
+        description: Direction to move the active Bone Collection towards
+  - name: bpy.ops.armature.collection_remove
+    label: Remove Bone Collection
+    description: Remove the active bone collection
+    tags:
+    - collection
+    - dissolve
+    - erase
+    - armature
+    - collection remove
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.armature.collection_remove_unused
+    label: Remove Unused Bone Collections
+    description: Remove all bone collections that have neither bones nor children.
+      This is done recursively, so bone collections that only have unused children
+      are also removed
+    tags:
+    - collection
+    - dissolve
+    - erase
+    - collection remove unused
+    - unused
+    - armature
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.armature.collection_select
+    label: Select Bones of Bone Collection
+    description: Select bones in active Bone Collection
+    tags:
+    - collection
+    - choose
+    - pick
+    - armature
+    - collection select
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.armature.collection_show_all
+    label: Show All
+    description: Show all bone collections
+    tags:
+    - collection
+    - armature
+    - collection show all
+    - all
+    - show
+    params: {}
+  - name: bpy.ops.armature.collection_unassign
+    label: Remove Selected from Bone collections
+    description: Remove selected bones from the active bone collection
+    tags:
+    - armature
+    - unassign
+    - collection
+    - collection unassign
+    params: {}
+  - name: bpy.ops.armature.collection_unassign_named
+    label: Remove Bone from Bone Collection
+    description: Unassign the named bone from this bone collection
+    tags:
+    - collection
+    - armature
+    - unassign
+    - named
+    - collection unassign named
+    params:
+      bone_name:
+        type: string
+        description: Name of the bone to unassign from the collection; empty to use
+          the active bone
+  - name: bpy.ops.armature.collection_unsolo_all
+    label: Un-solo All
+    description: Clear the 'solo' setting on all bone collections
+    tags:
+    - collection
+    - armature
+    - all
+    - collection unsolo all
+    - unsolo
+    params: {}
+  - name: bpy.ops.armature.copy_bone_color_to_selected
+    label: Copy Colors to Selected
+    description: Copy the bone color of the active bone to all selected bones
+    tags:
+    - color
+    - copy bone color to selected
+    - armature
+    - copy
+    - selected
+    - bone
+    params:
+      bone_type:
+        type: string
+        description: bone_type
+  - name: bpy.ops.armature.delete
+    label: Delete Selected Bone(s)
+    description: Remove selected bones from the armature
+    tags:
+    - armature
+    - delete
+    params: {}
+  - name: bpy.ops.armature.dissolve
+    label: Dissolve Selected Bone(s)
+    description: Dissolve selected bones from the armature
+    tags:
+    - armature
+    - dissolve
+    params: {}
+  - name: bpy.ops.armature.duplicate
+    label: Duplicate Selected Bone(s)
+    description: Make copies of the selected bones within the same armature
+    tags:
+    - armature
+    - duplicate
+    params:
+      do_flip_names:
+        type: boolean
+        description: Try to flip names of the bones, if possible, instead of adding
+          a number extension
+  - name: bpy.ops.armature.duplicate_move
+    label: Duplicate
+    description: Make copies of the selected bones within the same armature and move
+      them
+    tags:
+    - armature
+    - duplicate
+    - move
+    - duplicate move
+    params:
+      ARMATURE_OT_duplicate:
+        type: string
+        description: Make copies of the selected bones within the same armature
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.armature.extrude
+    label: Extrude
+    description: Create new bones from the selected joints
+    tags:
+    - extrude
+    - armature
+    - pull
+    - push
+    - extend
+    params:
+      forked:
+        type: boolean
+        description: forked
+  - name: bpy.ops.armature.extrude_forked
+    label: Extrude Forked
+    description: Create new bones from the selected joints and move them
+    tags:
+    - push
+    - extrude forked
+    - forked
+    - armature
+    - pull
+    - extrude
+    - extend
+    params:
+      ARMATURE_OT_extrude:
+        type: string
+        description: Create new bones from the selected joints
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.armature.extrude_move
+    label: Extrude
+    description: Create new bones from the selected joints and move them
+    tags:
+    - extrude move
+    - extrude
+    - armature
+    - move
+    - push
+    - extend
+    - pull
+    params:
+      ARMATURE_OT_extrude:
+        type: string
+        description: Create new bones from the selected joints
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.armature.fill
+    label: Fill Between Joints
+    description: Add bone between selected joint(s) and/or 3D cursor
+    tags:
+    - armature
+    - fill
+    params: {}
+  - name: bpy.ops.armature.flip_names
+    label: Flip Names
+    description: Flips (and corrects) the axis suffixes of the names of selected bones
+    tags:
+    - armature
+    - names
+    - flip
+    - flip names
+    params:
+      do_strip_numbers:
+        type: boolean
+        description: 'Try to remove right-most dot-number from flipped names.
+
+          Warning: May result in incoherent naming in some cases'
+  - name: bpy.ops.armature.hide
+    label: Hide Selected
+    description: Tag selected bones to not be visible in Edit Mode
+    tags:
+    - armature
+    - hide
+    params:
+      unselected:
+        type: boolean
+        description: Hide unselected rather than selected
+  - name: bpy.ops.armature.metarig_sample_add
+    label: Add Metarig Sample
+    description: Create a sample metarig to be modified before generating the final
+      rig
+    tags:
+    - make
+    - add
+    - armature
+    - metarig
+    - create
+    - metarig sample add
+    - insert
+    - new
+    - sample
+    - generate
+    params:
+      metarig_type:
+        type: string
+        description: Name of the rig type to generate a sample of
+  - name: bpy.ops.armature.move_to_collection
+    label: Move to Collection
+    description: Move bones to a collection
+    tags:
+    - armature
+    - move to collection
+    - move
+    - collection
+    params:
+      new_collection_name:
+        type: string
+        description: Name of a to-be-added bone collection. Only pass this if you
+          want to create a new bone collection and move the selected bones to it.
+          To move to an existing collection, do not include this parameter and use
+          collection_index
+  - name: bpy.ops.armature.parent_clear
+    label: Clear Parent
+    description: Remove the parent-child relationship between selected bones and their
+      parents
+    tags:
+    - armature
+    - parent clear
+    - clear
+    - parent
+    params:
+      type:
+        type: string
+        description: What way to clear parenting
+  - name: bpy.ops.armature.parent_set
+    label: Make Parent
+    description: Set the active bone as the parent of the selected bones
+    tags:
+    - armature
+    - set
+    - parent
+    - parent set
+    params:
+      type:
+        type: string
+        description: Type of parenting
+  - name: bpy.ops.armature.reveal
+    label: Reveal Hidden
+    description: Reveal all bones hidden in Edit Mode
+    tags:
+    - armature
+    - reveal
+    params:
+      select:
+        type: boolean
+        description: select
+  - name: bpy.ops.armature.rigify_add_color_sets
+    label: Rigify Add Standard Color Sets
+    description: (undocumented operator)
+    tags:
+    - color
+    - sets
+    - make
+    - add
+    - armature
+    - insert
+    - new
+    - rigify
+    - create
+    - rigify add color sets
+    - generate
+    params: {}
+  - name: bpy.ops.armature.rigify_apply_selection_colors
+    label: Rigify Apply user defined active/select colors
+    description: (undocumented operator)
+    tags:
+    - armature
+    - colors
+    - apply
+    - rigify apply selection colors
+    - selection
+    - rigify
+    params: {}
+  - name: bpy.ops.armature.rigify_collection_add_ui_row
+    label: Add/Remove UI Rows
+    description: (undocumented operator)
+    tags:
+    - collection
+    - make
+    - add
+    - armature
+    - rigify collection add ui row
+    - insert
+    - new
+    - row
+    - rigify
+    - create
+    - generate
+    params:
+      row:
+        type: integer
+        description: row
+      add:
+        type: boolean
+        description: add
+  - name: bpy.ops.armature.rigify_collection_select
+    label: Make Collection Active
+    description: Make this collection active
+    tags:
+    - collection
+    - choose
+    - pick
+    - armature
+    - select
+    - grab
+    - rigify collection select
+    - rigify
+    params:
+      index:
+        type: integer
+        description: index
+  - name: bpy.ops.armature.rigify_collection_set_ui_row
+    label: Move Between UI Rows
+    description: (undocumented operator)
+    tags:
+    - collection
+    - armature
+    - rigify collection set ui row
+    - row
+    - rigify
+    - set
+    params:
+      index:
+        type: integer
+        description: index
+      row:
+        type: integer
+        description: row
+      select:
+        type: boolean
+        description: select
+  - name: bpy.ops.armature.rigify_color_set_add
+    label: Rigify Add Color Set
+    description: (undocumented operator)
+    tags:
+    - color
+    - rigify color set add
+    - make
+    - add
+    - armature
+    - insert
+    - new
+    - rigify
+    - create
+    - generate
+    - set
+    params: {}
+  - name: bpy.ops.armature.rigify_color_set_add_theme
+    label: Rigify Add Color Set from Theme
+    description: (undocumented operator)
+    tags:
+    - color
+    - make
+    - add
+    - armature
+    - create
+    - rigify color set add theme
+    - insert
+    - new
+    - rigify
+    - theme
+    - generate
+    - set
+    params:
+      theme:
+        type: string
+        description: theme
+  - name: bpy.ops.armature.rigify_color_set_remove
+    label: Rigify Remove Color Set
+    description: (undocumented operator)
+    tags:
+    - color
+    - dissolve
+    - erase
+    - remove
+    - armature
+    - clear
+    - rigify color set remove
+    - rigify
+    - delete
+    - set
+    params:
+      idx:
+        type: integer
+        description: idx
+  - name: bpy.ops.armature.rigify_color_set_remove_all
+    label: Rigify Remove All Color Sets
+    description: (undocumented operator)
+    tags:
+    - color
+    - dissolve
+    - rigify color set remove all
+    - erase
+    - remove
+    - armature
+    - all
+    - clear
+    - rigify
+    - delete
+    - set
+    params: {}
+  - name: bpy.ops.armature.rigify_encode_metarig
+    label: Rigify Encode Metarig
+    description: Create Python code that will generate the selected metarig
+    tags:
+    - armature
+    - metarig
+    - encode
+    - rigify encode metarig
+    - rigify
+    params: {}
+  - name: bpy.ops.armature.rigify_encode_metarig_sample
+    label: Rigify Encode Metarig Sample
+    description: Create Python code that will generate the selected metarig as a sample
+    tags:
+    - armature
+    - metarig
+    - rigify encode metarig sample
+    - encode
+    - rigify
+    - sample
+    params: {}
+  - name: bpy.ops.armature.rigify_upgrade_layers
+    label: Rigify Upgrade Metarig Layers
+    description: Upgrade the metarig from bone layers to bone collections
+    tags:
+    - rigify upgrade layers
+    - upgrade
+    - armature
+    - layers
+    - rigify
+    params: {}
+  - name: bpy.ops.armature.rigify_use_standard_colors
+    label: Rigify Get active/select colors from current theme
+    description: (undocumented operator)
+    tags:
+    - armature
+    - rigify use standard colors
+    - colors
+    - standard
+    - rigify
+    - use
+    params: {}
+  - name: bpy.ops.armature.rigify_validate_layers
+    label: Validate Collection References
+    description: 'Validate references from rig component settings to bone collections.
+
+      Always run this both before and after joining two metarig armature objects into
+      one to avoid glitches'
+    tags:
+    - rigify validate layers
+    - validate
+    - armature
+    - layers
+    - rigify
+    params: {}
+  - name: bpy.ops.armature.roll_clear
+    label: Clear Roll
+    description: Clear roll for selected bones
+    tags:
+    - armature
+    - clear
+    - roll
+    - roll clear
+    params:
+      roll:
+        type: float
+        description: roll
+  - name: bpy.ops.armature.select_all
+    label: (De)select All
+    description: Toggle selection status of all bones
+    tags:
+    - select all
+    - choose
+    - pick
+    - armature
+    - all
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.armature.select_hierarchy
+    label: Select Hierarchy
+    description: Select immediate parent/children of selected bones
+    tags:
+    - choose
+    - pick
+    - grab
+    - armature
+    - hierarchy
+    - select
+    - select hierarchy
+    params:
+      direction:
+        type: string
+        description: direction
+      extend:
+        type: boolean
+        description: Extend the selection
+  - name: bpy.ops.armature.select_less
+    label: Select Less
+    description: Deselect those bones at the boundary of each selection region
+    tags:
+    - choose
+    - select less
+    - pick
+    - armature
+    - less
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.armature.select_linked
+    label: Select Linked All
+    description: Select all bones linked by parent/child connections to the current
+      selection
+    tags:
+    - linked
+    - choose
+    - select linked
+    - pick
+    - armature
+    - select
+    - grab
+    params:
+      all_forks:
+        type: boolean
+        description: Follow forks in the parents chain
+  - name: bpy.ops.armature.select_linked_pick
+    label: Select Linked
+    description: (De)select bones linked by parent/child connections under the mouse
+      cursor
+    tags:
+    - choose
+    - pick
+    - armature
+    - select
+    - grab
+    - linked
+    - select linked pick
+    params:
+      deselect:
+        type: boolean
+        description: deselect
+      all_forks:
+        type: boolean
+        description: Follow forks in the parents chain
+  - name: bpy.ops.armature.select_mirror
+    label: Select Mirror
+    description: Mirror the bone selection
+    tags:
+    - mirror
+    - select mirror
+    - choose
+    - pick
+    - armature
+    - select
+    - grab
+    params:
+      only_active:
+        type: boolean
+        description: Only operate on the active bone
+      extend:
+        type: boolean
+        description: Extend the selection
+  - name: bpy.ops.armature.select_more
+    label: Select More
+    description: Select those bones connected to the initial selection
+    tags:
+    - select more
+    - choose
+    - more
+    - pick
+    - armature
+    - select
+    - grab
+    params: {}
+  - name: bpy.ops.armature.select_similar
+    label: Select Similar
+    description: Select similar bones by property types
+    tags:
+    - choose
+    - pick
+    - grab
+    - armature
+    - select similar
+    - select
+    - similar
+    params:
+      type:
+        type: string
+        description: type
+      threshold:
+        type: float
+        description: threshold
+  - name: bpy.ops.armature.separate
+    label: Separate Bones
+    description: Isolate selected bones into a separate armature
+    tags:
+    - disconnect
+    - split
+    - armature
+    - detach
+    - separate
+    params: {}
+  - name: bpy.ops.armature.shortest_path_pick
+    label: Pick Shortest Path
+    description: Select shortest path between two bones
+    tags:
+    - pick
+    - shortest path pick
+    - armature
+    - shortest
+    - path
+    params: {}
+  - name: bpy.ops.armature.split
+    label: Split
+    description: Split off selected bones from connected unselected bones
+    tags:
+    - armature
+    - split
+    params: {}
+  - name: bpy.ops.armature.subdivide
+    label: Subdivide
+    description: Break selected bones into chains of smaller bones
+    tags:
+    - refine
+    - detail
+    - smooth
+    - armature
+    - subdivide
+    params:
+      number_cuts:
+        type: integer
+        description: number_cuts
+  - name: bpy.ops.armature.switch_direction
+    label: Switch Direction
+    description: Change the direction that a chain of bones points in (head and tail
+      swap)
+    tags:
+    - armature
+    - switch direction
+    - direction
+    - switch
+    params: {}
+  - name: bpy.ops.armature.symmetrize
+    label: Symmetrize
+    description: Enforce symmetry, make copies of the selection or use existing
+    tags:
+    - armature
+    - symmetrize
+    params:
+      direction:
+        type: string
+        description: Which sides to copy from and to (when both are selected)
+      copy_bone_colors:
+        type: boolean
+        description: Copy colors to existing bones

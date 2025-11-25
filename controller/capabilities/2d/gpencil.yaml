@@ -1,0 +1,12 @@
+gpencil:
+  description: Outils Grease Pencil
+  tools:
+  - name: bpy.ops.gpencil.tint_flip
+    label: GPENCIL_OT_tint_flip
+    description: Gpencil Tint Flip operation.
+    tags:
+    - tint
+    - gpencil
+    - tint flip
+    - flip
+    params: {}

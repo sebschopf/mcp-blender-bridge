@@ -1,0 +1,53 @@
+uv:
+  description: Outils UV Mapping
+  tools:
+  - name: bpy.ops.uv.align_rotation
+    label: UV_OT_align_rotation
+    description: Align Rotation operation.
+    tags:
+    - align rotation
+    - uv
+    - rotation
+    - align
+    params: {}
+  - name: bpy.ops.uv.export_layout
+    label: UV_OT_export_layout
+    description: Export Layout operation.
+    tags:
+    - export layout
+    - export
+    - uv
+    - layout
+    params: {}
+  - name: bpy.ops.uv.follow_active_quads
+    label: UV_OT_follow_active_quads
+    description: Follow Active Quads operation.
+    tags:
+    - follow active quads
+    - quads
+    - follow
+    - active
+    - uv
+    params: {}
+  - name: bpy.ops.uv.lightmap_pack
+    label: UV_OT_lightmap_pack
+    description: Lightmap Pack operation.
+    tags:
+    - pack
+    - lightmap
+    - uv
+    - lightmap pack
+    params: {}
+  - name: bpy.ops.uv.randomize_uv_transform
+    label: UV_OT_randomize_uv_transform
+    description: Randomize Transform operation.
+    tags:
+    - scale
+    - randomize
+    - randomize uv transform
+    - move
+    - rotate
+    - transform
+    - resize
+    - uv
+    params: {}

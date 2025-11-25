@@ -1,0 +1,13 @@
+paint:
+  description: Outils de peinture (Texture/Vertex)
+  tools:
+  - name: bpy.ops.paint.vertex_color_dirt
+    label: PAINT_OT_vertex_color_dirt
+    description: Paint Vertex Color Dirt operation.
+    tags:
+    - vertex
+    - color
+    - dirt
+    - vertex color dirt
+    - paint
+    params: {}

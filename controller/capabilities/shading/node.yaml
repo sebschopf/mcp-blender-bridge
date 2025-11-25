@@ -1,0 +1,3043 @@
+node:
+  description: Outils pour les nœuds
+  tools:
+  - name: bpy.ops.node.activate_viewer
+    label: Activate Viewer Node
+    description: Activate selected viewer node in compositor and geometry nodes
+    tags:
+    - viewer
+    - connection
+    - activate
+    - activate viewer
+    - graph
+    - logic
+    - node
+    params: {}
+  - name: bpy.ops.node.add_closure_zone
+    label: Add Closure Zone
+    description: Add a Closure zone
+    tags:
+    - connection
+    - make
+    - add
+    - create
+    - node
+    - closure
+    - insert
+    - new
+    - graph
+    - add closure zone
+    - logic
+    - generate
+    - zone
+    params:
+      use_transform:
+        type: boolean
+        description: Start transform operator after inserting the node
+      settings:
+        type: string
+        description: Settings to be applied on the newly created node
+      offset:
+        type: float
+        description: Offset of nodes from the cursor when added
+  - name: bpy.ops.node.add_collection
+    label: Add Node Collection
+    description: Add a collection info node to the current node editor
+    tags:
+    - collection
+    - connection
+    - make
+    - add
+    - node
+    - insert
+    - new
+    - logic
+    - add collection
+    - graph
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.node.add_color
+    label: Add Color
+    description: Add a color node to the current node editor
+    tags:
+    - color
+    - connection
+    - make
+    - add
+    - node
+    - insert
+    - logic
+    - graph
+    - new
+    - create
+    - add color
+    - generate
+    params:
+      color:
+        type: float
+        description: Source color
+      gamma:
+        type: boolean
+        description: The source color is gamma corrected
+      has_alpha:
+        type: boolean
+        description: The source color contains an Alpha component
+  - name: bpy.ops.node.add_empty_group
+    label: Add Empty Group
+    description: Add a group node with an empty group
+    tags:
+    - connection
+    - make
+    - add
+    - add empty group
+    - create
+    - node
+    - empty
+    - insert
+    - graph
+    - new
+    - logic
+    - generate
+    - group
+    params:
+      use_transform:
+        type: boolean
+        description: Start transform operator after inserting the node
+      settings:
+        type: string
+        description: Settings to be applied on the newly created node
+  - name: bpy.ops.node.add_foreach_geometry_element_zone
+    label: Add For Each Geometry Element Zone
+    description: Add a For Each Geometry Element zone that allows executing nodes
+      e.g. for each vertex separately
+    tags:
+    - connection
+    - foreach
+    - make
+    - add
+    - create
+    - node
+    - add foreach geometry element zone
+    - geometry
+    - element
+    - insert
+    - graph
+    - new
+    - logic
+    - generate
+    - zone
+    params:
+      use_transform:
+        type: boolean
+        description: Start transform operator after inserting the node
+      settings:
+        type: string
+        description: Settings to be applied on the newly created node
+      offset:
+        type: float
+        description: Offset of nodes from the cursor when added
+  - name: bpy.ops.node.add_group
+    label: Add Node Group
+    description: Add an existing node group to the current node editor
+    tags:
+    - connection
+    - make
+    - add
+    - create
+    - node
+    - add group
+    - insert
+    - graph
+    - new
+    - logic
+    - generate
+    - group
+    params: {}
+  - name: bpy.ops.node.add_group_asset
+    label: Add Node Group Asset
+    description: Add a node group asset to the active node tree
+    tags:
+    - connection
+    - asset
+    - add group asset
+    - make
+    - add
+    - create
+    - node
+    - insert
+    - graph
+    - new
+    - logic
+    - generate
+    - group
+    params: {}
+  - name: bpy.ops.node.add_group_input_node
+    label: Add Group Input Node
+    description: Add a Group Input node with selected sockets to the current node
+      editor
+    tags:
+    - connection
+    - make
+    - add
+    - create
+    - node
+    - insert
+    - generate
+    - graph
+    - new
+    - logic
+    - add group input node
+    - input
+    - group
+    params: {}
+  - name: bpy.ops.node.add_image
+    label: Add Image as Node
+    description: Add a image/movie file as node to the current node editor
+    tags:
+    - connection
+    - make
+    - add
+    - node
+    - add image
+    - insert
+    - image
+    - logic
+    - graph
+    - new
+    - create
+    - generate
+    params:
+      filepath:
+        type: string
+        description: Path to file
+      directory:
+        type: string
+        description: Directory of the file
+      relative_path:
+        type: boolean
+        description: Select the file relative to the blend file
+  - name: bpy.ops.node.add_import_node
+    label: Add Import Node
+    description: Add an import node to the node tree
+    tags:
+    - connection
+    - make
+    - add
+    - node
+    - add import node
+    - insert
+    - logic
+    - import
+    - graph
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.node.add_mask
+    label: Add Mask Node
+    description: Add a mask node to the current node editor
+    tags:
+    - mask
+    - connection
+    - add mask
+    - make
+    - add
+    - node
+    - insert
+    - logic
+    - graph
+    - new
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.node.add_material
+    label: Add Material
+    description: Add a material node to the current node editor
+    tags:
+    - color
+    - material
+    - add
+    - surface
+    - node
+    - generate
+    - graph
+    - logic
+    - connection
+    - make
+    - shader
+    - texture
+    - insert
+    - new
+    - create
+    - add material
+    params: {}
+  - name: bpy.ops.node.add_node
+    label: Add Node
+    description: Add a node to the active tree
+    tags:
+    - add node
+    - connection
+    - make
+    - add
+    - node
+    - insert
+    - logic
+    - graph
+    - new
+    - create
+    - generate
+    params:
+      use_transform:
+        type: boolean
+        description: Start transform operator after inserting the node
+      settings:
+        type: string
+        description: Settings to be applied on the newly created node
+      type:
+        type: string
+        description: Node type
+      visible_output:
+        type: string
+        description: If provided, all outputs that are named differently will be hidden
+  - name: bpy.ops.node.add_object
+    label: Add Node Object
+    description: Add an object info node to the current node editor
+    tags:
+    - connection
+    - make
+    - add
+    - node
+    - object
+    - insert
+    - new
+    - logic
+    - add object
+    - graph
+    - create
+    - generate
+    params: {}
+  - name: bpy.ops.node.add_repeat_zone
+    label: Add Repeat Zone
+    description: Add a repeat zone that allows executing nodes a dynamic number of
+      times
+    tags:
+    - connection
+    - make
+    - add
+    - create
+    - node
+    - insert
+    - repeat
+    - generate
+    - graph
+    - new
+    - logic
+    - add repeat zone
+    - zone
+    params:
+      use_transform:
+        type: boolean
+        description: Start transform operator after inserting the node
+      settings:
+        type: string
+        description: Settings to be applied on the newly created node
+      offset:
+        type: float
+        description: Offset of nodes from the cursor when added
+  - name: bpy.ops.node.add_reroute
+    label: Add Reroute
+    description: Add a reroute node
+    tags:
+    - reroute
+    - connection
+    - make
+    - add
+    - node
+    - add reroute
+    - insert
+    - logic
+    - graph
+    - new
+    - create
+    - generate
+    params:
+      cursor:
+        type: integer
+        description: cursor
+  - name: bpy.ops.node.add_simulation_zone
+    label: Add Simulation Zone
+    description: Add simulation zone input and output nodes to the active tree
+    tags:
+    - connection
+    - make
+    - simulation
+    - add
+    - create
+    - node
+    - insert
+    - generate
+    - graph
+    - new
+    - logic
+    - add simulation zone
+    - zone
+    params:
+      use_transform:
+        type: boolean
+        description: Start transform operator after inserting the node
+      settings:
+        type: string
+        description: Settings to be applied on the newly created node
+      offset:
+        type: float
+        description: Offset of nodes from the cursor when added
+  - name: bpy.ops.node.attach
+    label: Attach Nodes
+    description: Attach active node to a frame
+    tags:
+    - connection
+    - attach
+    - graph
+    - logic
+    - node
+    params: {}
+  - name: bpy.ops.node.backimage_fit
+    label: Background Image Fit
+    description: Fit the background image to the view
+    tags:
+    - backimage fit
+    - backimage
+    - connection
+    - graph
+    - logic
+    - node
+    - fit
+    params: {}
+  - name: bpy.ops.node.backimage_move
+    label: Background Image Move
+    description: Move node backdrop
+    tags:
+    - backimage
+    - connection
+    - backimage move
+    - graph
+    - move
+    - logic
+    - node
+    params: {}
+  - name: bpy.ops.node.backimage_sample
+    label: Backimage Sample
+    description: Use mouse to sample background image
+    tags:
+    - backimage
+    - connection
+    - logic
+    - backimage sample
+    - graph
+    - sample
+    - node
+    params: {}
+  - name: bpy.ops.node.backimage_zoom
+    label: Background Image Zoom
+    description: Zoom in/out the background image
+    tags:
+    - backimage
+    - connection
+    - zoom
+    - backimage zoom
+    - graph
+    - logic
+    - node
+    params:
+      factor:
+        type: float
+        description: factor
+  - name: bpy.ops.node.bake_node_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - bake node item add
+    - connection
+    - make
+    - add
+    - create
+    - node
+    - item
+    - insert
+    - logic
+    - graph
+    - new
+    - bake
+    - generate
+    params: {}
+  - name: bpy.ops.node.bake_node_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - move
+    - node
+    - item
+    - logic
+    - bake node item move
+    - graph
+    - bake
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.bake_node_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - bake node item remove
+    - connection
+    - erase
+    - dissolve
+    - node
+    - delete
+    - item
+    - logic
+    - graph
+    - clear
+    - bake
+    - remove
+    params: {}
+  - name: bpy.ops.node.capture_attribute_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - make
+    - add
+    - attribute
+    - create
+    - node
+    - capture attribute item add
+    - item
+    - capture
+    - insert
+    - graph
+    - new
+    - logic
+    - generate
+    params: {}
+  - name: bpy.ops.node.capture_attribute_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - capture attribute item move
+    - connection
+    - attribute
+    - move
+    - node
+    - capture
+    - item
+    - graph
+    - logic
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.capture_attribute_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - connection
+    - erase
+    - capture attribute item remove
+    - dissolve
+    - attribute
+    - node
+    - capture
+    - item
+    - logic
+    - graph
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.node.clear_viewer_border
+    label: Clear Viewer Region
+    description: Clear the boundaries for viewer operations
+    tags:
+    - graph
+    - connection
+    - node
+    - clear viewer border
+    - viewer
+    - border
+    - clear
+    - logic
+    params: {}
+  - name: bpy.ops.node.clipboard_copy
+    label: Copy to Clipboard
+    description: Copy the selected nodes to the internal clipboard
+    tags:
+    - connection
+    - clipboard
+    - logic
+    - graph
+    - clipboard copy
+    - node
+    - copy
+    params: {}
+  - name: bpy.ops.node.clipboard_paste
+    label: Paste from Clipboard
+    description: Paste nodes from the internal clipboard to the active node tree
+    tags:
+    - connection
+    - clipboard
+    - paste
+    - graph
+    - logic
+    - node
+    - clipboard paste
+    params: {}
+  - name: bpy.ops.node.closure_input_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - make
+    - add
+    - closure input item add
+    - create
+    - node
+    - closure
+    - item
+    - insert
+    - generate
+    - graph
+    - new
+    - logic
+    - input
+    params: {}
+  - name: bpy.ops.node.closure_input_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - closure input item move
+    - move
+    - node
+    - closure
+    - item
+    - graph
+    - logic
+    - input
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.closure_input_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - dissolve
+    - erase
+    - connection
+    - remove
+    - node
+    - delete
+    - closure
+    - item
+    - graph
+    - clear
+    - logic
+    - input
+    - closure input item remove
+    params: {}
+  - name: bpy.ops.node.closure_output_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - make
+    - add
+    - create
+    - node
+    - output
+    - closure
+    - item
+    - insert
+    - closure output item add
+    - graph
+    - new
+    - logic
+    - generate
+    params: {}
+  - name: bpy.ops.node.closure_output_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - move
+    - closure output item move
+    - node
+    - output
+    - closure
+    - item
+    - graph
+    - logic
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.closure_output_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - connection
+    - erase
+    - dissolve
+    - closure output item remove
+    - node
+    - output
+    - closure
+    - item
+    - logic
+    - graph
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.node.collapse_hide_unused_toggle
+    label: Collapse and Hide Unused Sockets
+    description: Toggle collapsed nodes and hide unused sockets
+    tags:
+    - connection
+    - collapse
+    - toggle
+    - unused
+    - node
+    - collapse hide unused toggle
+    - logic
+    - graph
+    - hide
+    params: {}
+  - name: bpy.ops.node.combine_bundle_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - make
+    - add
+    - create
+    - node
+    - combine
+    - combine bundle item add
+    - item
+    - insert
+    - bundle
+    - graph
+    - new
+    - logic
+    - generate
+    params: {}
+  - name: bpy.ops.node.combine_bundle_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - combine bundle item move
+    - move
+    - node
+    - combine
+    - item
+    - bundle
+    - graph
+    - logic
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.combine_bundle_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - connection
+    - erase
+    - dissolve
+    - node
+    - combine
+    - item
+    - logic
+    - bundle
+    - combine bundle item remove
+    - graph
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.node.connect_to_output
+    label: Connect to Output
+    description: Connect active node to the active output node of the node tree
+    tags:
+    - output
+    - connection
+    - connect to output
+    - graph
+    - logic
+    - node
+    - connect
+    params:
+      run_in_geometry_nodes:
+        type: boolean
+        description: run_in_geometry_nodes
+  - name: bpy.ops.node.cryptomatte_layer_add
+    label: Add Cryptomatte Socket
+    description: Add a new input layer to a Cryptomatte node
+    tags:
+    - cryptomatte layer add
+    - connection
+    - make
+    - add
+    - layer
+    - create
+    - node
+    - cryptomatte
+    - insert
+    - graph
+    - new
+    - logic
+    - generate
+    params: {}
+  - name: bpy.ops.node.cryptomatte_layer_remove
+    label: Remove Cryptomatte Socket
+    description: Remove layer from a Cryptomatte node
+    tags:
+    - cryptomatte layer remove
+    - connection
+    - erase
+    - dissolve
+    - layer
+    - node
+    - cryptomatte
+    - logic
+    - graph
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.node.deactivate_viewer
+    label: Deactivate Viewer Node
+    description: Deactivate selected viewer node in geometry nodes
+    tags:
+    - deactivate
+    - deactivate viewer
+    - viewer
+    - connection
+    - graph
+    - logic
+    - node
+    params: {}
+  - name: bpy.ops.node.default_group_width_set
+    label: Set Default Group Node Width
+    description: Set the width based on the parent group node in the current context
+    tags:
+    - connection
+    - width
+    - node
+    - default group width set
+    - default
+    - graph
+    - set
+    - logic
+    - group
+    params: {}
+  - name: bpy.ops.node.delete
+    label: Delete
+    description: Remove selected nodes
+    tags:
+    - connection
+    - logic
+    - graph
+    - delete
+    - node
+    params: {}
+  - name: bpy.ops.node.delete_reconnect
+    label: Delete with Reconnect
+    description: Remove nodes and reconnect nodes as if deletion was muted
+    tags:
+    - connection
+    - reconnect
+    - logic
+    - graph
+    - delete reconnect
+    - node
+    - delete
+    params: {}
+  - name: bpy.ops.node.detach
+    label: Detach Nodes
+    description: Detach selected nodes from parents
+    tags:
+    - connection
+    - logic
+    - graph
+    - detach
+    - node
+    params: {}
+  - name: bpy.ops.node.detach_translate_attach
+    label: Detach and Move
+    description: Detach nodes, move and attach to frame
+    tags:
+    - connection
+    - detach translate attach
+    - attach
+    - move
+    - node
+    - grab
+    - logic
+    - graph
+    - detach
+    - translate
+    - position
+    params:
+      NODE_OT_detach:
+        type: string
+        description: Detach selected nodes from parents
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+      NODE_OT_attach:
+        type: string
+        description: Attach active node to a frame
+  - name: bpy.ops.node.duplicate
+    label: Duplicate Nodes
+    description: Duplicate selected nodes
+    tags:
+    - duplicate
+    - connection
+    - graph
+    - logic
+    - node
+    params:
+      keep_inputs:
+        type: boolean
+        description: Keep the input links to duplicated nodes
+      linked:
+        type: boolean
+        description: Duplicate node but not node trees, linking to the original data
+  - name: bpy.ops.node.duplicate_move
+    label: Duplicate
+    description: Duplicate selected nodes and move them
+    tags:
+    - duplicate
+    - connection
+    - graph
+    - move
+    - logic
+    - node
+    - duplicate move
+    params:
+      NODE_OT_duplicate:
+        type: string
+        description: Duplicate selected nodes
+      NODE_OT_translate_attach:
+        type: string
+        description: Move nodes and attach to frame
+  - name: bpy.ops.node.duplicate_move_keep_inputs
+    label: Duplicate
+    description: Duplicate selected nodes keeping input links and move them
+    tags:
+    - inputs
+    - connection
+    - keep
+    - move
+    - node
+    - duplicate move keep inputs
+    - duplicate
+    - graph
+    - logic
+    params:
+      NODE_OT_duplicate:
+        type: string
+        description: Duplicate selected nodes
+      NODE_OT_translate_attach:
+        type: string
+        description: Move nodes and attach to frame
+  - name: bpy.ops.node.duplicate_move_linked
+    label: Duplicate Linked
+    description: Duplicate selected nodes, but not their node trees, and move them
+    tags:
+    - connection
+    - duplicate move linked
+    - move
+    - node
+    - linked
+    - duplicate
+    - graph
+    - logic
+    params:
+      NODE_OT_duplicate:
+        type: string
+        description: Duplicate selected nodes
+      NODE_OT_translate_attach:
+        type: string
+        description: Move nodes and attach to frame
+  - name: bpy.ops.node.enum_definition_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - definition
+    - make
+    - add
+    - create
+    - node
+    - enum definition item add
+    - item
+    - insert
+    - generate
+    - graph
+    - new
+    - logic
+    - enum
+    params: {}
+  - name: bpy.ops.node.enum_definition_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - definition
+    - move
+    - node
+    - item
+    - graph
+    - logic
+    - enum
+    - enum definition item move
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.enum_definition_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - connection
+    - definition
+    - erase
+    - dissolve
+    - node
+    - enum definition item remove
+    - item
+    - logic
+    - graph
+    - clear
+    - delete
+    - enum
+    - remove
+    params: {}
+  - name: bpy.ops.node.evaluate_closure_input_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - make
+    - add
+    - create
+    - evaluate
+    - node
+    - closure
+    - item
+    - insert
+    - generate
+    - graph
+    - new
+    - logic
+    - input
+    - evaluate closure input item add
+    params: {}
+  - name: bpy.ops.node.evaluate_closure_input_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - move
+    - evaluate
+    - node
+    - closure
+    - item
+    - evaluate closure input item move
+    - graph
+    - logic
+    - input
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.evaluate_closure_input_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - connection
+    - erase
+    - dissolve
+    - evaluate closure input item remove
+    - evaluate
+    - node
+    - closure
+    - item
+    - logic
+    - graph
+    - clear
+    - delete
+    - input
+    - remove
+    params: {}
+  - name: bpy.ops.node.evaluate_closure_output_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - make
+    - add
+    - create
+    - evaluate
+    - node
+    - evaluate closure output item add
+    - output
+    - closure
+    - item
+    - insert
+    - graph
+    - new
+    - logic
+    - generate
+    params: {}
+  - name: bpy.ops.node.evaluate_closure_output_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - move
+    - evaluate
+    - node
+    - output
+    - closure
+    - item
+    - graph
+    - logic
+    - evaluate closure output item move
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.evaluate_closure_output_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - connection
+    - erase
+    - dissolve
+    - evaluate
+    - node
+    - delete
+    - output
+    - closure
+    - item
+    - logic
+    - graph
+    - clear
+    - evaluate closure output item remove
+    - remove
+    params: {}
+  - name: bpy.ops.node.find_node
+    label: Find Node
+    description: Search for a node by name and focus and select it
+    tags:
+    - find
+    - find node
+    - connection
+    - graph
+    - logic
+    - node
+    params: {}
+  - name: bpy.ops.node.foreach_geometry_element_zone_generation_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - foreach
+    - make
+    - add
+    - create
+    - node
+    - geometry
+    - element
+    - item
+    - insert
+    - new
+    - foreach geometry element zone generation item add
+    - graph
+    - logic
+    - generation
+    - generate
+    - zone
+    params: {}
+  - name: bpy.ops.node.foreach_geometry_element_zone_generation_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - foreach
+    - move
+    - foreach geometry element zone generation item move
+    - node
+    - geometry
+    - element
+    - item
+    - graph
+    - logic
+    - generation
+    - zone
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.foreach_geometry_element_zone_generation_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - dissolve
+    - foreach
+    - erase
+    - remove
+    - connection
+    - foreach geometry element zone generation item remove
+    - node
+    - delete
+    - geometry
+    - element
+    - item
+    - graph
+    - clear
+    - logic
+    - generation
+    - zone
+    params: {}
+  - name: bpy.ops.node.foreach_geometry_element_zone_input_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - foreach
+    - make
+    - add
+    - create
+    - node
+    - geometry
+    - foreach geometry element zone input item add
+    - element
+    - item
+    - insert
+    - generate
+    - graph
+    - new
+    - logic
+    - input
+    - zone
+    params: {}
+  - name: bpy.ops.node.foreach_geometry_element_zone_input_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - foreach
+    - foreach geometry element zone input item move
+    - move
+    - node
+    - geometry
+    - element
+    - item
+    - graph
+    - logic
+    - input
+    - zone
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.foreach_geometry_element_zone_input_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - dissolve
+    - foreach
+    - erase
+    - remove
+    - connection
+    - node
+    - delete
+    - geometry
+    - element
+    - item
+    - clear
+    - graph
+    - foreach geometry element zone input item remove
+    - logic
+    - input
+    - zone
+    params: {}
+  - name: bpy.ops.node.foreach_geometry_element_zone_main_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - main
+    - foreach
+    - connection
+    - foreach geometry element zone main item add
+    - make
+    - add
+    - create
+    - node
+    - geometry
+    - element
+    - item
+    - insert
+    - graph
+    - new
+    - logic
+    - generate
+    - zone
+    params: {}
+  - name: bpy.ops.node.foreach_geometry_element_zone_main_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - main
+    - foreach
+    - connection
+    - move
+    - node
+    - geometry
+    - element
+    - item
+    - graph
+    - foreach geometry element zone main item move
+    - logic
+    - zone
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.foreach_geometry_element_zone_main_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - main
+    - foreach
+    - dissolve
+    - remove
+    - erase
+    - connection
+    - foreach geometry element zone main item remove
+    - node
+    - delete
+    - geometry
+    - element
+    - item
+    - graph
+    - clear
+    - logic
+    - zone
+    params: {}
+  - name: bpy.ops.node.format_string_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - string
+    - make
+    - add
+    - create
+    - node
+    - format
+    - item
+    - insert
+    - graph
+    - new
+    - logic
+    - generate
+    - format string item add
+    params: {}
+  - name: bpy.ops.node.format_string_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - string
+    - move
+    - node
+    - format
+    - format string item move
+    - item
+    - graph
+    - logic
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.format_string_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - connection
+    - erase
+    - dissolve
+    - string
+    - node
+    - format
+    - item
+    - logic
+    - format string item remove
+    - graph
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.node.gltf_settings_node_operator
+    label: glTF Material Output
+    description: Add a node to the active tree for glTF export
+    tags:
+    - connection
+    - settings
+    - operator
+    - node
+    - gltf settings node operator
+    - gltf
+    - graph
+    - logic
+    params: {}
+  - name: bpy.ops.node.group_edit
+    label: Edit Group
+    description: Edit node group
+    tags:
+    - connection
+    - graph
+    - group edit
+    - logic
+    - node
+    - edit
+    - group
+    params:
+      exit:
+        type: boolean
+        description: exit
+  - name: bpy.ops.node.group_insert
+    label: Group Insert
+    description: Insert selected nodes into a node group
+    tags:
+    - connection
+    - insert
+    - group insert
+    - graph
+    - logic
+    - node
+    - group
+    params: {}
+  - name: bpy.ops.node.group_make
+    label: Make Group
+    description: Make group from selected nodes
+    tags:
+    - connection
+    - make
+    - group make
+    - graph
+    - logic
+    - node
+    - group
+    params: {}
+  - name: bpy.ops.node.group_separate
+    label: Separate
+    description: Separate selected nodes from the node group
+    tags:
+    - connection
+    - group separate
+    - split
+    - disconnect
+    - node
+    - logic
+    - graph
+    - detach
+    - separate
+    - group
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.node.group_ungroup
+    label: Ungroup
+    description: Ungroup selected nodes
+    tags:
+    - group ungroup
+    - connection
+    - graph
+    - logic
+    - node
+    - ungroup
+    - group
+    params: {}
+  - name: bpy.ops.node.hide_socket_toggle
+    label: Toggle Hidden Node Sockets
+    description: Toggle unused node socket display
+    tags:
+    - connection
+    - toggle
+    - node
+    - logic
+    - hide socket toggle
+    - graph
+    - hide
+    - socket
+    params: {}
+  - name: bpy.ops.node.hide_toggle
+    label: Hide
+    description: Toggle hiding of selected nodes
+    tags:
+    - connection
+    - logic
+    - toggle
+    - graph
+    - hide
+    - node
+    - hide toggle
+    params: {}
+  - name: bpy.ops.node.index_switch_item_add
+    label: Add Item
+    description: Add bake item
+    tags:
+    - connection
+    - make
+    - add
+    - switch
+    - create
+    - node
+    - index switch item add
+    - item
+    - insert
+    - graph
+    - new
+    - logic
+    - index
+    - generate
+    params: {}
+  - name: bpy.ops.node.index_switch_item_remove
+    label: Remove Item
+    description: Remove an item from the index switch
+    tags:
+    - connection
+    - erase
+    - dissolve
+    - switch
+    - node
+    - index switch item remove
+    - item
+    - logic
+    - graph
+    - clear
+    - delete
+    - index
+    - remove
+    params:
+      index:
+        type: integer
+        description: Index to remove
+  - name: bpy.ops.node.insert_offset
+    label: Insert Offset
+    description: Automatically offset nodes on insertion
+    tags:
+    - connection
+    - insert
+    - logic
+    - offset
+    - graph
+    - insert offset
+    - node
+    params: {}
+  - name: bpy.ops.node.interface_item_duplicate
+    label: Duplicate Item
+    description: Add a copy of the active item to the interface
+    tags:
+    - interface
+    - connection
+    - interface item duplicate
+    - node
+    - duplicate
+    - item
+    - graph
+    - logic
+    params: {}
+  - name: bpy.ops.node.interface_item_make_panel_toggle
+    label: Make Panel Toggle
+    description: Make the active boolean socket a toggle for its parent panel
+    tags:
+    - interface
+    - connection
+    - make
+    - toggle
+    - panel
+    - node
+    - item
+    - graph
+    - logic
+    - interface item make panel toggle
+    params: {}
+  - name: bpy.ops.node.interface_item_new
+    label: New Item
+    description: Add a new item to the interface
+    tags:
+    - interface
+    - interface item new
+    - connection
+    - node
+    - item
+    - graph
+    - new
+    - logic
+    params:
+      item_type:
+        type: string
+        description: Type of the item to create
+  - name: bpy.ops.node.interface_item_remove
+    label: Remove Item
+    description: Remove active item from the interface
+    tags:
+    - interface item remove
+    - interface
+    - connection
+    - erase
+    - dissolve
+    - node
+    - item
+    - logic
+    - graph
+    - clear
+    - delete
+    - remove
+    params: {}
+  - name: bpy.ops.node.interface_item_unlink_panel_toggle
+    label: Unlink Panel Toggle
+    description: Make the panel toggle a stand-alone socket
+    tags:
+    - interface
+    - connection
+    - toggle
+    - interface item unlink panel toggle
+    - panel
+    - node
+    - item
+    - graph
+    - logic
+    - unlink
+    params: {}
+  - name: bpy.ops.node.join
+    label: Join Nodes
+    description: Attach selected nodes to a new common frame
+    tags:
+    - connection
+    - unite
+    - node
+    - combine
+    - graph
+    - join
+    - logic
+    - merge
+    params: {}
+  - name: bpy.ops.node.join_named
+    label: Join in Named Frame
+    description: Create a new frame node around the selected nodes and name it immediately
+    tags:
+    - merge
+    - connection
+    - unite
+    - node
+    - combine
+    - named
+    - graph
+    - join
+    - logic
+    - join named
+    params:
+      NODE_OT_join:
+        type: string
+        description: Attach selected nodes to a new common frame
+      WM_OT_call_panel:
+        type: string
+        description: Open a predefined panel
+  - name: bpy.ops.node.link
+    label: Link Nodes
+    description: Use the mouse to create a link between two nodes
+    tags:
+    - connection
+    - link
+    - graph
+    - logic
+    - node
+    params:
+      detach:
+        type: boolean
+        description: Detach and redirect existing links
+      drag_start:
+        type: float
+        description: The position of the mouse cursor at the start of the operation
+      inside_padding:
+        type: float
+        description: Inside distance in UI units from the edge of the region within
+          which to start panning
+      outside_padding:
+        type: float
+        description: Outside distance in UI units from the edge of the region at which
+          to stop panning
+      speed_ramp:
+        type: float
+        description: Width of the zone in UI units where speed increases with distance
+          from the edge
+      max_speed:
+        type: float
+        description: Maximum speed in UI units per second
+      delay:
+        type: float
+        description: Delay in seconds before maximum speed is reached
+      zoom_influence:
+        type: float
+        description: Influence of the zoom factor on scroll speed
+  - name: bpy.ops.node.link_make
+    label: Make Links
+    description: Make a link between selected output and input sockets
+    tags:
+    - connection
+    - make
+    - link
+    - graph
+    - logic
+    - node
+    - link make
+    params:
+      replace:
+        type: boolean
+        description: Replace socket connections with the new links
+  - name: bpy.ops.node.link_viewer
+    label: Link to Viewer Node
+    description: Link to viewer node
+    tags:
+    - viewer
+    - connection
+    - link
+    - graph
+    - logic
+    - node
+    - link viewer
+    params: {}
+  - name: bpy.ops.node.links_cut
+    label: Cut Links
+    description: Use the mouse to cut (remove) some links
+    tags:
+    - connection
+    - links
+    - graph
+    - logic
+    - node
+    - cut
+    - links cut
+    params:
+      cursor:
+        type: integer
+        description: cursor
+  - name: bpy.ops.node.links_detach
+    label: Detach Links
+    description: Remove all links to selected nodes, and try to connect neighbor nodes
+      together
+    tags:
+    - links detach
+    - connection
+    - logic
+    - links
+    - graph
+    - detach
+    - node
+    params: {}
+  - name: bpy.ops.node.links_mute
+    label: Mute Links
+    description: Use the mouse to mute links
+    tags:
+    - mute
+    - connection
+    - links
+    - graph
+    - logic
+    - node
+    - links mute
+    params:
+      cursor:
+        type: integer
+        description: cursor
+  - name: bpy.ops.node.move_detach_links
+    label: Detach
+    description: Move a node to detach links
+    tags:
+    - connection
+    - links
+    - move
+    - node
+    - move detach links
+    - logic
+    - graph
+    - detach
+    params:
+      NODE_OT_links_detach:
+        type: string
+        description: Remove all links to selected nodes, and try to connect neighbor
+          nodes together
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+  - name: bpy.ops.node.move_detach_links_release
+    label: Detach
+    description: Move a node to detach links
+    tags:
+    - connection
+    - links
+    - move
+    - release
+    - node
+    - logic
+    - move detach links release
+    - graph
+    - detach
+    params:
+      NODE_OT_links_detach:
+        type: string
+        description: Remove all links to selected nodes, and try to connect neighbor
+          nodes together
+      NODE_OT_translate_attach:
+        type: string
+        description: Move nodes and attach to frame
+  - name: bpy.ops.node.mute_toggle
+    label: Toggle Node Mute
+    description: Toggle muting of selected nodes
+    tags:
+    - mute
+    - connection
+    - toggle
+    - mute toggle
+    - graph
+    - logic
+    - node
+    params: {}
+  - name: bpy.ops.node.new_geometry_node_group_assign
+    label: Assign New Geometry Node Group
+    description: Create a new geometry node group and assign it to the active modifier
+    tags:
+    - connection
+    - node
+    - geometry
+    - new geometry node group assign
+    - assign
+    - graph
+    - new
+    - logic
+    - group
+    params: {}
+  - name: bpy.ops.node.new_geometry_node_group_tool
+    label: New Geometry Node Tool Group
+    description: Create a new geometry node group for a tool
+    tags:
+    - tool
+    - connection
+    - node
+    - geometry
+    - graph
+    - new
+    - logic
+    - new geometry node group tool
+    - group
+    params: {}
+  - name: bpy.ops.node.new_geometry_nodes_modifier
+    label: New Geometry Node Modifier
+    description: Create a new modifier with a new geometry node group
+    tags:
+    - connection
+    - modifier
+    - nodes
+    - new geometry nodes modifier
+    - node
+    - geometry
+    - graph
+    - new
+    - logic
+    params: {}
+  - name: bpy.ops.node.new_node_tree
+    label: New Node Tree
+    description: Create a new node tree
+    tags:
+    - connection
+    - tree
+    - new node tree
+    - graph
+    - new
+    - logic
+    - node
+    params:
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.node.node_color_preset_add
+    label: Add Node Color Preset
+    description: Add or remove a Node Color Preset
+    tags:
+    - color
+    - connection
+    - make
+    - add
+    - create
+    - node
+    - insert
+    - preset
+    - node color preset add
+    - graph
+    - new
+    - logic
+    - generate
+    params: {}
+  - name: bpy.ops.node.node_copy_color
+    label: Copy Color
+    description: Copy color to all selected nodes
+    tags:
+    - color
+    - connection
+    - node copy color
+    - graph
+    - logic
+    - node
+    - copy
+    params: {}
+  - name: bpy.ops.node.nw_add_attr_node
+    label: Add UV map
+    description: Add an Attribute node with this name
+    tags:
+    - connection
+    - make
+    - add
+    - node
+    - insert
+    - logic
+    - nw add attr node
+    - graph
+    - new
+    - create
+    - generate
+    - attr
+    params:
+      attr_name:
+        type: string
+        description: attr_name
+  - name: bpy.ops.node.nw_add_reroutes
+    label: Add Reroutes
+    description: Add Reroutes to outputs
+    tags:
+    - connection
+    - make
+    - add
+    - reroutes
+    - node
+    - insert
+    - logic
+    - graph
+    - new
+    - create
+    - nw add reroutes
+    - generate
+    params:
+      option:
+        type: string
+        description: option
+  - name: bpy.ops.node.nw_add_sequence
+    label: Import Image Sequence
+    description: Add an Image Sequence
+    tags:
+    - connection
+    - nw add sequence
+    - make
+    - add
+    - node
+    - insert
+    - logic
+    - sequence
+    - graph
+    - new
+    - create
+    - generate
+    params:
+      directory:
+        type: string
+        description: directory
+      filename:
+        type: string
+        description: filename
+      relative_path:
+        type: boolean
+        description: Set the file path relative to the blend file, when possible
+  - name: bpy.ops.node.nw_add_texture
+    label: Texture Setup
+    description: Add texture node setup to selected shaders
+    tags:
+    - connection
+    - make
+    - add
+    - nw add texture
+    - node
+    - texture
+    - insert
+    - logic
+    - graph
+    - new
+    - create
+    - generate
+    params:
+      add_mapping:
+        type: boolean
+        description: Create coordinate and mapping nodes for the texture (ignored
+          for selected texture nodes)
+  - name: bpy.ops.node.nw_add_textures_for_principled
+    label: Principled Texture Setup
+    description: Add texture node setup for Principled BSDF
+    tags:
+    - connection
+    - make
+    - add
+    - create
+    - textures
+    - node
+    - nw add textures for principled
+    - insert
+    - principled
+    - for
+    - graph
+    - new
+    - logic
+    - generate
+    params:
+      directory:
+        type: string
+        description: Folder to search in for image files
+      relative_path:
+        type: boolean
+        description: Set the file path relative to the blend file, when possible
+  - name: bpy.ops.node.nw_align_nodes
+    label: Align Nodes
+    description: Align the selected nodes neatly in a row/column
+    tags:
+    - connection
+    - logic
+    - align
+    - nodes
+    - graph
+    - nw align nodes
+    - node
+    params:
+      margin:
+        type: integer
+        description: The amount of space between nodes
+  - name: bpy.ops.node.nw_batch_change
+    label: Batch Change
+    description: Batch change blend type and math operation
+    tags:
+    - connection
+    - logic
+    - graph
+    - batch
+    - node
+    - change
+    - nw batch change
+    params:
+      blend_type:
+        type: string
+        description: blend_type
+      operation:
+        type: string
+        description: operation
+  - name: bpy.ops.node.nw_bg_reset
+    label: Reset Backdrop
+    description: Reset the zoom and position of the background image
+    tags:
+    - connection
+    - reset
+    - nw bg reset
+    - graph
+    - logic
+    - node
+    params: {}
+  - name: bpy.ops.node.nw_call_inputs_menu
+    label: Make Link
+    description: Link from this output
+    tags:
+    - inputs
+    - connection
+    - node
+    - call
+    - menu
+    - graph
+    - logic
+    - nw call inputs menu
+    params:
+      from_socket:
+        type: integer
+        description: from_socket
+  - name: bpy.ops.node.nw_clear_label
+    label: Clear Label
+    description: Clear labels on selected nodes
+    tags:
+    - label
+    - connection
+    - logic
+    - graph
+    - clear
+    - node
+    - nw clear label
+    params:
+      option:
+        type: boolean
+        description: option
+  - name: bpy.ops.node.nw_copy_label
+    label: Copy Label
+    description: Copy label from active to selected nodes
+    tags:
+    - label
+    - connection
+    - nw copy label
+    - graph
+    - logic
+    - node
+    - copy
+    params:
+      option:
+        type: string
+        description: Source of name of label
+  - name: bpy.ops.node.nw_copy_settings
+    label: Copy Settings
+    description: Copy settings from active to selected nodes
+    tags:
+    - connection
+    - settings
+    - nw copy settings
+    - graph
+    - logic
+    - node
+    - copy
+    params: {}
+  - name: bpy.ops.node.nw_del_unused
+    label: Delete Unused Nodes
+    description: Delete all nodes whose output is not used
+    tags:
+    - connection
+    - del
+    - nw del unused
+    - unused
+    - graph
+    - logic
+    - node
+    params:
+      delete_muted:
+        type: boolean
+        description: Delete (but reconnect, like Ctrl-X) all muted nodes
+      delete_frames:
+        type: boolean
+        description: Delete all frames that have no nodes inside them
+  - name: bpy.ops.node.nw_detach_outputs
+    label: Detach Outputs
+    description: Detach outputs of selected node leaving inputs linked
+    tags:
+    - connection
+    - outputs
+    - logic
+    - graph
+    - nw detach outputs
+    - detach
+    - node
+    params: {}
+  - name: bpy.ops.node.nw_factor
+    label: Change Factor
+    description: Change factors of Mix nodes and Mix Shader nodes
+    tags:
+    - connection
+    - factor
+    - nw factor
+    - graph
+    - logic
+    - node
+    params:
+      option:
+        type: float
+        description: option
+  - name: bpy.ops.node.nw_lazy_connect
+    label: Lazy Connect
+    description: Connect two nodes without clicking a specific socket (automatically
+      determined)
+    tags:
+    - connection
+    - logic
+    - lazy
+    - graph
+    - nw lazy connect
+    - node
+    - connect
+    params:
+      with_menu:
+        type: boolean
+        description: with_menu
+  - name: bpy.ops.node.nw_lazy_mix
+    label: Mix Nodes
+    description: Add a Mix RGB/Shader node by interactively drawing lines between
+      nodes
+    tags:
+    - connection
+    - logic
+    - graph
+    - lazy
+    - node
+    - nw lazy mix
+    - mix
+    params: {}
+  - name: bpy.ops.node.nw_link_active_to_selected
+    label: Link Active Node to Selected
+    description: Link active node to selected nodes basing on various criteria
+    tags:
+    - connection
+    - link
+    - node
+    - nw link active to selected
+    - active
+    - graph
+    - logic
+    - selected
+    params:
+      replace:
+        type: boolean
+        description: replace
+      use_node_name:
+        type: boolean
+        description: use_node_name
+      use_outputs_names:
+        type: boolean
+        description: use_outputs_names
+  - name: bpy.ops.node.nw_link_out
+    label: Connect to Output
+    description: Link to Composite node or Material Output node
+    tags:
+    - out
+    - connection
+    - link
+    - graph
+    - logic
+    - node
+    - nw link out
+    params: {}
+  - name: bpy.ops.node.nw_make_link
+    label: Make Link
+    description: Make a link from one socket to another
+    tags:
+    - nw make link
+    - connection
+    - make
+    - link
+    - graph
+    - logic
+    - node
+    params:
+      from_socket:
+        type: integer
+        description: from_socket
+      to_socket:
+        type: integer
+        description: to_socket
+  - name: bpy.ops.node.nw_merge_nodes
+    label: Merge Nodes
+    description: Merge selected nodes
+    tags:
+    - connection
+    - nodes
+    - nw merge nodes
+    - graph
+    - logic
+    - node
+    - merge
+    params:
+      mode:
+        type: string
+        description: All possible blend types, boolean operations and math operations
+      merge_type:
+        type: string
+        description: Type of Merge to be used
+  - name: bpy.ops.node.nw_modify_labels
+    label: Modify Labels
+    description: Modify labels of all selected nodes
+    tags:
+    - labels
+    - nw modify labels
+    - connection
+    - graph
+    - logic
+    - node
+    - modify
+    params:
+      prepend:
+        type: string
+        description: prepend
+      append:
+        type: string
+        description: append
+      replace_from:
+        type: string
+        description: replace_from
+      replace_to:
+        type: string
+        description: replace_to
+  - name: bpy.ops.node.nw_reload_images
+    label: Reload Images
+    description: Update all the image nodes to match their files on disk
+    tags:
+    - connection
+    - reload
+    - graph
+    - logic
+    - node
+    - nw reload images
+    - images
+    params: {}
+  - name: bpy.ops.node.nw_reset_nodes
+    label: Reset Nodes
+    description: Reset Nodes in Selection
+    tags:
+    - connection
+    - nw reset nodes
+    - nodes
+    - reset
+    - graph
+    - logic
+    - node
+    params: {}
+  - name: bpy.ops.node.nw_save_viewer
+    label: Save This Image
+    description: Save the current viewer node to an image file
+    tags:
+    - viewer
+    - connection
+    - nw save viewer
+    - logic
+    - graph
+    - save
+    - node
+    params:
+      filepath:
+        type: string
+        description: filepath
+      filename_ext:
+        type: string
+        description: Choose the file format to save to
+  - name: bpy.ops.node.nw_select_parent_child
+    label: Select Parent or Children
+    description: (undocumented operator)
+    tags:
+    - choose
+    - connection
+    - pick
+    - child
+    - node
+    - select
+    - grab
+    - logic
+    - graph
+    - nw select parent child
+    - parent
+    params:
+      option:
+        type: string
+        description: option
+  - name: bpy.ops.node.nw_swap_links
+    label: Swap Links
+    description: Swap the output connections of the two selected nodes, or two similar
+      inputs of a single node
+    tags:
+    - swap
+    - connection
+    - links
+    - graph
+    - logic
+    - node
+    - nw swap links
+    params: {}
+  - name: bpy.ops.node.options_toggle
+    label: Toggle Node Options
+    description: Toggle option buttons display for selected nodes
+    tags:
+    - options toggle
+    - connection
+    - options
+    - toggle
+    - graph
+    - logic
+    - node
+    params: {}
+  - name: bpy.ops.node.output_file_add_socket
+    label: Add File Node Socket
+    description: Add a new input to a file output node
+    tags:
+    - connection
+    - make
+    - add
+    - create
+    - node
+    - output
+    - output file add socket
+    - insert
+    - file
+    - graph
+    - new
+    - logic
+    - generate
+    - socket
+    params:
+      file_path:
+        type: string
+        description: Subpath of the output file
+  - name: bpy.ops.node.output_file_move_active_socket
+    label: Move File Node Socket
+    description: Move the active input of a file output node up or down the list
+    tags:
+    - connection
+    - output file move active socket
+    - move
+    - node
+    - output
+    - file
+    - graph
+    - logic
+    - active
+    - socket
+    params:
+      direction:
+        type: string
+        description: direction
+  - name: bpy.ops.node.output_file_remove_active_socket
+    label: Remove File Node Socket
+    description: Remove the active input from a file output node
+    tags:
+    - connection
+    - erase
+    - dissolve
+    - node
+    - output
+    - output file remove active socket
+    - logic
+    - file
+    - socket
+    - graph
+    - clear
+    - delete
+    - active
+    - remove
+    params: {}
+  - name: bpy.ops.node.parent_set
+    label: Make Parent
+    description: Attach selected nodes
+    tags:
+    - connection
+    - parent set
+    - graph
+    - set
+    - logic
+    - node
+    - parent
+    params: {}
+  - name: bpy.ops.node.preview_toggle
+    label: Toggle Node Preview
+    description: Toggle preview display for selected nodes
+    tags:
+    - connection
+    - toggle
+    - preview
+    - graph
+    - logic
+    - node
+    - preview toggle
+    params: {}
+  - name: bpy.ops.node.read_viewlayers
+    label: Read View Layers
+    description: Read all render layers of all used scenes
+    tags:
+    - connection
+    - read viewlayers
+    - logic
+    - read
+    - graph
+    - viewlayers
+    - node
+    params: {}
+  - name: bpy.ops.node.render_changed
+    label: Render Changed Layer
+    description: Render current scene, when input node's layer has been changed
+    tags:
+    - connection
+    - picture
+    - changed
+    - render
+    - node
+    - export
+    - image
+    - graph
+    - logic
+    - render changed
+    params: {}
+  - name: bpy.ops.node.repeat_zone_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - repeat zone item add
+    - connection
+    - make
+    - add
+    - create
+    - node
+    - item
+    - insert
+    - repeat
+    - graph
+    - new
+    - logic
+    - generate
+    - zone
+    params: {}
+  - name: bpy.ops.node.repeat_zone_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - move
+    - node
+    - item
+    - repeat zone item move
+    - repeat
+    - graph
+    - logic
+    - zone
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.repeat_zone_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - dissolve
+    - erase
+    - connection
+    - remove
+    - repeat zone item remove
+    - node
+    - delete
+    - item
+    - repeat
+    - graph
+    - clear
+    - logic
+    - zone
+    params: {}
+  - name: bpy.ops.node.resize
+    label: Resize Node
+    description: Resize a node
+    tags:
+    - scale
+    - connection
+    - node
+    - smaller
+    - size
+    - resize
+    - bigger
+    - graph
+    - logic
+    params: {}
+  - name: bpy.ops.node.select
+    label: Select
+    description: Select the node under the cursor
+    tags:
+    - choose
+    - connection
+    - pick
+    - node
+    - select
+    - grab
+    - graph
+    - logic
+    params:
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+      deselect:
+        type: boolean
+        description: Remove from selection
+      toggle:
+        type: boolean
+        description: Toggle the selection
+      deselect_all:
+        type: boolean
+        description: Deselect all when nothing under the cursor
+      select_passthrough:
+        type: boolean
+        description: Ignore the select action when the element is already selected
+      socket_select:
+        type: boolean
+        description: socket_select
+      clear_viewer:
+        type: boolean
+        description: Deactivate geometry nodes viewer when clicking in empty space
+  - name: bpy.ops.node.select_all
+    label: (De)select All
+    description: (De)select all nodes
+    tags:
+    - choose
+    - connection
+    - pick
+    - all
+    - node
+    - select
+    - grab
+    - select all
+    - graph
+    - logic
+    params: {}
+  - name: bpy.ops.node.select_box
+    label: Box Select
+    description: Use box selection to select nodes
+    tags:
+    - choose
+    - select box
+    - connection
+    - pick
+    - node
+    - select
+    - grab
+    - box
+    - graph
+    - logic
+    params:
+      tweak:
+        type: boolean
+        description: Only activate when mouse is not over a node (useful for tweak
+          gesture)
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.node.select_circle
+    label: Circle Select
+    description: Use circle selection to select nodes
+    tags:
+    - select circle
+    - choose
+    - connection
+    - pick
+    - node
+    - select
+    - grab
+    - circle
+    - loop
+    - graph
+    - ring
+    - logic
+    - disc
+    params:
+      radius:
+        type: integer
+        description: radius
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.node.select_grouped
+    label: Select Grouped
+    description: Select nodes with similar properties
+    tags:
+    - choose
+    - connection
+    - pick
+    - node
+    - select
+    - grab
+    - grouped
+    - graph
+    - logic
+    - select grouped
+    params:
+      extend:
+        type: boolean
+        description: Extend selection instead of deselecting everything first
+      type:
+        type: string
+        description: type
+  - name: bpy.ops.node.select_lasso
+    label: Lasso Select
+    description: Select nodes using lasso selection
+    tags:
+    - choose
+    - connection
+    - pick
+    - node
+    - select
+    - grab
+    - lasso
+    - graph
+    - logic
+    - select lasso
+    params:
+      tweak:
+        type: boolean
+        description: Only activate when mouse is not over a node (useful for tweak
+          gesture)
+      use_smooth_stroke:
+        type: boolean
+        description: Selection lags behind mouse and follows a smoother path
+      smooth_stroke_factor:
+        type: float
+        description: Higher values gives a smoother stroke
+      smooth_stroke_radius:
+        type: integer
+        description: Minimum distance from last point before selection continues
+      mode:
+        type: string
+        description: mode
+  - name: bpy.ops.node.select_link_viewer
+    label: Link Viewer
+    description: Select node and link it to a viewer node
+    tags:
+    - choose
+    - connection
+    - pick
+    - link
+    - node
+    - select
+    - grab
+    - select link viewer
+    - viewer
+    - graph
+    - logic
+    params:
+      NODE_OT_select:
+        type: string
+        description: Select the node under the cursor
+      NODE_OT_link_viewer:
+        type: string
+        description: Link to viewer node
+  - name: bpy.ops.node.select_linked_from
+    label: Select Linked From
+    description: Select nodes linked from the selected ones
+    tags:
+    - choose
+    - connection
+    - pick
+    - node
+    - select
+    - grab
+    - linked
+    - from
+    - graph
+    - logic
+    - select linked from
+    params: {}
+  - name: bpy.ops.node.select_linked_to
+    label: Select Linked To
+    description: Select nodes linked to the selected ones
+    tags:
+    - choose
+    - connection
+    - pick
+    - node
+    - select
+    - grab
+    - select linked to
+    - linked
+    - graph
+    - logic
+    params: {}
+  - name: bpy.ops.node.select_same_type_step
+    label: Activate Same Type Next/Prev
+    description: Activate and view same node type, step by step
+    tags:
+    - choose
+    - connection
+    - pick
+    - node
+    - select
+    - grab
+    - same
+    - type
+    - step
+    - graph
+    - logic
+    - select same type step
+    params:
+      prev:
+        type: boolean
+        description: prev
+  - name: bpy.ops.node.separate_bundle_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - make
+    - split
+    - add
+    - disconnect
+    - create
+    - node
+    - item
+    - insert
+    - logic
+    - bundle
+    - new
+    - generate
+    - graph
+    - separate bundle item add
+    - detach
+    - separate
+    params: {}
+  - name: bpy.ops.node.separate_bundle_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - split
+    - disconnect
+    - move
+    - node
+    - separate bundle item move
+    - item
+    - logic
+    - bundle
+    - graph
+    - detach
+    - separate
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.separate_bundle_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - connection
+    - erase
+    - dissolve
+    - split
+    - disconnect
+    - node
+    - delete
+    - separate bundle item remove
+    - item
+    - logic
+    - bundle
+    - graph
+    - clear
+    - detach
+    - separate
+    - remove
+    params: {}
+  - name: bpy.ops.node.shader_script_update
+    label: Script Node Update
+    description: Update shader script node with new sockets and options from the script
+    tags:
+    - connection
+    - update
+    - shader script update
+    - node
+    - shader
+    - script
+    - graph
+    - logic
+    params: {}
+  - name: bpy.ops.node.simulation_zone_item_add
+    label: Add Item
+    description: Add item below active item
+    tags:
+    - connection
+    - make
+    - simulation zone item add
+    - simulation
+    - add
+    - create
+    - node
+    - item
+    - insert
+    - graph
+    - new
+    - logic
+    - generate
+    - zone
+    params: {}
+  - name: bpy.ops.node.simulation_zone_item_move
+    label: Move Item
+    description: Move active item
+    tags:
+    - connection
+    - simulation
+    - move
+    - node
+    - simulation zone item move
+    - item
+    - graph
+    - logic
+    - zone
+    params:
+      direction:
+        type: string
+        description: Move direction
+  - name: bpy.ops.node.simulation_zone_item_remove
+    label: Remove Item
+    description: Remove active item
+    tags:
+    - dissolve
+    - erase
+    - connection
+    - remove
+    - simulation
+    - simulation zone item remove
+    - node
+    - delete
+    - item
+    - graph
+    - clear
+    - logic
+    - zone
+    params: {}
+  - name: bpy.ops.node.translate_attach
+    label: Move and Attach
+    description: Move nodes and attach to frame
+    tags:
+    - connection
+    - translate attach
+    - attach
+    - move
+    - node
+    - grab
+    - graph
+    - logic
+    - translate
+    - position
+    params:
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+      NODE_OT_attach:
+        type: string
+        description: Attach active node to a frame
+  - name: bpy.ops.node.translate_attach_remove_on_cancel
+    label: Move and Attach
+    description: Move nodes and attach to frame
+    tags:
+    - connection
+    - erase
+    - dissolve
+    - attach
+    - move
+    - position
+    - node
+    - delete
+    - grab
+    - logic
+    - cancel
+    - graph
+    - clear
+    - translate attach remove on cancel
+    - translate
+    - remove
+    params:
+      TRANSFORM_OT_translate:
+        type: string
+        description: Move selected items
+      NODE_OT_attach:
+        type: string
+        description: Attach active node to a frame
+  - name: bpy.ops.node.tree_path_parent
+    label: Parent Node Tree
+    description: Go to parent node tree
+    tags:
+    - tree path parent
+    - connection
+    - node
+    - path
+    - tree
+    - graph
+    - logic
+    - parent
+    params: {}
+  - name: bpy.ops.node.view_all
+    label: Frame All
+    description: Resize view so you can see all nodes
+    tags:
+    - connection
+    - logic
+    - graph
+    - node
+    - all
+    - view
+    - view all
+    params: {}
+  - name: bpy.ops.node.view_selected
+    label: Frame Selected
+    description: Resize view so you can see selected nodes
+    tags:
+    - connection
+    - logic
+    - graph
+    - view selected
+    - node
+    - selected
+    - view
+    params: {}
+  - name: bpy.ops.node.viewer_border
+    label: Viewer Region
+    description: Set the boundaries for viewer operations
+    tags:
+    - viewer
+    - connection
+    - border
+    - graph
+    - logic
+    - node
+    - viewer border
+    params: {}
+  - name: bpy.ops.node.viewer_shortcut_get
+    label: Fast Preview
+    description: Activate a specific viewer node using 1,2,..,9 keys
+    tags:
+    - shortcut
+    - connection
+    - node
+    - viewer
+    - viewer shortcut get
+    - get
+    - graph
+    - logic
+    params:
+      viewer_index:
+        type: integer
+        description: Index corresponding to the shortcut, e.g. number key 1 corresponds
+          to index 1 etc..
+  - name: bpy.ops.node.viewer_shortcut_set
+    label: Fast Preview
+    description: Create a viewer shortcut for the selected node by pressing ctrl+1,2,..9
+    tags:
+    - shortcut
+    - connection
+    - node
+    - viewer shortcut set
+    - viewer
+    - graph
+    - set
+    - logic
+    params:
+      viewer_index:
+        type: integer
+        description: Index corresponding to the shortcut, e.g. number key 1 corresponds
+          to index 1 etc..
