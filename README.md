@@ -3,7 +3,7 @@
 > **Connect Google Gemini to Blender via the Model Context Protocol.**
 > *Orchestrate complex 3D workflows with natural language, safely and efficiently.*
 
-![Build Status](https://github.com/USER/REPO/actions/workflows/ci.yml/badge.svg)
+![Build Status](https://github.com/sebschopf/mcp-blender-bridge/actions/workflows/ci.yml/badge.svg)
 
 ---
 
