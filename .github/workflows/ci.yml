@@ -28,5 +28,7 @@ jobs:
         uv pip install --system pytest
         
     - name: Run Controller Tests
+      env:
+        GEMINI_API_KEY: "dummy_key_for_ci"
       run: |
         python -m pytest controller/
