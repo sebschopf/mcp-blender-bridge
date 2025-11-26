@@ -90,7 +90,7 @@ Explore our comprehensive documentation in the `docs/` folder:
 2.  **Blender**:
     *   Install the addon from `blender_addon/`.
     *   Set your API Key in Addon Preferences.
-    *   Click **Connect** in the 3D Viewport sidebar.
+    *   Click **Connect** in the 3D Viewport sidebar (`N`).
 
 ## 🤝 Contributing
 
