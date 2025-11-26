@@ -4,6 +4,9 @@
 > *Orchestrate complex 3D workflows with natural language, safely and efficiently.*
 
 ![Build Status](https://github.com/sebschopf/mcp-blender-bridge/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
+![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ---
 
