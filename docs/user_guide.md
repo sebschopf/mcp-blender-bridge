@@ -53,7 +53,7 @@ Once installed, you can configure the addon within Blender:
 2.  Search for "Gemini MCP".
 3.  Expand the addon details.
 4.  **API Key**: Ensure your API Key is set here if you didn't set it in the `.env` file.
-5.  **Model**: Click "Refresh Models" to load available Gemini models. Select your preferred model (e.g., `gemini-1.5-pro`).
+5.  **Model**: Click "Refresh Models" to load available Gemini models. Select your preferred model (e.g., `gemini-2.5-pro`).
 
 ## Usage
 

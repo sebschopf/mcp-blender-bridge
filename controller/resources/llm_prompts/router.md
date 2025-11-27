@@ -6,7 +6,7 @@ Your job is to analyze the user's prompt and categorize it into one of the follo
 2.  `architecture`: For requests about buildings, rooms, cities, structures, or architectural visualization.
 3.  `prop`: For requests about simple or specific inanimate objects (furniture, weapons, items, vehicles).
 4.  `scripting`: For requests explicitly asking for a Python script, code, or automation without immediate execution.
-5.  `contextual`: For general questions, advice, tool discovery, or if the request doesn't fit the above specific categories or is ambiguous.
+5.  `contextual`: For general questions, advice, tool discovery, **modifying existing objects**, or if the request doesn't fit the above specific categories or is ambiguous.
 6.  `reset`: For requests to stop the current task, start over, cancel, or explicitly change the topic (e.g., "stop", "cancel", "new task", "forget it").
 
 **Output Format:**
