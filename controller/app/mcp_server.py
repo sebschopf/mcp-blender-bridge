@@ -211,6 +211,33 @@ async def get_scene_state() -> str:
         return f"Error: {result.error_message}"
 
 
+@mcp.tool()
+async def submit_script(script: str) -> str:
+    """Submits a complete Python script for execution in Blender.
+
+    This is the PREFERRED method for performing multiple actions or complex tasks.
+    The script allows you to maintain context (variables) between steps.
+
+    Args:
+        script: A valid, safe Python script using 'bpy'.
+    """
+    from .validation import validate_bpy_script
+
+    # 1. Security Validation
+    is_valid, error_msg = validate_bpy_script(script)
+    if not is_valid:
+        return f"Security Error: Script rejected.\nDetails: {error_msg}"
+
+    # 2. Execution
+    cmd = BridgeCommand(type="execute_script", payload={"script": script})
+    result = await bridge_manager.execute_command(cmd)
+
+    if result.status == "success":
+        return str(result.data.get("output", "Success: Script executed."))
+    else:
+        return f"Runtime Error: {result.error_message}"
+
+
 # --- Registration ---
 
 

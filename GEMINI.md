@@ -39,6 +39,8 @@ tests/
 General: Follow standard conventions
 
 ## Recent Changes
+- 031-batch-script-execution: Implemented `submit_script` tool and updated System Prompt to enforce "Batch Execution Strategy" for better context retention and performance.
+- 030-safe-bpy-execution: Implemented AST-based security validator with strict whitelist (bpy, math, etc.) and banned dangerous functions/attributes.
 - 029-solid-responsibility-audit: Added Python 3.11+ (as seen in `controller/pyproject.toml`) + FastAPI, Pydantic, `google-genai`, `mcp` SDK (Controller); `bpy` (Addon).
 - 019-add-inspect-tool: Added Python 3.11+ + FastAPI, mcp SDK, Pydantic
 - 018-dynamic-tool-retrieval: Added Python 3.11+ + FastAPI, mcp SDK, Pydantic (no new heavy ML deps)
