@@ -1,115 +1,42 @@
-# Feature Specification: [FEATURE NAME]
+# Feature Specification: Safe BPY Execution
 
-**Feature Branch**: `[###-feature-name]`  
-**Created**: [DATE]  
-**Status**: Draft  
-**Input**: User description: "$ARGUMENTS"
+**Feature Branch**: `030-safe-bpy-execution`  
+**Created**: 2025-11-27  
+**Status**: Implemented  
+**Input**: Generated Python Scripts
 
-## User Scenarios & Testing *(mandatory)*
+## User Scenarios & Testing
 
-<!--
-  IMPORTANT: User stories should be PRIORITIZED as user journeys ordered by importance.
-  Each user story/journey must be INDEPENDENTLY TESTABLE - meaning if you implement just ONE of them,
-  you should still have a viable MVP (Minimum Viable Product) that delivers value.
-  
-  Assign priorities (P1, P2, P3, etc.) to each story, where P1 is the most critical.
-  Think of each story as a standalone slice of functionality that can be:
-  - Developed independently
-  - Tested independently
-  - Deployed independently
-  - Demonstrated to users independently
--->
+### User Story 1 - Prevent Malicious Code Injection (Priority: P1)
 
-### User Story 1 - [Brief Title] (Priority: P1)
+As a user, I want to ensure that the AI cannot execute arbitrary system commands (like deleting files or accessing the network) so that my computer remains safe.
 
-[Describe this user journey in plain language]
+**Why this priority**: Critical security requirement.
 
-**Why this priority**: [Explain the value and why it has this priority level]
-
-**Independent Test**: [Describe how this can be tested independently - e.g., "Can be fully tested by [specific action] and delivers [specific value]"]
+**Independent Test**:
+- Attempt to execute a script with `import os` or `os.system(...)`.
+- The system must reject it with a security error.
 
 **Acceptance Scenarios**:
 
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
-2. **Given** [initial state], **When** [action], **Then** [expected outcome]
+1. **Given** a script with `import bpy`, **When** executed, **Then** it runs successfully.
+2. **Given** a script with `import os`, **When** executed, **Then** it is rejected.
+3. **Given** a script with `eval(...)`, **When** executed, **Then** it is rejected.
+4. **Given** a script accessing `__builtins__`, **When** executed, **Then** it is rejected.
 
----
-
-### User Story 2 - [Brief Title] (Priority: P2)
-
-[Describe this user journey in plain language]
-
-**Why this priority**: [Explain the value and why it has this priority level]
-
-**Independent Test**: [Describe how this can be tested independently]
-
-**Acceptance Scenarios**:
-
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
-
----
-
-### User Story 3 - [Brief Title] (Priority: P3)
-
-[Describe this user journey in plain language]
-
-**Why this priority**: [Explain the value and why it has this priority level]
-
-**Independent Test**: [Describe how this can be tested independently]
-
-**Acceptance Scenarios**:
-
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
-
----
-
-[Add more user stories as needed, each with an assigned priority]
-
-### Edge Cases
-
-<!--
-  ACTION REQUIRED: The content in this section represents placeholders.
-  Fill them out with the right edge cases.
--->
-
-- What happens when [boundary condition]?
-- How does system handle [error scenario]?
-
-## Requirements *(mandatory)*
-
-<!--
-  ACTION REQUIRED: The content in this section represents placeholders.
-  Fill them out with the right functional requirements.
--->
+## Requirements
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-001**: The system MUST validate all generated Python scripts before execution.
+- **FR-002**: The validation MUST use an AST (Abstract Syntax Tree) parser to analyze the code structure.
+- **FR-003**: The system MUST enforce a **whitelist** of allowed modules (`bpy`, `math`, `mathutils`, `bmesh`, `gpu`, `random`, `typing`, `enum`).
+- **FR-004**: The system MUST explicitly **ban** dangerous functions (`eval`, `exec`, `open`, `__import__`, `getattr`, `setattr`, `delattr`).
+- **FR-005**: The system MUST explicitly **ban** access to internal attributes (`__builtins__`, `__globals__`, `__subclasses__`, `__class__`).
 
-*Example of marking unclear requirements:*
-
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
-
-### Key Entities *(include if feature involves data)*
-
-- **[Entity 1]**: [What it represents, key attributes without implementation]
-- **[Entity 2]**: [What it represents, relationships to other entities]
-
-## Success Criteria *(mandatory)*
-
-<!--
-  ACTION REQUIRED: Define measurable success criteria.
-  These must be technology-agnostic and measurable.
--->
+## Success Criteria
 
 ### Measurable Outcomes
 
-- **SC-001**: [Measurable metric, e.g., "Users can complete account creation in under 2 minutes"]
-- **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
-- **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
-- **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-001**: 100% of scripts containing `import os` or `subprocess` are blocked.
+- **SC-002**: Legitimate Blender scripts (using `bpy`) are not blocked.
