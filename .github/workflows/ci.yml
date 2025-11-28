@@ -25,7 +25,11 @@ jobs:
     - name: Install dependencies
       run: |
         uv pip install --system -r controller/requirements.txt
-        uv pip install --system pytest
+        uv pip install --system -e controller/
+        
+    - name: Lint with Ruff
+      run: |
+        python -m ruff check controller/
         
     - name: Run Controller Tests
       env:
