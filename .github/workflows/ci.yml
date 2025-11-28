@@ -34,5 +34,7 @@ jobs:
     - name: Run Controller Tests
       env:
         GEMINI_API_KEY: "dummy_key_for_ci"
+        PYTHONPATH: "."
       run: |
+        python -c "import sys, os; print(sys.path); print(os.getcwd())"
         python -m pytest controller/
