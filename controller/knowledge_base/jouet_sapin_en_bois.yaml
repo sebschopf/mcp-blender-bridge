@@ -1,0 +1,31 @@
+name: jouet_sapin_en_bois
+category: internal
+version: '1.0'
+tags:
+- user-created
+description: "Cr\xE9e un jouet simple en forme de sapin de No\xEBl en bois, compos\xE9\
+  \ d'un c\xF4ne pour le corps et d'un cylindre pour le tronc. Applique un ombrage\
+  \ lisse pour un aspect arrondi."
+parameters: []
+steps:
+- operation: bpy.ops.mesh.primitive_cone_add
+  params:
+    location:
+    - 0
+    - 0
+    - 1.1
+    depth: 1.8
+    radius1: 0.8
+- operation: bpy.ops.mesh.primitive_cylinder_add
+  params:
+    radius: 0.3
+    depth: 0.2
+    location:
+    - 0
+    - 0
+    - 0.1
+- operation: bpy.ops.object.select_all
+  params:
+    action: SELECT
+- operation: bpy.ops.object.shade_smooth
+  params: {}

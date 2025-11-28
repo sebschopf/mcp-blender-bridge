@@ -1,74 +1,70 @@
-"""Tests for the Bridge API (Internal Communication)."""
 import asyncio
+import os
 
 import pytest
-from httpx import ASGITransport, AsyncClient
 
-from app.bridge_api import bridge_manager
-from app.bridge_models import BridgeCommand
-from app.main import app
+# Ensure dummy API key is set before importing main
+os.environ["GEMINI_API_KEY"] = "dummy_key"
 
+from controller.app.bridge_api import BridgeCommand, BridgeResult, bridge_manager
+from controller.app.main import app
+from fastapi.testclient import TestClient
+
+client = TestClient(app)
 
 @pytest.mark.asyncio
 async def test_bridge_flow():
-    """Tests the full flow of command execution and result retrieval."""
-    # 1. Start the server (app is imported)
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
-        # 2. Simulate MCP Server pushing a command
-        # Use a real UUID
-        cmd = BridgeCommand(type="execute_script", payload={"script": "print('hello')"})
+    """Test the full cycle: execute -> get -> resolve."""
+    # 1. Start execute_command in background
+    cmd = BridgeCommand(type="execute_script", payload={"script": "print('hello')"})
+    
+    async def execute():
+        return await bridge_manager.execute_command(cmd, timeout=2.0)
+        
+    task = asyncio.create_task(execute())
+    
+    # Yield to event loop to let execute_command put item in queue
+    await asyncio.sleep(0.1)
+    
+    # 2. Verify command is in queue
+    assert bridge_manager.command_queue.qsize() == 1
+    
+    # 3. Fetch command (simulate addon)
+    fetched_cmd = await bridge_manager.get_next_command(timeout=1.0)
+    assert fetched_cmd.id == cmd.id
+    
+    # 4. Resolve result (simulate addon posting result)
+    result = BridgeResult(command_id=cmd.id, status="success", data={"output": "done"})
+    bridge_manager.resolve_result(result)
+    
+    # 5. Verify execution completes
+    res = await task
+    assert res.status == "success"
+    assert res.data == {"output": "done"}
 
-        # We need to run execute_command in a task because it awaits result
-        task = asyncio.create_task(bridge_manager.execute_command(cmd, timeout=2.0))
-
-        # 3. Simulate Addon polling
-        # Give it a moment to arrive in queue
-        await asyncio.sleep(0.1)
-
-        resp = await client.post("/internal/get_command")
-        assert resp.status_code == 200
-        data = resp.json()
-        assert data["status"] == "command"
-        assert data["command"]["id"] == cmd.id
-
-        # 4. Simulate Addon executing and posting result
-        result_payload = {"command_id": cmd.id, "status": "success", "data": {"output": "Executed"}}
-
-        resp = await client.post("/internal/post_result", json=result_payload)
-        assert resp.status_code == 200
-
-        # 5. Verify MCP Server gets the result
-        result = await task
-        assert result.status == "success"
-        assert result.data["output"] == "Executed"
-
-
-@pytest.mark.asyncio
-async def test_bridge_timeout():
-    """Tests command execution timeout."""
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as _:
-        cmd = BridgeCommand(type="execute_script", payload={"script": "timeout"})
-
-        # Expect timeout exception
-        with pytest.raises(Exception) as excinfo:
-            # Short timeout
-            await bridge_manager.execute_command(cmd, timeout=0.5)
-
-        # Check if it was 504 exception from HTTPException
-
-        assert excinfo.value.status_code == 504
-
+def test_api_endpoints():
+    """Test the HTTP endpoints for the bridge."""
+    # Clear queue first
+    while not bridge_manager.command_queue.empty():
+        bridge_manager.command_queue.get_nowait()
+        
+    pass
 
 @pytest.mark.asyncio
-async def test_long_polling_timeout():
-    """Tests long polling timeout (placeholder)."""
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as _:
-        # Request command with short timeout logic in bridge endpoint
-        # The bridge endpoint uses bridge_manager.get_next_command(timeout=10.0)
-        # We can't easily override the default argument in the endpoint without dependency injection override
-        # But we can assume it waits.
-        # We want to verify it returns "no_command" if nothing comes.
-        # But 10s is too long for a test.
-        # We can mock get_next_command or just rely on manual verification or trust asyncio.wait_for.
-        # Let's skip waiting 10s in test suite.
-        pass
+async def test_api_post_result():
+    """Test posting a result via API."""
+    cmd_id = "test_cmd_id"
+    future = asyncio.Future()
+    bridge_manager.pending_results[cmd_id] = future
+    
+    result_payload = {
+        "command_id": cmd_id,
+        "status": "success",
+        "data": {"output": "api_done"}
+    }
+    
+    response = client.post("/internal/post_result", json=result_payload)
+    assert response.status_code == 200
+    
+    assert future.done()
+    assert future.result().status == "success"

@@ -1,0 +1,17 @@
+{
+  "stage": "pre_sandbox",
+  "operators": [
+    "bpy.ops.mesh.primitive_cube_add"
+  ],
+  "inspect_results": [
+    {
+      "op": "bpy.ops.mesh.primitive_cube_add",
+      "ok": true,
+      "message": "OK"
+    }
+  ],
+  "request": {
+    "mode": "format-to-bpy",
+    "script_or_text": "import bpy\nbpy.ops.mesh.primitive_cube_add()"
+  }
+}

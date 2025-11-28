@@ -1,3 +1,4 @@
+"""Validation logic for Blender Python scripts."""
 import ast
 import logging
 from typing import List, Tuple
@@ -91,9 +92,11 @@ class SecurityValidator(ast.NodeVisitor):
     }
 
     def __init__(self):
+        """Initialize the SecurityValidator."""
         self.errors = []
 
     def visit_Import(self, node):
+        """Validate Import nodes."""
         for alias in node.names:
             base_module = alias.name.split(".")[0]
             if base_module not in self.ALLOWED_MODULES:
@@ -101,6 +104,7 @@ class SecurityValidator(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_ImportFrom(self, node):
+        """Validate ImportFrom nodes."""
         if node.module:
             base_module = node.module.split(".")[0]
             if base_module not in self.ALLOWED_MODULES:
@@ -108,6 +112,7 @@ class SecurityValidator(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Call(self, node):
+        """Validate Call nodes."""
         # Check for calls to banned built-in functions
         if isinstance(node.func, ast.Name):
             if node.func.id in self.BANNED_FUNCTIONS:
@@ -115,6 +120,7 @@ class SecurityValidator(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Attribute(self, node):
+        """Validate Attribute nodes."""
         # Check for access to dangerous attributes
         if node.attr in self.BANNED_ATTRIBUTES:
              self.errors.append(f"Security Error: Access to restricted attribute '{node.attr}' is not allowed.")
@@ -127,6 +133,7 @@ class SecurityValidator(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Name(self, node):
+        """Validate Name nodes."""
         # Check for access to dangerous names
         if node.id in self.BANNED_ATTRIBUTES:
              self.errors.append(f"Security Error: Access to restricted name '{node.id}' is not allowed.")

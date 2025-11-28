@@ -1,9 +1,9 @@
+"""Core services for the Controller, including ChatService."""
 import logging
 import os
 import re
 from typing import Any, Dict, Optional
 
-from . import globals
 from .gemini_client import GeminiClient
 from .logging_utils import PerformanceLogger
 from .mcp_server import mcp as mcp_server_instance

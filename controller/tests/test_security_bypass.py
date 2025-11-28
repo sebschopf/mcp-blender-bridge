@@ -1,10 +1,11 @@
-import sys
 import os
+import sys
 
 # Add controller to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 from controller.app.validation import validate_bpy_script
+
 
 def test_bypass():
     print("Running Security Bypass Tests (Red Team)...")

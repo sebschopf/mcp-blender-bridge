@@ -1,11 +1,10 @@
-from typing import Any, Dict
-from .mcp_server import mcp
-
-from ..validators.script_extractor import extract_script_from_response
-from ..validators.bpy_validator import validate_syntax, detect_forbidden_imports, find_bpy_operators
-from .mcp_server import inspect_tool as mcp_inspect_tool
+"""Utility to inject mock bpy module for testing."""
 from ..bridge_runner.sandbox_runner import run_in_sandbox
 from ..logging.bpy_audit import audit_record
+from ..validators.bpy_validator import detect_forbidden_imports, find_bpy_operators, validate_syntax
+from ..validators.script_extractor import extract_script_from_response
+from .mcp_server import inspect_tool as mcp_inspect_tool
+from .mcp_server import mcp
 
 
 @mcp.tool()

@@ -48,6 +48,9 @@ ignore = [] # Enforce all selected rules including docstrings
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]
+
 [tool.mypy]
 python_version = "3.11"
 strict = true

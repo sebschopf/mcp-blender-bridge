@@ -1,3 +1,4 @@
+"""Logging utilities for the MCP Controller."""
 import json
 import logging
 import time
@@ -9,10 +10,12 @@ LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 
 class JsonFormatter(logging.Formatter):
     """Formatter that outputs JSON strings after the standard log prefix.
+
     Useful for structured logging if needed, though simple text tagging is often enough for debugging.
     """
 
     def format(self, record):
+        """Format the log record as JSON."""
         log_record = {
             "timestamp": self.formatTime(record, self.datefmt),
             "level": record.levelname,
@@ -37,17 +40,20 @@ class PerformanceLogger:
     """
 
     def __init__(self, tag: str, message: str = "", logger: Optional[logging.Logger] = None):
+        """Initialize the PerformanceLogger."""
         self.tag = tag
         self.message = message
         self.logger = logger or logging.getLogger("performance")
         self.start_time = 0.0
 
     def __enter__(self):
+        """Start the timer."""
         self.start_time = time.time()
         self.logger.info(f"[{self.tag}_START] {self.message}")
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        """Stop the timer and log the duration."""
         end_time = time.time()
         duration = end_time - self.start_time
         status = "FAILED" if exc_type else "SUCCESS"

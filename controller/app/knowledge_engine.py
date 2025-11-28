@@ -1,3 +1,4 @@
+"""Knowledge Engine for managing tools and recipes."""
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -8,7 +9,9 @@ from .tool_index import ToolIndex
 
 
 class KnowledgeEngine:
+    """Core engine for loading, indexing, and retrieving tools and recipes."""
     def __init__(self, capabilities_dir: str, knowledge_base_dir: str):
+        """Initialize the KnowledgeEngine."""
         self.capabilities_dir = Path(capabilities_dir)
         self.knowledge_base_dir = Path(knowledge_base_dir)
         self.tools: Dict[str, Dict[str, Tool]] = {}
@@ -45,6 +48,7 @@ class KnowledgeEngine:
 
     def get_tool_palette(self, category: str | None = None) -> Dict[str, Any]:
         """Returns a structured dictionary of available tools.
+
         If a category is specified, only tools from that category are returned.
         """
         if category:

@@ -1,3 +1,4 @@
+"""Validator for Blender Python scripts."""
 import ast
 import re
 from typing import List, Tuple
@@ -7,7 +8,7 @@ FORBIDDEN_MODULES = {"os", "subprocess", "socket", "ctypes", "multiprocessing"}
 operator_regex = re.compile(r"bpy\.ops\.([a-zA-Z0-9_\.]+)")
 
 def validate_syntax(script: str) -> Tuple[bool, str]:
-    """Return (is_valid, error_message) using ast.parse"""
+    """Return (is_valid, error_message) using ast.parse."""
     try:
         ast.parse(script)
         return True, ""

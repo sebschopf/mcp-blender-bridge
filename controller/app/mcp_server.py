@@ -1,3 +1,4 @@
+"""MCP Server implementation using FastMCP."""
 import logging
 from typing import Any, Dict, List
 
@@ -28,6 +29,7 @@ TYPE_MAPPING = {
 
 
 async def execute_tool_logic(tool_name: str, **kwargs) -> str:
+    """Execute the logic for a tool by sending a command to the bridge."""
     # Construct script
     args_str_parts = []
     for k, v in kwargs.items():

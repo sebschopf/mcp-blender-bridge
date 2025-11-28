@@ -1,14 +1,16 @@
-import sys
-import os
 import asyncio
+import os
+import sys
+from unittest.mock import AsyncMock, MagicMock, patch
+
 import pytest
-from unittest.mock import MagicMock, patch, AsyncMock
 
 # Add controller to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
-from controller.app.mcp_server import submit_script
 from controller.app.bridge_api import bridge_manager
+from controller.app.mcp_server import submit_script
+
 
 @pytest.mark.asyncio
 async def test_submit_script_valid():

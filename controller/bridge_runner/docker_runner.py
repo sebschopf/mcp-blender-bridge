@@ -1,5 +1,6 @@
-from typing import Dict, Any
+"""Docker runner for sandboxed execution."""
 import shutil
+from typing import Any, Dict
 
 from .sandbox_runner import run_in_sandbox
 

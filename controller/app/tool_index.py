@@ -1,3 +1,4 @@
+"""Tool Indexing and Search functionality."""
 import logging
 import re
 from collections import Counter, defaultdict
@@ -9,7 +10,9 @@ logger = logging.getLogger(__name__)
 
 
 class ToolIndex:
+    """Inverted index for efficient tool searching."""
     def __init__(self):
+        """Initialize the ToolIndex."""
         self.index: Dict[str, Set[str]] = defaultdict(set)  # token -> set of tool_names
         self.metadata: Dict[str, ToolMetadata] = {}
         self.signatures: Dict[str, str] = {}  # name -> usage string

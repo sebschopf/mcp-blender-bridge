@@ -5,7 +5,7 @@
 
 ## Summary
 
-Cette fonctionnalité met en place un environnement de test robuste et automatisé pour le projet `controller`. L'objectif est de résoudre les problèmes d'importation et de dépendances en configurant le projet comme un package Python installable et en fournissant un script unique (`run_tests.bat`) pour installer les dépendances et lancer la suite de tests complète.
+Cette fonctionnalité met en place un environnement de test robuste et automatisé pour le projet `controller`. Elle inclut la configuration du package (`pyproject.toml`), le script de lancement (`run_tests.bat`), et la **réimplémentation complète** de la suite de tests (`test_*.py`) pour garantir une couverture fiable et moderne (AsyncMock, SecurityValidator).
 
 ## Technical Context
 
@@ -49,8 +49,30 @@ controller/
 ├── pyproject.toml       # A CREER : Définit le projet comme un package installable
 ├── requirements.txt     # A METTRE A JOUR : Liste complète des dépendances
 └── tests/               # Contient les tests à exécuter
+    ├── test_main.py             # A REIMPLEMENTER : Tests d'intégration API
+    ├── test_chat_service.py     # A REIMPLEMENTER : Tests logique conversationnelle
+    ├── test_knowledge_engine.py # A REIMPLEMENTER : Tests RAG/Embeddings
+    ├── test_bridge_api.py       # A REIMPLEMENTER : Tests communication Blender
+    └── test_mcp_server.py       # A REIMPLEMENTER : Tests outils MCP
 
 run_tests.bat            # A CREER : Script pour lancer la suite de tests
-```
+2.  **Mocking**: Use `unittest.mock.AsyncMock` for all `async` functions (Gemini calls, Bridge, etc.). Never perform real network calls in unit tests.
+3.  **Modernity**: Use `pytest` fixtures (`@pytest.fixture`) rather than `unittest.TestCase` classes where possible.
+4.  **Security**: Ensure tests validate the `SecurityValidator` where relevant.
 
-**Structure Decision**: Les changements principaux consistent à ajouter `pyproject.toml` pour transformer `controller` en un package, et à créer le script `run_tests.bat` à la racine pour orchestrer les tests.
+### Components to Cover
+
+-   **`test_main.py`**:
+    -   Verify `/` (Health check).
+    -   Verify `/api/chat` with a `ChatService` mock.
+-   **`test_chat_service.py`**:
+    -   Mock `GeminiClient`.
+    -   Verify the flow: User Message -> `process_message` -> AI Response.
+    -   Verify history management.
+-   **`test_knowledge_engine.py`**:
+    -   Mock the vector database (do not load real heavy embeddings).
+    -   Verify document addition and retrieval.
+-   **`test_bridge_api.py`**:
+    -   Verify `get_command` (long polling).
+    -   Verify `post_result`.
+    -   Mock `bridge_manager`.

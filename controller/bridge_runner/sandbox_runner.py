@@ -1,7 +1,8 @@
+"""Sandbox runner for executing scripts."""
 import subprocess
 import tempfile
-from typing import Dict, Any
-import json
+from typing import Any, Dict
+
 
 def run_in_sandbox(request_id: str, script: str, timeout_seconds: int = 30) -> Dict[str, Any]:
     """Run the provided `script` in sandboxed environment.

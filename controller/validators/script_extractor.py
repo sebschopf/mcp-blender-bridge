@@ -1,3 +1,4 @@
+"""Utilities for extracting scripts from LLM responses."""
 import re
 from typing import Optional
 

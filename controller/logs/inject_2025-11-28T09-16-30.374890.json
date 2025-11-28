@@ -1,0 +1,10 @@
+{
+  "stage": "sandbox",
+  "sandbox_res": {
+    "success": true
+  },
+  "request": {
+    "mode": "format-to-bpy",
+    "script_or_text": "import bpy\nbpy.ops.mesh.primitive_cube_add()"
+  }
+}

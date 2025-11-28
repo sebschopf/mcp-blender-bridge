@@ -11,3 +11,4 @@ mcp
 pytest
 pytest-asyncio
 httpx
+ruff

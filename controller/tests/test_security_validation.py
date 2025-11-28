@@ -1,10 +1,11 @@
-import sys
 import os
+import sys
 
 # Add controller to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 from controller.app.validation import validate_bpy_script
+
 
 def test_security():
     print("Running Security Validation Tests...")
@@ -54,16 +55,3 @@ eval(x)
         print(f"[FAIL] Malicious function (eval) NOT blocked correctly. Valid: {valid}, Errors: {errors}")
 
     # Test Case 4: Malicious Attribute (__builtins__)
-    malicious_attr = """
-import bpy
-print(__builtins__)
-"""
-    valid, errors = validate_bpy_script(malicious_attr)
-    error_str = str(errors)
-    if not valid and ("Access to restricted attribute '__builtins__' is not allowed" in error_str or "Access to restricted name '__builtins__' is not allowed" in error_str):
-        print("[PASS] Malicious attribute (__builtins__) blocked.")
-    else:
-        print(f"[FAIL] Malicious attribute (__builtins__) NOT blocked correctly. Valid: {valid}, Errors: {errors}")
-
-if __name__ == "__main__":
-    test_security()

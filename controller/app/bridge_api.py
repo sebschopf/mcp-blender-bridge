@@ -1,6 +1,7 @@
+"""Bridge API for communication between Controller and Blender Addon."""
 import asyncio
 import logging
-from typing import Dict, Optional
+from typing import Any, Dict
 
 from fastapi import APIRouter, HTTPException
 
@@ -13,13 +14,14 @@ router = APIRouter(prefix="/internal", tags=["bridge"])
 
 
 class BridgeManager:
+    """Manages the communication bridge with the Blender Addon."""
     def __init__(self):
+        """Initialize the BridgeManager."""
         self.command_queue: asyncio.Queue[BridgeCommand] = asyncio.Queue()
         self.pending_results: Dict[str, asyncio.Future] = {}
 
     async def execute_command(self, command: BridgeCommand, timeout: float = 30.0) -> BridgeResult:
-        """Push a command to the queue and await its result.
-        """
+        """Push a command to the queue and await its result."""
         with PerformanceLogger("BRIDGE_EXEC", f"Queuing command {command.id} type={command.type}"):
             future = asyncio.Future()
             self.pending_results[command.id] = future
@@ -36,9 +38,14 @@ class BridgeManager:
                     del self.pending_results[command.id]
                 raise HTTPException(status_code=504, detail="Command execution timed out")
 
-    async def get_next_command(self, timeout: float = 20.0) -> Optional[BridgeCommand]:
-        """Wait for a command to be available.
-        Called by the Addon (long polling).
+    async def get_next_command(self, timeout: float = 30.0) -> BridgeCommand | None:
+        """Get the next pending command from the queue.
+
+        Args:
+            timeout: How long to wait for a command.
+
+        Returns:
+            The next BridgeCommand or None if queue is empty.
         """
         try:
             # We wait for a command.
@@ -47,7 +54,8 @@ class BridgeManager:
         except asyncio.TimeoutError:
             return None
 
-    def resolve_result(self, result: BridgeResult):
+    async def resolve_result(self, result: BridgeResult):
+        """Resolve a pending future with the result from Blender."""
         logger.info(f"Resolving result for command {result.command_id}")
         if result.command_id in self.pending_results:
             future = self.pending_results.pop(result.command_id)
@@ -60,10 +68,14 @@ class BridgeManager:
 bridge_manager = BridgeManager()
 
 
+def get_bridge_manager() -> BridgeManager:
+    """Get the singleton instance of BridgeManager."""
+    return bridge_manager
+
+
 @router.post("/get_command")
-async def get_command():
-    """Long polling endpoint for the Addon to fetch commands.
-    """
+async def get_command() -> Dict[str, Any]:
+    """Long polling endpoint for the Addon to fetch commands."""
     # Timeout slightly less than client timeout to return "no_command"
     # logger.info("Bridge: Client polling for command...") # Too verbose for loop
     command = await bridge_manager.get_next_command(timeout=10.0)
@@ -77,12 +89,7 @@ async def get_command():
 
 @router.post("/post_result")
 async def post_result(result: BridgeResult):
-    """Endpoint for the Addon to post execution results.
-    """
+    """Endpoint for the Addon to post execution results."""
     logger.info(f"Bridge: Received result for command {result.command_id}. Status: {result.status}")
     bridge_manager.resolve_result(result)
     return {"status": "received"}
-
-
-def get_bridge_manager():
-    return bridge_manager

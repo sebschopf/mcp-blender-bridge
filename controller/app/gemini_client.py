@@ -1,3 +1,4 @@
+"""Gemini Client for interacting with Google's Generative AI."""
 import asyncio  # T001: Import asyncio
 import logging
 import os
@@ -11,11 +12,14 @@ from .logging_utils import PerformanceLogger
 from .models import ChatMessage, CommandResponse
 
 logger = logging.getLogger(__name__)
-load_dotenv()
+# Load .env from the controller root directory
+env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
+load_dotenv(env_path)
 
 
 def _clean_schema_for_gemini(schema: Dict[str, Any]) -> Dict[str, Any]:
     """Recursively removes 'additionalProperties' and 'title' from a JSON schema dictionary.
+
     These fields can cause INVALID_ARGUMENT errors with the Gemini API.
     """
     if not isinstance(schema, dict):
@@ -75,6 +79,7 @@ class GeminiClient:
 
     async def simple_generate(self, prompt: str, system_instruction: Optional[str] = None) -> str:  # T003: Make async
         """Generates a simple text response for a single prompt, without chat history or tools.
+
         Useful for classification or summarization tasks.
         """
         if not self.model_name:
@@ -101,7 +106,7 @@ class GeminiClient:
         system_instruction: Optional[str] = None,
     ) -> CommandResponse:
         """Orchestrates the full, multi-turn conversation with Gemini."""
-        with PerformanceLogger("LLM_CALL", f"Gemini Conversation session={session_id}") as pl:
+        with PerformanceLogger("LLM_CALL", f"Gemini Conversation session={session_id}"):
             formatted_history: List[types.Content | types.ContentDict] = []
             for msg in chat_history:
                 role = "user" if msg.source == "USER" else "model"
@@ -135,50 +140,65 @@ class GeminiClient:
             response = await asyncio.to_thread(chat.send_message, user_prompt)
 
             while True:
-                function_call_part = None
+                # Check for function calls in the response
+                function_calls = []
                 if response.candidates:
                     content = response.candidates[0].content
                     if content and content.parts:
                         for part in content.parts:
                             if part.function_call:
-                                function_call_part = part
-                                break
+                                function_calls.append(part.function_call)
 
-                if not function_call_part:
+                if not function_calls:
                     break
 
-                fc = function_call_part.function_call
-                fname = fc.name
-                fargs = fc.args
+                # Execute all function calls found in this turn
+                function_responses = []
+                for fc in function_calls:
+                    fname = fc.name
+                    fargs = fc.args
+                    logger.info(f"AI calling tool: {fname} with args: {fargs}")
 
-                logger.info(f"AI calling tool: {fname} with args: {fargs}")
+                    try:
+                        args_dict = dict(fargs) if fargs else {}
+                        with PerformanceLogger("TOOL_EXEC", f"Tool: {fname}"):
+                            if tool_executor:
+                                result = await tool_executor(fname, args_dict)
+                            else:
+                                result = None
+                                logger.error("No tool executor provided.")
 
-                try:
-                    args_dict = dict(fargs) if fargs else {}
-                    with PerformanceLogger("TOOL_EXEC", f"Tool: {fname}"):
-                        if tool_executor:
-                            result = await tool_executor(fname, args_dict)
-                        else:
-                            result = None
-                            logger.error("No tool executor provided.")
+                        output_text = ""
+                        if result:
+                            if hasattr(result, "content"):
+                                for c in result.content:
+                                    if hasattr(c, "type") and c.type == "text":
+                                        output_text += c.text + "\n"
+                                    elif hasattr(c, "type") and c.type == "image":
+                                        output_text += "[Image Content]\n"
+                                    else:
+                                        output_text += str(c) + "\n"
+                            else:
+                                # Fallback for non-standard results (str, list, tuple)
+                                # This handles cases where the tool executor returns a raw value or a tuple
+                                output_text = str(result)
 
-                    output_text = ""
-                    if result and result.content:
-                        for c in result.content:
-                            if c.type == "text":
-                                output_text += c.text + "\n"
-                            elif c.type == "image":
-                                output_text += "[Image Content]\n"
+                        if hasattr(result, "isError") and result.isError:
+                            output_text = f"Error: {output_text}"
 
-                    if result and result.isError:
-                        output_text = f"Error: {output_text}"
+                    except Exception as e:
+                        output_text = f"System Error executing tool: {e}"
+                    
+                    # Create the response part for this specific function call
+                    function_responses.append(
+                        types.Part.from_function_response(name=fname, response={"content": output_text})
+                    )
 
-                except Exception as e:
-                    output_text = f"System Error executing tool: {e}"
-
+                # Send all function responses back to the model in a single message
+                logger.info(f"Sending function responses to Gemini: {function_responses}")
                 # T002: Wrap blocking call in asyncio.to_thread
                 response = await asyncio.to_thread(
-                    chat.send_message, types.Part.from_function_response(name=fname, response={"result": output_text})
+                    chat.send_message, function_responses
                 )
 
             ai_text = response.text if response.text else "Done."

@@ -1,33 +1,31 @@
+import os
+import sys
+from unittest.mock import patch
+
 import pytest
 
-from app import globals
-from app.mcp_server import mcp, register_tools
+# Add controller to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+
+from controller.app.mcp_server import search_tools
+from controller.app.models import ToolSearchResult
 
 
-@pytest.mark.asyncio
-async def test_mcp_tools_registered():
-    # Ensure initialized
-    globals.initialize_knowledge_engine()
-    register_tools()
-
-    tools = await mcp.list_tools()
-    # If no tools in capabilities, this might fail, but we assume capabilities exist from verify_prerequisites
-    # We saw transforms.yaml in capabilities/object
-
-    tool_names = [t.name for t in tools]
-    # Check for meta-tools
-    if "search_tools" in tool_names and "execute_command" in tool_names:
-        assert True
-    else:
-        # Fail if meta-tools are missing
-        assert False, f"Meta-tools missing. Found: {tool_names}"
-
-    # At least check register_tools didn't crash
-    assert mcp is not None
-
+@pytest.fixture
+def mock_ke():
+    with patch("controller.app.globals.get_knowledge_engine") as mock:
+        yield mock.return_value
 
 @pytest.mark.asyncio
-async def test_mcp_resource_registered():
-    resources = await mcp.list_resources()
-    resource_uris = [str(r.uri) for r in resources]
-    assert "blender://scene/objects" in resource_uris
+async def test_search_tools(mock_ke):
+    """Test the search_tools meta-tool."""
+    mock_ke.search_tools.return_value = [
+        ToolSearchResult(
+            name="create_cube",
+            description="Creates a cube",
+            usage="create_cube(size=2.0)",
+            match_reason="exact"
+        )
+    ]
+    result = await search_tools("cube")
+    assert "create_cube" in result

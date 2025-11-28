@@ -1,12 +1,15 @@
+"""Global state management for the Controller."""
 import os
+from typing import Optional
 
 from .knowledge_engine import KnowledgeEngine
 
 # Singleton instance
-knowledge_engine: KnowledgeEngine = None  # type: ignore
+knowledge_engine: Optional[KnowledgeEngine] = None  # type: ignore
 
 
 def initialize_knowledge_engine():
+    """Initialize the Knowledge Engine singleton."""
     global knowledge_engine
     # The capabilities and knowledge_base dirs are relative to the controller app folder
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -20,6 +23,7 @@ def initialize_knowledge_engine():
 
 
 def get_knowledge_engine():
+    """Get the Knowledge Engine singleton."""
     global knowledge_engine
     if knowledge_engine is None:
         initialize_knowledge_engine()

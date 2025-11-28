@@ -40,6 +40,15 @@ if %errorlevel% neq 0 (
 
 echo.
 
+echo.
+echo --- Lancement de Ruff (Linting) ---
+%VENV_PATH%\Scripts\python.exe -m ruff check controller/
+if %errorlevel% neq 0 (
+    echo Des erreurs de linting ont ete detectees.
+    exit /b 1
+)
+
+echo.
 echo --- Lancement de Pytest ---
 
 %VENV_PATH%\Scripts\python.exe -m pytest controller/

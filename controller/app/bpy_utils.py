@@ -1,5 +1,6 @@
-# controller/app/bpy_utils.py
-"""This module contains helper functions that generate complex, multi-line
+"""Helper functions for BPY script generation.
+
+This module contains helper functions that generate complex, multi-line
 bpy script snippets. This abstracts the complexity of Blender's API
 from the core command generation logic.
 """
@@ -129,7 +130,19 @@ if bpy.context.active_object and bpy.context.active_object.type == 'MESH':
     override['area'] = next(area for area in bpy.context.screen.areas if area.type == 'VIEW_3D')
     override['region'] = next(region for region in override['area'].regions if region.type == 'WINDOW')
     
-    bpy.ops.sculpt.brush_stroke(override, stroke=[{{'name': '', 'pen_flip': False, 'is_start': True, 'location': (0, 0, 0), 'mouse': (override['region'].width // 2, override['region'].height // 2), 'pressure': 1.0, 'size': brush.size, 'time': 0.0}}])
+    bpy.ops.sculpt.brush_stroke(
+        override,
+        stroke=[{
+            'name': '',
+            'pen_flip': False,
+            'is_start': True,
+            'location': (0, 0, 0),
+            'mouse': (override['region'].width // 2, override['region'].height // 2),
+            'pressure': 1.0,
+            'size': brush.size,
+            'time': 0.0
+        }]
+    )
     
     # Return to object mode
     bpy.ops.object.mode_set(mode='OBJECT')

@@ -1,6 +1,7 @@
-from pathlib import Path
+"""Audit logging for BPY operations."""
 import json
 from datetime import datetime
+from pathlib import Path
 
 LOG_DIR = Path(__file__).resolve().parent.parent / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
