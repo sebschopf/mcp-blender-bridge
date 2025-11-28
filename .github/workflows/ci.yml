@@ -18,14 +18,12 @@ jobs:
       with:
         python-version: "3.11"
         
-    - name: Install uv
-      run: |
-        curl -LsSf https://astral.sh/uv/install.sh | sh
-        
     - name: Install dependencies
       run: |
-        uv pip install --system -r controller/requirements.txt
-        uv pip install --system -e controller/
+        python -m pip install --upgrade pip
+        pip install -r controller/requirements.txt
+        pip install -e controller/
+        pip list
         
     - name: Lint with Ruff
       run: |
