@@ -278,6 +278,7 @@ class BridgeClient:
                         "location": list(obj.location),
                         "rotation": list(obj.rotation_euler),
                         "scale": list(obj.scale),
+                        "dimensions": list(obj.dimensions),
                     }
                 )
             return {"scene_state": objects}
