@@ -263,8 +263,8 @@ class BridgeClient:
             # Execute
             from . import command_executor
 
-            command_executor.execute_bpy_script(script)
-            return {"output": "Executed"}
+            msg = command_executor.execute_bpy_script(script)
+            return {"output": msg}
 
         elif cmd_type == "get_state":
             # Return list of objects
