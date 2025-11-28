@@ -35,7 +35,7 @@ async def test_bridge_flow():
     
     # 4. Resolve result (simulate addon posting result)
     result = BridgeResult(command_id=cmd.id, status="success", data={"output": "done"})
-    bridge_manager.resolve_result(result)
+    await bridge_manager.resolve_result(result)
     
     # 5. Verify execution completes
     res = await task

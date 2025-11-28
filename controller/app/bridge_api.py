@@ -91,5 +91,5 @@ async def get_command() -> Dict[str, Any]:
 async def post_result(result: BridgeResult):
     """Endpoint for the Addon to post execution results."""
     logger.info(f"Bridge: Received result for command {result.command_id}. Status: {result.status}")
-    bridge_manager.resolve_result(result)
+    await bridge_manager.resolve_result(result)
     return {"status": "received"}
